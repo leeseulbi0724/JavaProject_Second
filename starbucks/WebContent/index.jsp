@@ -8,6 +8,5 @@
 </head>
 <body>
 	<!--  content -->
-<h3>테스트</h3>
 </body>
 </html>
