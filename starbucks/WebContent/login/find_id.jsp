@@ -132,6 +132,7 @@ section.find button:hover{
 	text-decoration: underline;
 }
 </script>
+</style>
  
 </head>
 <body>

@@ -45,7 +45,7 @@
 	}
 	header>div.logo>a>img {
 		display:inline-block;
-		width:100px; height:80px;
+		width:80px; height:80px;
 	}
 	header>div.logo nav {
 		margin-top:15px;
@@ -69,7 +69,7 @@
 	<!--  header -->
 	<header>
 			<ul class="login">
-				<li><a href ="http://localhost:9000/starbucks/">Sign In</a><div></div></li>
+				<li><a href ="http://localhost:9000/starbucks/login/login.jsp">Sign In</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/">My Starbucks</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/">Customer Service & Ideas</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/">Find a Store</a></li>
