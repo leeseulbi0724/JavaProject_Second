@@ -15,6 +15,7 @@ section.find .title{
 	margin: 61px 0 30px 0;
 	font-size: 28px;
 	font-weight: normal;
+	font-weight:bold;
 }
 section.find .content_layout{
 	background-color:white;
