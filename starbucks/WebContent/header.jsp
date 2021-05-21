@@ -62,12 +62,21 @@
 	header>div.logo nav li>a {
 		font-size:16px;
 		color:rgb(51,51,51);
-		}
+	}
+	#header {
+		position:fixed;
+		top:0; left:0; right:0;
+		width:100%;
+		z-index:999;
+	}
+	body {
+		padding-top:120px;
+	}
 </style>
 </head>
 <body>
 	<!--  header -->
-	<header>
+	<header id="header">
 			<ul class="login">
 				<li><a href ="http://localhost:9000/starbucks/login/login.jsp">Sign In</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/">My Starbucks</a><div></div></li>
