@@ -111,8 +111,7 @@
 				<li><a href ="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/">Find a Store</a></li>
 				<div class="icon">
-				<a href="#">
-				<img src="http://localhost:9000/starbucks/images/icon_magnifier_black.png"></a>
+				<a href="#"><img src="http://localhost:9000/starbucks/images/icon_magnifier_black.png"></a>
 				</div>
 			</ul>
 		
