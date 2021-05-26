@@ -30,12 +30,14 @@
 		color:rgb(85,85,85);
 		margin-right:10px;
 	}
+	header li>a:hover { text-decoration:underline; }
 	header ul.login div.icon {
 		background-color:white;
 		border:1px solid gray;
 		border-radius:3px;
 		display:inline-block;
 		padding:3px;
+		margin-top:10px;
 
 	}
 	header ul.login li>div {
@@ -54,14 +56,11 @@
 	header>div.logo nav ul {
 		display:inline-block;	
 		list-style-type:none;
-	}
-	header>div.logo nav li {
-		text-decoration:none;
-		padding:0 30px;
-	}
-	header>div.logo nav li>a {
+	}	
+	header>div.logo nav a {
 		font-size:16px;
 		color:rgb(51,51,51);
+		text-decoration:none;
 	}
 	#header {
 		position:fixed;
@@ -72,6 +71,35 @@
 	body {
 		padding-top:120px;
 	}
+	
+	#coffee, #menu, #rewards, #new, #store { display:inline-block; position:relative; padding:20px; margin-bottom:0px; top:16px;}
+	#dropdown { 
+		display:none;
+		position:absolute;
+		background-color:rgb(44,42,41);
+		color:white;
+		padding:5px;
+		height:300px; width:10000px;
+		margin-top:20px; left:-5000px;
+		text-align:center;
+	}
+	#coffee:hover #dropdown, #menu:hover #dropdown, #store:hover #dropdown, #new:hover #dropdown { display:block; color:white; }
+	#coffee:hover, #menu:hover, #store:hover, #new:hover { background-color:rgb(44,42,41); }
+	#coffee:hover .M, #menu:hover .M, #store:hover .M, #new:hover .M { text-decoration:underline; color:green; }
+	#coffee:hover a.m, #menu:hover a.m, #store:hover a.m, #new:hover a.m { text-decoration:none; color:gray; font-size:13px; }
+	#coffee:hover a:hover, #menu:hover a:hover, #store:hover a:hover, #new:hover a:hover { text-decoration:underline; }
+	.s_coffee, .s_ecoffee, .s_drink, .s_food, .s_gift, .s_search, .s_event, .s_notice { text-align:left;  }
+	.s_coffee li:first-child, .s_ecoffee li:first-child, .s_drink li:first-child, .s_food li:first-child, 
+	.s_gift li:first-child, .s_search li:first-child, .s_event li:first-child, .s_notice li:first-child { margin:10px 0 10px 0; }
+	
+	.s_coffee { position:relative; bottom:110px; }	
+	.s_ecoffee { position:relative; left:150px; }
+	.s_drink { position:relative; right:170px; }
+	.s_food { position:relative; bottom:45px; right:20px; }
+	.s_gift { position:relative; left:130px; }
+	.s_search { position:relative; right:140px; }
+	.s_event { position:relative; right:500px; }
+	.s_notice { position:relative; bottom:33px; right:400px; }
 </style>
 </head>
 <body>
@@ -79,8 +107,8 @@
 	<header id="header">
 			<ul class="login">
 				<li><a href ="http://localhost:9000/starbucks/login/login.jsp">Sign In</a><div></div></li>
-				<li><a href ="http://localhost:9000/starbucks/">My Starbucks</a><div></div></li>
-				<li><a href ="http://localhost:9000/starbucks/">Customer Service & Ideas</a><div></div></li>
+				<li><a href ="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
+				<li><a href ="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/">Find a Store</a></li>
 				<div class="icon">
 				<a href="#">
@@ -92,17 +120,85 @@
 			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/starbucks_logo.png"></a>
 				<nav>
 					<ul>
-						<li><a href ="#">COFFEE</a></li>
-						<li><a href ="#">MENU</a></li>
-						<li><a href ="#">STORE</a></li>
-						<li><a href ="#">STARBUCKS REWARDS</a></li>
-						<li><a href ="#">WHAT'S NEW</a></li>
+						<li><div id="coffee"><a href ="#"  class="M">COFFEE</a>
+						 <div id="dropdown">
+    						<ul class="s_coffee">
+	    						<li><a href="#" class="m" style="color:white"><strong>커피</strong></a></li><br>
+	   							<li><a href="#" class="m">스타벅스 원두</a></li><br>
+	    						<li><a href="#" class="m">스타벅스 비아</a></li><br>
+	   							<li><a href="#" class="m">스타벅스 오리가미</a></li>
+   							</ul>
+   							<ul class="s_ecoffee">
+	    						<li><a href="#" class="m" style="color:white"><strong>에스프레소 음료</strong></a></li><br>
+	   							<li><a href="#" class="m">도피오</a></li><br>
+	    						<li><a href="#" class="m">에스프레소 마키아또</a></li><br>
+	   							<li><a href="#" class="m">아메리카노</a></li><br>
+	   							<li><a href="#" class="m">마키아또</a></li><br>
+	   							<li><a href="#" class="m">카푸치노</a></li><br>
+	   							<li><a href="#" class="m">라떼</a></li><br>
+	   							<li><a href="#" class="m">모카</a></li><br>
+	   							<li><a href="#" class="m">리스트레또 비안코</a></li>
+   							</ul>
+ 						</div></div></li>
+						<li><div id="menu"><a href ="#" class="M">MENU</a>
+						<div id="dropdown">
+    						<ul class="s_drink">
+	    						<li><a href="#" class="m" style="color:white"><strong>음료</strong></a></li><br>
+	   							<li><a href="#" class="m">콜드 브루</a></li><br>
+	    						<li><a href="#" class="m">브루드 커피</a></li><br>
+	   							<li><a href="#" class="m">에스프레소</a></li><br>
+	   							<li><a href="#" class="m">프라푸치노</a></li><br>
+	   							<li><a href="#" class="m">블렌디드</a></li><br>
+	   							<li><a href="#" class="m">스타벅스 피지오</a></li><br>
+	   							<li><a href="#" class="m">티(티바나)</a></li><br>
+	   							<li><a href="#" class="m">기타 제조 음료</a></li><br>
+	   							<li><a href="#" class="m">스타벅스 주스(병음료)</a></li>
+   							</ul>
+   							<ul class="s_food">
+	    						<li><a href="#" class="m" style="color:white"><strong>푸드</strong></a></li><br>
+	   							<li><a href="#" class="m">브레드</a></li><br>
+	    						<li><a href="#" class="m">케이크</a></li><br>
+	   							<li><a href="#" class="m">샌드위치 & 샐러드</a></li><br>
+	   							<li><a href="#" class="m">따뜻한 푸드</a></li><br>
+	   							<li><a href="#" class="m">과일 & 요거트</a></li><br>
+	   							<li><a href="#" class="m">스낵 & 미니 디저트</a></li><br>
+	   							<li><a href="#" class="m">아이스크림</a></li>
+   							</ul>
+   							<ul class="s_gift">
+	    						<li><a href="#" class="m" style="color:white"><strong>상품</strong></a></li><br>
+	   							<li><a href="#" class="m">머그</a></li><br>
+	    						<li><a href="#" class="m">글라스</a></li><br>
+	   							<li><a href="#" class="m">플라스틱 텀블러</a></li><br>
+	   							<li><a href="#" class="m">스테인리스 텀블러</a></li><br>
+	   							<li><a href="#" class="m">보온병</a></li><br>
+	   							<li><a href="#" class="m">악세서리</a></li><br>
+	   							<li><a href="#" class="m">커피 용품</a></li><br>
+	   							<li><a href="#" class="m">패키지 티(티바나)</a></li><br>
+	   							<li><a href="#" class="m">스타벅스 플래너</a></li>
+   							</ul>
+ 						</div></div></li>
+						<li><div id="store"><a href ="#" class="M">STORE</a>
+						<div id="dropdown">
+    						<ul class="s_search">
+	    						<li><a href="#" class="m" style="color:white"><strong>매장 찾기</strong></a></li><br>
+	   							<li><a href="#" class="m">지역 검색</a></li>
+   							</ul>
+   						</div></div></li>
+						<li><div id="rewards"><a href ="#">STARBUCKS REWARDS</a></div></li>
+						<li><div id="new"><a href ="#" class="M">WHAT'S NEW</a>
+						<div id="dropdown">
+    						<ul class="s_event">
+	    						<li><a href="#" class="m" style="color:white"><strong>이벤트</strong></a></li><br>
+	   							<li><a href="#" class="m">전체</a></li>
+   							</ul>
+   							<ul class="s_notice">
+   								<li><a href="#" class="m" style="color:white"><strong>공지사항</strong></a></li><br>
+   							</ul>
+						</div></div></li>
 					</ul>
 				</nav>
-		</div>
-		
+		</div>		
 	</header>
-
 </body>
 </html>
 
