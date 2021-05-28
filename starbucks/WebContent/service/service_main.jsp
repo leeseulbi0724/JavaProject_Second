@@ -10,9 +10,17 @@
 	section {
 		text-align:center;
 	}
-	div.title>img {
-		width:100%;
-		background-size : cover;
+	div.title {
+		width: 100%;
+		height: 178px;
+		background: url(http://localhost:9000/starbucks/images/ms_sub_ttl_bg.jpg);
+	}
+	div.title h1 {
+		font: bold 36px Avenir, Arial, georgia;
+		color: #ffffff;
+		padding-top: 30px;
+		position:relative;
+		top:60px; right:320px;
 	}
 	div.icon_home {
 		position:relative; bottom:50px; left:510px; color:white; font-size:12px;
@@ -32,7 +40,7 @@
 	div.center a { color:gray; text-decoration:none; display:inline-block; }
 	div.center a:hover { text-decoration:underline;  }
 	
-	div.center-right { position:relative; left:175px; bottom:220px; margin:0; padding-left:10px; display:inline-block; border-left:1px solid lightgray; }
+	div.center-right { position:relative; left:175px; bottom:180px; margin:0; padding-left:10px; display:inline-block; border-left:1px solid lightgray; }
 	div.center-right h3.h3_2 { margin:0 0 0 0; }
 	div.center-right p.p_2 { font-size:13px;  }
 	div.center-right img { margin-top:10px; }
@@ -58,7 +66,8 @@
 	
 	<!--  content -->
 	<section>
-		<div class="title"><img src="http://localhost:9000/starbucks/images/customer_bg.PNG"></div>
+		<div class="title">
+		<h1>Customer Service & Ideas</h1></div>
 		<div class="icon_home">
 			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/icon_home.png" ></a>
 			<img src="http://localhost:9000/starbucks/images/icon_arrow_w.png" >

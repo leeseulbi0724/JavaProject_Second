@@ -8,7 +8,18 @@
 <style>
 	body { overflow-x:hidden; overflow-y:auto; }
 	section { text-align:center; }
-	div.title>img {	width:100%; background-size : cover; }
+	div.title {
+		width: 100%;
+		height: 178px;
+		background: url(http://localhost:9000/starbucks/images/ms_sub_ttl_bg.jpg);
+	}
+	div.title h1 {
+			font: bold 36px Avenir, Arial, georgia;
+		color: #ffffff;
+		padding-top: 30px;
+		position:relative;
+		top:60px; right:430px;
+	}
 	div.icon_home {	position:relative; bottom:50px; left:510px; color:white; font-size:12px;	}
 	div.icon_home a { text-decoration:none; color:white; }
 	div.icon_home a:hover { text-decoration:underline; }
@@ -26,7 +37,7 @@
 		width:830px; height:180px; margin-right:250px; position:relative; bottom:30px;		
 		padding:10px 0 0 0;
 	}
-	div.text p, div.text li { padding-left:30px; }
+	div.text p, div.text li { padding-left:30px; padding-top:10px; }
 	div.text p:first-child { font-weight:bold; font-size:15px; }
 	div.text p:nth-child(2) { font-size:13px; }
 	div.text li { font-size:12px; margin-bottom:20px; color:gray; list-style-type:square; }
@@ -74,7 +85,8 @@
 	
 	<!--  content -->
 	<section>
-		<div class="title"><img src="http://localhost:9000/starbucks/images/sound_bg.PNG"></div>
+		<div class="title">
+		<h1>고객의 소리</h1></div>
 		<div class="icon_home">
 			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/icon_home.png" ></a>
 			<img src="http://localhost:9000/starbucks/images/icon_arrow_w.png" >

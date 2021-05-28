@@ -10,13 +10,20 @@
 	section {
 		text-align:center;
 	}
-	div.header>img {
-		width:100%; margin-top:120px; padding-bottom:120px;
-		background-size : cover;
-		background-color:rgb(246,245,239);
+	div.header {
+		width: 100%;
+		height: 178px;
+		background: url(http://localhost:9000/starbucks/images/ms_sub_ttl_bg.jpg);
+	}
+	div.header h1 {
+		font: bold 36px Avenir, Arial, georgia;
+		color: #ffffff;
+		padding-top: 30px;
+		position:relative;
+		top:60px;
 	}
 	div.icon_home {
-		position:relative; bottom:170px; left:450px; color:white; font-size:12px;
+		position:relative; bottom:50px; left:510px; color:white; font-size:12px;
 	}
 	div.icon_home a {
 		text-decoration:none; color:white;
@@ -38,7 +45,7 @@
 	}
 	
 	div.first { width:100%; }
-	div.first>a:first-child { padding-top:17px; border:1px solid lightgray; margin-bottom:6px; }
+	div.first>a:first-child { padding-top:17px; border:1px solid lightgray; margin-bottom:6px; margin-top:30px; }
 	div.first>a:first-child>p:first-child { position:relative; bottom:18px; }
 	div.first>a:first-child>p:nth-child(2) { position:relative; bottom:18px; }
 	div.first>a:first-child>p:last-child { position:relative; bottom:18px; }
@@ -117,7 +124,7 @@
 	<!--  content -->
 	<section>
 		<div class="header">
-			<img src="http://localhost:9000/starbucks/images/tip_bg.PNG">
+			<h1>홈페이지 이용 팁</h1></div>
 			<div class="icon_home">
 				<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/icon_home.png" ></a>
 				<img src="http://localhost:9000/starbucks/images/icon_arrow_w.png" >
@@ -125,7 +132,6 @@
 				<img src="http://localhost:9000/starbucks/images/icon_arrow_w.png" >
 				<a href="http://localhost:9000/starbucks/service/service_question.jsp">자주하는 질문</a>
 			</div>
-		</div>
 	</section>
 	<section>
 	<div class="button">
