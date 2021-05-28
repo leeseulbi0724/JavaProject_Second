@@ -33,7 +33,7 @@
 	section.center>img { margin-right:280px; margin-top:-30px;  }
 	section.center>p { position:relative; font-weight:bold; right:450px; top:15px; font-size:20px; color:#444; }
 	
-	div.button { position:relative; left:450px; top:60px; display:inline-block; text-align:left; }
+	div.button { position:relative; left:480px; top:60px; display:inline-block; text-align:left; }
 	div.button>div { border-top:2px solid black; width:220px;  }
 	div.button a { text-decoration:none; color:#444; font-weight:bold; font-size:14px;  }
 	div.button a:hover { text-decoration:underline; color:green; }
@@ -44,46 +44,41 @@
 					width:830px; height:500px; position:relative; right:140px; color:black;
 	}
 	
-	div.first { width:100%; }
-	div.first>a:first-child { padding-top:17px; border:1px solid lightgray; margin-bottom:6px; margin-top:30px; }
-	div.first>a:first-child>p:first-child { position:relative; bottom:18px; }
-	div.first>a:first-child>p:nth-child(2) { position:relative; bottom:18px; }
-	div.first>a:first-child>p:last-child { position:relative; bottom:18px; }
-	div.first>a:last-child { border:1px solid lightgray; }	
-	div.first a { text-decoration:none; display:inline-block; height:100%; width:410px; }
+	div.first { margin-top:30px; }
+	div.first div.box_btn { border:1px solid lightgray; width:49%; float:left; height:170px; }
+	div.first a:last-child div, div.second a:nth-child(2)>div, div.second a:nth-child(3)>div,
+	div.second a:last-child>div, div.third a:nth-child(2)>div, div.third a:nth-child(3)>div,
+	div.third a:last-child>div { border-left:none; }
 	
-	div.second a, div.third a { text-decoration:none; display:inline-block; height:100%; width:200px; border:1px solid lightgray; }
-	div.second>a:first-child, div.third>a:first-child { margin-right:4px; margin-bottom:6px; }
-	div.second>a:nth-child(2), div.second>a:nth-child(3), div.third>a:nth-child(2), div.third>a:nth-child(3)  { position:relative; right:2px; }
-	div.second>a:nth-child(3), div.second>a:last-child  { padding-top:17px; }
-	div.third>a:last-child { padding-top:18px; }
-	div.second>a:nth-child(3)>p:first-child, div.second>a:nth-child(4)>p:first-child, div.third>a:last-child>p:first-child { position:relative; bottom:18px; }
-	div.second>a:nth-child(3)>p:nth-child(2), div.second>a:nth-child(4)>p:nth-child(2), div.third>a:last-child>p:nth-child(2) { position:relative; bottom:18px; }
-	div.second>a:nth-child(3)>p:last-child, div.second>a:nth-child(4)>p:last-child, div.third>a:last-child>p:last-child { position:relative; bottom:18px; }
+	div.second div, div.third div { border:1px solid lightgray; border-top:none; width:24.45%; float:left; height:170px; }
 	
-	section.box a:hover { background-color:rgb(0,112,66); cursor:pointer; }
-	section.box a:hover p { color:white; }
+	div.box_btn:hover { background-color:rgb(0,112,66); cursor:pointer; }
+	div.box_btn:hover p { color:white; }
+	div.box_btn p { position:relative; top:30px; }
 	p.num { text-align:left; font-weight:bold; color:green; margin-left:10px; }	
 	p.title { color:rgb(144,124,99); font-weight:bold; font-size:14px; }
 	p.content { font-size:13px; color:#555; margin:1px; margin-bottom:25px; }
 	
 	#layer { border:3px solid rgb(0,112,66); background-color:white; 
-				   	position:absolute; left:0; z-index:1;display:none; width:825px; height:480px; cursor:default;
+				   	position:absolute; left:0; z-index:1;display:none; width:810px; height:510px; cursor:default;
 				   	background-image:url("http://localhost:9000/starbucks/images/bg_starbucks_pop.gif");
 					background-repeat: no-repeat;
 					background-position: center;
 	}
 	#layer>a { 
-		color:white; background-color:rgb(0,112,66); width:10px; height:40px;
+		color:white; background-color:rgb(0,112,66); width:40px; height:40px;
 		font-size:30px; float:right; cursor:pointer; margin-right:-1px; position:relative; bottom:1px;
 	}
 	#layer div.a { border-bottom:1px solid lightgray; width:100%; height:1px; }
-	div.number { font-size:25px; color:green; font-weight:bold; }
+	div.number { font-size:25px; color:green; font-weight:bold; margin-left:50px; margin-top:10px; }
 	div.category {  color:rgb(144,124,99); font-size:14px; }
-	div.title { color:#333; font-weight:bold; font-size:20px; }
-	div.cn { text-align:left; margin:10px 10px 0 20px; padding:0 10px 0 10px; height:280px; font-size:13px; overflow:auto; }
+	div.title { color:#333; font-weight:bold; font-size:20px; margin-bottom:10px; }
+	div.cn { 
+		border:none; text-align:left; margin:15px 10px 0 20px; padding:0 10px 0 10px; height:300px; font-size:13px; overflow:auto; 
+		width:750px;
+	}
 	
-	section.bottom>div { background-color:rgb(244,244,242); display:inline-block; position:relative; bottom:40px; right:150px; width:800px; text-align:left; }
+	section.bottom>div { background-color:rgb(244,244,242); display:inline-block; position:relative; bottom:40px; right:150px; width:800px; text-align:left; margin-top:50px; }
 	section.bottom>div p { margin: 20px 0 0 25px; font-size:14px; color:#333; }
 	section.bottom>div>a { 
 			text-decoration:none; background-color:black; color:white; 
@@ -145,71 +140,89 @@
 	<section class="center">
 		<img src="http://localhost:9000/starbucks/images/faq_vis.png">
 		<p>자주하는 질문 Best 10</p>
-		<section class="box">		
-		<div class="first">
-			<a id=1 onclick="layer.style.display='inline'; id_select(this.id);" >
-				<p class="num">Q1.</p>
-				<p class="title">#프로모션/이벤트</p>
-				<p class="content">[e-프리퀀시] 모바일 앱을 통해서 언제든 예약이 가능한가요?</p>
-				<div id="layer">
-					<a onclick="layer.style.display='none'">X</a>
-					<p><div class="number" id="number"></div><br>
-					<div class="category" id="category"></div><br>
-					<div class="title" id="title"></div></p>
-					<div class="a"></div>
-					<div class="cn" id="content"></div>
-				</div>	
-			</a>
-			<a id=2 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q2.</p>
-				<p class="title">#프로모션/이벤트</p>
-				<p class="content">[e-프리퀀시] 모바일 앱으로 증정품 예약을 완료했습니다.<br>증정품은 언제까지 찾아가야 하나요?</p>
-			</a>
-		</div>
-		<div class="second">
-			<a id=3 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q3.</p>
-				<p class="title">#프로모션/이벤트</p>
-				<p class="content">[e-프리퀀시] 예약한 증정품은 반드시 본인일 경우에만 교환 가능한가요?</p>
-			</a>
-			<a id=4 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q4.</p>
-				<p class="title">#프로모션/이벤트</p>
-				<p class="content">[e-프리퀀시] 모든 매장에서 e-프리퀀시 증정품을 예약 수령할 수 있나요?</p>
-			</a>
-			<a id=5 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q5.</p>
-				<p class="title">#프로모션/이벤트</p>
-				<p class="content">[e-프리퀀시] 딜리버스 매장을 통해 증정품 배송이 가능한가요?</p>
-			</a>
-			<a id=6 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q6.</p>
-				<p class="title">#스타벅스 딜리버스</p>
-				<p class="content">[스타벅스 딜리버스] 서비스 이용가능한 지역은 어디인가요?</p>
-			</a>
-		</div>
-		<div class="third">
-			<a id=7 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q7.</p>
-				<p class="title">#스타벅스 딜리버스</p>
-				<p class="content">[스타벅스 딜리버스] 교환/환불 신청을 어떻게 하나요?</p>
-			</a>
-			<a id=8 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q8.</p>
-				<p class="title">#제품/상품</p>
-				<p class="content">[음료] 블론드 운영 매장을 알고 싶어요.</p>
-			</a>
-			<a id=9 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q9.</p>
-				<p class="title">#제품/상품</p>
-				<p class="content">[음료] 피지오 운영 매장을 알고 싶어요.</p>
-			</a>
-			<a id=10 onclick="layer.style.display='inline'; id_select(this.id);">
-				<p class="num">Q10.</p>
-				<p class="title">#SR(별,레벨혜택 등)</p>
-				<p class="content">[별] 별 적립 기준은 무엇인가요?</p>
+		<section class="box">	
+			<div class="first">
+					<a id=1 onclick="layer.style.display='inline'; id_select(this.id);" >
+					<div class="box_btn">
+						<p class="num">Q1.</p>
+						<p class="title">#프로모션/이벤트</p>
+						<p class="content">[e-프리퀀시] 모바일 앱을 통해서 언제든 예약이 가능한가요?</p></div></a>
+					<div id="layer">
+						<a onclick="layer.style.display='none'">X</a>
+						<p><div class="number" id="number"></div><br>
+						<div class="category" id="category"></div><br>
+						<div class="title" id="title"></div></p>
+						<div class="a"></div>
+						<div class="cn" id="content"></div>
+					</div>	
+				<a id=2 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q2.</p>
+					<p class="title">#프로모션/이벤트</p>
+					<p class="content">[e-프리퀀시] 모바일 앱으로 증정품 예약을 완료했습니다.<br>증정품은 언제까지 찾아가야 하나요?</p>
+				</div>
 				</a>
-		</div>
+			</div>
+			<div class="second">
+				<a id=3 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q3.</p>
+					<p class="title">#프로모션/이벤트</p>
+					<p class="content">[e-프리퀀시] 예약한 증정품은 반드시 본인일 경우에만 교환 가능한가요?</p>
+				</div>
+				</a>
+				<a id=4 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q4.</p>
+					<p class="title">#프로모션/이벤트</p>
+					<p class="content">[e-프리퀀시] 모든 매장에서 e-프리퀀시 증정품을 예약 수령할 수 있나요?</p>
+				</div>
+				</a>
+				<a id=5 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q5.</p>
+					<p class="title">#프로모션/이벤트</p>
+					<p class="content">[e-프리퀀시] 딜리버스 매장을 통해 증정품 배송이 가능한가요?</p>
+				</div>
+				</a>
+				<a id=6 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q6.</p>
+					<p class="title">#스타벅스 딜리버스</p>
+					<p class="content">[스타벅스 딜리버스] 서비스 이용가능한 지역은 어디인가요?</p>
+				</div>
+				</a>
+			</div>
+			<div class="third">
+				<a id=7 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q7.</p>
+					<p class="title">#스타벅스 딜리버스</p>
+					<p class="content">[스타벅스 딜리버스] 교환/환불 신청을 어떻게 하나요?</p>
+				</div>
+				</a>
+				<a id=8 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q8.</p>
+					<p class="title">#제품/상품</p>
+					<p class="content">[음료] 블론드 운영 매장을 알고 싶어요.</p>
+				</div>
+				</a>
+				<a id=9 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q9.</p>
+					<p class="title">#제품/상품</p>
+					<p class="content">[음료] 피지오 운영 매장을 알고 싶어요.</p>
+				</div>
+				</a>
+				<a id=10 onclick="layer.style.display='inline'; id_select(this.id);">
+				<div class="box_btn">
+					<p class="num">Q10.</p>
+					<p class="title">#SR(별,레벨혜택 등)</p>
+					<p class="content">[별] 별 적립 기준은 무엇인가요?</p>
+				</div>
+				</a>
+			</div>
 		</section>
 		<section class="bottom">
 			<div>
