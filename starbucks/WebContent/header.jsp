@@ -185,11 +185,11 @@
    							</ul>
    						</div></div></li>
 						<li><div id="rewards"><a href ="#">STARBUCKS REWARDS</a></div></li>
-						<li><div id="new"><a href ="#" class="M">WHAT'S NEW</a>
+						<li><div id="new"><a href ="http://localhost:9000/starbucks/whatsnew/whatsnew.jsp" class="M">WHAT'S NEW</a>
 						<div id="dropdown">
     						<ul class="s_event">
-	    						<li><a href="#" class="m" style="color:white"><strong>이벤트</strong></a></li><br>
-	   							<li><a href="#" class="m">전체</a></li>
+	    						<li><a href="http://localhost:9000/starbucks/whatsnew/event.jsp" class="m" style="color:white"><strong>이벤트</strong></a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/whatsnew/event.jsp" class="m">전체</a></li>
    							</ul>
    							<ul class="s_notice">
    								<li><a href="#" class="m" style="color:white"><strong>공지사항</strong></a></li><br>
