@@ -138,10 +138,10 @@
 	   							<li><a href="#" class="m">리스트레또 비안코</a></li>
    							</ul>
  						</div></div></li>
-						<li><div id="menu"><a href ="#" class="M">MENU</a>
+						<li><div id="menu"><a href ="http://localhost:9000/starbucks/menu/menu_main.jsp" class="M">MENU</a>
 						<div id="dropdown">
     						<ul class="s_drink">
-	    						<li><a href="#" class="m" style="color:white"><strong>음료</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp" class="m" style="color:white"><strong>음료</strong></a></li><br>
 	   							<li><a href="#" class="m">콜드 브루</a></li><br>
 	    						<li><a href="#" class="m">브루드 커피</a></li><br>
 	   							<li><a href="#" class="m">에스프레소</a></li><br>
@@ -153,7 +153,7 @@
 	   							<li><a href="#" class="m">스타벅스 주스(병음료)</a></li>
    							</ul>
    							<ul class="s_food">
-	    						<li><a href="#" class="m" style="color:white"><strong>푸드</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp" class="m" style="color:white"><strong>푸드</strong></a></li><br>
 	   							<li><a href="#" class="m">브레드</a></li><br>
 	    						<li><a href="#" class="m">케이크</a></li><br>
 	   							<li><a href="#" class="m">샌드위치 & 샐러드</a></li><br>
@@ -163,7 +163,7 @@
 	   							<li><a href="#" class="m">아이스크림</a></li>
    							</ul>
    							<ul class="s_gift">
-	    						<li><a href="#" class="m" style="color:white"><strong>상품</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp" class="m" style="color:white"><strong>상품</strong></a></li><br>
 	   							<li><a href="#" class="m">머그</a></li><br>
 	    						<li><a href="#" class="m">글라스</a></li><br>
 	   							<li><a href="#" class="m">플라스틱 텀블러</a></li><br>

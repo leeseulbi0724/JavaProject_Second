@@ -9,7 +9,7 @@
 div.drink{
 	text-align: center;
 	width: 1110px;
-	margin: 0 auto;
+	margin: 0 auto 150px auto;
 	position: relative;
 }
 
