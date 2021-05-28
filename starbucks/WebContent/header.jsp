@@ -109,7 +109,8 @@
 				<li><a href ="http://localhost:9000/starbucks/login/login.jsp">Sign In</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a><div></div></li>
-				<li><a href ="http://localhost:9000/starbucks/">Find a Store</a></li>
+				<li><a href ="http://localhost:9000/starbucks/">Find a Store</a><div></div></li>
+				<li><a href="http://localhost:9000/starbucks/admin/admin_login.jsp">Admin</a></li>
 				<div class="icon">
 				<a href="#"><img src="http://localhost:9000/starbucks/images/icon_magnifier_black.png"></a>
 				</div>
@@ -139,10 +140,10 @@
 	   							<li><a href="#" class="m">리스트레또 비안코</a></li>
    							</ul>
  						</div></div></li>
-						<li><div id="menu"><a href ="#" class="M">MENU</a>
+						<li><div id="menu"><a href ="http://localhost:9000/starbucks/menu/menu_main.jsp" class="M">MENU</a>
 						<div id="dropdown">
     						<ul class="s_drink">
-	    						<li><a href="#" class="m" style="color:white"><strong>음료</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp" class="m" style="color:white"><strong>음료</strong></a></li><br>
 	   							<li><a href="#" class="m">콜드 브루</a></li><br>
 	    						<li><a href="#" class="m">브루드 커피</a></li><br>
 	   							<li><a href="#" class="m">에스프레소</a></li><br>

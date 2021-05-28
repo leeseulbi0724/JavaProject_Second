@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee Korea</title>
 <!--  	background-repeat:no-repeat;  -->
 <style>
 body { overflow-x:hidden; overflow-y:auto; }
@@ -64,7 +64,7 @@ div.carousel article div:nth-child(3)>p:last-child {
 	color:rgb(89,88,87);
 	margin-top:0;
 }
-div.carousel article div:nth-child(3)>img { margin:20px 20px 0 20px; }
+div.carousel article div:nth-child(3)>img { margin:20px 20px 0 34px; }
 div.carousel article div:nth-child(4)>img { margin:0 0 50px 0; }
 div.carousel article div:nth-child(4)>p:first-child { 
 	margin:100px 140px 0 0;
@@ -88,6 +88,7 @@ div.notice {
 	width:50%; height:70px;
 	text-align:center;
 	font-size:15px;
+	margin:0; padding:0;
 }
 div.promotion {
 	background-color:rgb(246,245,239);
@@ -95,14 +96,28 @@ div.promotion {
 	float:right;
 	text-align:center;
 	font-size:15px;
+	cursor:pointer;
+	margin:0; padding:0;
 }
 div.notice label, div.promotion label { font-size:17px; font-weight:bold;  }
-div.notice label,  div.notice>a.link,  div.promotion label { position:relative; top:25px; }
-div.notice>a.link { text-decoration:none; color:white; left:5px; right:100px; font-size:15px; }
-div.notice>a.link:hover { text-decoration:underline; }
+div.notice label,  div.notice>a#n_link,  div.promotion label { position:relative; top:25px; }
+#n_link { text-decoration:none; color:white; left:5px; right:100px; font-size:15px; }
+div.notice>a#n_link:hover { text-decoration:underline; }
 div.promotion label { color:#333; }
 div.notice img, div.promotion img { display:inline-block;  float:right; position:relative; top:5px; right:5px; }
 div.promotion img { top:15px; right:100px; }
+label.p_link { cursor:pointer; }
+
+#down_content { display:none; width:100%; height:650px; background-color:rgb(246,246,238); float:left; text-align:center; }
+.down_01 { display:inline-block; text-align:center; margin-left:150px; margin-top:50px; }
+.down_01 img { border:1px solid lightgray; }
+.down_01 a { color:black; position:relative; right:470px; bottom:30px; display:inline-block; }
+.down_01 a:hover { background-color:black; color:white; text-decoration:underline; }
+.next { 
+	border:1px solid black; border-radius:50px; display:inline-block; width:70px; height:70px; font-size:70px; line-height:55px; 
+	position:relative; bottom:230px; right:50px; cursor:pointer;
+}
+.next:hover { background-color:white; }
 
 
 /******************************************************************************/
@@ -304,13 +319,36 @@ div.img article.five a:hover {
                   }, jbTime );
           } );
         } );
-      } );
-     } );     
-      $( document ).ready( function() {
-    	  $( '.five_01' ).animate( {
-              opacity: '1'
-            });
-       } );     
+      } ); 
+        
+        $(".promotion").click(function() {
+        	var name = $(".icon_name").attr("id");
+        	
+        	if ( name == "down") {
+	        	$("#down_content").slideDown();
+	        	$("#down").attr("src", "http://localhost:9000/starbucks/images/btn_prom_up.png").attr("id", "up");        		
+        	} else {
+        		$("#down_content").slideUp();
+	        	$("#up").attr("src", "http://localhost:9000/starbucks/images/btn_prom_down.png").attr("id", "down");        	
+        	}
+        });
+        
+        $("#next").click(function() {
+        	var name = $(".down_img").attr("id");
+        	
+        	if ( name == "down01") {
+        		$(".down_img").attr("id", "down02");
+        		$(".down_img").attr("src", "http://localhost:9000/starbucks/images/down_02.jpg")
+        	} else if ( name == "down02") {
+        		$(".down_img").attr("id", "down03");
+        		$(".down_img").attr("src", "http://localhost:9000/starbucks/images/down_03.jpg")
+        	} else {
+        		$(".down_img").attr("id", "down01");
+        		$(".down_img").attr("src", "http://localhost:9000/starbucks/images/down_01.jpg")
+        	}
+        });
+   } );     
+     
   
     </script>
 </head>
@@ -348,13 +386,17 @@ div.img article.five a:hover {
 		<div class="main">
 			<div class="notice">			
 				<label>공지사항</label>
-				<a href="#" class=link>스타벅스 공지사항</a>
-				<a href="#"><img src="http://localhost:9000/starbucks/images/plus.PNG"></a>
+				<a href="#" id="n_link">스타벅스 공지사항</a>
+				<a href="#"><img src="http://localhost:9000/starbucks/images/plus.PNG"  width=60 height=61 ></a>
 			</div>
-			<a href="#"><div class="promotion">
-				<label>스타벅스 프로모션</label>
-				<img src="http://localhost:9000/starbucks/images/btn_prom_down.png" width=40 height=40>
-			</div></a>
+			<a  id="p_link"><div class="promotion">
+				<label class="p_link">스타벅스 프로모션</label>
+				<img src="http://localhost:9000/starbucks/images/btn_prom_down.png" width=40 height=40 id="down" class="icon_name"></div></a>
+				<div id="down_content">
+					<div class="down_01"><img src="http://localhost:9000/starbucks/images/down_01.jpg" id="down01" class="down_img">
+					<a href="#" class="btn">자세히 보기</a></div>
+					<div class="next" id="next">></div>
+				</div>
 		<div class="reward_bg">
 		<div class="reward">	
 			<div><img src="http://localhost:9000/starbucks/images/rewards-logo.png" width=180px height=150px></div>
