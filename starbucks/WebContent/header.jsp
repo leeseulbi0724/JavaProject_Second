@@ -117,7 +117,7 @@
 				<li><a href ="http://localhost:9000/starbucks/login/login.jsp">Sign In</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a><div></div></li>
-				<li><a href ="http://localhost:9000/starbucks/">Find a Store</a><div></div></li>
+				<li><a href ="http://localhost:9000/starbucks/map/map.jsp">Find a Store</a><div></div></li>
 				<li><a href="http://localhost:9000/starbucks/admin/admin_login.jsp">Admin</a></li>
 				<div class="icon">
 				<a href="#"><img src="http://localhost:9000/starbucks/images/icon_magnifier_black.png"></a>
@@ -128,7 +128,7 @@
 			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/starbucks_logo.png"></a>
 				<nav>
 					<ul>
-						<li><div id="coffee"><a href ="#"  class="M">COFFEE</a>
+						<li><div id="coffee"><a href ="http://localhost:9000/starbucks/coffee/coffee_main.jsp"  class="M">COFFEE</a>
 						 <div id="dropdown">
     						<ul class="s_coffee">
 	    						<li><a href="#" class="m" style="color:white"><strong>커피</strong></a></li><br>
@@ -185,7 +185,7 @@
 	   							<li><a href="#" class="m">스타벅스 플래너</a></li>
    							</ul>
  						</div></div></li>
-						<li><div id="store"><a href ="#" class="M">STORE</a>
+						<li><div id="store"><a href ="http://localhost:9000/starbucks/map/map_main.jsp" class="M">STORE</a>
 						<div id="dropdown">
     						<ul class="s_search">
 	    						<li><a href="#" class="m" style="color:white"><strong>매장 찾기</strong></a></li><br>
