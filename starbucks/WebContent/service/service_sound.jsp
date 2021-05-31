@@ -88,7 +88,7 @@
 		<div class="title">
 		<h1>고객의 소리</h1></div>
 		<div class="icon_home">
-			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/icon_home.png" ></a>
+			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/icon_home_white.png" ></a>
 			<img src="http://localhost:9000/starbucks/images/icon_arrow_w.png" >
 			<a href="http://localhost:9000/starbucks/service/service_sound.jsp">고객의 소리</a>
 		</div>

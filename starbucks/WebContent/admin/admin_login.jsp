@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자 페이지</title>
 <style>
  body { overflow: hidden; text-align:center; background-color:black; position:relative; top:300px; }
  div.title {
@@ -13,12 +13,12 @@
  }
  li { list-style-type:none; color:white; }
  input { width:200px; text-align:center; margin-left:-40px; border-radius:3px; }
- a { 
- text-decoration:none; background-color:white; margin:20px 35px 0 0; display:inline-block; padding:5px 20px 5px 20px; color:black;
- border-radius:5px; font-size:13px; font-weight:bold;
+ button { 
+ text-decoration:none; background-color:white; margin:20px 35px 0 0; display:inline-block; padding:2px 20px 2px 20px; color:black;
+ border-radius:5px; font-size:13px; font-weight:bold; cursor:pointer;
  } 
 </style>
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../js/jquery-3.6.0.min.js"></script>
 <script>
 	 $(document).ready(function() {
 		 $("#loginBtn").click(function() {
@@ -36,7 +36,7 @@
 				 return false;
 			 } else {
 				 alert("로그인 성공하셨습니다!");
-				 $("#loginBtn").attr("href","http://localhost:9000/starbucks/admin/admin_main.jsp");
+				 location.replace("http://localhost:9000/starbucks/admin/user/admin_user.jsp");
 			 }
 		 });
 	 });
@@ -51,7 +51,7 @@
 			<li>
 				<input type="password" name="pass" placeholder="패스워드를 입력해 주세요."  id="pass">
 			</li>
-			<a href="#" id="loginBtn">로그인</a>
+			<li><button type="button" id="loginBtn">로그인</button></li>
 		</ul>
 </body>
 </html>

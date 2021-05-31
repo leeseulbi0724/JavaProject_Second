@@ -69,7 +69,7 @@
 		<div class="title">
 		<h1>Customer Service & Ideas</h1></div>
 		<div class="icon_home">
-			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/icon_home.png" ></a>
+			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/icon_home_white.png" ></a>
 			<img src="http://localhost:9000/starbucks/images/icon_arrow_w.png" >
 			<a href="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a>
 		</div>

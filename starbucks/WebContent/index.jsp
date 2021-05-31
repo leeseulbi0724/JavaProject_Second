@@ -223,7 +223,7 @@ div.img article.third {
 div.img article.third div:first-child>div:first-child>img { position:relative; bottom:100px; left:300px; }
 div.img article.third div:first-child>div:nth-child(2)>img { position:relative; top:100px; right:75px; }
 div.img article.third div:last-child img { position:relative; top:100px; right:10px; }
-div.img article.third div:first-child a { position:relative; color:white; border:2px solid white; top:100px; left:185px; }
+div.img article.third div:first-child a { position:relative; color:white; border:2px solid white; top:120px; left:185px; }
 div.img article.third div:first-child a:hover { 
 	color:black;
 	background-color:white;
