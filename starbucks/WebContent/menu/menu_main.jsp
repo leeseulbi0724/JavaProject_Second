@@ -9,7 +9,7 @@
 	/* 메뉴 & 경로 */
 	div.menu_carousel h2{
 		text-align: left;
-		padding-top:20px;
+		padding-top:40px;
 	}
 	ul.route {
 		list-style-type: none;
@@ -22,14 +22,15 @@
 	ul.route li>a{
 		vertical-align: middle;
 		text-decoration: none;
-		color: gray;
+		color: black;
+		font-size: 12px;
 	}
 	ul.route li>a:hover{
 		text-decoration: underline;
 	}
 	div.div_route{
 		text-align: center;
-		margin: 0 650px;
+		margin: 0 400px 20px 400px;
 	}
 	/* 이벤트 제품 사진 */
 	div.carousel_bg {
@@ -39,7 +40,8 @@
 	div.btn_carousel {
 		position: absolute;
 		bottom:0;
-		left: 630px;
+		left: 450px;
+		z-index: 1;
 	}
 	
 	/* 메뉴 이미지 리스트 */
@@ -56,57 +58,49 @@
 	}
 	article.drink div.txt{
 		position: absolute;
-		right: 700px;
-		top: 100px;
+		left: 1170px;
+		top: 120px;
 	}
-	article.drink p{
-		border:1px solid white;
+	article.drink a{
+		text-decoration: none;
+		color:white;
+		border:2px solid white;
 		border-radius:3px;
 		padding: 7px 20px;
 		position: absolute;
-		bottom: 130px;
-		right: 855px;
+		bottom: 135px;
+		left: 1170px;
 	}
-	article.drink p>a{
-		text-decoration: none;
-		color:white;
-	}
-	article.drink p>a:hover{
+	article.drink a:hover{
+		background-color: white;
 		text-decoration: underline;
 		color:black;
-	}
-	article.drink p:hover{
-		background-color: white;
 	}
 	article.food div.img{
 		width: 100%;
 		height:430px;
 		background-size:cover;
 		background-image:url("http://localhost:9000/starbucks/images/menu_bimg2.jpg");
-		background-position:left;
+		background-position: left;
 		background-repeat:no-repeat;
 	}article.food div.txt{
 		position: absolute;
-		left: 630px;
+		left: 400px;
 		top: 120px;
 	}
-	article.food p{
-		border:1px solid black;
+	article.food a{
+		text-decoration: none;
+		color:black;
+		border:2px solid black;
 		border-radius:3px;
 		padding: 7px 20px;
 		position: absolute;
-		bottom: 120px;
-		left: 630px;
+		bottom: 140px;
+		left: 400px;
 	}
-	article.food p>a{
-		text-decoration: none;
-		color:black;
-	}
-	article.food p>a:hover{
+	article.food a:hover{
 		text-decoration: underline;
 		color:white;
-	}
-	article.food p:hover{
 		background-color: black;
 	}
 	article.product div.img{
@@ -119,27 +113,23 @@
 	}
 	article.product div.txt{
 		position: absolute;
-		right: 630px;
+		left: 1170px;
 		top: 120px;
 	}
-	article.product p{
-		border:1px solid white;
+	article.product a{
+		text-decoration: none;
+		color:white;
+		border:2px solid white;
 		border-radius:3px;
 		padding: 7px 20px;
 		position: absolute;
-		bottom: 120px;
-		right: 840px;
+		bottom: 135px;
+		left: 1170px;
 	}
-	article.product p>a{
-		text-decoration: none;
-		color:white;
-	}
-	article.product p>a:hover{
+	article.product a:hover{
+		background-color: white;
 		text-decoration: underline;
 		color:black;
-	}
-	article.product p:hover{
-		background-color: white;
 	}
 </style>
 </head>
@@ -180,21 +170,21 @@
 			<div>
 				<div class="img"></div>
 				<div class="txt"><img src="http://localhost:9000/starbucks/images/menu_btxt1.png"></div>
-				<p><a href="#" class="btn_detail">자세히 보기</a></p>
+				<a href="http://localhost:9000/starbucks/menu/menu_drink.jsp" class="btn_detail">자세히 보기</a>
 			</div>
 		</article>	
 		<article class="food">
 			<div>
 				<div class="img"></div>
 				<div class="txt"><img src="http://localhost:9000/starbucks/images/menu_btxt2.png"></div>
-				<p><a href="#" class="btn_detail">자세히 보기</a></p>
+				<a href="http://localhost:9000/starbucks/menu/menu_food.jsp" class="btn_detail">자세히 보기</a>
 			</div>
 		</article>	
 		<article class="product">
 			<div>
 				<div class="img"></div>
 				<div class="txt"><img src="http://localhost:9000/starbucks/images/menu_btxt3.png"></div>
-				<p><a href="#" class="btn_detail">자세히 보기</a></p>
+				<a href="http://localhost:9000/starbucks/menu/menu_product.jsp" class="btn_detail">자세히 보기</a>
 			</div>
 		</article>	
 	</div>
