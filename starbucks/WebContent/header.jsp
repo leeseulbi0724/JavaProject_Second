@@ -117,7 +117,7 @@
 				<li><a href ="http://localhost:9000/starbucks/login/login.jsp">Sign In</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a><div></div></li>
-				<li><a href ="http://localhost:9000/starbucks/">Find a Store</a><div></div></li>
+				<li><a href ="http://localhost:9000/starbucks/map/map.jsp">Find a Store</a><div></div></li>
 				<li><a href="http://localhost:9000/starbucks/admin/admin_login.jsp">Admin</a></li>
 				<div class="icon">
 				<a href="#"><img src="http://localhost:9000/starbucks/images/icon_magnifier_black.png"></a>
@@ -163,7 +163,7 @@
 	   							<li><a href="#" class="m">스타벅스 주스(병음료)</a></li>
    							</ul>
    							<ul class="s_food">
-	    						<li><a href="#" class="m" style="color:white"><strong>푸드</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp" class="m" style="color:white"><strong>푸드</strong></a></li><br>
 	   							<li><a href="#" class="m">브레드</a></li><br>
 	    						<li><a href="#" class="m">케이크</a></li><br>
 	   							<li><a href="#" class="m">샌드위치 & 샐러드</a></li><br>
@@ -173,7 +173,7 @@
 	   							<li><a href="#" class="m">아이스크림</a></li>
    							</ul>
    							<ul class="s_gift">
-	    						<li><a href="#" class="m" style="color:white"><strong>상품</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp" class="m" style="color:white"><strong>상품</strong></a></li><br>
 	   							<li><a href="#" class="m">머그</a></li><br>
 	    						<li><a href="#" class="m">글라스</a></li><br>
 	   							<li><a href="#" class="m">플라스틱 텀블러</a></li><br>
@@ -185,7 +185,7 @@
 	   							<li><a href="#" class="m">스타벅스 플래너</a></li>
    							</ul>
  						</div></div></li>
-						<li><div id="store"><a href ="#" class="M">STORE</a>
+						<li><div id="store"><a href ="http://localhost:9000/starbucks/map/map_main.jsp" class="M">STORE</a>
 						<div id="dropdown">
     						<ul class="s_search">
 	    						<li><a href="#" class="m" style="color:white"><strong>매장 찾기</strong></a></li><br>

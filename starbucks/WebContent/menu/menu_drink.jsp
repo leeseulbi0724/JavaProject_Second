@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>음료 | Starbucks Coffee Korea</title>
 <style>
 div.drink{
 	text-align: center;
 	width: 1110px;
-	margin: 0 auto 150px auto;
+	margin: 40px auto 150px auto;
 	position: relative;
 }
 
@@ -20,11 +20,14 @@ ul.route {
 	padding: 0;
 	position: absolute;
 	right: 0;
-	top: 50px;
+	top: 20px;
 }
 ul.route li{
 	display: inline-block;
 	vertical-align: middle;
+}
+ul.route li:last-child>a{
+	color: black;
 }
 ul.route li>a{
 	vertical-align: middle;
@@ -43,9 +46,9 @@ h2{
 /* 분류 */
 div.class {
 	 border:1px solid lightgray;
-	 border-radius: 3px;
-	 padding: 30px;
-	 margin: 20px 0;
+	 border-radius: 5px;
+	 padding: 20px 30px;
+	 margin: 30px 0 20px 0;
 }
 div.btn_class{
 	text-align: left;
@@ -58,6 +61,9 @@ div.class p{
 }
 div.btn_class img{
 	float:right;
+}
+div.btn_class img:hover{
+	cursor: pointer;
 }
 div.line{
 	background-color: lightgray;
@@ -77,6 +83,7 @@ div.cate .btn_style{
 	color: white;
 	font-size: 14px;
 	border-radius: 3px;
+	margin-right: 5px;
 }
 div.cate .btn_style:last-child{
 	background: #f4f4f1;
@@ -95,15 +102,82 @@ div.class>div>div ul{
 div.class>div>div ul>li{
 	display: inline-block;
 	vertical-align: middle;
-	margin:0; padding:0 15px 0 0;
+	margin:0; padding:0 20px 0 0;
 	font-size: 13px;
 }
+div.class>div>div>form>ul>li>input[type="checkbox"]{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0
+}
+div.class>div>div>form>ul>li>input[type="checkbox"] + label {
+	display: inline-block;
+	position: relative;
+	cusor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:before {
+	content: ' ';
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: -2px 8px 0 0;
+	text-align: center;
+	vertical-align: middle;
+	background: white;
+	border: 1px solid #cacece;
+}
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover:before,
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover{
+	cursor: pointer;
+}
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:active:before,
+div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:before {
+	border:1px solid green;
+	content: '\2714';
+	color: green;
+	background: white;
+	border-color: green;
+	line-height: 10px;
+	font-size: 6px;
+}
+div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before{
+	content: '\2714';
+	color: green;
+	background: white;
+	border-color: #cacece;
+	line-height: 10px;
+	font-size: 6px;
+}
 
+#theme_class{
+	display: none;
+}
+#theme_class li{
+	padding: 7px 15px 0 0;
+}
+#theme_class li:nth-child(3){
+	padding-right: 0;
+}
 /* 상세분류 */
 div.content>div>div.show{
 	text-align: left;
 	padding:20px 0;
 	position: relative;
+}
+div.show>a>img{
+	margin-right: 3px;
+}
+div.show>a{
+	font-size: 12px;
 }
 div.content>div>div>a{
 	border:1px solid gray;
@@ -158,10 +232,14 @@ div.content>div>div>a:hover{
 #checkboxes label {
 	display: block;
 	border: 1px solid lightgray;
+	border-top-style: none;
 	background-color: white;
 	padding:5px;
 	font-size: 14px;
 	vertical-align: middle;
+}
+#checkboxes label>span:hover {
+	cursor: pointer;
 }
 #checkboxes img {
 	vertical-align: middle;
@@ -200,13 +278,26 @@ div.list>div>ul{
 div.list>div>ul>li{
 	display: inline-block;
 	vertical-align: middle;
-	margin:20px 0 20px 20px; padding:0;
+	margin:20px 0 20px 20px; 
+	padding:0;
 	font-size: 13px;
 	position: relative;
 }
 div.list>div>ul>li>ul>li>a>img{
 	width: 258px;
 	height: 269px;
+	overflow:hidden;
+	transform: scale(1.0, 1.0);
+	transition: all 1s ease-in-out;
+}
+div.list>div>ul>li>ul>li{
+	width: 258px;
+	max-height: 269px;
+	overflow:hidden;
+}
+div.list>div>ul>li>ul>li>a>img:hover{
+	transform: scale(1.1, 1.1);
+	transition: all 1s ease-in-out;
 }
 div.list>div>ul>li>ul>li:nth-child(2)>img{
 	position:absolute;
@@ -224,23 +315,177 @@ div.list>div>ul>li>ul>li>label{
 	text-align: center;
 	font-size: 14px;
 }
-	
+
+#list_theme{
+	display: none;
+	padding-top: 40px;
+}
 	
 </style>
+<script src="../js/jquery-3.6.0.min.js"></script>
 <script>
 /* 상세분류 */
 var expanded = false;
-
-function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes");
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
+function Checkboxes() {
+	var checkboxes = document.getElementById("checkboxes");
+	if (!expanded) {
+		checkboxes.style.display = "block";
+		expanded = true;
+	} else if(expanded){
+		checkboxes.style.display = "none";
+		expanded = false;
+	}
 }
+function showCheckboxes() {
+	var checkboxes = document.getElementById("checkboxes");
+	if (!expanded) {
+		checkboxes.style.display = "block";
+		expanded = true;
+	}
+}
+function hideCheckboxes() {
+	var checkboxes = document.getElementById("checkboxes");
+	if (expanded) {
+		checkboxes.style.display = "none";
+		expanded = false;
+	}
+}
+
+//////////////체크박스////////////////////
+function allCheck() {
+    if ($("#all").is(':checked')) {
+        $(".chk").prop("checked", false);
+        $("#all").prop("checked", true);
+        $(".list#list_cate *").each(function(){
+        	$(this).show();
+        });
+    }
+    else if (!$("#all").is(':checked')) {
+    	$(".list#list_cate *").each(function(){
+        	$(this).hide();
+        });
+    }
+} 
+
+function checkboxCheck(){
+	 $(".list#list_cate *").each(function(){
+     	$(this).show();
+     });
+	if($("#cold_brew").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#cold_brew_label").show();
+		$("#cold_brew_list").show();
+	}else if(!$("#cold_brew").is(':checked')){
+		$("#cold_brew_label").hide();
+		$("#cold_brew_list").hide();
+	}
+	if($("#brood").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#brood_label").show();
+		$("#brood_list").show();
+	}else if(!$("#brood").is(':checked')){
+		$("#brood_label").hide();
+		$("#brood_list").hide();
+	}
+	if($("#esp").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#esp_label").show();
+		$("#esp_list").show();
+	}else if(!$("#esp").is(':checked')){
+		$("#esp_label").hide();
+		$("#esp_list").hide();
+	}
+	if($("#fra").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#fra_label").show();
+		$("#fra_list").show();
+	}else if(!$("#fra").is(':checked')){
+		$("#fra_label").hide();
+		$("#fra_list").hide();
+	}
+	if($("#blended").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#blended_label").show();
+		$("#blended_list").show();
+	}else if(!$("#blended").is(':checked')){
+		$("#blended_label").hide();
+		$("#blended_list").hide();
+	}
+	if($("#fizzo").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#fizzo_label").show();
+		$("#fizzo_list").show();
+	}else if(!$("#fizzo").is(':checked')){
+		$("#fizzo_label").hide();
+		$("#fizzo_list").hide();
+	}
+	if($("#tea").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#tea_label").show();
+		$("#tea_list").show();
+	}else if(!$("#tea").is(':checked')){
+		$("#tea_label").hide();
+		$("#tea_list").hide();
+	}
+	if($("#etc").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#etc_label").show();
+		$("#etc_list").show();
+	}else if(!$("#etc").is(':checked')){
+		$("#etc_label").hide();
+		$("#etc_list").hide();
+	}
+	if($("#juice").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#juice_label").show();
+		$("#juice_list").show();
+	}else if(!$("#juice").is(':checked')){
+		$("#juice_label").hide();
+		$("#juice_list").hide();
+	}
+	
+}
+///////////////////////////////////////////////////
+
+/* 분류 보기 업다운 */
+$( document ).ready(function() {
+	$(".btn_class img").click(function(){
+		var id=$(this).attr("id");
+		if(id=="up_btn"){
+			$(".btn_class img").attr("src","http://localhost:9000/starbucks/images/list_down_btn.png");
+			$(".btn_class img").attr("id","down_btn");
+			$(".line").hide();
+			$(".chk_class").hide();
+		}else{
+			$(".btn_class img").attr("src","http://localhost:9000/starbucks/images/list_up_btn.png");
+			$(".btn_class img").attr("id","up_btn");
+			$(".line").show();
+			$(".chk_class").show();
+		}
+	});
+	
+	$("#theme").click(function(){
+		$("#list_cate").hide();
+		$(".show").hide();
+		$("#cate_class").hide();
+		$("#theme_class").show();
+		$("#list_theme").show();
+		$("#category").css("background-color","#f4f4f1").css("border-color","#f4f4f1").css("color","#333");
+		$("#theme").css("background-color","#006633").css("border-color","#006633").css("color","white");
+	});
+	$("#category").click(function(){
+		$("#list_cate").show();
+		$(".show").show();
+		$("#list_theme").hide();
+		$("#cate_class").show();
+		$("#theme_class").hide();
+		$("#theme").css("background-color","#f4f4f1").css("border-color","#f4f4f1").css("color","#333");
+		$("#category").css("background-color","#006633").css("border-color","#006633").css("color","white");
+	});
+	
+	
+});
+
 </script>
 </head>
 <body>
@@ -255,7 +500,7 @@ function showCheckboxes() {
 				</h2>
 				<ul class="route">
 					<li>
-						<a href="/">
+						<a href="../index.jsp">
 							<img src="http://localhost:9000/starbucks/images/icon_home.png">
 						</a>
 					</li>
@@ -280,58 +525,67 @@ function showCheckboxes() {
 			<div class="class">
 				<div class="btn_class">
 					<p>분류 보기</p>
-					<img src="http://localhost:9000/starbucks/images/list_up_btn.png">
+					<img src="http://localhost:9000/starbucks/images/list_up_btn.png" id="up_btn">
 				</div>
 				<div class="line"></div>
-				<div>
+				<div class="chk_class">
 					<!-- 카테고리 테마 -->
 					<div class="cate">
-						<button type="button" class="btn_style">카테고리</button>
-						<button type="button" class="btn_style">테마</button>
+						<button type="button" class="btn_style" id="category">카테고리</button>
+						<button type="button" class="btn_style" id="theme">테마</button>
 					</div>
 					<!-- 상품분류 -->
-					<div>
+					<div id="cate_class">
 						<form method="post">
 							<ul>
 								<li>
-									<input type="checkbox" name="all" checked="checked">
+									<input type="checkbox" id="all" checked="checked" onclick="allCheck()">
 									<label for="all">전체 상품보기</label>
 								</li>
 								<li>
-									<input type="checkbox" name="cold_brew">
+									<input type="checkbox" id="cold_brew" class="chk" onclick="checkboxCheck()">
 									<label for="cold_brew">콜드 브루 커피</label>
 								</li>
 								<li>
-									<input type="checkbox" name="brood">
+									<input type="checkbox" id="brood" class="chk" onclick="checkboxCheck()">
 									<label for="brood">브루드 커피</label>
 								</li>
 								<li>
-									<input type="checkbox" name="esp">
+									<input type="checkbox" id="esp" class="chk" onclick="checkboxCheck()">
 									<label for="esp">에스프레소</label>
 								</li>
 								<li>
-									<input type="checkbox" name="fra">
+									<input type="checkbox" id="fra" class="chk" onclick="checkboxCheck()">
 									<label for="fra">프라푸치노</label>
 								</li>
 								<li>
-									<input type="checkbox" name="blended">
+									<input type="checkbox" id="blended" class="chk" onclick="checkboxCheck()">
 									<label for="blended">블렌디드</label>
 								</li>
 								<li>
-									<input type="checkbox" name="fizzo">
+									<input type="checkbox" id="fizzo" class="chk" onclick="checkboxCheck()">
 									<label for="fizzo">스타벅스 피지오</label>
 								</li>
 								<li>
-									<input type="checkbox" name="tea">
+									<input type="checkbox" id="tea" class="chk" onclick="checkboxCheck()">
 									<label for="tea">티(티바나)</label>
 								</li>
 								<li>
-									<input type="checkbox" name="etc">
+									<input type="checkbox" id="etc" class="chk" onclick="checkboxCheck()">
 									<label for="etc">기타 제조 음료</label>
 								</li>
 								<li>
-									<input type="checkbox" name="juice">
+									<input type="checkbox" id="juice" class="chk" onclick="checkboxCheck()">
 									<label for="juice">스타벅스 주스(병음료)</label>
+								</li>
+							</ul>
+						</form>
+					</div>
+					<div id="theme_class">
+						<form method="post">
+							<ul>
+								<li>
+									<img src="http://localhost:9000/starbucks/images/menu_th01.jpg">
 								</li>
 							</ul>
 						</form>
@@ -343,40 +597,40 @@ function showCheckboxes() {
 			<div>
 				<!-- 상세분류 -->				
 				<div class="show">
-					<a href="#">사진으로 보기</a>
-					<a href="#">영양정보로 보기</a>
+					<a href="#"><img src="http://localhost:9000/starbucks/images/icon_pic_on.png"><span>사진으로 보기</span></a>
+					<a href="#"><img src="http://localhost:9000/starbucks/images/icon_ante.png"><span>영양정보로 보기</span></a>
 					<form>
 					  <div class="multiselect">
-					    <div class="selectBox" onclick="showCheckboxes()">
+					    <div class="selectBox" onclick="Checkboxes()" onmouseleave="hideCheckboxes()">
 					      <select>
 					        <option>상세분류</option>
 					      </select>
 					      <div class="overSelect"></div>
 					    </div>
-					    <div id="checkboxes">
+					    <div id="checkboxes" onmouseenter="showCheckboxes()" onmouseleave="hideCheckboxes()">
 					      <label for="one">
-					        <input type="checkbox" id="one" /><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px">신규 출시된 메뉴</label>
+					        <input type="checkbox" id="one" /><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label>
 					      <label for="two">
-					        <input type="checkbox" id="two" /><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px">한정기간 출시되는 시즌성 메뉴</label>
+					        <input type="checkbox" id="two" /><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label>
 					    </div>
 					  </div>
 					</form>
 				</div>
 				<!-- 상세분류 끝 -->
 				<!-- 이미지 리스트 -->
-				<div class="list">
+				<div class="list" id="list_cate">
 					<!-- 콜드브루 라벨 -->
-					<div class="label">
+					<div class="label" id="cold_brew_label">
 						<span class="list_label">콜드 브루 커피</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
 						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 콜드브루 이미지 -->
-					<div>
+					<div id="cold_brew_list">
 						<ul>
 							<li>
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cold_brew01.jpg" name="cold_brew01"></a></li>
+									<li><a href="drink_detail.jsp"><img src="http://localhost:9000/starbucks/images/cold_brew01.jpg" name="cold_brew01"></a></li>
 									<li><img src="http://localhost:9000/starbucks/images/mark01.png"></li>
 									<li><label for="cold_brew01">나이트로 바닐라 크림</label></li>
 								</ul>
@@ -447,13 +701,13 @@ function showCheckboxes() {
 					</div>
 					<!-- 콜드브루 끝 -->
 					<!-- 브루드 커피 라벨 -->
-					<div class="label">
+					<div class="label" id="brood_label">
 						<span class="list_label">브루드 커피</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
 						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 브루드 커피 이미지 -->
-					<div>
+					<div id="brood_list">
 						<ul>
 							<li>
 								<ul>
@@ -471,13 +725,13 @@ function showCheckboxes() {
 					</div>
 					<!-- 브루드 커피 끝 -->
 					<!-- 에스프레소 라벨 -->
-					<div class="label">
+					<div class="label" id="esp_label">
 						<span class="list_label">에스프레소</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
 						<span>디카페인 에스프레소 샷 선택 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 에스프레소 이미지 -->
-					<div>
+					<div id="esp_list">
 						<ul>
 							<li>
 								<ul>
@@ -687,13 +941,13 @@ function showCheckboxes() {
 					</div>
 					<!-- 에스프레소 끝 -->
 					<!-- 프라푸치노 라벨 -->
-					<div class="label">
+					<div class="label" id="fra_label">
 						<span class="list_label">프라푸치노</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
 						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 프라푸치노 이미지 -->
-					<div>
+					<div id="fra_list">
 						<ul>
 							<li>
 								<ul>
@@ -792,13 +1046,13 @@ function showCheckboxes() {
 					<!-- 프라푸치노 끝 -->
 					<!-- 블렌디드 -->
 					<!-- 블렌디드 라벨 -->
-					<div class="label">
+					<div class="label" id="blended_label">
 						<span class="list_label">블렌디드</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
 						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 블렌디드 이미지 -->
-					<div>
+					<div id="blended_list">
 						<ul>
 							<li>
 								<ul>
@@ -841,13 +1095,13 @@ function showCheckboxes() {
 					<!-- 블렌디드 끝 -->
 					<!-- 피지오 -->
 					<!-- 피지오 라벨 -->
-					<div class="label">
+					<div class="label" id="fizzo_label">
 						<span class="list_label">피지오</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
 						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 피지오 이미지 -->
-					<div>
+					<div id="fizzo_list">
 						<ul>
 							<li>
 								<ul>
@@ -870,7 +1124,450 @@ function showCheckboxes() {
 						</ul>
 					</div>
 				<!-- 피지오 끝 -->
-				</div>
+					<!-- 티 -->
+					<!-- 티 라벨 -->
+					<div class="label" id="tea_label">
+						<span class="list_label">티(티바나)</span>
+						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
+						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+					</div>
+					<!-- 티 이미지 -->
+					<div id="tea_list">
+						<ul>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea01.jpg" name="tea01"></a></li>
+									<li><label for="tea01">라임 패션 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea02.jpg" name="tea02"></a></li>
+									<li><label for="tea02">민트 블렌드 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea03.jpg" name="tea03"></a></li>
+									<li><label for="tea03">별궁 오미자 유스베리 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea04.jpg" name="tea04"></a></li>
+									<li><label for="tea04">아이스 라임 패션 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea05.jpg" name="tea05"></a></li>
+									<li><label for="tea05">아이스 민트 블렌드 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea06.jpg" name="tea06"></a></li>
+									<li><label for="tea06">아이스 얼 그레이 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea07.jpg" name="tea07"></a></li>
+									<li><label for="tea07">아이스 유스베리 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea08.jpg" name="tea08"></a></li>
+									<li><label for="tea08">아이스 유자 민트 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea09.jpg" name="tea09"></a></li>
+									<li><label for="tea09">아이스 잉글리쉬 브렉퍼스트 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea10.jpg" name="tea10"></a></li>
+									<li><label for="tea10">아이스 제주 유기 녹차</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea11.jpg" name="tea11"></a></li>
+									<li><label for="tea11">아이스 캐모마일 블렌드 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea12.jpg" name="tea12"></a></li>
+									<li><label for="tea12">아이스 히비스커스 블렌드 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea13.jpg" name="tea13"></a></li>
+									<li><label for="tea13">얼 그레이 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea14.jpg" name="tea14"></a></li>
+									<li><label for="tea14">유스베리 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea15.jpg" name="tea15"></a></li>
+									<li><label for="tea15">유자 민트 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea16.jpg" name="tea16"></a></li>
+									<li><label for="tea16">잉글리쉬 브렉퍼스트 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea17.jpg" name="tea17"></a></li>
+									<li><label for="tea17">자몽 허니 블랙 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea18.jpg" name="tea18"></a></li>
+									<li><label for="tea18">제주 유기 녹차</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea19.jpg" name="tea19"></a></li>
+									<li><label for="tea19">캐모마일 블렌드 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea20.jpg" name="tea20"></a></li>
+									<li><label for="tea20">패션 푸르트 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea21.jpg" name="tea21"></a></li>
+									<li><label for="tea21">피치 젤리 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea22.jpg" name="tea22"></a></li>
+									<li><label for="tea22">히비스커스 블렌드 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea23.jpg" name="tea23"></a></li>
+									<li><label for="tea23">아이스 별궁 오미자 유스베리 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea24.jpg" name="tea24"></a></li>
+									<li><label for="tea24">아이스 자몽 허니 블랙 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea25.jpg" name="tea25"></a></li>
+									<li><label for="tea25">아이스 패션 푸르트 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea26.jpg" name="tea26"></a></li>
+									<li><label for="tea26">아이스 푸를 청귤 민트 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea27.jpg" name="tea27"></a></li>
+									<li><label for="tea27">피치 젤리 아이스 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea28.jpg" name="tea28"></a></li>
+									<li><label for="tea28">돌체 블랙 밀크 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea29.jpg" name="tea29"></a></li>
+									<li><label for="tea29">아이스 돌체 블랙 밀크 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea30.jpg" name="tea30"></a></li>
+									<li><label for="tea30">아이스 제주 유기농 말차로 만든 라떼</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea31.jpg" name="tea31"></a></li>
+									<li><label for="tea31">아이스 차이 티 라떼</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea32.jpg" name="tea32"></a></li>
+									<li><label for="tea32">아이스 콩고물 블랙 밀크 티</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea33.jpg" name="tea33"></a></li>
+									<li><label for="tea33">제주 유기농 말차로 만든 라떼</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea34.jpg" name="tea34"></a></li>
+									<li><label for="tea34">차이 티 라떼</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea35.jpg" name="tea35"></a></li>
+									<li><label for="tea35">콩고물 블랙 밀크 티</label></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				<!-- 티 끝 -->
+					<!-- 기타 -->
+					<!-- 기타 라벨 -->
+					<div class="label" id="etc_label">
+						<span class="list_label">기타 제조 음료</span>
+						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
+						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+					</div>
+					<!-- 기타 이미지 -->
+					<div id="etc_list">
+						<ul>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc01.jpg" name="etc01"></a></li>
+									<li><label for="etc01">샤이닝 머스캣 에이드</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc02.jpg" name="etc02"></a></li>
+									<li><label for="etc02">스타벅스 슬래머</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc03.jpg" name="etc03"></a></li>
+									<li><label for="etc03">시그니처 핫 초콜릿</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc04.jpg" name="etc04"></a></li>
+									<li><label for="etc04">아이스 시그니처 초콜릿</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc05.jpg" name="etc05"></a></li>
+									<li><label for="etc05">플러피 판다 아이스 초콜릿</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc06.jpg" name="etc06"></a></li>
+									<li><label for="etc06">플러피 판다 핫 초콜릿</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc07.jpg" name="etc07"></a></li>
+									<li><label for="etc07">라임 플로터 위드 리저브 CB 샷</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc08.jpg" name="etc08"></a></li>
+									<li><label for="etc08">스팀 우유</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc09.jpg" name="etc09"></a></li>
+									<li><label for="etc09">아이스 제주 까망 라떼</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc10.jpg" name="etc10"></a></li>
+									<li><label for="etc10">오렌지 플로터 위드 리저브 CB 샷</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc11.jpg" name="etc11"></a></li>
+									<li><label for="etc11">우유</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc12.jpg" name="etc12"></a></li>
+									<li><label for="etc12">제주 까망 라떼</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc13.jpg" name="etc13"></a></li>
+									<li><label for="etc13">제주 쑥쑥 라떼</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc14.jpg" name="etc14"></a></li>
+									<li><label for="etc14">제주 청귤 레모네이드</label></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				<!-- 기타 끝 -->
+					<!-- 주스 -->
+					<!-- 주스 라벨 -->
+					<div class="label" id="juice_label">
+						<span class="list_label">스차벅스 주스(병음료)</span>
+					</div>
+					<!-- 피지오 이미지 -->
+					<div id="juice_list">
+						<ul>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice01.jpg" name="juice01"></a></li>
+									<li><label for="juice01">기운내라임 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice02.jpg" name="juice02"></a></li>
+									<li><label for="juice02">파이팅 청귤 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice03.jpg" name="juice03"></a></li>
+									<li><label for="juice03">한방에 쭉 감당 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice04.jpg" name="juice04"></a></li>
+									<li><label for="juice04">도와줘 흑흑 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice05.jpg" name="juice05"></a></li>
+									<li><label for="juice05">딸기주스 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice06.jpg" name="juice06"></a></li>
+									<li><label for="juice06">망고주스 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice07.jpg" name="juice07"></a></li>
+									<li><label for="juice07">수박주스 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice08.jpg" name="juice08"></a></li>
+									<li><label for="juice08">케일&amp;사과주스 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice09.jpg" name="juice09"></a></li>
+									<li><label for="juice09">토마토주스 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice10.jpg" name="juice10"></a></li>
+									<li><label for="juice10">퍼플베리 굿 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice11.jpg" name="juice11"></a></li>
+									<li><label for="juice11">한라봉주스 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice12.jpg" name="juice12"></a></li>
+									<li><label for="juice12">햇사과 주스 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice13.jpg" name="juice13"></a></li>
+									<li><label for="juice13">블루베리 요거트 190ML</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/juice14.jpg" name="juice14"></a></li>
+									<li><label for="juice14">치아씨드 요거트 190ML</label></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				<!-- 주스 끝 -->
+				</div><!-- 카테고리 -->
+				
+				<!-- 테마 -->
+				<div class="list" id="list_theme">
+					<!--이미지 -->
+					<div id="th_img_list">
+						<ul>
+							<li>
+								<ul>
+									<li><a href="drink_detail.jsp"><img src="http://localhost:9000/starbucks/images/cold_brew02.jpg" name="th01"></a></li>
+									<li><label>포레스트 콜드 브루</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/fra01.jpg" name="th01"></a></li>
+									<li><label>바나나 크림 다크 초코 블렌디드</label></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc01.jpg" name="th01"></a></li>
+									<li><label>샤이닝 머스캣 에이드</label></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- 이미지 끝 -->
+				</div><!--테마 -->
 			</div>
 		</div>
 		
