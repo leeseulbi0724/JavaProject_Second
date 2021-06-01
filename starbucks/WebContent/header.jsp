@@ -128,7 +128,7 @@
 			<a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/starbucks_logo.png"></a>
 				<nav>
 					<ul>
-						<li><div id="coffee"><a href ="#"  class="M">COFFEE</a>
+						<li><div id="coffee"><a href ="http://localhost:9000/starbucks/coffee/coffee_main.jsp"  class="M">COFFEE</a>
 						 <div id="dropdown">
     						<ul class="s_coffee">
 	    						<li><a href="#" class="m" style="color:white"><strong>커피</strong></a></li><br>

@@ -16,7 +16,7 @@
     background: transparent;
 }
 .coffee_kor_txt{
-	padding-top: 30px;
+	padding: 30px 0 0 70px;
 	position: relative;
 }
 .sub_title{
@@ -137,26 +137,6 @@ section.coffee_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3px;
 	vertical-align: baseline;
 	line-height: 90px;
 }
-.cname_list{
-	width: 100%;
-}
-.cname_list_inner{
-	width: 1150px;
-	margin: 0 auto;
-}	
-.cname__list > li{
-	margin: 10px;
-	position: relative;
-	width: 260px;
-	display: inline-block;
-}
-.cname__list > li > div > p{
-	font-size: 12px;
-	color: #666666;
-	height: 16px;
-	text-align: center;
-	padding:0 0 10px 25px;
-}
 
 .category span{
 	margin-left:20px;
@@ -205,9 +185,7 @@ div.coffee_list>div p {
 	position:absolute;
 	font-weight:bold;
 }
-.bottom_sp {
-	height:100px;
-}
+
 
 </style>
 <body>
@@ -238,9 +216,9 @@ div.coffee_list>div p {
                    </div>
 			<section class="coffee_wrap">
                    <div class="box_bg">
-                        <h3 class="coffee_beans1"><a class="on" href="http://localhost:9000/starbucks/coffee/coffee_list1.jsp">스타벅스 원두</a></h3>
+						<h3 class="coffee_beans1"><a href="http://localhost:9000/starbucks/coffee/coffee_list1.jsp">스타벅스 원두</a></h3>
                         <h3 class="coffee_beans2"><a href="http://localhost:9000/starbucks/coffee/coffee_list2.jsp">스타벅스 비아</a></h3>
-        				<h3 class="coffee_beans3"><a href="http://localhost:9000/starbucks/coffee/coffee_list3.jsp">스타벅스 오리가미</a></h3>                   
+        				<h3 class="coffee_beans3"><a class="on" href="http://localhost:9000/starbucks/coffee/coffee_list3.jsp">스타벅스 오리가미</a></h3>                                 
         			</div>
         			<div class="check">
         				<span><input type="checkbox">전체 상품보기</span> 
@@ -265,58 +243,9 @@ div.coffee_list>div p {
 		
 	<article>
 		<div class="coffee_list">
-			<div>
-				<img src="http://localhost:9000/starbucks/images/icon_blond.png"><p>블론드 로스트</p>
-			</div>
-		</div>
-		<div class="cname_list">
-			<div class="cname_list_inner">
-				<ul class="cname__list">
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg"></a><p>베란다 블렌드 250g</p></div></li>
-				</ul>
-			</div>
-		</div>
-	</article>
-	
-		<article>
-		<div class="coffee_list">
-			<div>
-				<img src="http://localhost:9000/starbucks/images/icon_medium.png"><p>미디엄 로스트</p>
-			</div>
-		</div>
-		<div class="cname_list">
-			<div class="cname_list_inner">
-				<ul class="cname__list">
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20210407152219775.jpg"></a><p>인도네시아 웨스트 자바 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722234902895.jpg"></a><p>디카페인 하우스 블렌드 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722235711419.jpg"></a><p>케냐 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150809121431365.jpg"></a><p>콜롬비아 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722234902895.jpg"></a><p>하우스 블렌드 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722231217840.jpg"></a><p>브렉퍼스트 블렌드 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20170626182257204.jpg"></a><p>에티오피아 250g</p></div></li>
-				</ul>
-			</div>
 		</div>
 	</article>
 
-	<article>
-		<div class="coffee_list">
-			<div>
-				<img src="http://localhost:9000/starbucks/images/icon_dark.png"><p>다크 로스트</p>
-			</div>
-		</div>
-		<div class="cname_list">
-			<div class="cname_list_inner">
-				<ul class="cname__list">
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20210310092332525.jpg"></a><p>애니버서리 블렌드 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722231935988.jpg"></a><p>에스프레소 로스트 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150809121816455.jpg"></a><p>수마트라 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722213025224.jpg"></a><p>카페 베로나 250g</p></div></li>
-					<div class="bottom_sp"></div>
-				</ul>
-			</div>
-		</div>
-	</article>
 			
 <!-- Footer -->	
 <jsp:include page="../footer.jsp"></jsp:include>

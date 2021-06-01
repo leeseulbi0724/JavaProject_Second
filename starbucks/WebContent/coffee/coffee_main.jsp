@@ -188,9 +188,6 @@ div.promotion img { top:15px; right:100px; }
 					<div>
 					<div><img src="http://localhost:9000/starbucks/images/2021_summer1_bean.png"></div>				
 					<div><img src="http://localhost:9000/starbucks/images/2021_summer1_bean_txt.png"></div>
-			
-					<div class="left"><input type="image" src="http://localhost:9000/starbucks/images/mscard_arrow_l_off.png" ></div>
-					<div class="right"><input type="image" src="http://localhost:9000/starbucks/images/mscard_arrow_r_off.png"></div>
 					</div>
 				</article>
 			</div>
