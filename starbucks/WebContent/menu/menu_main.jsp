@@ -29,25 +29,30 @@
 		text-decoration: underline;
 	}
 	div.div_route{
-		text-align: center;
-		margin: 0 400px 20px 400px;
+		width: 1100px;
+		height: 115px;
+		margin: 0 auto;
 	}
 	/* 이벤트 제품 사진 */
-	div.carousel_bg {
-		text-align:center;
+	div.carousel_img{
+		width: 100%;
+		height: 400px;
+		background-size: 2000px;
+		background-image:url("http://localhost:9000/starbucks/images/menu_carousel.jpg");
+		background-position: center;
+		background-repeat:no-repeat;
+		text-align: center;
 		position: relative;
+		border-bottom: 2px solid #006633;
 	}
 	div.btn_carousel {
-		position: absolute;
-		bottom:0;
-		left: 450px;
+		position: relative;
+		top: 353px;
+		right: 465px;
 		z-index: 1;
 	}
 	
 	/* 메뉴 이미지 리스트 */
-	div.menu_img>article>div{
-		position: relative;
-	}
 	article.drink div.img{
 		width: 100%;
 		height:430px;
@@ -55,11 +60,12 @@
 		background-image:url("http://localhost:9000/starbucks/images/menu_bimg1.jpg");
 		background-position:left;
 		background-repeat:no-repeat;
+		text-align: center;
 	}
 	article.drink div.txt{
-		position: absolute;
-		left: 1170px;
-		top: 120px;
+		display: inline-block;
+		text-align: left;
+		margin: 120px 0 0 970px;
 	}
 	article.drink a{
 		text-decoration: none;
@@ -67,9 +73,9 @@
 		border:2px solid white;
 		border-radius:3px;
 		padding: 7px 20px;
-		position: absolute;
-		bottom: 135px;
-		left: 1170px;
+		position: relative;
+		top: 50px;
+		right: 285px;
 	}
 	article.drink a:hover{
 		background-color: white;
@@ -83,10 +89,11 @@
 		background-image:url("http://localhost:9000/starbucks/images/menu_bimg2.jpg");
 		background-position: left;
 		background-repeat:no-repeat;
+		text-align: center;
 	}article.food div.txt{
-		position: absolute;
-		left: 400px;
-		top: 120px;
+		display: inline-block;
+		text-align: left;
+		margin: 120px 520px 0 0;
 	}
 	article.food a{
 		text-decoration: none;
@@ -94,9 +101,9 @@
 		border:2px solid black;
 		border-radius:3px;
 		padding: 7px 20px;
-		position: absolute;
-		bottom: 140px;
-		left: 400px;
+		position: relative;
+		top: 50px;
+		right: 940px;
 	}
 	article.food a:hover{
 		text-decoration: underline;
@@ -110,11 +117,12 @@
 		background-image:url("http://localhost:9000/starbucks/images/menu_bimg3.jpg");
 		background-position:left;
 		background-repeat:no-repeat;
+		text-align: center;
 	}
 	article.product div.txt{
-		position: absolute;
-		left: 1170px;
-		top: 120px;
+		display: inline-block;
+		text-align: left;
+		margin: 120px 0 0 1020px;
 	}
 	article.product a{
 		text-decoration: none;
@@ -122,9 +130,9 @@
 		border:2px solid white;
 		border-radius:3px;
 		padding: 7px 20px;
-		position: absolute;
-		bottom: 135px;
-		left: 1170px;
+		position: relative;
+		top: 50px;
+		right: 343px;
 	}
 	article.product a:hover{
 		background-color: white;
@@ -158,8 +166,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="carousel_bg">
-					<div class="carousel_img"><a href="#"><img src="http://localhost:9000/starbucks/images/menu_carousel.jpg"></a></div>
+				<div class="carousel_img">
 					<div class="btn_carousel"><a href="#"><img src="http://localhost:9000/starbucks/images/product_view_down.png"></a></div>
 				</div>
 			</article>
@@ -167,22 +174,19 @@
 	</div>
 	<div class="menu_img">
 		<article class="drink">
-			<div>
-				<div class="img"></div>
+			<div class="img">
 				<div class="txt"><img src="http://localhost:9000/starbucks/images/menu_btxt1.png"></div>
 				<a href="http://localhost:9000/starbucks/menu/menu_drink.jsp" class="btn_detail">자세히 보기</a>
 			</div>
 		</article>	
 		<article class="food">
-			<div>
-				<div class="img"></div>
+			<div class="img">
 				<div class="txt"><img src="http://localhost:9000/starbucks/images/menu_btxt2.png"></div>
 				<a href="http://localhost:9000/starbucks/menu/menu_food.jsp" class="btn_detail">자세히 보기</a>
 			</div>
 		</article>	
 		<article class="product">
-			<div>
-				<div class="img"></div>
+			<div class="img">
 				<div class="txt"><img src="http://localhost:9000/starbucks/images/menu_btxt3.png"></div>
 				<a href="http://localhost:9000/starbucks/menu/menu_product.jsp" class="btn_detail">자세히 보기</a>
 			</div>
