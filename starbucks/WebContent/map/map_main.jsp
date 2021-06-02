@@ -45,6 +45,31 @@
 	}	
 	
 	/***** img 01 ******/
+	.youtube {
+		text-align:center;
+		width:100%; height:350px;
+		background-image:url("http://localhost:9000/starbucks/images/bnr_temp_store.jpg");
+		background-repeat: no-repeat;
+		background-position:center;
+		background-size: cover;
+	}
+	.youtube div:first-child { 
+		display:inline-block;
+		text-align:left; margin:90px 480px 0 0;
+	}
+	.youtube #movieBtn { 
+		color:white; text-decoration:none; border:2px solid white; border-radius:3px; padding:5px 20px 5px 20px;
+		font-size:13px; display:inline-block; margin-left:20px; cursor:pointer;
+	}
+	#movie_box { display:none; position:absolute; margin-top:-220px; margin-left:-50px; }
+	#movie { width:900px; height:550px; background-color:white; display:inline-block; margin:0; padding:0; }
+	#movie_box a { 
+		display:inline-block; cursor:pointer; color:white; font-size:40px;
+	}
+	.a { display:inline-block; position:relative; bottom:520px; }
+	
+	
+	/***** img 01 ******/
 	.img_01 {
 		text-align:center;
 		width:100%; height:420px;
@@ -59,7 +84,7 @@
 		color:white; text-decoration:none; border:2px solid white; border-radius:3px; padding:5px 20px 5px 20px;
 		font-size:13px; display:inline-block; margin-top:20px;		
 	}
-	.img_01 a:hover {
+	.img_01 a:hover, .youtube #movieBtn:hover {
 		color:black;
 		background-color:white;
 		text-decoration:underline;
@@ -128,6 +153,9 @@
 	.this { color:black; text-decoration:none; }
 	.this:hover { text-decoration:underline; }
 </style>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>	
+</script>
 </head>
 <body>
 <!--  header -->
@@ -142,6 +170,22 @@
 				<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
 				<li><a class="this" href="http://localhost:9000/starbucks/map/map_main.jsp" >STORE</a></li>
 			</ul>
+		</div>
+	</div>
+	<div class="youtube">
+		<div>
+			<img src="http://localhost:9000/starbucks/images/bnr_temp_store_txt.png"><br>
+			<a id="movieBtn" onclick="movie_box.style.display='inline-block';">동영상 보기</a>
+			<div id="movie_box">
+				<div id="movie">
+					<iframe width="900" height="550" 
+					src="https://www.youtube.com/embed/lY92-YeTu4M"
+					 title="YouTube video player" frameborder="0" 
+					 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+					 </iframe>
+				</div>
+				<div class="a"><a onclick="movie_box.style.display='none'">X</a></div>
+			</div>
 		</div>
 	</div>
 	<div class="img_01">

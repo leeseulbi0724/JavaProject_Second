@@ -188,8 +188,8 @@
 						<li><div id="store"><a href ="http://localhost:9000/starbucks/map/map_main.jsp" class="M">STORE</a>
 						<div id="dropdown">
     						<ul class="s_search">
-	    						<li><a href="#" class="m" style="color:white"><strong>매장 찾기</strong></a></li><br>
-	   							<li><a href="#" class="m">지역 검색</a></li>
+	    						<li><a href="http://localhost:9000/starbucks/map/map.jsp" class="m" style="color:white"><strong>매장 찾기</strong></a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/map/map.jsp" class="m">지역 검색</a></li>
    							</ul>
    						</div></div></li>
 						<li><div id="rewards"><a href ="#">STARBUCKS REWARDS</a></div></li>
