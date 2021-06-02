@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-/******************* 서브타이틀 ****************************/
+/******************* 타이틀 ****************************/
 .espresso_ttl{
 	padding-top: 30px;
 	position: relative;
@@ -55,10 +55,13 @@ ul.smap li{
 
 }
 .espresso {
-	width:100%; height:800px;
+	width:100%; height:750px;
 }
-.espresso div, .espresso_list div {
-	width:50%;
+.espresso_img {
+	padding-bottom:30px;
+}
+.espresso div {
+	width:55%;
 	position: absolute;
 	margin: 0 auto 0 23%;
 }
@@ -67,47 +70,44 @@ ul.smap li{
 	text-align:left;
 }
 .espresso_info dt{
-	color:green;
-	font-size:15px;
+	color:#006633; font-size:18px; line-height:1.4; font-weight:normal; letter-spacing:-1px;
 }
 
 /******************* 에스프레소 list    ****************************/
 .espresso_list {
-	padding-top:50px;
-	width:100%; height:1200px;
-	background-color:rgb(244,244,242);
+	width:100%; height:1100px;
 	position: relative;
-}
-.espresso_list div {
 	text-align:center;
-	height:1000px;
+	background-color:rgb(244,244,242);
+	padding-top:30px;
 }
-.espresso_list ul{
-	list-style-type:none;
-	width: 1150px;
-	margin: 0 110px;
-	text-align:left;
+.espresso_list div.espresso_list_inner {
+	width:1100px; 
+	margin:0 auto;
 }
-.espresso_list ul>li {
-	margin: 10px;
-	position: relative;
-	width: 350px;
-	display: inline-block;
+.espresso_list img.list_img{
+	width:340px; height:200px;
+}
+.espresso_list ul {
+	width:100%; height:1100px;
 	
 }
-.espresso_list ul li div{
-	width:300px; height:250px;
-	position: relative;
+.espresso_list ul li {
+	display:inline-block;
+	width:340px; height:320px;
+	float:left;
+	padding:5px 12px;
 }
 
-.list_img {
-	width:370px; height:200px; 
-	position:relative;
+.espresso_list div.esp_text {
+	width:350px; 
+	text-align:left;
+	font-size: 12px;
+	padding:10px 0 0 5px;
+	
 }
-.espresso_list p {
-	display:inline-block;
-	padding:11px 0 5px 15px;
-	position: relative;
+.espresso_list div.esp_text p:hover {
+	text-decoration:underline;
 }
 </style>
 </head>
@@ -117,27 +117,24 @@ ul.smap li{
 
 <!-- content -->
 
-	<!-- 서브 타이틀  -->
+	<!-- 타이틀  -->
 	<div class="sub_title">
 		<div class="sub_inner_title">
 			<img class="espresso_ttl"src="http://localhost:9000/starbucks/images/espresso_ttl.jpg">
 		<ul class="smap">
 			<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/espresso/espresso_main.jsp" style="text-decoration-line: none;">ESPRESSO</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_main.jsp" style="text-decoration-line: none;">ESPRESSO</a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/espresso/espresso_main.jsp" style="text-decoration-line: none;">에스프레소 음료</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_main.jsp" style="text-decoration-line: none;">에스프레소 음료</a></li>
 		</ul>
-		
-		
-		
 	</div>
 	</div>	
 	
 	<!-- 에스프레소 content -->
 	<section class="espresso">
 		<div>
-			<p class="espresso_img"><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_classlcs_img01.jpg"></p>
+			<p class="espresso_img"><img src="http://localhost:9000/starbucks/images/espresso_classlcs_img01.jpg"></p>
 			<dl class="espresso_info">
 				<dt>“오늘날, 스타벅스에 있어 꼼꼼하고 세심한 노력은 다양한 음료 메뉴만큼이나 중요합니다. ”</dt>
 				<dd>
@@ -150,62 +147,46 @@ ul.smap li{
 		
 		<!-- 에스프레소 list -->
 	<section class="espresso_list">
-		<div>
+		<div class="espresso_list_inner">
 			<ul>
 				<li>
-					<div>
-						<a href="#" ><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_list_img01.jpg" class="list_img"></a>
-						<p>모든 에스프레소 음료의 생명이자 영혼입니다. <br>스타벅스에서 추출하는 모든 샷에는 깊고 강렬한 풍미를 내는 <br>독특한 세 개의 층이 형성됩니다. </p>
-					</div>
+					<div><a href="#" ><img src="http://localhost:9000/starbucks/images/espresso_list_img01.jpg" class="list_img"></a></div>
+					<div class="esp_text"><p>모든 에스프레소 음료의 생명이자 영혼입니다. <br>스타벅스에서 추출하는 모든 샷에는 깊고 강렬한 풍미를 내는 <br>독특한 세 개의 층이 형성됩니다. </p></div>
 				</li>
 				<li>
-					<div>
-						<a href="#"><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_list_img02.jpg" class="list_img"></a>
-						<p>완벽하고 강렬한 에스프레소 샷에 우유 거품이 살짝 <br>올라갑니다.</p>
-					</div>
+					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img02.jpg" class="list_img"></a></div>
+					<div class="esp_text"><p>완벽하고 강렬한 에스프레소 샷에 우유 거품이 살짝 <br>올라갑니다.</p></div>
 				</li>
 				<li>
-					<div>
-						<a href="#"><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_list_img03.jpg" class="list_img">	</a>
-						<p>에스프레소의 풍미를 느낄 수 있습니다. <br>진한 에스프레소에 뜨거운 물 한 잔을 부어서 만든 아메리카노는 <br>커피콩 그 자체만큼이나 깊이 있고 다크한 맛을 냅니다.</p>
-					</div>
+					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img03.jpg" class="list_img"></a></div>
+					<div class="esp_text"><p>에스프레소의 풍미를 느낄 수 있습니다. <br>진한 에스프레소에 뜨거운 물 한 잔을 부어서 만든 아메리카노는 <br>커피콩 그 자체만큼이나 깊이 있고 다크한 맛을 냅니다.</p></div>
 				</li>
 				<li>
-					<div>
-						<a href="#"><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_list_img04.jpg" class="list_img">	</a>
-						<p>달콤한 드리즐, 빽빽한 우유 거품, 진한 에스프레소, 스팀 밀크, <br>그리고 너무나도 달콤한 끝 맛이 층을 이루고 있는 <br>환상적인 맛입니다.</p>
-					</div>
+					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img04.jpg" class="list_img"></a></div>
+					<div class="esp_text"><p>달콤한 드리즐, 빽빽한 우유 거품, 진한 에스프레소, 스팀 밀크, <br>그리고 너무나도 달콤한 끝 맛이 층을 이루고 있는 <br>환상적인 맛입니다.</p></div>
 				</li>
 				<li>
-					<div>
-						<a href="#"><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_list_img05.jpg" class="list_img"></a>
-						<p>부드러운 두꺼운 우유 거품 아래에 다크하고 진한 에스프레소가 <br>숨겨져 있습니다.<br>카푸치노는 진정으로 스타벅스 바리스타의 솜씨의 정수를 <br>보여줍니다. </p>
-					</div>
+					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img05.jpg" class="list_img"></a></div>
+					<div class="esp_text"><p>부드러운 두꺼운 우유 거품 아래에 다크하고 진한 에스프레소가 <br>숨겨져 있습니다.<br>카푸치노는 진정으로 스타벅스 바리스타의 솜씨의 정수를 <br>보여줍니다. </p></div>
 				</li>
 				<li>
-					<div>
-						<a href="#"><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_list_img06.jpg" class="list_img"></a>
-						<p>맛있는 에스프레소와 스팀 밀크가 섞인 라떼는 더하고자 하는 <br>어떤 맛과도 완벽한 조화를 이룹니다. </p>
-					</div>
+					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img06.jpg" class="list_img"></a></div>
+					<div class="esp_text"><p>맛있는 에스프레소와 스팀 밀크가 섞인 라떼는 더하고자 하는 <br>어떤 맛과도 완벽한 조화를 이룹니다. </p></div>
 				</li>
 				<li>
-					<div>
-						<a href="#"><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_list_img07.jpg" class="list_img"></a>									
-						<p>뜨거운 에스프레소와 달콤쌉싸름한 초콜릿이 스팀 밀크와 <br>혼합된 달콤하고 맛있는 음료입니다. </p>
-					</div>
+					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img07.jpg" class="list_img"></a></div>									
+					<div class="esp_text"><p>뜨거운 에스프레소와 달콤쌉싸름한 초콜릿이 스팀 밀크와 <br>혼합된 달콤하고 맛있는 음료입니다. </p></div>
 				</li>
 				<li>
-					<div>
-						<a href="#"><img src="//image.istarbucks.co.kr/common/img/coffee/espresso/espresso_list_img08.jpg" class="list_img"></a>
-						<p>강렬한 리스트레토 샷과 적당한 양의 스팀 밀크가 어우러져 <br>너무 진하지도 너무 크리미하지도 않은 풍미를 냅니다. </p>
-					</div>
+					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img08.jpg" class="list_img"></a></div>
+					<div class="esp_text"><p>강렬한 리스트레토 샷과 적당한 양의 스팀 밀크가 어우러져 <br>너무 진하지도 너무 크리미하지도 않은 풍미를 냅니다. </p></div>
 				</li>
 			</ul>
 		</div>
 	</section>
 
-		
 <!-- Footer -->	
-<jsp:include page="../footer.jsp"></jsp:include>
+<jsp:include page="../footer.jsp"></jsp:include>	
+
 </body>
 </html>

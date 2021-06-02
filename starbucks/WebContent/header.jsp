@@ -131,13 +131,13 @@
 						<li><div id="coffee"><a href ="http://localhost:9000/starbucks/coffee/coffee_main.jsp"  class="M">COFFEE</a>
 						 <div id="dropdown">
     						<ul class="s_coffee">
-	    						<li><a href="#" class="m" style="color:white"><strong>커피</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/coffee/coffee_list1.jsp" class="m" style="color:white"><strong>커피</strong></a></li><br>
 	   							<li><a href="#" class="m">스타벅스 원두</a></li><br>
 	    						<li><a href="#" class="m">스타벅스 비아</a></li><br>
 	   							<li><a href="#" class="m">스타벅스 오리가미</a></li>
    							</ul>
    							<ul class="s_ecoffee">
-	    						<li><a href="#" class="m" style="color:white"><strong>에스프레소 음료</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/coffee/espresso_main.jsp" class="m" style="color:white"><strong>에스프레소 음료</strong></a></li><br>
 	   							<li><a href="#" class="m">도피오</a></li><br>
 	    						<li><a href="#" class="m">에스프레소 마키아또</a></li><br>
 	   							<li><a href="#" class="m">아메리카노</a></li><br>
