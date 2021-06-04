@@ -47,13 +47,13 @@ h2{
 div.class {
 	 border:1px solid lightgray;
 	 border-radius: 5px;
-	 padding: 20px 30px;
+	 padding: 20px 30px 40px 30px;
 	 margin: 30px 0 20px 0;
 }
 div.btn_class{
 	text-align: left;
 }
-div.class p{
+div.class span{
 	font-weight: bold;
 	font-size: 18px;
 	display: inline-block;
@@ -105,7 +105,8 @@ div.class>div>div ul>li{
 	margin:0; padding:0 20px 0 0;
 	font-size: 13px;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"]{
+div.class>div>div>form>ul>li>input[type="checkbox"],
+#checkboxes>label>input[type="checkbox"]{
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -115,7 +116,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"]{
 	clip:rect(0,0,0,0);
 	border: 0
 }
-div.class>div>div>form>ul>li>input[type="checkbox"] + label {
+div.class>div>div>form>ul>li>input[type="checkbox"] + label,
+#checkboxes>label>input[type="checkbox"] + label{
 	display: inline-block;
 	position: relative;
 	cusor: pointer;
@@ -124,7 +126,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"] + label {
 	-ms-user-select: none;
 	user-select: none;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"] + label:before {
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:before,
+#checkboxes>label>input[type="checkbox"] + label:before {
 	content: ' ';
 	display: inline-block;
 	width: 10px;
@@ -136,11 +139,14 @@ div.class>div>div>form>ul>li>input[type="checkbox"] + label:before {
 	border: 1px solid #cacece;
 }
 div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover:before,
-div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover{
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover,
+#checkboxes>label>input[type="checkbox"] + label:hover:before{
 	cursor: pointer;
 }
 div.class>div>div>form>ul>li>input[type="checkbox"] + label:active:before,
-div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:before {
+div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:before,
+#checkboxes>label>input[type="checkbox"] + label:active:before,
+#checkboxes>label>input[type="checkbox"]:checked + label:active:before {
 	border:1px solid green;
 	content: '\2714';
 	color: green;
@@ -149,7 +155,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:befor
 	line-height: 10px;
 	font-size: 6px;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before{
+div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before,
+#checkboxes>label>input[type="checkbox"]:checked + label:before{
 	content: '\2714';
 	color: green;
 	background: white;
@@ -167,22 +174,24 @@ div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before{
 #theme_class li:nth-child(3){
 	padding-right: 0;
 }
-
+#theme_class img:hover{
+	cursor: pointer;
+}
 /* 상세분류 */
 div.content>div>div.show{
 	text-align: left;
 	padding:20px 0;
 	position: relative;
 }
-div.show>a>img{
+div.show>p>img{
 	margin-right: 3px;
 }
-div.show>a>span{
+div.show>p{
 	font-size: 12px;
 }
-div.content>div>div>a{
-	border:1px solid gray;
-	background-color: gray;
+div.content>div>div>p{
+	border:1px solid #666;
+	background-color: #666;
 	color:white;
 	font-size: 13px;
 	padding: 5px;
@@ -191,13 +200,14 @@ div.content>div>div>a{
 	text-decoration: none;
 	margin-right: 10px;
 }
-div.content>div>div>a:nth-child(2) {
+div.content>div>div>p:nth-child(2) {
 	border: 1px solid lightgray;
 	background-color: white;
 	color:#333;
 }
-div.content>div>div>a:hover{
+div.content>div>div>p:hover{
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 /* 상세분류 드롭다운 */
@@ -235,7 +245,7 @@ div.content>div>div>a:hover{
 	display: none;
 }
 
-#checkboxes label {
+#checkboxes label.chk_drop {
 	display: block;
 	border: 1px solid lightgray;
 	border-top-style: none;
@@ -262,6 +272,9 @@ span.list_label{
 	font-size: 17px;
 	font-weight: bold;
 	padding: 0 10px 0 20px;
+}
+div.list>div:nth-child(even){
+	margin-bottom: 60px;
 }
 div.list>div ul{
 	list-style-type: none;
@@ -317,6 +330,31 @@ div.list>div>ul>li>ul>li>label{
 	display: none;
 	padding-top: 40px;
 }	
+
+table.tb{
+	width:100%;
+	border-collapse: collapse;
+	display: none;
+	margin: 20px 0 60px 0;
+}
+table th:first-child, table td:first-child{
+	width:17%;
+}
+table th{
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	padding: 16px 0;
+	width: 14%;
+	font-size: 14px;
+}
+table td{
+	color: #666;
+	padding: 16px 0;
+	border-bottom: 1px solid lightgray;
+	width: 14%;
+	font-size: 14px;
+	text-align: center;
+}
 	
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
@@ -350,76 +388,71 @@ function hideCheckboxes() {
 
 //////////////체크박스////////////////////
 function allCheck() {
-    if ($("#all").is(':checked')) {
+	if ($("#all").is(':checked')) {
         $(".chk").prop("checked", false);
         $("#all").prop("checked", true);
-        $(".list#list_cate *").each(function(){
-        	$(this).show();
-        });
+        $("#list_cate *").show();
+        $("#list_cate ul").hide();
+        $("#list_cate table").hide();
     }
     else if (!$("#all").is(':checked')) {
-    	$(".list#list_cate *").each(function(){
-        	$(this).hide();
-        });
+    	$("#list_cate *").hide();
     }
+    if($("#show_inform").data('clicked')){
+		$("#list_cate table").show();
+	}else if(!$("#show_inform").data('clicked')){
+		$("#list_cate ul").show();
+	}
 } 
 
 function checkboxCheck(){
-	$(".list#list_cate *").each(function(){
-     	$(this).show();
-     });
+	$("#list_cate *").show();
+	$("#list_cate ul").hide();
+	$("#list_cate table").hide();
+	$("#all").prop("checked", false);
+	if($("#show_inform").data('clicked')){
+		$("#list_cate table").show();
+	}else if(!$("#show_inform").data('clicked')){
+		$("#list_cate ul").show();
+	}
 	if($("#bread").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#bread_label").show();
-		$("#bread_list").show();
 	}else if(!$("#bread").is(':checked')){
 		$("#bread_label").hide();
 		$("#bread_list").hide();
 	}
 	if($("#cake").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#cake_label").show();
-		$("#cake_list").show();
 	}else if(!$("#cake").is(':checked')){
 		$("#cake_label").hide();
 		$("#cake_list").hide();
 	}
 	if($("#sand").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#sand_label").show();
-		$("#sand_list").show();
 	}else if(!$("#sand").is(':checked')){
 		$("#sand_label").hide();
 		$("#sand_list").hide();
 	}
 	if($("#hot").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#hot_label").show();
-		$("#hot_list").show();
 	}else if(!$("#hot").is(':checked')){
 		$("#hot_label").hide();
 		$("#hot_list").hide();
 	}
 	if($("#fru").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#fru_label").show();
-		$("#fru_list").show();
 	}else if(!$("#fru").is(':checked')){
 		$("#fru_label").hide();
 		$("#fru_list").hide();
 	}
 	if($("#snack").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#snack_label").show();
-		$("#snack_list").show();
 	}else if(!$("#snack").is(':checked')){
 		$("#snack_label").hide();
 		$("#snack_list").hide();
 	}
 	if($("#ice").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#ice_label").show();
-		$("#ice_list").show();
 	}else if(!$("#ice").is(':checked')){
 		$("#ice_label").hide();
 		$("#ice_list").hide();
@@ -428,8 +461,9 @@ function checkboxCheck(){
 }
 ///////////////////////////////////////////////////
 
-/* 분류 보기 업다운 */
+
 $( document ).ready(function() {
+	/* 분류 보기 업다운 */
 	$(".btn_class img").click(function(){
 		var id=$(this).attr("id");
 		if(id=="up_btn"){
@@ -464,6 +498,88 @@ $( document ).ready(function() {
 		$("#category").css("background-color","#006633").css("border-color","#006633").css("color","white");
 	});
 	
+	$("#show_inform").data('clicked',false);
+	$("#show_img").click(function(){
+		$(".show form").show();
+		$("#list_cate ul").show();
+		$("table").hide();
+		$("#show_inform").data('clicked',false);
+		$("#show_img").css("background","#666").css("border-color","#666").css("color","white");
+		$("#show_inform").css("background","white").css("border-color","lightgray").css("color","#333");
+		$("#show_img img").attr("src","http://localhost:9000/starbucks/images/icon_pic_on.png");
+		$("#show_inform img").attr("src","http://localhost:9000/starbucks/images/icon_ante.png");
+	});
+	$("#show_inform").click(function(){
+		$(".show form").hide();
+		$("#list_cate ul").hide();
+		$("table").show();
+		$(this).data('clicked',true);
+		$("#show_inform").css("background","#666").css("border-color","#666").css("color","white");
+		$("#show_img").css("background","white").css("border-color","lightgray").css("color","#333");
+		$("#show_img img").attr("src","http://localhost:9000/starbucks/images/icon_pic.png");
+		$("#show_inform img").attr("src","http://localhost:9000/starbucks/images/icon_ante_on.png");
+	});
+	
+	$("#menu_th01").click(function(){
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th01").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th01"){
+				$(item).show();
+			}
+		});
+	});
+	$("#menu_th02").click(function(){
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th02").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th02"){
+				$(item).show();
+			}
+		});
+	});
+	$("#menu_th03").click(function(){
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th03").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th03"){
+				$(item).show();
+			}
+		});
+	});
+	$("#menu_th04").click(function(){
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th04").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th04"){
+				$(item).show();
+			}
+		});
+	});
+	$("#menu_th05").click(function(){
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th05").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th05"){
+				$(item).show();
+			}
+		});
+	});
 	
 });
 </script>
@@ -504,7 +620,7 @@ $( document ).ready(function() {
 			<!-- 분류 -->
 			<div class="class">
 				<div class="btn_class">
-					<p>분류 보기</p>
+					<span>분류 보기</span>
 					<img src="http://localhost:9000/starbucks/images/list_up_btn.png" id="up_btn">
 				</div>
 				<div class="line"></div>
@@ -557,19 +673,19 @@ $( document ).ready(function() {
 						<form method="post">
 							<ul>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th01.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th01.jpg" id="menu_th01">
 								</li>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th02.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th02.jpg" id="menu_th02">
 								</li>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th03.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th03.jpg" id="menu_th03">
 								</li>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th04.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th04.jpg" id="menu_th04">
 								</li>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th05.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th05.jpg" id="menu_th05">
 								</li>
 							</ul>
 						</form>
@@ -581,8 +697,8 @@ $( document ).ready(function() {
 			<div>
 				<!-- 상세분류 -->				
 				<div class="show">
-					<a href="#"><img src="http://localhost:9000/starbucks/images/icon_pic_on.png"><span>사진으로 보기</span></a>
-					<a href="#"><img src="http://localhost:9000/starbucks/images/icon_ante.png"><span>영양정보로 보기</span></a>
+					<p id="show_img"><img src="http://localhost:9000/starbucks/images/icon_pic_on.png"><span>사진으로 보기</span></p>
+					<p id="show_inform"><img src="http://localhost:9000/starbucks/images/icon_ante.png"><span>영양정보로 보기</span></p>
 					<form>
 					  <div class="multiselect">
 					    <div class="selectBox" onclick="Checkboxes()" onmouseleave="hideCheckboxes()">
@@ -592,10 +708,10 @@ $( document ).ready(function() {
 					      <div class="overSelect"></div>
 					    </div>
 					    <div id="checkboxes" onmouseenter="showCheckboxes()" onmouseleave="hideCheckboxes()">
-					      <label for="one">
-					        <input type="checkbox" id="one" /><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label>
-					      <label for="two">
-					        <input type="checkbox" id="two" /><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="one" /><label for="one"><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="two" /><label for="two"><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label></label>
 					    </div>
 					  </div>
 					</form>
@@ -780,6 +896,35 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>아이스 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+							<tr>
+								<td>오늘의 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>260</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 브레드 끝 -->
 					<!-- 라벨 -->
@@ -1006,6 +1151,35 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>아이스 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+							<tr>
+								<td>오늘의 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>260</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 케이크 끝 -->
 					<!-- 라벨 -->
@@ -1172,6 +1346,35 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>아이스 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+							<tr>
+								<td>오늘의 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>260</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 샌드위치 샐러드 끝 -->
 					<!-- 라벨 -->
@@ -1194,6 +1397,35 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>아이스 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+							<tr>
+								<td>오늘의 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>260</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 따뜻한 푸드 끝 -->
 					<!-- 라벨 -->
@@ -1264,6 +1496,35 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>아이스 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+							<tr>
+								<td>오늘의 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>260</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 과일 요거트 끝 -->
 					<!-- 라벨 -->
@@ -1478,6 +1739,35 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>아이스 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+							<tr>
+								<td>오늘의 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>260</td>
+							</tr>
+						</table>
 					</div>
 				<!-- 스낵 미니디저트 끝 -->
 				<!-- 라벨 -->
@@ -1548,6 +1838,35 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>아이스 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+							<tr>
+								<td>오늘의 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>260</td>
+							</tr>
+						</table>
 					</div>
 				<!-- 아이스크림 끝 -->
 				</div>
@@ -1557,339 +1876,339 @@ $( document ).ready(function() {
 					<!--이미지 -->
 					<div id="th_img_list">
 						<ul>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake03.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake03.jpg"></a></li>
 									<li><label>바나나 체커스 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake02.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake02.jpg"></a></li>
 									<li><label>바나나 슈크림 타르트</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread01.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread01.jpg"></a></li>
 									<li><label>바나나 슈크림 큐브</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand01.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand01.jpg"></a></li>
 									<li><label>커리 치킨 샐러드 밀 박스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand03.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand03.jpg"></a></li>
 									<li><label>에그 베이컨 브리오슈 밀 박스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand02.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand02.jpg"></a></li>
 									<li><label>B.C.L.T. 샌드위치 밀 박스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand25.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand25.jpg"></a></li>
 									<li><label>화이트 에그 모짜 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand14.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand14.jpg"></a></li>
 									<li><label>비프 &amp; 치즈 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand09.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand09.jpg"></a></li>
 									<li><label>미트 볼 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch01.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch01.jpg" ></a></li>
 									<li><label>부드러운 닭가슴살 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand16.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand16.jpg"></a></li>
 									<li><label>에그 베이컨 포카치아</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand04.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand04.jpg"></a></li>
 									<li><label>샤쉬림프 &amp; 해초 샐러드 밀 박스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand13.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand13.jpg"></a></li>
 									<li><label>브렉퍼스트 잉글리쉬 머핀</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand17.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand17.jpg"></a></li>
 									<li><label>에그에그 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand12.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand12.jpg"></a></li>
 									<li><label>베이컨 치즈 토스트</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand25.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand25.jpg"></a></li>
 									<li><label>햄&amp;루꼴라 올리브 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand10.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand10.jpg"></a></li>
 									<li><label>바비큐 치킨 치즈 치아바타</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand23.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand23.jpg"></a></li>
 									<li><label>크로크 무슈</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch02.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch02.jpg"></a></li>
 									<li><label>에그, 베이컨 치즈 베이글</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand24.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand24.jpg"></a></li>
 									<li><label>포크 커틀릿 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand06.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand06.jpg"></a></li>
 									<li><label>B.E.L.T. 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand07.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand07.jpg"></a></li>
 									<li><label>단호박 에그 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand22.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand22.jpg"></a></li>
 									<li><label>크랜베리 치킨 치즈 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand05.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand05.jpg"></a></li>
 									<li><label>쉬림프 코코넛 샐러드 밀 박스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch03.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch03.jpg"></a></li>
 									<li><label>블루베리 베이글</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch04.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch04.jpg"></a></li>
 									<li><label>고소한 치즈 베이글</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/hot02.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/hot02.jpg"></a></li>
 									<li><label>현미 크림 수프</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/hot01.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/hot01.jpg"></a></li>
 									<li><label>트러플 머쉬룸 수프</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch05.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/brunch05.jpg"></a></li>
 									<li><label>우리나라 옥고감</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
 									<li><a href="#"><img src="http://localhost:9000/starbucks/images/ever01.jpg" name="th03"></a></li>
 									<li><label>스마일 쿠키 초콜릿</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/ever02.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/ever02.jpg"></a></li>
 									<li><label>스마일 쿠키 라즈베리</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th04">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake35.jpg" name="th04"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake35.jpg"></a></li>
 									<li><label>피칸 브라우니</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th04">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake34.jpg" name="th04"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake34.jpg"></a></li>
 									<li><label>크레이프 에멘탈 치즈 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th04">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake31.jpg" name="th04"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake31.jpg"></a></li>
 									<li><label>세븐 레이어 가나슈 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th04">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake32.jpg" name="th04"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake32.jpg"></a></li>
 									<li><label>청담스타 얼 그레이 밀크 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th04">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake33.jpg" name="th04"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake33.jpg"></a></li>
 									<li><label>청담스타 오 허니 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th04">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake36.jpg" name="th04"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake36.jpg"></a></li>
 									<li><label>헤븐리 티라미수</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th04">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake30.jpg" name="th04"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake30.jpg"></a></li>
 									<li><label>블루베리 쿠키 치즈 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake26.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake26.jpg"></a></li>
 									<li><label>백년초콜릿 크런치 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake27.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake27.jpg"></a></li>
 									<li><label>새코롬 돌코롬 한라봉 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake25.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake25.jpg"></a></li>
 									<li><label>당근 현무암 케이크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake28.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake28.jpg"></a></li>
 									<li><label>제주 리얼녹차 티라미수 아일랜드</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake29.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake29.jpg"></a></li>
 									<li><label>티라미수 아일랜드</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand20.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand20.jpg"></a></li>
 									<li><label>제주 흑돼지 맨도롱 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand19.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand19.jpg"></a></li>
 									<li><label>제주 당근 산도롱 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand18.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand18.jpg"></a></li>
 									<li><label>제주 녹차 베이컨 치즈 베이글</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand21.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand21.jpg"></a></li>
 									<li><label>제주 흑돼지 아보카도 샌드위치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread19.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread19.jpg"></a></li>
 									<li><label>올래 미니 크루아상</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread11.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread11.jpg"></a></li>
 									<li><label>한라봉 스콘</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread20.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread20.jpg"></a></li>
 									<li><label>우도 땅콩 데니쉬롤</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread22.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread22.jpg"></a></li>
 									<li><label>제주 한라봉 뺑오쇼콜라</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread12.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread12.jpg"></a></li>
 									<li><label>거문 오름 크루아상</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread23.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/bread23.jpg"></a></li>
 									<li><label>주상절리 파이</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/snack13.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/snack13.jpg"></a></li>
 									<li><label>현무암 러스크</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/snack06.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/snack06.jpg"></a></li>
 									<li><label>제주 오름 초콜릿 세트</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th05">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/fru02.jpg" name="th05"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/fru02.jpg"></a></li>
 									<li><label>제주 자연 청 세트</label></li>
 								</ul>
 							</li>

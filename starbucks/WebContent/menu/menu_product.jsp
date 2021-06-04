@@ -46,7 +46,7 @@ h2{
 div.class {
 	 border:1px solid lightgray;
 	 border-radius: 3px;
-	 padding: 20px 30px;
+	 padding: 20px 30px 40px 30px;
 	 margin: 30px 0 20px 0;
 }
 div.btn_class{
@@ -104,7 +104,8 @@ div.class>div>div ul>li{
 	margin:0; padding:0 20px 0 0;
 	font-size: 13px;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"]{
+div.class>div>div>form>ul>li>input[type="checkbox"],
+#checkboxes>label>input[type="checkbox"]{
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -114,7 +115,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"]{
 	clip:rect(0,0,0,0);
 	border: 0
 }
-div.class>div>div>form>ul>li>input[type="checkbox"] + label {
+div.class>div>div>form>ul>li>input[type="checkbox"] + label,
+#checkboxes>label>input[type="checkbox"] + label{
 	display: inline-block;
 	position: relative;
 	cusor: pointer;
@@ -123,7 +125,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"] + label {
 	-ms-user-select: none;
 	user-select: none;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"] + label:before {
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:before,
+#checkboxes>label>input[type="checkbox"] + label:before {
 	content: ' ';
 	display: inline-block;
 	width: 10px;
@@ -135,11 +138,14 @@ div.class>div>div>form>ul>li>input[type="checkbox"] + label:before {
 	border: 1px solid #cacece;
 }
 div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover:before,
-div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover{
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover,
+#checkboxes>label>input[type="checkbox"] + label:hover:before{
 	cursor: pointer;
 }
 div.class>div>div>form>ul>li>input[type="checkbox"] + label:active:before,
-div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:before {
+div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:before,
+#checkboxes>label>input[type="checkbox"] + label:active:before,
+#checkboxes>label>input[type="checkbox"]:checked + label:active:before {
 	border:1px solid green;
 	content: '\2714';
 	color: green;
@@ -148,7 +154,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:befor
 	line-height: 10px;
 	font-size: 6px;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before{
+div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before,
+#checkboxes>label>input[type="checkbox"]:checked + label:before{
 	content: '\2714';
 	color: green;
 	background: white;
@@ -203,7 +210,7 @@ div.content>div>div.show{
 #checkboxes {
 	display: none;
 }
-#checkboxes label {
+#checkboxes label.chk_drop {
 	display: block;
 	border: 1px solid lightgray;
 	background-color: white;
@@ -455,6 +462,50 @@ $( document ).ready(function() {
 	});
 	
 	
+	$("#menu_th01").click(function(){
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th01").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th01"){
+				$(item).show();
+			}
+		});
+	});
+	$("#menu_th02").click(function(){
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th02").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th02"){
+				$(item).show();
+			}
+		});
+	});
+	$("#menu_th03").click(function(){
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th03").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th03"){
+				$(item).show();
+			}
+		});
+	});
+	$("#menu_th04").click(function(){
+		location.href='https://www.starbucks.co.kr/upload/b2b/co_goods.pdf';
+		$("#theme_class>form>ul>li>img").each(function(idx, item){
+			$(item).css('border-style','none').css('margin','0');
+		});
+		$("#menu_th04").css('border','2px solid #006633').css('margin','-2px');
+	});
+	
 });
 </script>
 </head>
@@ -555,16 +606,16 @@ $( document ).ready(function() {
 						<form method="post">
 							<ul>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th01.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th01.jpg" id="menu_th01">
 								</li>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th06.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th06.jpg" id="menu_th02">
 								</li>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th07.png">
+									<img src="http://localhost:9000/starbucks/images/menu_th07.png" id="menu_th03">
 								</li>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th08.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th08.jpg" id="menu_th04">
 								</li>
 							</ul>
 						</form>
@@ -585,12 +636,12 @@ $( document ).ready(function() {
 					      <div class="overSelect"></div>
 					    </div>
 					    <div id="checkboxes" onmouseenter="showCheckboxes()" onmouseleave="hideCheckboxes()">
-					      <label for="one">
-					        <input type="checkbox" id="one" /><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label>
-					      <label for="two">
-					        <input type="checkbox" id="two" /><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label>
-					      <label for="three">
-					        <input type="checkbox" id="three" /><img src="http://localhost:9000/starbucks/images/mark04.png" width="21px" height="21px"><span>판매 완료된 메뉴</span></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="one" /><label for="one"><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="two" /><label for="two"><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="three" /><label for="three"><img src="http://localhost:9000/starbucks/images/mark04.png" width="21px" height="21px"><span>판매 완료된 메뉴</span></label></label>
 					    </div>
 					  </div>
 					</form>
@@ -1822,465 +1873,465 @@ $( document ).ready(function() {
 					<!--이미지 -->
 					<div id="th_img_list">
 						<ul>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug02.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug02.jpg"></a></li>
 									<li><label>21 서머 마레 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug03.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug03.jpg"></a></li>
 									<li><label>21 서머 테일 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug08.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug08.jpg"></a></li>
 									<li><label>SS 마레 스탠리 듀 컵 세트 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass09.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass09.jpg"></a></li>
 									<li><label>21 서머 해마 글라스 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass09.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass09.jpg"></a></li>
 									<li><label>21 서머 글리터 핸들 글라스 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass01.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass01.jpg"></a></li>
 									<li><label>21 서머 고블렛 글라스 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cof06.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cof06.jpg"></a></li>
 									<li><label>언더더씨 글라스 서버 600ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla21.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla21.jpg"></a></li>
 									<li><label>언더더씨 슬림라인 워터보틀 532ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla20.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla20.jpg"></a></li>
 									<li><label>마레 지아 워터보틀 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla11.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla11.jpg"></a></li>
 									<li><label>마레 DW 컬러체인징 텀블러 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla12.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla12.jpg"></a></li>
 									<li><label>마레 콜드컵 710ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla07.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla07.jpg"></a></li>
 									<li><label>언더더씨 워터볼 텀블러 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain11.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain11.jpg"></a></li>
 									<li><label>SS 마레 힐사이드 텀블러 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain22.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain22.jpg"></a></li>
 									<li><label>SS 언더더씨 DW 투고 텀블러 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain23.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain23.jpg"></a></li>
 									<li><label>SS 언더더씨 야빈 텀블러 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain38.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain38.jpg"></a></li>
 									<li><label>SS 마레 스탠리 플라스크 237ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/thermos04.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/thermos04.jpg"></a></li>
 									<li><label>SS 마레 스탠리 베이츠 보온병 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/thermos05.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/thermos05.jpg"></a></li>
 									<li><label>SS 마레 스탠리 통가 보온병 710ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/thermos06.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/thermos06.jpg"></a></li>
 									<li><label>SS 마레 스탠리 푸드 자 414ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc06.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc06.jpg"></a></li>
 									<li><label>21 서머1 마레 보틀 파우치</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc07.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc07.jpg"></a></li>
 									<li><label>21 서머1 마레 폴더블 백팩</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc27.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc27.jpg"></a></li>
 									<li><label>21 서머 1 스탠리 런치 박스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug11.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug11.jpg"></a></li>
 									<li><label>고슴도치 스푼 머그 296ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass10.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass10.jpg"></a></li>
 									<li><label>고슴도치 머들러 글라스 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain12.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain12.jpg"></a></li>
 									<li><label>SS 미르 고슴도치 텀블러 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain13.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain13.jpg"></a></li>
 									<li><label>SS 미르 핸들 고슴도치 텀블러 591ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla16.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla16.jpg"></a></li>
 									<li><label>서머 민트 스터드 텀블러 710ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla19.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla19.jpg"></a></li>
 									<li><label>고슴도치 스퀘어 워터보틀 414ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain40.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain40.jpg"></a></li>
 									<li><label>SS 고슴도치 데일리 워터보틀 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city01.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city01.jpg"></a></li>
 									<li><label>리얼 대전 데미머그 89ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city02.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city02.jpg"></a></li>
 									<li><label>리얼 대전 머그 414ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla04.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla04.jpg"></a></li>
 									<li><label>리얼 대전 텀블러 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city03.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city03.jpg"></a></li>
 									<li><label>리얼 광주 데미머그 89ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city04.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city04.jpg"></a></li>
 									<li><label>리얼 광주 머그 414ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla02.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla02.jpg"></a></li>
 									<li><label>리얼 광주 텀블러 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city05.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city05.jpg"></a></li>
 									<li><label>리얼 대구 데미머그 89ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city06.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city06.jpg"></a></li>
 									<li><label>리얼 대구 머그 414ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla03.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla03.jpg"></a></li>
 									<li><label>리얼 대구 텀블러 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain17.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain17.jpg"></a></li>
 									<li><label>SS 서울 투어 텀블러 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug25.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug25.jpg"></a></li>
 									<li><label>서울 투어 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc18.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc18.jpg"></a></li>
 									<li><label>서울 투어 에코백</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain14.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain14.jpg"></a></li>
 									<li><label>SS 부산 투어 텀블러 355m</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug17.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug17.jpg"></a></li>
 									<li><label>부산 투어 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc16.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc16.jpg"></a></li>
 									<li><label>부산 투어 미니백</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain21.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain21.jpg"></a></li>
 									<li><label>SS 인천 투어 텀블러 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug32.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug32.jpg"></a></li>
 									<li><label>인천 투어 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc22.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc22.jpg"></a></li>
 									<li><label>인천 투어 에코백</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain23.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain23.jpg"></a></li>
 									<li><label>SS 제주 투어 텀블러 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug33.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug33.jpg"></a></li>
 									<li><label>제주 투어 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc26.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc26.jpg"></a></li>
 									<li><label>제주 투어 에코백</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain09.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain09.jpg" ></a></li>
 									<li><label>SS 경주 투어 텀블러 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug10.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug10.jpg"></a></li>
 									<li><label>경주 투어 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc12.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc12.jpg"></a></li>
 									<li><label>경주 투어 미니백</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th02">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug24.jpg" name="th02"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug24.jpg"></a></li>
 									<li><label>서울 제주 데미머그 세트</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res01.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res01.jpg"></a></li>
 									<li><label>리저브 푸어 오버 콘 드리퍼</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res02.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res02.jpg"></a></li>
 									<li><label>3컵 리저브 카퍼 프렌치 프레스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res03.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res03.jpg"></a></li>
 									<li><label>4컵 리저브 카퍼 프렌치 프레스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res04.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res04.jpg"></a></li>
 									<li><label>리저브 블루 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc32.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc32.jpg"></a></li>
 									<li><label>리저브 그린 키 체인</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc33.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc33.jpg"></a></li>
 									<li><label>리저브 레드 키 체인</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res05.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res05.jpg"></a></li>
 									<li><label>리저브 블랙 DW 머그 296ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res06.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res06.jpg"></a></li>
 									<li><label>리저브 화이트 DW 머그 296ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass12.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass12.jpg"></a></li>
 									<li><label>리저브 골드 핸들 글라스 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res07.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res07.jpg"></a></li>
 									<li><label>리저브 골드 핸들 글라스 354ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass13.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass13.jpg"></a></li>
 									<li><label>리저브 콜드브루 글라스 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain41.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/stain41.jpg"></a></li>
 									<li><label>SS 리저브 화이트 워터보틀 591ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res08.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res08.jpg"></a></li>
 									<li><label>SS 리저브 블랙 콜드컵 473ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res09.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res09.jpg"></a></li>
 									<li><label>리저브 블랙 에코백</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cof05.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cof05.jpg"></a></li>
 									<li><label>리저브 블랙 푸어오버 드리퍼</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc35.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc35.jpg"></a></li>
 									<li><label>리저브 우드 트레이</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc34.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc34.jpg"></a></li>
 									<li><label>리저브 우드 카드 케이스</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res10.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res10.jpg"></a></li>
 									<li><label>리저브 우드 박스 펜슬 세트</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc15.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc15.jpg"></a></li>
 									<li><label>리저브 오렌지 카드 홀더</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc14.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/acc14.jpg"></a></li>
 									<li><label>리저브 블루 카드 홀더</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res11.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res11.jpg"></a></li>
 									<li><label>리저브 뉴블랙 데미머그 89ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug15.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug15.jpg"></a></li>
 									<li><label>리저브 뉴블랙 머그 355ml</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th03">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res12.jpg" name="th03"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res12.jpg"></a></li>
 									<li><label>리저브 뉴블랙 머그 473ml</label></li>
 								</ul>
 							</li>
