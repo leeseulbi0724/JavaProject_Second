@@ -80,6 +80,9 @@ div.image>div>ul>li>img{
 	width: 106px;
 	height: 111px;
 }
+div.image>div>ul>li>img:hover{
+	cursor: pointer;
+}
 /* 정보 */
 div.inform{
 	text-align: left;
@@ -261,6 +264,28 @@ div.bottom_news>div:last-child>img {
 	height: 16px;
 }
 </style>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script src="../js/jquery.elevatezoom.js"></script>
+<script>
+/* 작은 이미지 선택 시 큰 이미지 변경 */
+$( document ).ready(function() {
+	$(".image li>img").click(function(){
+		var img = $(this).attr("src");
+		$(".zoomImg").attr("src",img);
+		$(".zoomWindow").css("background-image","url("+img+")");
+	});
+	
+	$(".zoomImg").elevateZoom({
+		zoomWindowWidth: 610,
+		zoomWindowHeight: 468,
+		zoomWindowOffetx: 45,
+		zoomWindowOffety: -1,
+		borderSize: 1,
+		borderColour: "lightgray",
+	});
+	
+});
+</script>
 </head>
 <body>
 	<!--  header -->
@@ -309,7 +334,7 @@ div.bottom_news>div:last-child>img {
 			<div>
 				<div class="image"><!-- 이미지 -->
 					<div><!-- 큰 이미지 -->
-						<img src="http://localhost:9000/starbucks/images/bread01_1.jpg">
+						<img class="zoomImg" src="http://localhost:9000/starbucks/images/bread01_1.jpg">
 						<img src="http://localhost:9000/starbucks/images/more.png">
 					</div>
 					<div><!-- 작은 이미지 -->

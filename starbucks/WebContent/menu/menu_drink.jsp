@@ -53,7 +53,7 @@ div.class {
 div.btn_class{
 	text-align: left;
 }
-div.class p{
+div.class span{
 	font-weight: bold;
 	font-size: 18px;
 	display: inline-block;
@@ -97,7 +97,7 @@ div.cate .btn_style:hover{
 div.class>div>div ul{	
 	list-style-type: none;
 	text-align: left;
-	margin:0; padding:0;
+	margin-bottom: 20px; padding:0;
 }
 div.class>div>div ul>li{
 	display: inline-block;
@@ -105,7 +105,8 @@ div.class>div>div ul>li{
 	margin:0; padding:0 20px 0 0;
 	font-size: 13px;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"]{
+div.class>div>div>form>ul>li>input[type="checkbox"],
+#checkboxes>label>input[type="checkbox"]{
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -115,7 +116,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"]{
 	clip:rect(0,0,0,0);
 	border: 0
 }
-div.class>div>div>form>ul>li>input[type="checkbox"] + label {
+div.class>div>div>form>ul>li>input[type="checkbox"] + label,
+#checkboxes>label>input[type="checkbox"] + label{
 	display: inline-block;
 	position: relative;
 	cusor: pointer;
@@ -124,7 +126,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"] + label {
 	-ms-user-select: none;
 	user-select: none;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"] + label:before {
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:before,
+#checkboxes>label>input[type="checkbox"] + label:before {
 	content: ' ';
 	display: inline-block;
 	width: 10px;
@@ -136,11 +139,14 @@ div.class>div>div>form>ul>li>input[type="checkbox"] + label:before {
 	border: 1px solid #cacece;
 }
 div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover:before,
-div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover{
+div.class>div>div>form>ul>li>input[type="checkbox"] + label:hover,
+#checkboxes>label>input[type="checkbox"] + label:hover:before{
 	cursor: pointer;
 }
 div.class>div>div>form>ul>li>input[type="checkbox"] + label:active:before,
-div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:before {
+div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:before,
+#checkboxes>label>input[type="checkbox"] + label:active:before,
+#checkboxes>label>input[type="checkbox"]:checked + label:active:before {
 	border:1px solid green;
 	content: '\2714';
 	color: green;
@@ -149,7 +155,8 @@ div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:active:befor
 	line-height: 10px;
 	font-size: 6px;
 }
-div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before{
+div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before,
+#checkboxes>label>input[type="checkbox"]:checked + label:before{
 	content: '\2714';
 	color: green;
 	background: white;
@@ -167,21 +174,24 @@ div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before{
 #theme_class li:nth-child(3){
 	padding-right: 0;
 }
+#theme_class img:hover{
+	cursor: pointer;
+}
 /* 상세분류 */
 div.content>div>div.show{
 	text-align: left;
 	padding:20px 0;
 	position: relative;
 }
-div.show>a>img{
+div.show>p>img{
 	margin-right: 3px;
 }
-div.show>a{
+div.show>p{
 	font-size: 12px;
 }
-div.content>div>div>a{
-	border:1px solid gray;
-	background-color: gray;
+div.content>div>div>p{
+	border:1px solid #666;
+	background-color: #666;
 	color:white;
 	font-size: 13px;
 	padding: 5px;
@@ -190,13 +200,14 @@ div.content>div>div>a{
 	text-decoration: none;
 	margin-right: 10px;
 }
-div.content>div>div>a:nth-child(2) {
+div.content>div>div>p:nth-child(2) {
 	border: 1px solid lightgray;
 	background-color: white;
 	color:#333;
 }
-div.content>div>div>a:hover{
+div.content>div>div>p:hover{
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 /* 상세분류 드롭다운*/
@@ -205,6 +216,7 @@ div.content>div>div>a:hover{
 	position: absolute;
 	right: 0;
 	top:20px;
+	z-index: 3;
 }
 .selectBox {
   	position: relative;
@@ -229,7 +241,7 @@ div.content>div>div>a:hover{
 #checkboxes {
 	display: none;
 }
-#checkboxes label {
+#checkboxes label.chk_drop {
 	display: block;
 	border: 1px solid lightgray;
 	border-top-style: none;
@@ -257,8 +269,11 @@ span.list_label{
 	font-weight: bold;
 	padding: 0 10px 0 20px;
 }
-div.label>span:last-child{
+span.list_label2{
 	font-size: 11px;
+}
+div.list>div:nth-child(even){
+	margin-bottom: 60px;
 }
 div.list>div>img {
 	width: 45px;
@@ -320,7 +335,43 @@ div.list>div>ul>li>ul>li>label{
 	display: none;
 	padding-top: 40px;
 }
-	
+
+/* 검색 결과 x */
+/* #no_result {
+	text-align: center;
+	padding: 60px 0;
+	border-bottom: 1px solid lightgray;
+	border-top: 1px solid lightgray;
+	position: relative;
+	top: 40px;
+	display: none;
+} */
+
+table.tb{
+	width:100%;
+	border-collapse: collapse;
+	display: none;
+	margin: 20px 0 60px 0;
+}
+table th:first-child, table td:first-child{
+	width:17%;
+}
+table th{
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	padding: 16px 0;
+	width: 14%;
+	font-size: 14px;
+}
+table td{
+	color: #666;
+	padding: 16px 0;
+	border-bottom: 1px solid lightgray;
+	width: 14%;
+	font-size: 14px;
+	text-align: center;
+}
+
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -356,94 +407,84 @@ function allCheck() {
     if ($("#all").is(':checked')) {
         $(".chk").prop("checked", false);
         $("#all").prop("checked", true);
-        $(".list#list_cate *").each(function(){
-        	$(this).show();
-        });
+        $("#list_cate *").show();
+        $("#list_cate ul").hide();
+        $("#list_cate table").hide();
     }
     else if (!$("#all").is(':checked')) {
-    	$(".list#list_cate *").each(function(){
-        	$(this).hide();
-        });
+    	$("#list_cate *").hide();
     }
+    if($("#show_inform").data('clicked')){
+		$("#list_cate table").show();
+	}else if(!$("#show_inform").data('clicked')){
+		$("#list_cate ul").show();
+	}
 } 
 
 function checkboxCheck(){
-	 $(".list#list_cate *").each(function(){
-     	$(this).show();
-     });
+    $("#list_cate *").show();
+	$("#list_cate ul").hide();
+	$("#list_cate table").hide();
+	$("#all").prop("checked", false);
+	if($("#show_inform").data('clicked')){
+		$("#list_cate table").show();
+	}else if(!$("#show_inform").data('clicked')){
+		$("#list_cate ul").show();
+	}
 	if($("#cold_brew").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#cold_brew_label").show();
-		$("#cold_brew_list").show();
 	}else if(!$("#cold_brew").is(':checked')){
 		$("#cold_brew_label").hide();
 		$("#cold_brew_list").hide();
 	}
 	if($("#brood").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#brood_label").show();
-		$("#brood_list").show();
 	}else if(!$("#brood").is(':checked')){
 		$("#brood_label").hide();
 		$("#brood_list").hide();
 	}
 	if($("#esp").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#esp_label").show();
-		$("#esp_list").show();
 	}else if(!$("#esp").is(':checked')){
 		$("#esp_label").hide();
 		$("#esp_list").hide();
 	}
 	if($("#fra").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#fra_label").show();
-		$("#fra_list").show();
 	}else if(!$("#fra").is(':checked')){
 		$("#fra_label").hide();
 		$("#fra_list").hide();
 	}
 	if($("#blended").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#blended_label").show();
-		$("#blended_list").show();
 	}else if(!$("#blended").is(':checked')){
 		$("#blended_label").hide();
 		$("#blended_list").hide();
 	}
 	if($("#fizzo").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#fizzo_label").show();
-		$("#fizzo_list").show();
 	}else if(!$("#fizzo").is(':checked')){
 		$("#fizzo_label").hide();
 		$("#fizzo_list").hide();
 	}
 	if($("#tea").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#tea_label").show();
-		$("#tea_list").show();
 	}else if(!$("#tea").is(':checked')){
 		$("#tea_label").hide();
 		$("#tea_list").hide();
 	}
 	if($("#etc").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#etc_label").show();
-		$("#etc_list").show();
 	}else if(!$("#etc").is(':checked')){
 		$("#etc_label").hide();
 		$("#etc_list").hide();
 	}
 	if($("#juice").is(':checked')){
-		$("#all").prop("checked", false);
 		$("#juice_label").show();
-		$("#juice_list").show();
 	}else if(!$("#juice").is(':checked')){
 		$("#juice_label").hide();
 		$("#juice_list").hide();
 	}
-	
 }
 ///////////////////////////////////////////////////
 
@@ -482,9 +523,75 @@ $( document ).ready(function() {
 		$("#theme").css("background-color","#f4f4f1").css("border-color","#f4f4f1").css("color","#333");
 		$("#category").css("background-color","#006633").css("border-color","#006633").css("color","white");
 	});
+	$("#show_inform").data('clicked',false);
+	$("#show_img").click(function(){
+		$(".show form").show();
+		$("#list_cate ul").show();
+		$("table").hide();
+		$("#show_inform").data('clicked',false);
+		$("#show_img").css("background","#666").css("border-color","#666").css("color","white");
+		$("#show_inform").css("background","white").css("border-color","lightgray").css("color","#333");
+		$("#show_img img").attr("src","http://localhost:9000/starbucks/images/icon_pic_on.png");
+		$("#show_inform img").attr("src","http://localhost:9000/starbucks/images/icon_ante.png");
+	});
+	$("#show_inform").click(function(){
+		$(".show form").hide();
+		$("#list_cate ul").hide();
+		$("table").show();
+		$(this).data('clicked',true);
+		$("#show_inform").css("background","#666").css("border-color","#666").css("color","white");
+		$("#show_img").css("background","white").css("border-color","lightgray").css("color","#333");
+		$("#show_img img").attr("src","http://localhost:9000/starbucks/images/icon_pic.png");
+		$("#show_inform img").attr("src","http://localhost:9000/starbucks/images/icon_ante_on.png");
+	});
+	$("#menu_th01").click(function(){
+		$("#menu_th01").css('border','2px solid #006633').css('margin','-2px');
+		$("#th_img_list>ul>li").hide();
+		$("#th_img_list>ul>li").each(function(idx, item){
+			if($(item).attr("id")=="th01"){
+				$(item).show();
+			}
+		});
+	});
+	
+	/* 상세분류 */
+	$("#one, #two").click(function(){
+		console.log('qwe',$("#one").is(':checked'));
+		$("#list_cate>div>ul>li, #list_cate>div.label").hide();
+		if($("#one").is(':checked')){
+			$("#list_cate ul>li>ul>li>img").each(function(idx, item){
+				if($(item).attr("id")=="mark01"){
+					console.log('뭐냐고',$(item));
+					$(item).parents("#list_cate ul>li").show();
+					$(item).parents("#list_cate>div").prev().show();
+				}
+			});
+		}else if($("#two").is(':checked')){
+			$("#list_cate ul>li>ul>li>img").each(function(idx, item){
+				if($(item).attr("id")=="mark02"){
+					$(item).parents("#list_cate ul>li").show();
+					$(item).parents("#list_cate>div").prev().show();
+				}
+			});
+		}else if(!$("#two").is(':checked')){
+			$("#list_cate ul>li>ul>li>img").each(function(idx, item){
+				if($(item).attr("id")=="mark02"){
+					$(item).parents("#list_cate ul>li").hide();
+					$(item).parents("#list_cate>div").prev().hide();
+				}
+			});
+		}
+	});
+	
+	
 	
 	
 });
+
+/* 페이지 온로드 */
+window.onload = function(){
+	
+}
 
 </script>
 </head>
@@ -524,7 +631,7 @@ $( document ).ready(function() {
 			<!-- 분류 -->
 			<div class="class">
 				<div class="btn_class">
-					<p>분류 보기</p>
+					<span>분류 보기</span>
 					<img src="http://localhost:9000/starbucks/images/list_up_btn.png" id="up_btn">
 				</div>
 				<div class="line"></div>
@@ -585,7 +692,7 @@ $( document ).ready(function() {
 						<form method="post">
 							<ul>
 								<li>
-									<img src="http://localhost:9000/starbucks/images/menu_th01.jpg">
+									<img src="http://localhost:9000/starbucks/images/menu_th01.jpg" id="menu_th01">
 								</li>
 							</ul>
 						</form>
@@ -597,8 +704,8 @@ $( document ).ready(function() {
 			<div>
 				<!-- 상세분류 -->				
 				<div class="show">
-					<a href="#"><img src="http://localhost:9000/starbucks/images/icon_pic_on.png"><span>사진으로 보기</span></a>
-					<a href="#"><img src="http://localhost:9000/starbucks/images/icon_ante.png"><span>영양정보로 보기</span></a>
+					<p id="show_img"><img src="http://localhost:9000/starbucks/images/icon_pic_on.png"><span>사진으로 보기</span></p>
+					<p id="show_inform"><img src="http://localhost:9000/starbucks/images/icon_ante.png"><span>영양정보로 보기</span></p>
 					<form>
 					  <div class="multiselect">
 					    <div class="selectBox" onclick="Checkboxes()" onmouseleave="hideCheckboxes()">
@@ -608,10 +715,10 @@ $( document ).ready(function() {
 					      <div class="overSelect"></div>
 					    </div>
 					    <div id="checkboxes" onmouseenter="showCheckboxes()" onmouseleave="hideCheckboxes()">
-					      <label for="one">
-					        <input type="checkbox" id="one" /><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label>
-					      <label for="two">
-					        <input type="checkbox" id="two" /><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="one"/><label for="one"><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="two" /><label for="two"><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label></label>
 					    </div>
 					  </div>
 					</form>
@@ -623,7 +730,7 @@ $( document ).ready(function() {
 					<div class="label" id="cold_brew_label">
 						<span class="list_label">콜드 브루 커피</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
-						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+						<span class="list_label2">디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 콜드브루 이미지 -->
 					<div id="cold_brew_list">
@@ -631,15 +738,15 @@ $( document ).ready(function() {
 							<li>
 								<ul>
 									<li><a href="drink_detail.jsp"><img src="http://localhost:9000/starbucks/images/cold_brew01.jpg" name="cold_brew01"></a></li>
-									<li><img src="http://localhost:9000/starbucks/images/mark01.png"></li>
+									<li><img src="http://localhost:9000/starbucks/images/mark01.png" id="mark01"></li>
 									<li><label for="cold_brew01">나이트로 바닐라 크림</label></li>
 								</ul>
 							</li>
 							<li>
 								<ul>
 									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cold_brew02.jpg" name="cold_brew02"></a></li>
-									<li><img src="http://localhost:9000/starbucks/images/mark01.png"></li>
-									<li><img src="http://localhost:9000/starbucks/images/mark02.png"></li>
+									<li><img src="http://localhost:9000/starbucks/images/mark01.png" id="mark01"></li>
+									<li><img src="http://localhost:9000/starbucks/images/mark02.png" id="mark02"></li>
 									<li><label for="cold_brew02">포레스트 콜드 브루</label></li>
 								</ul>
 							</li>
@@ -698,13 +805,123 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>나이트로 바닐라 크림</td>
+								<td>75</td>
+								<td>10</td>
+								<td>1</td>
+								<td>20</td>
+								<td>2</td>
+								<td>245</td>
+							</tr>
+							<tr>
+								<td>포레스트 콜드 브루</td>
+								<td>240</td>
+								<td>27</td>
+								<td>7</td>
+								<td>100</td>
+								<td>6</td>
+								<td>225</td>
+							</tr>
+							<tr>
+								<td>나이트로 콜드 브루</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>5</td>
+								<td>0</td>
+								<td>245</td>
+							</tr>
+							<tr>
+								<td>돌체 콜드 브루</td>
+								<td>265</td>
+								<td>29</td>
+								<td>8</td>
+								<td>115</td>
+								<td>9</td>
+								<td>150</td>
+							</tr>
+							<tr>
+								<td>바닐라 크림 콜드 브루</td>
+								<td>125</td>
+								<td>11</td>
+								<td>3</td>
+								<td>58</td>
+								<td>6</td>
+								<td>150</td>
+							</tr>
+							<tr>
+								<td>벨벳 다크 모카 나이트로</td>
+								<td>150</td>
+								<td>17</td>
+								<td>2</td>
+								<td>15</td>
+								<td>6</td>
+								<td>160</td>
+							</tr>
+							<tr>
+								<td>콜드 브루</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>11</td>
+								<td>0</td>
+								<td>150</td>
+							</tr>
+							<tr>
+								<td>콜드 브루 몰트</td>
+								<td>510</td>
+								<td>40</td>
+								<td>10</td>
+								<td>147.8</td>
+								<td>20</td>
+								<td>150</td>
+							</tr>
+							<tr>
+								<td>콜드 브루 오트 라떼</td>
+								<td>105</td>
+								<td>11</td>
+								<td>1</td>
+								<td>95</td>
+								<td>0.3</td>
+								<td>65</td>
+							</tr>
+							<tr>
+								<td>콜드 브루 플로트</td>
+								<td>230</td>
+								<td>18</td>
+								<td>3</td>
+								<td>69</td>
+								<td>10</td>
+								<td>150</td>
+							</tr>
+							<tr>
+								<td>프렌치 애플 타르트 나이트로</td>
+								<td>80</td>
+								<td>19</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>145</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 콜드브루 끝 -->
 					<!-- 브루드 커피 라벨 -->
 					<div class="label" id="brood_label">
 						<span class="list_label">브루드 커피</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
-						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+						<span class="list_label2">디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 브루드 커피 이미지 -->
 					<div id="brood_list">
@@ -722,13 +939,42 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>아이스 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+							<tr>
+								<td>오늘의 커피</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>260</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 브루드 커피 끝 -->
 					<!-- 에스프레소 라벨 -->
 					<div class="label" id="esp_label">
 						<span class="list_label">에스프레소</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
-						<span>디카페인 에스프레소 샷 선택 가능 (일부 음료 제외)</span>
+						<span class="list_label2">디카페인 에스프레소 샷 선택 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 에스프레소 이미지 -->
 					<div id="esp_list">
@@ -938,13 +1184,33 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>에스프레소 콘 파나</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 에스프레소 끝 -->
 					<!-- 프라푸치노 라벨 -->
 					<div class="label" id="fra_label">
 						<span class="list_label">프라푸치노</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
-						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+						<span class="list_label2">디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 프라푸치노 이미지 -->
 					<div id="fra_list">
@@ -952,8 +1218,8 @@ $( document ).ready(function() {
 							<li>
 								<ul>
 									<li><a href="#"><img src="http://localhost:9000/starbucks/images/fra01.jpg" name="fra01"></a></li>
-									<li><img src="http://localhost:9000/starbucks/images/mark01.png"></li>
-									<li><img src="http://localhost:9000/starbucks/images/mark02.png"></li>
+									<li><img src="http://localhost:9000/starbucks/images/mark01.png" id="mark01"></li>
+									<li><img src="http://localhost:9000/starbucks/images/mark02.png" id="mark02"></li>
 									<li><label for="fra01">바나나 크림 다크 초코 블렌디드</label></li>
 								</ul>
 							</li>
@@ -1042,6 +1308,26 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>에스프레소 콘 파나</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 프라푸치노 끝 -->
 					<!-- 블렌디드 -->
@@ -1049,7 +1335,7 @@ $( document ).ready(function() {
 					<div class="label" id="blended_label">
 						<span class="list_label">블렌디드</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
-						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+						<span class="list_label2">디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 블렌디드 이미지 -->
 					<div id="blended_list">
@@ -1091,6 +1377,26 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>에스프레소 콘 파나</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+						</table>
 					</div>
 					<!-- 블렌디드 끝 -->
 					<!-- 피지오 -->
@@ -1098,7 +1404,7 @@ $( document ).ready(function() {
 					<div class="label" id="fizzo_label">
 						<span class="list_label">피지오</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
-						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+						<span class="list_label2">디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 피지오 이미지 -->
 					<div id="fizzo_list">
@@ -1122,6 +1428,26 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>에스프레소 콘 파나</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+						</table>
 					</div>
 				<!-- 피지오 끝 -->
 					<!-- 티 -->
@@ -1129,7 +1455,7 @@ $( document ).ready(function() {
 					<div class="label" id="tea_label">
 						<span class="list_label">티(티바나)</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
-						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+						<span class="list_label2">디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 티 이미지 -->
 					<div id="tea_list">
@@ -1345,6 +1671,26 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>에스프레소 콘 파나</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+						</table>
 					</div>
 				<!-- 티 끝 -->
 					<!-- 기타 -->
@@ -1352,7 +1698,7 @@ $( document ).ready(function() {
 					<div class="label" id="etc_label">
 						<span class="list_label">기타 제조 음료</span>
 						<img src="http://localhost:9000/starbucks/images/logo_decaf.png">
-						<span>디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
+						<span class="list_label2">디카페인 에스프레소 샷 추가 가능 (일부 음료 제외)</span>
 					</div>
 					<!-- 기타 이미지 -->
 					<div id="etc_list">
@@ -1360,12 +1706,15 @@ $( document ).ready(function() {
 							<li>
 								<ul>
 									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc01.jpg" name="etc01"></a></li>
+									<li><img src="http://localhost:9000/starbucks/images/mark01.png" id="mark01"></li>
+									<li><img src="http://localhost:9000/starbucks/images/mark02.png" id="mark02"></li>
 									<li><label for="etc01">샤이닝 머스캣 에이드</label></li>
 								</ul>
 							</li>
 							<li>
 								<ul>
 									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc02.jpg" name="etc02"></a></li>
+									<li><img src="http://localhost:9000/starbucks/images/mark01.png" id="mark01"></li>
 									<li><label for="etc02">스타벅스 슬래머</label></li>
 								</ul>
 							</li>
@@ -1442,12 +1791,32 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>에스프레소 콘 파나</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+						</table>
 					</div>
 				<!-- 기타 끝 -->
 					<!-- 주스 -->
 					<!-- 주스 라벨 -->
 					<div class="label" id="juice_label">
-						<span class="list_label">스차벅스 주스(병음료)</span>
+						<span class="list_label">스타벅스 주스(병음료)</span>
 					</div>
 					<!-- 피지오 이미지 -->
 					<div id="juice_list">
@@ -1537,8 +1906,33 @@ $( document ).ready(function() {
 								</ul>
 							</li>
 						</ul>
+						<table border=1 class="tb">
+							<tr>
+								<th>메뉴</th>
+								<th>칼로리(Kcal)</th>
+								<th>당류(g)</th>
+								<th>단백질(g)</th>
+								<th>나트륩(mg)</th>
+								<th>포화지방(g)</th>
+								<th>카페인(mg)</th>
+							</tr>
+							<tr>
+								<td>에스프레소 콘 파나</td>
+								<td>5</td>
+								<td>0</td>
+								<td>0</td>
+								<td>10</td>
+								<td>0</td>
+								<td>140</td>
+							</tr>
+						</table>
 					</div>
 				<!-- 주스 끝 -->
+				
+				<!-- 검색 결과 x -->
+				<!-- <div id="no_result">
+					<span>검색 결과가 없습니다.</span>
+				</div> -->
 				</div><!-- 카테고리 -->
 				
 				<!-- 테마 -->
@@ -1546,21 +1940,21 @@ $( document ).ready(function() {
 					<!--이미지 -->
 					<div id="th_img_list">
 						<ul>
-							<li>
+							<li id="th01">
 								<ul>
 									<li><a href="drink_detail.jsp"><img src="http://localhost:9000/starbucks/images/cold_brew02.jpg" name="th01"></a></li>
 									<li><label>포레스트 콜드 브루</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/fra01.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/fra01.jpg"></a></li>
 									<li><label>바나나 크림 다크 초코 블렌디드</label></li>
 								</ul>
 							</li>
-							<li>
+							<li id="th01">
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc01.jpg" name="th01"></a></li>
+									<li><a href="#"><img src="http://localhost:9000/starbucks/images/etc01.jpg"></a></li>
 									<li><label>샤이닝 머스캣 에이드</label></li>
 								</ul>
 							</li>
@@ -1568,6 +1962,7 @@ $( document ).ready(function() {
 					</div>
 					<!-- 이미지 끝 -->
 				</div><!--테마 -->
+			
 			</div>
 		</div>
 		
