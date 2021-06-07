@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"   
+    import= "java.sql.*, java.util.*, com.starbucks.dao.*, com.starbucks.vo.*"
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
 #wrapper {
   text-align: center;
 }
@@ -221,7 +222,9 @@ nav ul, li {
     max-width: 570px;
     height: 65px;
     margin-bottom: 35px;
-    
+    width: 570px;
+    font-size: 25px;
+    color: #ffffff;
 }
 .btn_mem_login a {
     color: #fff;
@@ -231,26 +234,38 @@ nav ul, li {
     text-decoration: none;
     
 }
-
 </style>
+<script>
+function check_pw(){
+   if(document.joinform.pass.value != document.joinform.pass2.value){
+	   alert("비밀번호가 일치하지 않습니다.")
+	   document.joinform.pass.focus();
+	   return;
+   }
+   document.joinform.submit();
+}
+</script>
+Colored by Color Scripter
+</script>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 <strong><span class="join">회원가입</span></strong>
 
 <!--  아이디 및 패스워드 폼  & 첫번째 section-->
+<form name= "joinform" action= "joinprocess.jsp" method="post">
 <section class= "first_section">
 <div id= "wrapper">
    <div><img class="member_sally" src="http://localhost:9000/starbucks/images/join_icon.png"></div> 
 <p class="information">회원정보를 입력해 주세요.</p>
 <div class = "check_box">
-<label></label><input  type="text" placeholder="아이디" maxlength="13">
+<label></label><input  type="text" placeholder="아이디" maxlength="13" name= "id">
 </div>
 <div class = "check_box">
-<label></label><input type="text" placeholder="비밀번호" maxlength="20" autocomplete="off">
+<label></label><input type="password" placeholder="비밀번호" maxlength="20" autocomplete="off" name= "pass" id= "pass">
 </div>
 <div class = "check_box">
-<label></label><input type="text" placeholder="비밀번호 확인" maxlength="20">
+<label></label><input type="password" placeholder="비밀번호 확인" maxlength="20" id ="pass2">
 </div>
 </div>
 </section>
@@ -259,7 +274,7 @@ nav ul, li {
 <section class= "second_section">
 <div class= "check_box">
 <strong>이름<span class= "type_green">(필수)</span></strong>
-<label></label><input type="text" placeholder="이름을 입력하세요." maxlength="10">
+<label></label><input type="text" placeholder="이름을 입력하세요." maxlength="10" name= "name">
 </div>
 <!-- 
 <span class = "gender_box">
@@ -287,10 +302,7 @@ nav ul, li {
 </div>
 
 <div class="birth_select_yny">
-<select id="birth_flag" name="birth_flag">
-<option selected="selected" value="1">양</option>
-<option value="2">음</option>
-</select>
+<select id="birth_flag" name="birth_flag"><option selected="selected" value="양">양</option><option value="음">음</option></select>
 </div>
 </div>
 
@@ -301,11 +313,11 @@ nav ul, li {
 <!-- 휴대폰 번호  -->
 <div class= "check_box">
 <strong>휴대폰<span class= "type_green">(필수)</span></strong>
-<label></label><input type="text" placeholder="휴대폰 번호를 입력하세요." maxlength="50" autocomplete="off">
+<label></label><input type="text" placeholder="휴대폰 번호를 입력하세요." maxlength="50" autocomplete="off" name="hp">
 </div>
 <div class= "check_box">
 <strong>메일<span class= "type_green">(필수)</span></strong>
-<label></label><input type="text" placeholder="E-mail을 입력하세요." maxlength="50" autocomplete="off">
+<label></label><input type="text" placeholder="E-mail을 입력하세요." maxlength="50" autocomplete="off" name= "email">
 
 </div>
 
@@ -381,7 +393,7 @@ nav ul, li {
     </div>
     </section>
     <div class= "check_box">
-    <input type="text" name="user_nick_nm" id="user_nick_nm" placeholder="한글 6자리 이내로 입력하세요." 
+    <input type="text" name="nick" id="user_nick_nm" placeholder="한글 6자리 이내로 입력하세요." 
     maxlength="6" class="">
     </div>
     
@@ -392,8 +404,9 @@ nav ul, li {
 </b>
 </p>
 <p class="btn_mem_login">
-<a href="">가입하기</a>
+<input class= "btn_mem_login" onclick="check_pw()" value = "가입하기">
 </p>
+</form>
 <jsp:include page="../footer.jsp"></jsp:include>
 
 </body>
