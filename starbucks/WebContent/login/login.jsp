@@ -174,7 +174,7 @@ section.login nav>ul>li>div{
 <div>
 	<section class="login">
 		<h1 class="title">로그인</h1>
-		<form class="content_layout" name="login_form" action="#" method="post">
+		<form class="content_layout" name="login_form" action="loginprocess.jsp" method="post">
          	<ul>
          		<li>
          			<div class="welcome"><span class="welcome1">Welcome!&nbsp;</span><span class="welcome2">스타벅스커피 코리아에 오신 것을 환영합니다.</span></div>
@@ -207,12 +207,12 @@ section.login nav>ul>li>div{
 						<li><a href="http://localhost:9000/starbucks/login/find_id.jsp">아이디 찾기</a></li>
 						<li><div></div></li>
 						<li><a href="http://localhost:9000/starbucks/login/find_pass.jsp">비밀번호 찾기</a></li>
-					</ul>
-				</nav>
-			</div>
-         </form>
-	</section>
-</div>
+						</ul>
+					</nav>
+				</div>
+</form>
+		</section>
+	</div>
 
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>
