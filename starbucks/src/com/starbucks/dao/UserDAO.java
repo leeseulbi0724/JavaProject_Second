@@ -67,7 +67,7 @@ public class UserDAO extends DBConn {
 	public boolean getLoginResult(String id, String pass) {
 		
 		boolean result = false;
-		String sql= "select count(*) from mycgv_member where id=? and pass=?";
+		String sql= "select count(*) from sb_member where id=? and pass=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -82,9 +82,7 @@ public class UserDAO extends DBConn {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		close();
-		
-		
+		close();		
 		return result;
 	}
 }
