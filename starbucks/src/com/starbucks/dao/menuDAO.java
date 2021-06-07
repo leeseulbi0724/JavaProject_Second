@@ -1,5 +1,5 @@
 package com.starbucks.dao;
 
-public class menuDAO extends DBConn {
+public class menuDAO extends DBConn2 {
 
 }

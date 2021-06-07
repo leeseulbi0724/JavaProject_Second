@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>에스프레소 음료 | Starbucks Coffee Korea</title>
 <style>
 /******************* 타이틀 ****************************/
 .espresso_ttl{
@@ -61,9 +61,9 @@ ul.smap li{
 	padding-bottom:30px;
 }
 .espresso div {
-	width:55%;
-	position: absolute;
-	margin: 0 auto 0 23%;
+	width:1100px;
+	position: relative;
+	margin:10px auto;
 }
 .espresso_info dl {
 	margin: 0 auto 150px 23%;
@@ -150,35 +150,35 @@ ul.smap li{
 		<div class="espresso_list_inner">
 			<ul>
 				<li>
-					<div><a href="#" ><img src="http://localhost:9000/starbucks/images/espresso_list_img01.jpg" class="list_img"></a></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp" ><img src="http://localhost:9000/starbucks/images/espresso_list_img01.jpg" class="list_img"></a></div>
 					<div class="esp_text"><p>모든 에스프레소 음료의 생명이자 영혼입니다. <br>스타벅스에서 추출하는 모든 샷에는 깊고 강렬한 풍미를 내는 <br>독특한 세 개의 층이 형성됩니다. </p></div>
 				</li>
 				<li>
-					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img02.jpg" class="list_img"></a></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img02.jpg" class="list_img"></a></div>
 					<div class="esp_text"><p>완벽하고 강렬한 에스프레소 샷에 우유 거품이 살짝 <br>올라갑니다.</p></div>
 				</li>
 				<li>
-					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img03.jpg" class="list_img"></a></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img03.jpg" class="list_img"></a></div>
 					<div class="esp_text"><p>에스프레소의 풍미를 느낄 수 있습니다. <br>진한 에스프레소에 뜨거운 물 한 잔을 부어서 만든 아메리카노는 <br>커피콩 그 자체만큼이나 깊이 있고 다크한 맛을 냅니다.</p></div>
 				</li>
 				<li>
-					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img04.jpg" class="list_img"></a></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img04.jpg" class="list_img"></a></div>
 					<div class="esp_text"><p>달콤한 드리즐, 빽빽한 우유 거품, 진한 에스프레소, 스팀 밀크, <br>그리고 너무나도 달콤한 끝 맛이 층을 이루고 있는 <br>환상적인 맛입니다.</p></div>
 				</li>
 				<li>
-					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img05.jpg" class="list_img"></a></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img05.jpg" class="list_img"></a></div>
 					<div class="esp_text"><p>부드러운 두꺼운 우유 거품 아래에 다크하고 진한 에스프레소가 <br>숨겨져 있습니다.<br>카푸치노는 진정으로 스타벅스 바리스타의 솜씨의 정수를 <br>보여줍니다. </p></div>
 				</li>
 				<li>
-					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img06.jpg" class="list_img"></a></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img06.jpg" class="list_img"></a></div>
 					<div class="esp_text"><p>맛있는 에스프레소와 스팀 밀크가 섞인 라떼는 더하고자 하는 <br>어떤 맛과도 완벽한 조화를 이룹니다. </p></div>
 				</li>
 				<li>
-					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img07.jpg" class="list_img"></a></div>									
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img07.jpg" class="list_img"></a></div>									
 					<div class="esp_text"><p>뜨거운 에스프레소와 달콤쌉싸름한 초콜릿이 스팀 밀크와 <br>혼합된 달콤하고 맛있는 음료입니다. </p></div>
 				</li>
 				<li>
-					<div><a href="#"><img src="http://localhost:9000/starbucks/images/espresso_list_img08.jpg" class="list_img"></a></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img08.jpg" class="list_img"></a></div>
 					<div class="esp_text"><p>강렬한 리스트레토 샷과 적당한 양의 스팀 밀크가 어우러져 <br>너무 진하지도 너무 크리미하지도 않은 풍미를 냅니다. </p></div>
 				</li>
 			</ul>

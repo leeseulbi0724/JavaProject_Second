@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.starbucks.dao.*, com.starbucks.vo.*"  %>
+<%
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>커피 | Starbucks Coffee Korea</title>
 </head>
 <style>
 	html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
@@ -17,7 +21,7 @@
 }
 .coffee_kor_txt{
 	padding-top: 30px;
-	position: relative;
+	position: relative;`
 }
 .sub_title{
 	width: 100%;
@@ -145,7 +149,7 @@ section.coffee_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3px;
 	margin: 0 auto;
 }	
 .cname__list > li{
-	margin: 10px;
+	margin:20px 10px;
 	position: relative;
 	width: 260px;
 	display: inline-block;
@@ -155,9 +159,12 @@ section.coffee_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3px;
 	color: #666666;
 	height: 16px;
 	text-align: center;
-	padding:0 0 10px 25px;
+	padding:20px 0 10px 25px;
 }
-
+.cname_list img:hover {
+	transform: scale(1.1, 1.1);
+	transition: all 1s ease-in-out;
+}
 .category span{
 	margin-left:20px;
 	padding:15px;
@@ -181,13 +188,13 @@ section.coffee_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3px;
 }
 div.detail_list {
 	position:relative;
-	width:77%;
-	text-align:right;
-	padding-top:20px;
+	width:100%;
+	text-align:center;
+	padding:20px 0;
+	padding-left:400px;
 }
 div.detail_list>select {
-	position:relative;
-	width:280px;
+	width:290px;
 	height:30px;
 }
 div.coffee_list>div {
@@ -272,12 +279,13 @@ div.coffee_list>div p {
 		<div class="cname_list">
 			<div class="cname_list_inner">
 				<ul class="cname__list">
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg"></a><p>베란다 블렌드 250g</p></div></li>
+					<li><div><a href ="coffee_detail.jsp"><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg"></a><p>베란다 블렌드 250g</p></div></li>
 				</ul>
 			</div>
 		</div>
 	</article>
 	
+      <!-- db 연동 for(){ -->
 		<article>
 		<div class="coffee_list">
 			<div>
@@ -287,18 +295,17 @@ div.coffee_list>div p {
 		<div class="cname_list">
 			<div class="cname_list_inner">
 				<ul class="cname__list">
+				
+				 <!-- db 연동 for(){ -->
 					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20210407152219775.jpg"></a><p>인도네시아 웨스트 자바 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722234902895.jpg"></a><p>디카페인 하우스 블렌드 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722235711419.jpg"></a><p>케냐 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150809121431365.jpg"></a><p>콜롬비아 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722234902895.jpg"></a><p>하우스 블렌드 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722231217840.jpg"></a><p>브렉퍼스트 블렌드 250g</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20170626182257204.jpg"></a><p>에티오피아 250g</p></div></li>
+					<!-- } -->
+					
 				</ul>
 			</div>
 		</div>
 	</article>
-
+	<!-- } -->
+	
 	<article>
 		<div class="coffee_list">
 			<div>
