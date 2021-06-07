@@ -4,17 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>WHAT'S NEW | Starbucks Coffee Korea</title>
 <script src="js/jquery-3.6.0.min.js"></script>
 <style>
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
 .sub_title{
 	width: 100%;
 	height: 98px;
@@ -39,7 +31,10 @@ ul.smap{
 	top: 60px;
 	list-style: none;
 	display: inline-block;
+	font-size:13px;
+	text-decoration:none;
 }
+ul.smap a:hover { text-decoration:underline; }
 ul.smap li{
 	display: inline-block;
 	margin-right: 2px;
@@ -55,14 +50,14 @@ ul.smap li{
 	width: 600vw;
 	transition: transform 0.5s;
 }
-.slides{
+.slides {
 	width: 100vw;
 	float: left;
 }
 .slides img{
 	width: 100%;
 }
-.other{
+.other {
 	width: 1100px;
 	height: 70px;
 	background: url(http://localhost:9000/starbucks/images/green_bg.jpg);
@@ -71,7 +66,7 @@ ul.smap li{
     margin-left: -550px;
     margin-top: 0;	
 }
-.other p{
+.other p {
 	text-align: center;
     position: relative;
     left: 20px;
@@ -80,126 +75,174 @@ ul.smap li{
 .other p a{
 	font-size: 26px;
 	color: #ffffff;
+	cursor:pointer;
 }
-.other_lo{
+.other p a:hover { text-decoration:underline; }
+.other_lo {
 	width: 100%;
-	height: 70px;
+	height:70px;
     background: #7b7c7f;
     margin:0;
 }
 .other p a img{
 	vertical-align: middle;
 	-webkit-filter: opcity(.5) drop-shadow(0 0 0 white);
-	filter: opcity(.5) drop-shadow(0 0 0 white);
-	
+	filter: opcity(.5) drop-shadow(0 0 0 white);	
 }
-.event_img{
-	display: none;
-	margin: 0 auto;
-	max-width: 100%;
-	vertical-align: top;
+.down {
+	width:100%;
+	height:800px;
+	background-color:white;
+	position:relative;
+	display:none;
+	text-align:center;
 }
-.event{
+.down div {
+	height:500px;
+	text-align:center;
+}
+.down div section {
+	display:inline-block;	
+	width:1000px;
+	height:400px;
+}
+.down div section>p {
+	text-align:left;
+	font-weight:bold;
+	margin:20px 0;
+	font-size:18px;
+}
+.event_list {
 	width: 100%;
-	height: 430px;
-	background-size: cover;
-	position: relative;
-	background: url(http://localhost:9000/starbucks/images/promotion_bimg1.jpg) 20% 50% no-repeat;
-	
 }
-.event_inner{
-	width: 1100px;
+.event_list_inner{
+	width: 1150px;
 	margin: 0 auto;
-	position: relative;
-}
-.event_txt{
-	width: 258px;
-	position: absolute;
-	left: 595px;
-	top: 115px;
-}
-.event_btn{
-	width: 121px;
-	height: 34px;
-	border: 2px solid #fff;
-	border-radius: 3px;
-	position: absolute;
-	left: 760px;
-	top: 253px;
-	line-height: 34px;
-}
-.event_btn a{
-	color: #fff;
-	display: block;
+}	
+.event__list > li > div > h4{
 	text-align: center;
-	width: 100%;
+	font-size: 14px;
+	color: #444444;
+	height: 16px;
+	line-height: 16px;
+	white-space: nowrap;
+	overflow: hidden;
 }
-.news{
-	width: 100%;
-	height: 430px;
-	background-size: cover;
+.event__list > li{
+	margin:10px;
 	position: relative;
-	background: url(http://localhost:9000/starbucks/images/promotion_bimg2.jpg) 80% 50% no-repeat;
+	width: 260px;
+	height:320px;
+	display: inline-block;
+	border:1px solid lightgray;
 }
-.news_inner{
-	width: 1100px;
-	margin: 0 auto;
+.event__list > li {
+	float:left;
 }
-.news_text img{
-	position: absolute;
-	top: 130px;
-}
-.news_btn{
-	width: 121px;
-	height: 34px;
-	border: 2px solid #222222;
-	border-radius: 3px;
-	position: absolute;
-	
-	top: 253px;
-	line-height: 34px;
-}
-.news_btn a{
-	color: #222222;
-	display: block;
+.event__list > li > div > p{
+	font-size: 12px;
+	color: #666666;
+	height: 16px;
+	margin-top: 8px;
 	text-align: center;
-	width: 100%;
-	
 }
-.store_event{
-	width: 100%;
-	height: 430px;
-	background-size: cover;
-	position: relative;
-	background: url(http://localhost:9000/starbucks/images/promotion_bimg3.jpg) 20% 50% no-repeat;
-	
+.event__list div.box { 
+	width:260px; height:260px; overflow:hidden;
+	margin-bottom:12px;
 }
-.download{
-	width: 100%;
-	height: 430px;
-	background-size: cover;
-	position: relative;
-	background: url(http://localhost:9000/starbucks/images/promotion_bimg4.jpg) 20% 50% no-repeat;
-	
+.image:hover { 
+	 -webkit-transform: scale(1.1);
+	transition: all 1s ease-in-out;
 }
+
 div > button{
 padding: 0;
 border: none;
 background: none;
 }
 
-.div_btn{
-	bottom: 223px;
+.div_btn {
     height: 12px;
-    position: absolute;
     text-align: center;
     width: 100%;
-    z-index: 9999;
     display: inline-block;
 }
 
+	/***** 이벤트 ******/
+	.event {
+		text-align:center;
+		width:100%; height:420px;
+		background-image:url("http://localhost:9000/starbucks/images/promotion_bimg1.jpg");
+		background-repeat: no-repeat;
+		background-position:left;
+		background-size: cover;
+	}	
+	.event div { display:inline-block; text-align:left; margin:100px 0 0 700px; }
+	
+	.event a { 
+		color:white; text-decoration:none; border:2px solid white; border-radius:3px; padding:5px 20px 5px 20px;
+		font-size:13px; display:inline-block; margin-top:20px;		
+	}
+	.event a:hover, .store_event a:hover {
+		color:black;
+		background-color:white;
+		text-decoration:underline;
+	}
+	
+	
+	/***** 뉴스 ******/
+	.news {
+		text-align:center;
+		width:100%; height:420px;
+		background-image:url("http://localhost:9000/starbucks/images/promotion_bimg2.jpg");
+		background-repeat: no-repeat;
+		background-position:center;
+		background-size: cover;
+	}	
+	.news div { 
+		display:inline-block;
+		text-align:left; margin:120px 570px 0 0;
+	}
+	.news img, .store_event img, .download  img { margin-bottom:20px; }
+	.news a, .download  a { border:2px solid; padding:5px 20px 5px 20px; font-size:13px; border-radius:3px; }
+	.news a:hover, .download a:hover {
+		color:white;
+		background-color:black;
+		text-decoration:underline;
+	}
+	
+	
+	/***** 스토어이벤트 ******/
+	.store_event {
+		text-align:center;
+		width:100%; height:420px;
+		background-image:url("http://localhost:9000/starbucks/images/promotion_bimg3.jpg");
+		background-repeat: no-repeat;
+		background-position:left;
+		background-size: cover;
+	}		
+	.store_event div { 
+		display:inline-block;
+		text-align:left; margin:120px 0 0 700px;
+	 }
+	.store_event a { 
+	 	border:2px solid white; padding:5px 20px 5px 20px; font-size:13px; border-radius:3px; color:white;
+	  }	
+	
+	
+	/***** 웰페이퍼 ******/
+	.download {
+		text-align:center;
+		width:100%; height:420px;
+		background-image:url("http://localhost:9000/starbucks/images/promotion_bimg2.jpg");
+		background-repeat: no-repeat;
+		background-position:left;
+		background-size: cover;
+	}	
+	.download  div { display:inline-block;  text-align:left; margin:120px 570px 0 0; }
 
 </style>
+<script src="http://localhost:9000/starbucks/js/jquery-3.6.0.min.js"></script>
 <script>
 
 window.onload = function(){
@@ -227,6 +270,22 @@ window.onload = function(){
 	      document.getElementById("img").src = "http://localhost:9000/starbucks/images/visual_on.png";
 	    }
 }
+
+$(document).ready(function() {
+	$("#down_click").click(function() {
+		var name = $("#down_img").attr("name");
+		
+		if ( name == "down" ) {
+			$(".down").slideDown();
+			$("#down_img").attr("src","http://localhost:9000/starbucks/images/useInfo_btn_up.png");
+			$("#down_img").attr("name","up");			
+		} else {
+			$(".down").slideUp();
+			$("#down_img").attr("src","http://localhost:9000/starbucks/images/useInfo_btn_down.png");
+			$("#down_img").attr("name","down");			
+		}
+	});
+});
 		
 </script>
 </head>
@@ -243,7 +302,7 @@ window.onload = function(){
 	<ul class="smap">
 	<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
 	<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-	<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew.jsp" style="text-decoration-line: none;">WHAT'S NEW</a></li>
+	<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew.jsp" >WHAT'S NEW</a></li>
 	</ul>
 	</div>
  </div>	
@@ -271,7 +330,7 @@ window.onload = function(){
 	</div>
 </div>
 <!-- 슬라이드 버튼  -->
-<div class="div_btn">
+<div class="div_btn" >
 <button onclick="toggleImg();" class="btn1"><img id="img" src="http://localhost:9000/starbucks/images/visual_off.png"></button>
 <button id="img" class="btn2"><img src="http://localhost:9000/starbucks/images/visual_off.png"></button>
 <button id="img" class="btn3"><img src="http://localhost:9000/starbucks/images/visual_off.png"></button>
@@ -281,73 +340,62 @@ window.onload = function(){
 </div>
 
 <!--  전체보기  -->
-<div class="other_lo">
+<div class="other_lo" >
 	<div class="other">
 		<p>
-			<a href="#">전체 보기&nbsp;&nbsp;<img src="http://localhost:9000/starbucks/images/useInfo_btn_down.png" ></a>
+			<a id="down_click">전체 보기&nbsp;&nbsp;<img name="down" id="down_img" src="http://localhost:9000/starbucks/images/useInfo_btn_down.png" ></a>
 		</p>
 	</div>
 </div>
-
-<!-- 이벤트 -->
-<div class="event">
-	<div class= "event_inner">
-		<img class= "event_img"src="http://localhost:9000/starbucks/images/promotion_bimg1.jpg">
-	
-	<div class= "event_txt">
-		<img alt="이벤트. 다양하고 특별한 프로모션과 이벤트를 통해 풍성한 혜택을 누려보세요." src="http://localhost:9000/starbucks/images/promotion_btxt1_20210218.png">
-	</div>
-	</div>
-	<div class="event_btn">
-		<a href="event.jsp" title="이벤트 자세히 보기">자세히 보기</a>
+<div class="down">
+	<img src="http://localhost:9000/starbucks/images/green_edge.png" style="vertical-align:top;">
+	<div>
+		<section>
+			<p>프로모션 & 이벤트
+			<div class="event_list">
+			<div class="event_list_inner">
+				<ul class="event__list">
+					<li><div><a href ="event_content.jsp?eid=E_2"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210517083147274.jpg"></div></div></a><h4>스타벅스 현대카드 5~6월 한정 혜택</h4><p>2021-05-01 ~ 2021-06-30</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_6"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210503091447483.jpg"></div></div></a><h4>2021 서머 e-프리퀀시</h4><p>2021-05-11 ~ 2021-07-19</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_7"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210429161452776.jpg"></div></div></a><h4>e-Gift item 보너스 스타 이벤트</h4><p>2021-01-01 ~ 2021-12-31</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_8"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210412153011014.jpg"></div></div></a><h4>서머1 프로모션</h4><p>2021-04-13 ~ 2021-06-07</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_9"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_FILE20210202095614358.jpg"></div></div></a><h4>만원당 별 적립 이벤트</h4><p>2021-01-01 ~ 2021-12-31</p></div></li>
+				</ul>
+			</div>
+		</div>
+		</section>
 	</div>
 </div>
 
-<!-- 뉴스  -->
-<div class="news">
-	<div class="news_inner">
-		<img class="event_img" src="http://localhost:9000/starbucks/images/promotion_bimg2.jpg">
-		<div class="news_text">
-			<img src="http://localhost:9000/starbucks/images/promotion_btxt2_20210218.png">
-		</div>
-		<div class= "news_btn">
-			<a href="" title="뉴스 자세히 보기">자세히 보기</a>
+	<div class="event">
+		<div>
+			<img src="http://localhost:9000/starbucks/images/promotion_btxt1_20210218.png"><br>
+			<a href="#">자세히 보기</a>
 		</div>
 	</div>
-</div>
-
-<!-- 매장별 이벤트 -->
-<div class="store_event">
-	<div class= "event_inner">
-		<img class= "event_img"src="http://localhost:9000/starbucks/images/promotion_bimg1.jpg">
-	
-	<div class= "event_txt">
-		<img src="http://localhost:9000/starbucks/images/promotion_btxt3.png">
-	</div>
-	</div>
-	<div class="event_btn">
-		<a href="" title="이벤트 자세히 보기">자세히 보기</a>
-	</div>
-</div>
-
-<!--월페이퍼 다운로드 -->
-<div class="download">
-	<div class="news_inner">
-		<img class="event_img" src="http://localhost:9000/starbucks/images/promotion_bimg2.jpg">
-		<div class="news_text">
-			<img src="http://localhost:9000/starbucks/images/promotion_btxt4.png">
-		</div>
-		<div class= "news_btn">
-			<a href="" title="뉴스 자세히 보기">자세히 보기</a>
+	<div class="news">
+		<div>
+			<img src="http://localhost:9000/starbucks/images/promotion_btxt2_20210218.png"><br>
+			<a href="#">자세히 보기</a>
 		</div>
 	</div>
-</div>
+	<div class="store_event">
+		<div>
+			<img src="http://localhost:9000/starbucks/images/promotion_btxt3.png"><br>
+			<a href="#">자세히 보기</a>
+		</div>
+	</div>
+	<div class="download">
+		<div>
+			<img src="http://localhost:9000/starbucks/images/promotion_btxt4.png"><br>
+			<a href="#">자세히 보기</a>
+		</div>
+	</div>
 <!-- Footer -->
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>
 <script>
-function toggleImg() {
-	
+function toggleImg() {	
     document.getElementById("img").src = "http://localhost:9000/starbucks/images/visual_on.png";
   }
 </script>

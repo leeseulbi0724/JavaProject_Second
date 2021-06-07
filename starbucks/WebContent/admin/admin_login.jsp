@@ -43,6 +43,7 @@
 </script>
 </head>
 <body>
+		<div><a href="http://localhost:9000/starbucks/index.jsp"><img src="http://localhost:9000/starbucks/images/icon_home_white.png"></a></div>
 		<div class="title">관리자 로그인</div>
 		<ul>
 			<li>

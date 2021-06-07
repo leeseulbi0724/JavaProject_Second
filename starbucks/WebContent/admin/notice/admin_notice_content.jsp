@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import = "com.starbucks.dao.noticeDAO,com.starbucks.vo.noticeVO,java.sql.*,java.util.*" %> 
+	<%
+ 		String nid = request.getParameter("nid");	
+		noticeDAO ndao = new noticeDAO();		
+		noticeVO vo = ndao.getContentResult(nid);		
+		ndao.close();
+ 	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,17 +19,22 @@
 		margin:10px 0; display:inline-block; width:90%;
 		font-size:22px; font-weight:bold; padding:5px;
 	 }
-	 .c_content { border:1px solid lightgray; display:inline-block; width:95%; margin-top:10px; height:400px; }
-	 .box button { margin-top:10px; }
-	  button.btn_style { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }
+	 .c_content { display:inline-block; width:95%; margin-top:10px; height:400px; }
+	 textarea { width:90%; height:300px; border:1px solid lightgray; margin-top:10px; }
+	  a.btn_style { 
+	  	margin-top:10px; 
+	  	padding:0 5px;
+	  	background-color:rgb(56,57,78); 
+	  	color:white; 
+	  	border:1px solid lightgray; 
+	  	cursor:pointer; 
+	  	text-decoration:none;
+	  	font-size:14px;
+	  }
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
-	$(document).ready(function() {		
-		$("#update").click(function() {
-			location.href = "http://localhost:9000/starbucks/admin/notice/admin_notice_update.jsp";
-		});
-		
+	$(document).ready(function() {				
 		$(".span1").click(function() {
 			location.replace("http://localhost:9000/starbucks/admin/notice/admin_notice.jsp");
 		});
@@ -44,29 +55,11 @@
 			<div class="text">Home > <span class="span1">공지사항 관리</span> > <span class="span2">상세보기</span></div>
 			<div class="center">
 				<div class="box">
-					<div class="c_content"  style="overflow:scroll" >
-					<div class="c_title">스타벅스 공지사항</div>
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
-						<p>내 용
+					<div class="c_content"  >
+						<div class="c_title"><%= vo.getTitle() %></div>
+						<textarea disabled><%= vo.getContent() %></textarea>
 					</div>
-					<div><button tpye="button" class="btn_style" id="update">수정하기</button></div>
+					<div><a href="admin_notice_update.jsp?nid=<%= nid %>" class="btn_style"  id="update">수정하기</a></div>
 				</div>
 			</div>
 		</section>

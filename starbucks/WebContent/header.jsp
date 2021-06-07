@@ -14,6 +14,9 @@
 	    vertical-align: baseline;
 	    background: transparent;
 	}
+	body {
+		
+	}
 	header>div, header>ul.login{
 		width:1200px;
 		margin:auto;
@@ -200,7 +203,7 @@
 	   							<li><a href="http://localhost:9000/starbucks/whatsnew/event.jsp" class="m">전체</a></li>
    							</ul>
    							<ul class="s_notice">
-   								<li><a href="#" class="m" style="color:white"><strong>공지사항</strong></a></li><br>
+   								<li><a href="http://localhost:9000/starbucks/whatsnew/notice.jsp" class="m" style="color:white"><strong>공지사항</strong></a></li><br>
    							</ul>
 						</div></div></li>
 					</ul>

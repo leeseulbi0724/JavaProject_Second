@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Starbucks Coffee Korea</title>
-<!--  	background-repeat:no-repeat;  -->
+<link rel="stylesheet"  href="http://localhost:9000/starbucks/whatsnew/carousel.css">
 <style>
 body { overflow-x:hidden; overflow-y:auto; }
  div.reward{ 
@@ -18,10 +18,7 @@ div.carousel {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	/*background: url("http://localhost:9000/starbucks/images/2021_summer1_bg.jpg") no-repeat center/cover;*/
 }
-
-
 /***************************** caraousel **********************************/
 div.carousel article div {  	display:inline-block;  }
 div.carousel article div:first-child>img { postion:relative; margin-bottom:200px; margin-left:80px;  }
@@ -108,16 +105,18 @@ div.notice img, div.promotion img { display:inline-block;  float:right; position
 div.promotion img { top:15px; right:100px; }
 label.p_link { cursor:pointer; }
 
-#down_content { display:none; width:100%; height:650px; background-color:rgb(246,246,238); float:left; text-align:center; }
-.down_01 { display:inline-block; text-align:center; margin-left:150px; margin-top:50px; }
-.down_01 img { border:1px solid lightgray; }
-.down_01 a { color:black; position:relative; right:470px; bottom:30px; display:inline-block; }
-.down_01 a:hover { background-color:black; color:white; text-decoration:underline; }
-.next { 
-	border:1px solid black; border-radius:50px; display:inline-block; width:70px; height:70px; font-size:70px; line-height:55px; 
-	position:relative; bottom:230px; right:50px; cursor:pointer;
+#down_content { display:none; width:100%; height:600px; background-color:rgb(246,246,238); float:left; text-align:center; }
+#demo { 
+margin-top:20px;
+background-image:url("http://localhost:9000/starbucks/images/demo_bg.jpg");
+background-color:rgb(246,246,238); 
 }
-.next:hover { background-color:white; }
+.carousel-inner a { 
+	position:absolute;
+	bottom:50px;
+	color:black;
+}
+.carousel-inner a:hover { text-decoration:underline; color:white; background-color:black; } 
 
 
 /******************************************************************************/
@@ -302,6 +301,8 @@ div.img article.five a:hover {
 
 </style>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  <script>
       $( document ).ready( function() {
         var jbTime = 800;
@@ -332,7 +333,6 @@ div.img article.five a:hover {
 	        	$("#up").attr("src", "http://localhost:9000/starbucks/images/btn_prom_down.png").attr("id", "down");        	
         	}
         });
-        
         $("#next").click(function() {
         	var name = $(".down_img").attr("id");
         	
@@ -347,10 +347,8 @@ div.img article.five a:hover {
         		$(".down_img").attr("src", "http://localhost:9000/starbucks/images/down_01.jpg")
         	}
         });
-   } );     
-     
-  
-    </script>
+   } ); 
+</script> 
 </head>
 <body>
 	<!--  header -->
@@ -393,9 +391,40 @@ div.img article.five a:hover {
 				<label class="p_link">스타벅스 프로모션</label>
 				<img src="http://localhost:9000/starbucks/images/btn_prom_down.png" width=40 height=40 id="down" class="icon_name"></div></a>
 				<div id="down_content">
-					<div class="down_01"><img src="http://localhost:9000/starbucks/images/down_01.jpg" id="down01" class="down_img">
-					<a href="#" class="btn">자세히 보기</a></div>
-					<div class="next" id="next">></div>
+					<div id="demo" class="carousel slide" data-ride="carousel">
+						<section>
+						  <!-- Indicators -->
+						  <ul class="carousel-indicators">
+						    <li data-target="#demo" data-slide-to="0" class="active" ></li>
+						    <li data-target="#demo" data-slide-to="1"></li>
+						    <li data-target="#demo" data-slide-to="2"></li>
+						  </ul>
+					  
+						  <!-- The slideshow -->
+						  <div class="carousel-inner">
+						    <div class="carousel-item active">
+						      <img src="http://localhost:9000/starbucks/images/down_01.jpg" alt="Los Angeles" width="819" height="553"><br>
+						      <a href="#" class="btn">자세히 보기</a>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="http://localhost:9000/starbucks/images/down_02.jpg" alt="Chicago" width="819" height="553"><br>
+						      <a href="#" class="btn">자세히 보기</a>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="http://localhost:9000/starbucks/images/down_03.jpg" alt="New York" width="819" height="553"><br>
+						      <a href="#" class="btn">자세히 보기</a>
+						    </div>
+						  </div>
+						  
+						  <!-- Left and right controls -->
+						  <a class="carousel-control-prev" href="#demo" data-slide="prev" >
+						    <img src="http://localhost:9000/starbucks/images/arrow_left_on.png">
+						  </a>
+						  <a class="carousel-control-next" href="#demo" data-slide="next">
+						    <img src="http://localhost:9000/starbucks/images/arrow_right_on.png">
+						  </a>
+						  </section>
+						</div>					
 				</div>
 		<div class="reward_bg">
 		<div class="reward">	

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Starbucks Coffee Korea</title>
 <style>
-	.coffee_txt{
+	.store_txt{
 		padding-top: 30px;
 		position: relative;
 	}
@@ -18,6 +18,7 @@
 	ul.smap li{
 		float: left;
 		margin: 0 2.5px;
+		font-size:13px;
 	}
 	.sub_inner_title{
 		width: 1100px;
@@ -164,7 +165,7 @@
 <!--  content -->
 	<div class="sub_title">
 		<div class="sub_inner_title">
-			<img class="coffee_txt"src="http://localhost:9000/starbucks/images/store_tit.jpg">
+			<img class="store_txt"src="http://localhost:9000/starbucks/images/store_tit.jpg">
 			<ul class="smap">
 				<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
 				<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>

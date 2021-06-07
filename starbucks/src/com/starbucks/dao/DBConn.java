@@ -1,22 +1,23 @@
-
 package com.starbucks.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DBConn2 {
+public class DBConn {
 		//Field
 		String url = "jdbc:oracle:thin:@localhost:1521";
 		String user = "scott";
 		String pass = "tiger";
 		Connection conn;
+		PreparedStatement pstmt;
 		Statement stmt;
 		ResultSet rs;
 		
 		//Constructor
-		public DBConn2() {
+		public DBConn() {
 	    	try {
 	    		//1단계 - 드라이버 로딩
 				Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -37,6 +38,18 @@ public class DBConn2 {
 			try {			
 				//3단계 - Statement 객체 생성
 				stmt = conn.createStatement();
+				System.out.print("3단계");
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		//Method
+		public void getPreparedStatement(String sql) {
+			try {			
+				//3단계 - Statement 객체 생성
+				pstmt = conn.prepareStatement(sql);
 				System.out.print("3단계");
 				
 			} catch (Exception e) {

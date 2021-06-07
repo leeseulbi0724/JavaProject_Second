@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import = "com.starbucks.dao.noticeDAO,com.starbucks.vo.noticeVO,java.sql.*,java.util.*"
+%>
+ <%
+ 			noticeDAO ndao = new noticeDAO(); 
+     		ArrayList<noticeVO> list = ndao.getSelectResult();
+     		ArrayList<String> nid_list = new ArrayList<String>();
+     		
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +25,8 @@
  	 }
  	 .table thead tr:first-child { background-color:rgb(237,237,237); }
  	 .table tr th { padding:5px 0 5px 0; }
+ 	 .table tr { cursor:default; }
+ 	 .table tr td:nth-child(3) a { cursor:pointer; }
  	 
  	  .table a { text-decoration:none; color:black; }
 </style>
@@ -35,6 +44,15 @@
 		$("span").click(function() {
 			location.replace("http://localhost:9000/starbucks/admin/notice/admin_notice.jsp");
 		});
+		
+		$("#delete").click(function() {
+			if ( $("input[type='checkbox']:checked").length == 0 ) {
+				alert("삭제하실 게시물을 선택해주세요");
+				$("form").attr("action","admin_notice.jsp");
+			} else {				
+				$("form").attr("action","admin_notice_delete_process.jsp");
+			}
+		});
 	});
 </script>
 </head>
@@ -45,195 +63,39 @@
 	<!-- 공지사항 관리 -->
 	<div class="content_notice" id="content">
 		<jsp:include page = "admin_notice_menu.jsp"></jsp:include>
+		<form name="notice_list" action="admin_notice_content.jsp" method="post" >
 		<section>
 			<div class="text">Home > <span>공지사항 관리</span></div>
 			<div class="search">
 				<button type="button" class="write">글쓰기</button>
-				<button type="button" class="del">삭제</button>
+				<button type="submit" class="del"  id="delete">삭제</button>
 			</div>
 			<div class="center" style="overflow:scroll">
-				<table border=1 class="table">
-				<thead>
-					<tr>
-						<th><input type="checkbox" name="select_all"></th>
-						<th>NO</th>
-						<th>제목</th>
-						<th>날짜</th>
-						<th>조회수</th>
-					</tr>
-				</thead>
-				<tbody class="tbody">
-					<tr>
-						<td><input type="checkbox" name="select" value="row1"></td>
-						<td>1</td>
-						<td><a href="admin_notice_content.jsp">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row2"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row3"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row4"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row5"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr><tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="select" value="row6"></td>
-						<td>1</td>
-						<td><a href="#">스타벅스 공지사항</a></td>
-						<td>2021-05-29</td>
-						<td>154</td>
-					</tr>
-				</tbody>
-			</table>			
+					<table border=1 class="table">
+					<thead>
+						<tr>
+							<th><input type="checkbox" name="select_all"></th>
+							<th>NO</th>
+							<th>제목</th>
+							<th>날짜</th>
+							<th>조회수</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">				
+					<% for(noticeVO vo : list) { %>
+						<tr>
+								<td><input type="checkbox" name="select" value="<%= vo.getNid() %>"></td>
+								<td><%= vo.getNo() %></td>
+								<td><a href="admin_notice_content.jsp?nid=<%= vo.getNid() %>" ><%= vo.getTitle() %></a></td>
+								<td><%= vo.getDate() %></td>
+								<td><%= vo.getCount() %></td>
+						</tr>
+					<% } %>
+					</tbody>
+				</table>			
 			</div>
 		</section>
+	</form>						
 	</div>
 </body>
 </html>

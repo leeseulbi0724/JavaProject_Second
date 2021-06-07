@@ -1,19 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+			 import="com.starbucks.dao.noticeDAO, com.starbucks.vo.noticeVO, java.util.*" %>
+ <%
+ 	noticeDAO ndao = new noticeDAO();
+ 	ArrayList<noticeVO> list = ndao.getSelectResult();
+ 	
+ 	ndao.close();
+ %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지사항 | Starbucks Coffee Korea</title>
 <style>
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
 .sub_title{
 	width: 100%;
 	height: 98px;
@@ -47,7 +45,10 @@ ul.smap{
 	top: 60px;
 	list-style: none;
 	display: inline-block;
+	font-size:13px;
 }
+.span a { text-decoration:none; }
+.smap a:hover { text-decoration:underline; }
 .sub_title h1{
 	font: bold 36px Avenir, Arial, georgia;
 	color: #222222;
@@ -62,8 +63,8 @@ ul.smap{
 	padding-bottom: 80px;
 	margin: 0 auto;
 }
-.search_notice{
-	padding: 20px 30;
+.search_notice {
+	padding: 25px 30px;
 	height: 38px;
 	background: #f4f4f2;
 	border-radius: 3px;
@@ -165,11 +166,11 @@ colgroup{
 		<div class="sub_inner_title">
 			<img class="event_txt"src="http://localhost:9000/starbucks/images/notice_tit.jpg">
 		<ul class="smap">
-			<li><a href=""><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
+			<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew/whatsnew.jsp" style="text-decoration-line: none;">WHAT'S NEW</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew/whatsnew.jsp" >WHAT'S NEW</a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew/notice.jsp" style="text-decoration-line: none;">공지사항</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew/notice.jsp">공지사항</a></li>
 		</ul>
 	</div>
 </div>	
@@ -196,89 +197,18 @@ colgroup{
 					<th scope= "col">제목</th>
 					<th scope= "col">날짜</th>
 					<th scope= "col">조회수</th>
-				</tr>
-				
-				<tbody class= "notice">
-					<tr>
-						<td>318</td>
-						<td class="left"><a href= "">개인정보 처리방침 개정안내</a></td>
-						<td>2021-05-27</td>
-						<td>4806</td>
-					</tr>
-					<tr>
-						<td>317</td>
-						<td class="left"><a href= "">시스템 개선 및 점검 안내</a></td>
-						<td>2021-05-21</td>
-						<td>8695</td>
-					</tr>
-					<tr>
-						<td>316</td>
-						<td class="left"><a href= "">스타벅스 애플리케이션 Android 7.0 미만 버전 서비스 지원종료 안내</a></td>
-						<td>2021-05-19</td>
-						<td>9483</td>
-					</tr>
-					<tr>
-						<td>315</td>
-						<td class="left"><a href= "">시스템 개선 및 점검 안내</a></td>
-						<td>2021-05-13</td>
-						<td>4806</td>
-					</tr>
-					<tr>
-						<td>314</td>
-						<td class="left"><a href= "">시스템 개선 및 점검 안내</a></td>
-						<td>2021-05-08</td>
-						<td>5433</td>
-					</tr>
-					<tr>
-						<td>313</td>
-						<td class="left"><a href= "">Delivers 서비스 이용 약관 개정 안내</a></td>
-						<td>2021-05-02</td>
-						<td>6545</td>
-					</tr>
-					<tr>
-						<td>312</td>
-						<td class="left"><a href= "">Tmap 스타벅스 음성주문 서비스 제휴 종료 안내</a></td>
-						<td>2021-04-29</td>
-						<td>10234</td>
-					</tr>
-					<tr>
-						<td>311</td>
-						<td class="left"><a href= "">개인정보 처리방침 개정 안내</a></td>
-						<td>2021-04-23</td>
-						<td>6345</td>
-					</tr>
-					<tr>
-						<td>310</td>
-						<td class="left"><a href= "">시스템 개선 및 점검 안내</a></td>
-						<td>2021-04-19</td>
-						<td>8575</td>
-					</tr>
-					<tr>
-						<td>309</td>
-						<td class="left"><a href= "">쿠폰 발행 지연 안내</a></td>
-						<td>2021-04-12</td>
-						<td>4543</td>
-					</tr>
-					<tr>
-						<td>308</td>
-						<td class="left"><a href= "">시스템 개선 및 점검안내</a></td>
-						<td>2021-04-09</td>
-						<td>2155</td>
-					</tr>
-					<tr>
-						<td>307</td>
-						<td class="left"><a href= "">시스템 개선 및 점검 안내</a></td>
-						<td>2021-04-01</td>
-						<td>6489</td>
-					</tr>
-					<tr>
-						<td>306</td>
-						<td class="left"><a href= "">사이렌 오더 음료 기본 설정 변경 안내 (HOT -> ICED)</a></td>
-						<td>201-03-31</td>
-						<td>9509</td>
-					</tr>
-				</tbody>
+				</tr>				
 			</thead>
+				<tbody class= "notice">
+				<% for ( noticeVO vo : list) { %>
+					<tr>
+						<td><%= vo.getNo() %></td>						
+						<td class="left"><a href= "notice_content.jsp?nid=<%= vo.getNid() %>&no=<%= vo.getNo()%>"><%= vo.getTitle() %></a></td>
+						<td><%= vo.getDate() %></td>
+						<td><%= vo.getCount() %></td>
+					</tr>	
+				<% } %>
+				</tbody>
 			</table>
 			<div class= "page_btn">
 				<ul class= "paper">
