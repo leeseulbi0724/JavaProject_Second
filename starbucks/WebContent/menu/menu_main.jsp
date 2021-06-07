@@ -33,23 +33,26 @@
 		height: 115px;
 		margin: 0 auto;
 	}
-	/* 이벤트 제품 사진 */
-	div.carousel_img{
-		width: 100%;
-		height: 400px;
-		background-size: 2000px;
-		background-image:url("http://localhost:9000/starbucks/images/menu_carousel.jpg");
-		background-position: center;
-		background-repeat:no-repeat;
-		text-align: center;
-		position: relative;
-		border-bottom: 2px solid #006633;
+	.carousel_control{
+		position:absolute;
+		right:80px;bottom:15px;left:0;
+		z-index:20;
+		display:flex;
+		justify-content:center;
+		padding-left:0;
+		margin-right:15%;
+		margin-left:15%;
 	}
+	.carousel_control:hover{
+		cursor: pointer;
+	}
+	
+	/* 이벤트 제품 사진 */
 	div.btn_pv {
 		position: relative;
-		top: 353px;
-		right: 465px;
-		z-index: 1;
+		bottom: 52px;
+		left: 445px;
+		z-index: 1000;
 		display: inline-block;
 	}
 	div.btn_pv:hover{
@@ -63,7 +66,7 @@
 		margin: 0 auto;
 		text-align: center;
 		position: relative;
-		border-bottom: 2px solid #006633;
+		border-bottom: 2px solid #0d6035;
 	    padding: 28px 0 80px 0;
 	    display: none;
 	}
@@ -202,7 +205,10 @@
 		color:black;
 	}
 </style>
-<script src="../js/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="http://localhost:9000/starbucks/menu/menu_carousel.css">
+<script src="http://localhost:9000/mycgv/js/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
 /* 관련 제품 보기 */
 $( document ).ready(function() {
@@ -216,6 +222,18 @@ $( document ).ready(function() {
 			$(".btn_pv img").attr("src","http://localhost:9000/starbucks/images/product_view_up.png");
 			$(".btn_pv").attr("id","up_btn");
 			$(".product_view").slideDown(500);
+		}
+	});
+	$(".carousel_control").click(function(){
+		var id=$(this).attr("id");
+		if(id=="pause"){
+			$(".carousel_control img").attr("src","http://localhost:9000/starbucks/images/play.png");
+			$(".carousel_control").attr("id","play");
+			$("#demo").carousel("pause");
+		}else{
+			$(".carousel_control img").attr("src","http://localhost:9000/starbucks/images/pause.png");
+			$(".carousel_control").attr("id","pause");
+			$("#demo").carousel("cycle");
 		}
 	});
 });
@@ -246,9 +264,45 @@ $( document ).ready(function() {
 						</li>
 					</ul>
 				</div>
-				<div class="carousel_img">
+				 <!-- 캐러셀 시작 -->
+				<div id="demo" class="carousel slide" data-ride="carousel">
+				
+					<!-- Indicators -->
+					<div class="indicators">
+						<div class="carousel_control" id="pause">
+							<img src="http://localhost:9000/starbucks/images/pause.png">
+						</div>
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+							<li data-target="#demo" data-slide-to="2"></li>
+						</ul>
+					</div>
+					
+					<!-- The slideshow -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="http://localhost:9000/starbucks/images/menu_carousel.jpg" width="2000" height="400">
+						</div>
+						<div class="carousel-item">
+							<img src="http://localhost:9000/starbucks/images/menu_carousel.jpg" width="2000" height="400">
+						</div>
+						<div class="carousel-item">
+							<img src="http://localhost:9000/starbucks/images/menu_carousel.jpg" width="2000" height="400">
+						</div>
+					</div>
+					
+					<!-- Left and right controls -->
+					<a class="carousel-control-prev" href="#demo" data-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a class="carousel-control-next" href="#demo" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</a>
 					<div class="btn_pv" id="down_btn"><img src="http://localhost:9000/starbucks/images/product_view_down.png"></div>
 				</div>
+				<!-- 캐러셀 종료 -->
+				
 			</article>
 		</section>
 	</div>
