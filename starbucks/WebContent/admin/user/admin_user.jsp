@@ -81,6 +81,7 @@
 					<th>휴대폰번호</th>
 					<th>이메일</th>
 					<th>닉네임</th>
+					<th>가입일자</th>
 				</tr>
 			</thead>
 			<tbody class="tbody">
@@ -92,6 +93,7 @@
 					<td>010-9369-2489</td>
 					<td>tmfql4428@naver.com</td>
 					<td>슬비</td>
+					<td>2021-06-03</td>
 				</tr>
 				<tr>
 					<td>1</td>

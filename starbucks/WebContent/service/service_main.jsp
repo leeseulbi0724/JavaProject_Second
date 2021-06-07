@@ -23,7 +23,7 @@
 		top:60px; right:320px;
 	}
 	div.icon_home {
-		position:relative; bottom:50px; left:510px; color:white; font-size:12px;
+		position:relative; bottom:50px; left:510px; color:white; font-size:13px; font-weight:normal;
 	}
 	div.icon_home a {
 		text-decoration:none; color:white;

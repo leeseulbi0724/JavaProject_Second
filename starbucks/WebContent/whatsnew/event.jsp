@@ -4,16 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>이벤트 | Insert title here</title>
 <style>
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
 .event_txt{
 	padding-top: 30px;
 	position: relative;
@@ -36,20 +28,23 @@ ul.smap li{
 a:link {text-decoration: none; color: #333333;}
 a:visited {text-decoration: none; color: #333333;}
 
-.sub_inner_title{
+.sub_inner_title {
 	width: 1100px;
 	height: 91px;
 	margin: 0 auto;
 	position: relative;
 }
-ul.smap{
+ul.smap {
 	position: absolute;
 	right: 0;
 	top: 60px;
 	list-style: none;
 	display: inline-block;
+	font-size:13px;
+	text-decoration:none;
 }
-ul.smap li{
+ul.smap a:hover { text-decoration:underline; }
+ul.smap li {
 	display: inline-block;
 	margin-right: 2px;
 	color: #ffffff;
@@ -60,7 +55,7 @@ ul.smap li{
 	padding-top: 30px;
 	position: relative;
 }
-.wn_conf{
+.wn_conf {
 	left: 50%;
 	margin: 0 0 0 -550px;
 	position: relative;
@@ -75,7 +70,7 @@ ul.smap li{
 	border-radius: 3px;
 	margin: 0 auto;
 }
-.event_section{position: relative;} .container{width: 100%;}
+.event_section {position: relative;} .container{width: 100%;}
 .wn_cont{
     position: relative;
 	left: 50%;
@@ -131,23 +126,25 @@ section.campaign_wrap h3.campaign_online { left:820px; }
 section.campaign_wrap h3 a { background:#f4f4f2; color:#222222; border-radius:3px; display:block; font-size:14px; height:35px; line-height:35px; text-align:center; width:250px; }
 section.campaign_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3px;display:block;font-size:14px;height:35px;line-height:35px;text-align:center;width:250px;}
 
-.campaign_list{
+.campaign_list {
 	height: 90px;
 	width: 1098px;
 	background: #ffffff;
 	margin: 0 auto;
 }
-.campaign_list f{
-	font-size: 21px;
+.campaign_list p{
+	font-size: 17px;
 	color: #222222;
 	font-weight: bold;
-	margin-bottom: 21px;
-	padding: 21px;
+	margin: 21px 0;
+	padding:0 30px;
 	vertical-align: baseline;
-	line-height: 90px;
+	line-height:70px;
+	background-color:rgb(244,244,242);
 }
-.event_list{
+.event_list {
 	width: 100%;
+	margin-bottom:70px;
 }
 .event_list_inner{
 	width: 1150px;
@@ -175,8 +172,13 @@ section.campaign_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3p
 	margin-top: 8px;
 	text-align: center;
 }
-.event__list > li > div > a > img{
-	margin-bottom: 12px;
+.event__list div.box { 
+	width:260px; height:260px; overflow:hidden;
+	margin-bottom:12px;
+}
+.image:hover { 
+	 -webkit-transform: scale(1.2);
+	transition: all 1s ease-in-out;
 }
 </style>
 </head>
@@ -191,9 +193,9 @@ section.campaign_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3p
 		<ul class="smap">
 			<li><a href=""><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew/whatsnew.jsp" style="text-decoration-line: none;">WHAT'S NEW</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew/whatsnew.jsp">WHAT'S NEW</a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew/event.jsp" style="text-decoration-line: none;">이벤트</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/whatsnew/event.jsp">이벤트</a></li>
 		</ul>
 	</div>
 </div>	
@@ -204,36 +206,29 @@ section.campaign_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3p
 			<section class="campaign_wrap">
                         <div class="box_bg"></div>
                         <!-- 1. All  -->
-                        <h3 class="campaign_all"><a class="on" href="">전체</a></h3>
-                       
-                    
-                        <h3 class="campaign_card"><a href="">스타벅스 카드</a></h3>
-                   
+                        <h3 class="campaign_all"><a class="on" href="">전체</a></h3>         
+                        <h3 class="campaign_card"><a href="">스타벅스 카드</a></h3>                   
         				<h3 class="campaign_reserve"><a href="">스타벅스 리워드</a></h3>                   
         			   <h3 class="campaign_online"><a href="">온라인</a></h3>
-
-                    </section>
+              </section>
 		</div>
 	</div>
 <!-- 진행중인 이벤트 -->
 	<article style="display:block">
 		<div class="campaign_list">
-			<f>진행 이벤트</f>
+			<p>진행 이벤트</p>
 		</div>
 		<div class="event_list">
 			<div class="event_list_inner">
 				<ul class="event__list">
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210517083147274.jpg"></a><h4>스타벅스 현대카드 5~6월 한정 혜택</h4><p>2021-05-01 ~ 2021-06-30</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210517142856685.jpg"></a><h4>SSG X 스타벅스 카드 충전 이벤트</h4><p>2021-05-18 ~ 2021-05-31</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210512081703575.jpg"></a><h4>YES or NO, Frappuccino 이벤트</h4><p>2021-05-13 ~ 2021-05-27</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210504131841554.jpg"></a><h4>SSG.COM에서 스타벅스 푸드를 만나보세요</h4><p>2021-05-06 ~ 2021-05-30</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210503091447483.jpg"></a><h4>2021 서머 e-프리퀀시</h4><p>2021-05-11 ~ 2021-07-19</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210429161452776.jpg"></a><h4>e-Gift item 보너스 스타 이벤트</h4><p>2021-01-01 ~ 2021-12-31</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210412153011014.jpg"></a><h4>서머1 프로모션</h4><p>2021-04-13 ~ 2021-06-07</p></div></li>
-					<li><div><a href =""><img src="http://localhost:9000/starbucks/images/WEB_THUM_FILE20210202095614358.jpg"></a><h4>만원당 별 적립 이벤트</h4><p>2021-01-01 ~ 2021-12-31</p></div></li>
-					
-					
-					
+					<li><div><a href ="event_content.jsp?eid=E_2"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210517083147274.jpg"></div></div></a><h4>스타벅스 현대카드 5~6월 한정 혜택</h4><p>2021-05-01 ~ 2021-06-30</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_3"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210517142856685.jpg"></div></div></a><h4>SSG X 스타벅스 카드 충전 이벤트</h4><p>2021-05-18 ~ 2021-05-31</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_4"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210512081703575.jpg"></div></div></a><h4>YES or NO, Frappuccino 이벤트</h4><p>2021-05-13 ~ 2021-05-27</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_5"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210504131841554.jpg"></div></div></a><h4>SSG.COM에서 스타벅스 푸드를 만나보세요</h4><p>2021-05-06 ~ 2021-05-30</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_6"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210503091447483.jpg"></div></div></a><h4>2021 서머 e-프리퀀시</h4><p>2021-05-11 ~ 2021-07-19</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_7"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210429161452776.jpg"></div></div></a><h4>e-Gift item 보너스 스타 이벤트</h4><p>2021-01-01 ~ 2021-12-31</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_8"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210412153011014.jpg"></div></div></a><h4>서머1 프로모션</h4><p>2021-04-13 ~ 2021-06-07</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_9"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_FILE20210202095614358.jpg"></div></div></a><h4>만원당 별 적립 이벤트</h4><p>2021-01-01 ~ 2021-12-31</p></div></li>
 				</ul>
 			</div>
 		</div>

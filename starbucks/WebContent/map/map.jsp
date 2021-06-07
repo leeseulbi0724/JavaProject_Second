@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+import="com.starbucks.dao.mapDAO, com.starbucks.vo.mapVO, java.util.*"%>
+<% mapDAO dao = new mapDAO(); 
+ArrayList<mapVO> list = dao.getData();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,12 +44,13 @@
 	}		
 	#step2_img img { margin:0 10px 0 20px; cursor:pointer; }
 </style>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3474f52995f1235c3b9181cffc06fbe0"></script>
-
 <script src="http://localhost:9000/starbucks/js/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-	$(".scroll ul:first-child li:first-child").click(function() {
+	$(".scroll li").click(function() {
+		var name = $(this).text();		
+		alert(name);
+		
 		var list = "";
 		
 		$("#step2_img span").text($(this).text());
@@ -67,6 +71,7 @@ $(document).ready(function() {
 	});
 });
 </script>
+<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=364315f6128adcd13735d4bb62dc2b88&libraries=services"></script>	
 </head>
 <body>
 	<!--  header -->
@@ -121,56 +126,9 @@ $(document).ready(function() {
 				</div>
 				<div class="scroll_sub" style="overflow:scroll">
 					<ul>
-						<li><a  onclick="zoomOut()">전체</a></li>
-						<li><a onclick="zoomIn()" id="area">강남구</a></li>
-					</ul>
-					<ul>
-						<li><a>강동구</a></li>
-						<li><a>강북구</a></li>
-					</ul>
-					<ul>
-						<li><a>강서구</a></li>
-						<li><a>관악구</a></li>
-					</ul>
-					<ul>
-						<li><a>광진구</a></li>
-						<li><a>구로구</a></li>
-					</ul>
-					<ul>
-						<li><a>금천구</a></li>
-						<li><a>노원구</a></li>
-					</ul>
-					<ul>
-						<li><a>도봉구</a></li>
-						<li><a>동대문구</a></li>
-					</ul>
-					<ul>
-						<li><a>동작구</a></li>
-						<li><a>마포구</a></li>
-					</ul>
-					<ul>
-						<li><a>서대문구</a></li>
-						<li><a>서초구</a></li>
-					</ul>
-					<ul>
-						<li><a>성동구</a></li>
-						<li><a>성북구</a></li>
-					</ul>
-					<ul>
-						<li><a>송파구</a></li>
-						<li><a>양천구</a></li>
-					</ul>
-					<ul>
-						<li><a>영등포구</a></li>
-						<li><a>용산구</a></li>
-					</ul>
-					<ul>
-						<li><a>은평구</a></li>
-						<li><a>종로구</a></li>
-					</ul>
-					<ul>
-						<li><a>중구구</a></li>
-						<li><a>중량구</a></li>
+					<% for( mapVO vo : list ) { %>
+						<li><a onclick="zoomIn(this.innerText)" id="area"><%= vo.getCounty() %></a></li>
+					<% } %>					
 					</ul>
 				</div>
 			</div>
@@ -231,49 +189,78 @@ $(document).ready(function() {
 	        latlng: new kakao.maps.LatLng(37.563770, 126.980747)
 	    }
 	];
-
+	
 	// 마커 이미지의 이미지 주소
 	var imageSrc = "http://localhost:9000/starbucks/images/pin_general.png";
 	    
-	for (var i = 0; i < positions.length; i ++) {
-	    
+	for (var i = 0; i < positions.length; i ++) {	    
 	    // 마커 이미지의 이미지 크기
-	    var imageSize = new kakao.maps.Size(38, 60); 
-	    
+	    var imageSize = new kakao.maps.Size(38, 60); 	    
 	    // 마커 이미지 생성
-	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-	    
+	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 	    
 	    // 마커 생성
 	    var marker = new kakao.maps.Marker({
 	        map: map, // 마커를 표시할 지도
 	        position: positions[i].latlng, // 마커를 표시할 위치
 	        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시
 	        image : markerImage // 마커 이미지 
-	    });
-	    
+	    });	    
 	}		
+
 	
 	function zoomOut() {	
 	    // 이동할 위도 경도 위치를 생성합니다 
-	   var moveLatLon = new kakao.maps.LatLng(37.526856, 126.9794329);	    
+	   var moveLatLon = new kakao.maps.LatLng(37.501243, 127.0431557);	    
 	    // 지도 중심을 부드럽게 이동시킵니다
 	    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 	   map.panTo(moveLatLon);      
-	    
-	   var level = map.getLevel(); 	    
-	    // 지도를 1레벨 올립니다 (지도가 축소됩니다)
-	    map.setLevel(level + 5);	    
 	}
 	
-	function zoomIn() {
-		
-		var name = document.getElementById("area").innerText;
-		
-		if (name == "강남구") {
-			var moveLatLon = new kakao.maps.LatLng(37.499169, 127.0471126);	    
-		   	map.panTo(moveLatLon);      
-		}		
-	}
+	// 장소 검색 객체를 생성합니다
+	var ps = new kakao.maps.services.Places();
+	// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 	
+		function zoomIn(name) {		
+			// 키워드로 장소를 검색합니다
+			name += "스타벅스";
+			ps.keywordSearch(name, placesSearchCB); 
+		}
+
+		// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+		function placesSearchCB (data, status, pagination) {
+		    if (status === kakao.maps.services.Status.OK) {
+
+		        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+		        // LatLngBounds 객체에 좌표를 추가합니다
+		        var bounds = new kakao.maps.LatLngBounds();
+
+		        for (var i=0; i<data.length; i++) {
+		            displayMarker(data[i]);    
+		            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+		        }       
+
+		        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+		        map.setBounds(bounds);
+		    } 
+		}
+
+		// 지도에 마커를 표시하는 함수입니다
+		function displayMarker(place) {
+		    
+		    // 마커를 생성하고 지도에 표시합니다
+		    var marker = new kakao.maps.Marker({
+		    	map: map,
+		        position: new kakao.maps.LatLng(place.y, place.x),
+		    	image : markerImage // 마커 이미지 
+		    });
+
+		    // 마커에 클릭이벤트를 등록합니다
+		    kakao.maps.event.addListener(marker, 'click', function() {
+		        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+		        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+		        infowindow.open(map, marker);
+		    });
+		}
 </script>
 </html>

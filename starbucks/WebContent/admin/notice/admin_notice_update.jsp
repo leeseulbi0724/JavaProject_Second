@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import="com.starbucks.dao.noticeDAO, com.starbucks.vo.noticeVO"
+%>
+<%
+	String nid = request.getParameter("nid");
+	noticeDAO ndao = new noticeDAO();		
+	noticeVO vo = ndao.getContentResult(nid);		
+	ndao.close();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +20,7 @@
  	 }
  	 .table td { padding:10px 0 10px 20px; text-align:left; }
  	 .table input { width:500px; }
- 	 .table #wtitle, .table textarea { border:1px solid lightgray; }
+ 	 .table #title, .table textarea { border:1px solid lightgray; }
  	 .table th { background-color:rgb(237,237,237); }
  	 .table textarea { width:90%; height:300px; }
  	 .table tr th { padding:5px 0 5px 0; }
@@ -33,7 +40,13 @@
 			
 			$(".span3").click(function() {
 				location.replace("http://localhost:9000/starbucks/admin/notice/admin_notice_update.jsp");
-			}); 	
+			}); 				
+			$("#reset").click(function() {
+				location.replace("http://localhost:9000/starbucks/admin/notice/admin_notice.jsp");
+			});
+			$("#commit").click(function() {
+				notice_update.submit();
+			});
 		});
 </script>
 </head>
@@ -46,23 +59,23 @@
 		<section>
 			<div class="text">Home > <span class="span1">공지사항 관리</span> > <span class="span2">상세보기</span> > <span class="span3">수정하기</span></div>
 			<div class="center">
-			<form name="notice_write" action="#" method="get" >
+			<form name="notice_update" action="admin_notice_update_process.jsp?nid=<%= nid %>" method="post" >
 				<table border=1 class="table" >
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="wtitle" id ="wtitle" value="스타벅스 공지사항"></td>
+						<td><input type="text" name="title" id ="title" value="<%= vo.getTitle() %>"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea  name="bcontent" >내 용</textarea></td>
+						<td><textarea  name="content" id="content"><%= vo.getContent() %></textarea></td>
 					</tr>
 					<tr>
 						<th>파일</th>
-						<td><input type="file" name="bfile"></td>
+						<td><input type="file" name="file"></td>
 					</tr>					
 				</table>
-				<button type="button"  class="btn_style">수정완료</button>
-				<button type="reset" class="btn_style">수정취소</button>
+				<button type="button"  class="btn_style" id ="commit" >수정완료</button>
+				<button type="button" class="btn_style" id="reset">수정취소</button>
 			</form>
 			</div>
 		</section>
