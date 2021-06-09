@@ -5,6 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function form_check(){
+	if(!document.find_form.name.value){
+		alert("이름을 입력해 주세요.");
+		return;
+	}
+	else if(!document.find_form.birth.value){
+		alert("생년월일을 입력해 주세요.");
+		document.find_form.birth.focus();
+		return;
+	}else if(!document.find_form.gender.value){
+		alert("성별을 입력해 주세요")
+		document.find_form.gender.focus();
+		return;
+	}else if(!document.find_form.phone.value){
+		alert("핸드폰 번호를 입력해 주세요");
+		document.find_form.phone.focus();
+		return;
+	}
+	document.find_form.submit();
+}
+</script>
 <style>
 /* 아이디 찾기, 비밀번호 찾기 */
 section.find {
@@ -143,7 +165,7 @@ section.find button:hover{
 <div>
 	<section class="find">
 		<h1 class="title">아이디 찾기</h1>
-		<form class="content_layout" name="find_form" action="#" method="post">
+		<form class="content_layout" name="find_form" action="find_id_process.jsp" method="post">
 			<div>
 				<ul>
 					<li>
