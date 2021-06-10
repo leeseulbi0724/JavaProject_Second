@@ -57,7 +57,7 @@
 		<section>
 			<div class="text">Home > <span class="span1">공지사항 관리</span> > <span class="span2">글쓰기</span></div>
 			<div class="center">
-			<form name="notice_write" action="admin_notice_write_process.jsp" method="post" >
+			<form name="notice_write" action="admin_notice_write_process.jsp" method="post"  enctype="multipart/form-data">
 				<table border=1 class="table" >
 					<tr>
 						<th>제목</th>

@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지</title>
+<title>공지사항관리 | 관리자 페이지</title>
 <style>
 	.content_notice div.search {  text-align:left; padding:13.7px; border:1px solid lightgray; }
 	 .content_notice div.search button.write,  .content_notice div.search button.del { 

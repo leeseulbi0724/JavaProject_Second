@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%
+    session.invalidate();//세션의 모든 속성 제거
+   %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지</title>
+<title>회원관리 | 관리자 페이지</title>
 <style>	
 	.content_user { text-align:center; width:100%; }
 	

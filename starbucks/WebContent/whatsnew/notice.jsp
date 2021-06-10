@@ -1,10 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 			 import="com.starbucks.dao.noticeDAO, com.starbucks.vo.noticeVO, java.util.*" %>
- <%
- 	noticeDAO ndao = new noticeDAO();
- 	ArrayList<noticeVO> list = ndao.getSelectResult();
- 	
- 	ndao.close();
+ <% 
+ 	String rpage = request.getParameter("page"); //최초 호출시에는 rpage=null
+	noticeDAO dao = new noticeDAO();	
+	
+	//페이징 처리 - startCount, endCount 구하기
+	int startCount = 0;
+	int endCount = 0;
+	int pageSize = 10;	//한페이지당 게시물 수
+	int reqPage = 1;	//요청페이지	
+	int pageCount = 1;	//전체 페이지 수
+	int dbCount = dao.execTotalCount();	//DB에서 가져온 전체 행수
+	
+	//총 페이지 수 계산
+	if(dbCount % pageSize == 0){
+		pageCount = dbCount/pageSize;
+	} else {
+		pageCount = dbCount/pageSize+1;
+	}
+	
+	//요청 페이지 계산
+	if(rpage != null){
+		reqPage = Integer.parseInt(rpage);
+		startCount = dbCount- ((reqPage *pageSize)-1);
+		endCount = dbCount - (reqPage-1) * pageSize;
+	} else {
+		startCount = dbCount-9;
+		endCount = dbCount;
+	}
+	
+	ArrayList<noticeVO> list = dao.getList(startCount, endCount);
+		
+ 	//noticeDAO ndao = new noticeDAO();
+ 	//ArrayList<noticeVO> list = ndao.getSelectResult();
  %>
 <!DOCTYPE html>
 <html>
@@ -104,15 +132,14 @@ ul.smap{
 	color: #fff;
 	text-align: center;
 }
-.notice_tb{
+.notice_tb {
 	width: 1100px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-family:나눔스퀘어_ac;
 }
 colgroup{
 	display: table-column-group;
-}
-.notice_tb{
-	border-collapse: collapse;
-	border-spacing: 0;
 }
 .notice_tb th{
 	font-size: 14px;
@@ -135,10 +162,12 @@ colgroup{
 	border-bottom: 1px solid #dddddd;
 	line-height: 1.8;
 }
-.page_btn{
+.notice td:nth-child(2)>a:hover { text-decoration:underline; }
+.page_btn {
 	width: 100%;
 	height: 27px;
 	margin-top: 50px;
+	text-align:center;
 }
 .paper{
 	text-align: center;
@@ -158,6 +187,42 @@ colgroup{
 }
 	
 </style>
+<link rel="stylesheet" href="http://localhost:9000/starbucks/css/am-pagination.css">
+<script src="http://localhost:9000/starbucks/js/jquery-3.6.0.min.js"></script>
+<script src="http://localhost:9000/starbucks/js/am-pagination.js"></script>
+<script>
+	$(document).ready(function(){
+		
+		var pager = jQuery('#ampaginationsm').pagination({
+		
+		    maxSize: 7,	    		// max page size
+		    totals: <%=dbCount%>,	// total pages	
+		    page: <%=rpage%>,		// initial page		
+		    pageSize: 10,			// max number items per page
+		
+		    // custom labels		
+		    lastText: '&raquo;&raquo;', 		
+		    firstText: '&laquo;&laquo;',		
+		    prevText: '&laquo;',		
+		    nextText: '&raquo;',
+				     
+		    btnSize:'sm'	// 'sm'  or 'lg'		
+		});
+		
+		jQuery('#ampaginationsm').on('am.pagination.change',function(e){
+			   jQuery('.showlabelsm').text('The selected page no: '+e.page);
+	           $(location).attr('href', "http://localhost:9000/starbucks/whatsnew/notice.jsp?page="+e.page);         
+	    });
+		
+		$("#search").click (function() {
+	        var value = $("#search_input").val().toLowerCase();
+	        $(".notice tr").filter(function() {
+	            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	        });
+	    });
+		
+ 	});
+</script> 
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
@@ -179,8 +244,8 @@ colgroup{
 	<div class= "container">
 		<div class= "notice_wrap">
 			<div class="search_notice"> 
-				<p><label>검색어</label><input type="text" placeholder="검색어를 입력해 주세요.">
-				   <a href="">검색</a>
+				<p><label>검색어</label><input id="search_input" type="text" placeholder="검색어를 입력해 주세요.">
+				   <a style="cursor:pointer" id="search">검색</a>
 				</p>
 			</div> <!-- search_notice -->
 			<!-- 공지사항 Table -->
@@ -211,32 +276,10 @@ colgroup{
 				</tbody>
 			</table>
 			<div class= "page_btn">
-				<ul class= "paper">
-					<li>
-						<a href="http://localhost:9000/starbucks/whatsnew/notice.jsp">1</a>
-					</li>
-					<li>
-						<a href="http://localhost:9000/starbucks/whatsnew/notice.jsp">2</a>
-					</li>
-					<li>
-						<a href="http://localhost:9000/starbucks/whatsnew/notice.jsp">3</a>
-					</li>
-					<li>
-						<a href="http://localhost:9000/starbucks/whatsnew/notice.jsp">4</a>
-					</li>
-					<li>
-						<a href="http://localhost:9000/starbucks/whatsnew/notice.jsp">5</a>
-					</li>
-					<li>
-						<a href="http://localhost:9000/starbucks/whatsnew/notice.jsp"><img src="http://localhost:9000/starbucks/images/next.jpg"></a>
-					</li>
-				</ul>
+				<div id="ampaginationsm"></div>
 			</div>
 		</div> <!-- notice_wrap -->
 	</div>  <!-- container -->
-	
-
-
 
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>
