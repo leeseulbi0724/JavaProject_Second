@@ -5,7 +5,11 @@
 	String mid = request.getParameter("mid");
 
 	menuDAO dao = new menuDAO();
-	menuVO vo = dao.getMenuDetail(mid);	
+	menuVO vo = dao.getMenuDetail(mid);
+	ArrayList<menuVO> list = dao.getImg();
+	
+	String[] l_list = {"콜드 브루 커피","브루드 커피","에스프레소","프라푸치노","블렌디드","스타벅스 피지오","티(티바나)","기타 제조 음료","스타벅스 주스(병음료)",
+			"브레드","따뜻한 푸드","과일 & 요거트","스낵 & 미니 디저트","아이스크림","머그","플라스틱 텀블러","스테인리스 텀블러","보온병","액세서리"};
 %>
 <!DOCTYPE html>
 <html>
@@ -76,11 +80,12 @@ div.image>div>img:last-child {
 div.image>div>ul{
 	list-style-type: none;
 	text-align: right;
-	width: 318px;
+	width: 350px;
 }
 div.image>div>ul>li{
 	display: inline-block;
 	float:left;
+	margin-right: 10px;
 }
 div.image>div>ul>li>img{
 	margin-top: 5px;
@@ -143,7 +148,7 @@ div.inform>div:last-child li{
 div.inform>div:last-child ul>li>span:last-child {
 	float: right;
 }
-div.inform>div:last-child>div:last-child{
+div.inform>div:last-child>div.allergy{
 	background-color: #f4f4f2;
 	padding: 13px 7px;
 	border: 1px solid #f4f4f2;
@@ -209,7 +214,7 @@ div.bottom_news>div:first-child>div>div:first-child img {
 	height: 36px;
 	margin-right: 40px;
 }
-div.bottom_news>div:first-child>div>div:last-child img {
+div.bottom_news>div:first-child>div>div.siren img {
 	display: inline-block;
 	position: relative;
 	top: -15px;
@@ -217,17 +222,17 @@ div.bottom_news>div:first-child>div>div:last-child img {
 	height: 171px;
 	width: 171px;
 }
-div.bottom_news>div:first-child>div>div:last-child>div {
+div.bottom_news>div:first-child>div>div.siren>div {
 	margin-left: 60px;
 }
-div.bottom_news>div:first-child>div>div:last-child>div>span:first-child{
+div.bottom_news>div:first-child>div>div.siren>div>span:first-child{
 	display: block;
 	margin-bottom: 10px;
 	font-size: 18px;
 	font-weight: bold;
 	color: #444;
 }
-div.bottom_news>div:first-child>div>div:last-child>div>span:last-child{
+div.bottom_news>div:first-child>div>div.siren>div>span:last-child{
 	font-size: 13px;
 }
 
@@ -270,6 +275,30 @@ div.bottom_news>div:last-child>img {
 	width: 65px;
 	height: 16px;
 }
+
+div.bottom_news>div:first-child>div>div.product_news{
+	width:555px;
+	display: flex;
+	justify-content: space-around;
+	height: 140px;
+}
+div.bottom_news>div:first-child>div>div.product_news img {
+	display: inline-block;
+	position: relative;
+	left: 10px;
+}
+div.bottom_news>div:first-child>div>div.product_news>div>span:first-child {
+	color: #006633;
+}
+div.bottom_news>div:first-child>div>div.product_news>div>span:nth-child(2){
+	display: block;
+	margin: 10px 0;
+	font-size: 13px;
+	font-weight: bold;
+}
+div.bottom_news>div:first-child>div>div.product_news>div>span:last-child{
+	font-size: 13px;
+}
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script src="../js/jquery.elevatezoom.js"></script>
@@ -303,7 +332,11 @@ $( document ).ready(function() {
 		<div class="title"><!-- 타이틀 -->
 			<div>
 				<h2>
-					<img src="http://localhost:9000/starbucks/images/drink_tit9.png">
+			<% for(int i=0;i<l_list.length;i++){ %>
+				<% if(vo.getP_type().equals(l_list[i])){ %>
+					<img src="http://localhost:9000/starbucks/images/<%= vo.getImg().substring(0,vo.getImg().length()-2) %>_tit.png">
+				<% } %>
+			<% } %>
 				</h2>
 				<ul class="route">
 					<li>
@@ -342,14 +375,21 @@ $( document ).ready(function() {
 			<div>
 				<div class="image"><!-- 이미지 -->
 					<div><!-- 큰 이미지 -->
-						<img class="zoomImg" src="http://localhost:9000/starbucks/images/<%= vo.getBig_img() %>.jpg">
+						<img class="zoomImg" src="http://localhost:9000/starbucks/images/<%= vo.getImg() %>.jpg">
 						<img src="http://localhost:9000/starbucks/images/more.png">
 					</div>
 					<div><!-- 작은 이미지 -->
 						<ul>
 							<li>
-								<img src="http://localhost:9000/starbucks/images/cold_brew01_1.jpg">
+								<img src="http://localhost:9000/starbucks/images/<%= vo.getImg() %>.jpg">
 							</li>
+							<% for(menuVO vo_list : list){ %>
+							<% if(vo.getImg().equals(vo_list.getBig_img())){ %>
+							<li>
+								<img src="http://localhost:9000/starbucks/images/<%= vo_list.getSmall_img() %>.jpg">
+							</li>
+							<% } %>
+							<% } %>
 						</ul>
 					</div>
 				</div><!-- 이미지 -->
@@ -360,6 +400,7 @@ $( document ).ready(function() {
 						<div></div>
 						<span><%= vo.getIntro_t() %></span>
 					</div><!-- 정보 타이틀 -->
+					<% if(!vo.getM_type().equals("상품")){ %>
 					<div><!-- 정보 내용 -->
 						<div>
 							<span>제품 영양 정보</span>
@@ -389,20 +430,27 @@ $( document ).ready(function() {
 									<span>당류 (g)</span>
 									<span><%= vo.getSugar() %></span>
 								</li>
+								<% if(vo.getCaffeine()!=null){ %>
 								<li>
 									<span>카페인 (mg)</span>
 									<span><%= vo.getCaffeine() %></span>
 								</li>
+								<% } %>
 							</ul>
 						</div>
-						<div>
+						<% if(vo.getAllergy()!=null){ %>
+						<div class="allergy">
 							<span>알레르기 유발요인 : <%= vo.getAllergy() %></span>
 						</div>
+						<% } %>
 					</div><!-- 정보 내용 -->
+					<% } %>
 				</div><!-- 정보 -->
 			</div>
 			<div>
+			<% if(vo.getIntro_b()!=null){ %>
 				<span><%= vo.getIntro_b() %></span>
+			<% } %>
 			</div>
 		</div><!-- 내용 -->
 	</div><!-- drink_detail -->
@@ -418,13 +466,26 @@ $( document ).ready(function() {
 					</div>
 					<a href="http://localhost:9000/starbucks/whatsnew/event.jsp"><img src="http://localhost:9000/starbucks/images/news_more.png"></a>
 				</div>
-				<div><!-- 사이렌 오더 -->
+				<% if(!vo.getM_type().equals("상품")){ %>
+				<div class="siren"><!-- 사이렌 오더 -->
 					<img src="http://localhost:9000/starbucks/images/sirenOrder_img_171109.png">
 					<div>
 						<span>사이렌오더란?</span>
 						<span>매장에서 줄을 서지 않고 주문하는 쉽고 간편한 O2O (Online to Offline) 서비스로서 앱을 통해 스타벅스 음료, 푸드 및 원두의 결제 및 주문을 완료하면 매장에서 즉시 메뉴를 받을 수 있는 스타벅스만의 신개념 서비스 입니다.</span>
 					</div>
 				</div>
+				<% }else{ %>
+				<div class="product_news">
+					<img src="http://localhost:9000/starbucks/images/footer_product_bn.png">
+					<div>
+						<span>텀블러를 구매하는 모든 분들께<br>
+						텀블러 음료 쿠폰을 드립니다.</span>
+						<span>텀블러 음료쿠폰이란?</span>
+						<span>텀블러 음료쿠폰은 주문하신 음료와<br>
+						Extra 한 개를 무료로 즐기실 수 있는 음료권입니다.</span>
+					</div>
+				</div>
+				<% } %>
 			</div>
 		</div>
 		<div>
