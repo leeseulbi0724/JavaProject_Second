@@ -5,23 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-/***************************** carousel **********************************/
-div.carousel {
-	text-align:center;
-}
-div.carousel article>div {
-	background-position: center;
-	background-repeat: no-repeat;
-	background-image:url("http://localhost:9000/starbucks/images/2021_summer1_bean_bg.jpg");
-	width:65%; height:480px;
-}
-div.carousel article div {  	display:inline-block;  }
-div.carousel article div:nth-child(1)>img { position:relative; margin-top:20px; margin-left:70%;}
-div.carousel article div:nth-child(2)>img { position:relative; margin:0 0 150px 300px;}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+  <style>
+  /**************************** Carousel ***************************/
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+    padding:0; margin:0;
+  }
 
-div.carousel div.left { float:left; margin-top:200px;}
-div.carousel div.right { float:right; margin-top:200px;}
+/*************************** 서브 타이틀 **********************************/
 
 .coffee_txt{
 	padding-top: 30px;
@@ -60,7 +58,7 @@ ul.smap{
 }
 ul.smap li{
 	display: inline-block;
-	margin-right: 2px;
+	margin-right:2px;
 	color: #ffffff;
 }
 .sub_title h1{
@@ -69,7 +67,7 @@ ul.smap li{
 	padding-top: 30px;
 	position: relative;
 }
-/******************************************************************************/
+/**************************프로모션 ***************************************/
 
 div.notice {
 	background-color:black;
@@ -183,18 +181,35 @@ div.promotion img { top:15px; right:100px; }
 				</div>
 			</div>	
 		
-			<div class="carousel">
-				<article>
-					<div>
-					<div><img src="http://localhost:9000/starbucks/images/2021_summer1_bean.png"></div>				
-					<div><img src="http://localhost:9000/starbucks/images/2021_summer1_bean_txt.png"></div>
-			
-					<div class="left"><input type="image" src="http://localhost:9000/starbucks/images/mscard_arrow_l_off.png" ></div>
-					<div class="right"><input type="image" src="http://localhost:9000/starbucks/images/mscard_arrow_r_off.png"></div>
-					</div>
-				</article>
-			</div>
+		<!-- carousel -->
+		<div class="container mt-3">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		
+		  <!-- Indicators -->
+		  <ul class="carousel-indicators">
+		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#myCarousel" data-slide-to="1"></li>
+		  </ul>
+		  
+		  <!-- The slideshow -->
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		      <img src="http://localhost:9000/starbucks/images/20210412163132808.jpg"  width="1100" height="500">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="http://localhost:9000/starbucks/images/20210405101646743.jpg"  width="1100" height="500">
+		    </div>
+		  </div>
+		  
+		  <!-- Left and right controls -->
+		  <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		  </a>
 		</div>
+	</div>
 		
 		<div class="main">
 			<div class="notice">			
@@ -212,7 +227,7 @@ div.promotion img { top:15px; right:100px; }
 				<section class="coffee_choice_wrap">
 					<div class="coffee_wrap_inner_r" >
 						<p class="coffee_choice_txt"><img class="w_pic" src="http://localhost:9000/starbucks/images/coffee_choice_txt.png"></p>
-						<div class="coffee_choice_btn"><a href="/coffee/productFinder.do">자세히 보기</a></div>
+						<div class="coffee_choice_btn"><a href="#">자세히 보기</a></div>
 					</div>
 				</section>
 				<!-- 나와 어울리는 커피 찾기 end -->
@@ -221,7 +236,7 @@ div.promotion img { top:15px; right:100px; }
 				<section class="coffee_reserve_wrap">
 					<div class="coffee_wrap_inner_l">
 						<p class="coffee_reserve_txt"><img class="w_pic" src="http://localhost:9000/starbucks/images/coffee_reserve_txt.png"></p>
-						<div class="coffee_reserve_btn"><a href="/coffee/reserve_info.do">자세히 보기</a></div>
+						<div class="coffee_reserve_btn"><a href="#">자세히 보기</a></div>
 					</div>
 				</section>
 				<!-- 스타벅스 리저브 end -->
@@ -230,7 +245,7 @@ div.promotion img { top:15px; right:100px; }
 				<section class="coffee_espresso_wrap">
 					<div class="coffee_wrap_inner_r">
 						<p class="coffee_espresso_txt"><img class="w_pic" src="http://localhost:9000/starbucks/images/coffee_espresso_txt.png"></p>
-						<div class="coffee_espresso_btn"><a href="/coffee/espresso.do">자세히 보기</a></div>
+						<div class="coffee_espresso_btn"><a href="http://localhost:9000/starbucks/coffee/espresso_main.jsp">자세히 보기</a></div>
 					</div>
 				</section>
 				<!-- 에스프레소 음료 end -->
@@ -239,7 +254,7 @@ div.promotion img { top:15px; right:100px; }
 				<section class="coffee_best_wrap">
 					<div class="coffee_wrap_inner_l">
 						<p class="coffee_best_txt"><img class="w_pic" src="http://localhost:9000/starbucks/images/coffee_best_txt.png"></p>
-						<div class="coffee_best_btn"><a href="/coffee/higher_enjoy.do">자세히 보기</a></div>
+						<div class="coffee_best_btn"><a href="#">자세히 보기</a></div>
 					</div>
 				</section>
 				<!-- 최상의 커피를 즐기는 법 end -->

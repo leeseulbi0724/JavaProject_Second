@@ -123,7 +123,7 @@
 				<% if(session.getAttribute("signedUser") == null) { %>
 				<li><a href ="http://localhost:9000/starbucks/no_login.jsp">My Starbucks</a><div></div></li>
 				<% } else { %>
-				<li><a href ="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
+				<li><a href="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
 				<% } %>
 				<li><a href ="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/map/map.jsp">Find a Store</a><div></div></li>
@@ -140,13 +140,13 @@
 						<li><div id="coffee"><a href ="http://localhost:9000/starbucks/coffee/coffee_main.jsp"  class="M">COFFEE</a>
 						 <div id="dropdown">
     						<ul class="s_coffee">
-	    						<li><a href="#" class="m" style="color:white"><strong>커피</strong></a></li><br>
-	   							<li><a href="#" class="m">스타벅스 원두</a></li><br>
-	    						<li><a href="#" class="m">스타벅스 비아</a></li><br>
-	   							<li><a href="#" class="m">스타벅스 오리가미</a></li>
+	    						<li><a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean1" %>" class="m" style="color:white"><strong>커피</strong></a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean1" %>" class="m">스타벅스 원두</a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean2" %>" class="m">스타벅스 비아</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean3" %>" class="m">스타벅스 오리가미</a></li>
    							</ul>
    							<ul class="s_ecoffee">
-	    						<li><a href="#" class="m" style="color:white"><strong>에스프레소 음료</strong></a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/coffee/espresso_main.jsp" class="m" style="color:white"><strong>에스프레소 음료</strong></a></li><br>
 	   							<li><a href="#" class="m">도피오</a></li><br>
 	    						<li><a href="#" class="m">에스프레소 마키아또</a></li><br>
 	   							<li><a href="#" class="m">아메리카노</a></li><br>
