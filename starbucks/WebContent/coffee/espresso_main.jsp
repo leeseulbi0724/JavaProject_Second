@@ -166,7 +166,7 @@ ul.smap li{
 				
 				<li>
 					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img02.jpg" class="list_img"></a></div>
-					<div class="esp_text"><p></p></div>
+					<div class="esp_text"><p> </p></div>
 				</li>
 				<li>
 					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img03.jpg" class="list_img"></a></div>

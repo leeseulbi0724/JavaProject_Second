@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*"  %>
  <%
-	String ctype = request.getParameter("ctype_id") ;	
-	String cimg = request.getParameter("cimg_file") ;	
+	String ctype = request.getParameter("ctype_id");	
+	String cimg = request.getParameter("cimg_file");	
 
 	coffeeDAO dao = new coffeeDAO();
 	CoffeeVO vo = dao.getDetailImg(ctype, cimg);

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*"  %>
 <%
-	String bean = request.getParameter("beanid") ;	
+	String bean = request.getParameter("beanid");	
 
 	coffeeDAO dao = new coffeeDAO();
 	ArrayList<CoffeeVO> list = dao.getList(bean);

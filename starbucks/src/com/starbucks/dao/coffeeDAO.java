@@ -8,7 +8,7 @@ public class coffeeDAO extends DBConn {
 		//Select --> 커피타입 
 		public ArrayList<CoffeeVO> getList(String bean){
 			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
-			String sql = "select ctype_id, clogo, cname from sb_coffee_list where cid=?";
+			String sql = "select ctype_id, clogo, cname from sb_coffee_list where cid=?" ;
 			getPreparedStatement(sql);
 			
 			try {

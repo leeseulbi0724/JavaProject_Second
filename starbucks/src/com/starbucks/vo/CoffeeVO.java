@@ -3,7 +3,7 @@ package com.starbucks.vo;
 public class CoffeeVO {
 	//coffee
 	String cid, ctype_id, cname, clogo, ctext, cimg_file, cimg_text, dproduct_name, dproduct_ename, dproduct_text,dproduct_note,
-		dproduct_enjoy, dproduct_content,dproduct_story, dproduct_tasting , product_name;
+		dproduct_enjoy, dproduct_content,dproduct_story, dproduct_tasting , product_name ;
 
 	
 	public String getCid() {

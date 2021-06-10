@@ -123,7 +123,7 @@
 				<% if(session.getAttribute("signedUser") == null) { %>
 				<li><a href ="http://localhost:9000/starbucks/no_login.jsp">My Starbucks</a><div></div></li>
 				<% } else { %>
-				<li><a href ="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
+				<li><a href="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
 				<% } %>
 				<li><a href ="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/map/map.jsp">Find a Store</a><div></div></li>

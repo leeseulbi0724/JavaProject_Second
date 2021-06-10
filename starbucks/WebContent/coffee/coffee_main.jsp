@@ -58,7 +58,7 @@ ul.smap{
 }
 ul.smap li{
 	display: inline-block;
-	margin-right: 2px;
+	margin-right:2px;
 	color: #ffffff;
 }
 .sub_title h1{
