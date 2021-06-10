@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%
-    session.invalidate();//세션의 모든 속성 제거
-   %>
+<%@ page import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*" %>
+<%
+ session.invalidate();//세션의 모든 속성 제거
+ UserDAO dao = new UserDAO();
+ ArrayList<UserVO> list = dao.getUserList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,241 +91,22 @@
 				</tr>
 			</thead>
 			<tbody class="tbody">
+				<% for(UserVO vo : list){ %>
 				<tr>
-					<td>1</td>
-					<td>dltmfql</td>
-					<td>이슬비</td>
-					<td>1998-07-24</td>
-					<td>010-9369-2489</td>
-					<td>tmfql4428@naver.com</td>
-					<td>슬비</td>
-					<td>2021-06-03</td>
+					<td><%= vo.getRno() %></td>
+					<td><%= vo.getId() %></td>
+					<td><%= vo.getName() %></td>
+					<td><%= vo.getUserBirth() %></td>
+					<td><%= vo.getHp() %></td>
+					<td><%= vo.getEmail() %></td>
+					<td>
+						<% if(vo.getNick() != null){ %>
+							<%= vo.getNick() %>
+						<% } %>
+					</td>
+					<td><%= vo.getMdate() %></td>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td>dltmfql</td>
-					<td>이슬비</td>
-					<td>1998-07-24</td>
-					<td>010-9369-2489</td>
-					<td>tmfql4428@naver.com</td>
-					<td>슬비</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>dltmfql</td>
-					<td>이슬비</td>
-					<td>1998-07-24</td>
-					<td>010-9369-2489</td>
-					<td>tmfql4428@naver.com</td>
-					<td>슬비</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>dltmfql</td>
-					<td>이슬비</td>
-					<td>1998-07-24</td>
-					<td>010-9369-2489</td>
-					<td>tmfql4428@naver.com</td>
-					<td>슬비</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>test</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트</td>
-					<td>테스트@naver.com</td>
-					<td>테스트</td>
-				</tr>
+				<% } %>
 			</tbody>
 		</table>
 	</div>

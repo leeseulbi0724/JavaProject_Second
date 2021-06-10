@@ -1,5 +1,7 @@
 package com.starbucks.dao;
 
+import java.util.ArrayList;
+
 import com.starbucks.vo.UserVO;
 
 public class UserDAO extends DBConn {
@@ -84,5 +86,37 @@ public class UserDAO extends DBConn {
 		}
 		close();		
 		return result;
+	}
+	
+	//회원 리스트 - 관리자
+	public ArrayList<UserVO> getUserList(){
+		ArrayList<UserVO> list = new ArrayList<UserVO>();
+		String sql = "select rownum rno, id, name, birth, hp, email, nick, to_char(mdate, 'yyyy-mm-dd') mdate "
+				+ "	from (select id, name, birth, hp, email, nick, mdate from sb_member "
+				+ "			order by mdate desc)";
+		getPreparedStatement(sql);
+		
+		try {
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				UserVO vo = new UserVO();
+				vo.setRno(rs.getInt(1));
+				vo.setId(rs.getString(2));
+				vo.setName(rs.getString(3));
+				vo.setBirth(rs.getString(4));
+				vo.setHp(rs.getString(5));
+				vo.setEmail(rs.getString(6));
+				vo.setNick(rs.getString(7));
+				vo.setMdate(rs.getString(8));
+				
+				
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		close();
+		return list;
 	}
 }
