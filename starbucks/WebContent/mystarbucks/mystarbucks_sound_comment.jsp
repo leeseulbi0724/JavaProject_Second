@@ -187,7 +187,9 @@
 					<span style="font-size:23px; font-weight:bold">Q.</span>
 					<span style="font-size:13px; color:gray; margin-left:20px;"><%= vo_con.getSdate() %></span>
 					<p style="margin-left:45px; margin-top:5px"><%= content %></p>
+					<% if (vo_con.getSfile() != null ) { %>
 					<img style="margin-left:45px; margin-top:5px;" src="http://localhost:9000/starbucks/upload/<%= vo_con.getSfile() %>">
+					<% } %>
 				</td>
 			</tr>
 			<tr>
