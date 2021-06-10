@@ -365,7 +365,7 @@ div.img article.five a:hover {
         		$(".down_img").attr("src", "http://localhost:9000/starbucks/images/down_03.jpg")
         	} else {
         		$(".down_img").attr("id", "down01");
-        		$(".down_img").attr("src", "http://localhost:9000/starbucks/images/down_01.jpg")
+        		$(".down_img").attr("src", "http://localhost:9000/starbucks/images/down_04.jpg")
         	}
         });
         
@@ -458,16 +458,16 @@ div.img article.five a:hover {
 						  <!-- The slideshow -->
 						  <div class="carousel-inner">
 						    <div class="carousel-item active">
-						      <img src="http://localhost:9000/starbucks/images/down_01.jpg" alt="Los Angeles" width="819" height="553"><br>
+						      <img src="http://localhost:9000/starbucks/images/down_04.jpg"width="819" height="553"><br>
+						      <a href="http://localhost:9000/starbucks/whatsnew/event_content.jsp?eid=E_8" class="btn">자세히 보기</a>
+						    </div>
+						    <div class="carousel-item">
+						      <img src="http://localhost:9000/starbucks/images/down_02.jpg" width="819" height="553"><br>
 						      <a href="#" class="btn">자세히 보기</a>
 						    </div>
 						    <div class="carousel-item">
-						      <img src="http://localhost:9000/starbucks/images/down_02.jpg" alt="Chicago" width="819" height="553"><br>
-						      <a href="#" class="btn">자세히 보기</a>
-						    </div>
-						    <div class="carousel-item">
-						      <img src="http://localhost:9000/starbucks/images/down_03.jpg" alt="New York" width="819" height="553"><br>
-						      <a href="#" class="btn">자세히 보기</a>
+						      <img src="http://localhost:9000/starbucks/images/down_03.jpg" width="819" height="553"><br>
+						      <a href="http://localhost:9000/starbucks/whatsnew/event_content.jsp?eid=E_9" class="btn">자세히 보기</a>
 						    </div>
 						  </div>
 						  
@@ -547,7 +547,7 @@ div.img article.five a:hover {
 				<div><img src="http://localhost:9000/starbucks/images/bottom_image.PNG"></div>
 				<div><img src="http://localhost:9000/starbucks/images/store_txt01.png">
 				<p class="bb"><img src="http://localhost:9000/starbucks/images/store_txt02.png"></p></div>
-				<a href="#" class="btn">매장 찾기</a>
+				<a href="http://localhost:9000/starbucks/map/map.jsp" class="btn">매장 찾기</a>
 				<div><img src="http://localhost:9000/starbucks/images/store_exp_img04.png" width=200 height=89></div>
 			</article>
 		</div>

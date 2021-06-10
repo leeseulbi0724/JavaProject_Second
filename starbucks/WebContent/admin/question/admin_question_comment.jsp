@@ -37,11 +37,20 @@
 	#one input { margin:10px 10px; }
 	#one td:first-child input { width:100px; }
 	#one td:nth-child(2) input { width:40px; }
-	#one td:last-child input { width:80px; }
+	#one td:nth-child(6) input { width:80px; }
+	#one th:last-child { width:200px; }
 	
 	#two th { width:128px; }	
 	#two tr:first-child input { width:900px; }
 	#two { margin-top:0; }
+	
+	div.sfile { 
+		width:400px; height:400px; background-color:white; border:1px solid lightgray; position:absolute; 
+		line-height:400px; margin-left:400px; display:none;
+	}
+	div.sfile button { float:right; background-color:white; border:none; position:absolute; margin-left:220px; font-size:20px; cursor:pointer; }
+	
+	#open { }
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -62,6 +71,14 @@
 			} else {
 				question_comment.submit();
 			}
+		});
+		
+		$("#open").click(function() {
+			$(".sfile").css("display","block");
+		});
+		
+		$("#X").click(function() {
+			$(".sfile").css("display","none");
 		});
 	});
 </script>
@@ -84,6 +101,7 @@
 						<th>메일</th>
 						<th>연락처</th>
 						<th>장소</th>
+						<th colspan="2">첨부파일</th>
 					</tr>
 					<tr>						
 						<td><input type="text" id ="cid" value="<%= vo.getId() %>" disabled ></td>
@@ -91,6 +109,16 @@
 						<td><input type="text" id ="cmail" value="<%= vo.getEmail() %>" disabled ></td>
 						<td><input type="text" id ="chp" value="<%= vo.getHp() %>" disabled ></td>
 						<td><input type="text" id ="cplace" value="<%=vo.getPlace() %>" disabled ></td>
+						<% if (vo.getEfile() != null) { %>
+							<td><input type="text" id="cfile" value="<%=vo.getEfile() %>" disabled></td>
+							<td><button type="button" id="open" class="btn_style" style="width:50px">열기</button></td>
+						<% } else { %>
+							<td><input type="text" id="cfile" value="파일없음" disabled></td>
+						<% } %>
+						<div class="sfile">
+							<button type="button" id="X">X</button>
+							<img src="http://localhost:9000/starbucks/upload/<%= vo.getSfile() %>" width=100px height=100px>
+						</div>
 					</tr>
 				</table>
 				<table border=1 class="table"  id="two">
@@ -100,7 +128,9 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td colspan="4"><textarea class="content" disabled><%= vo.getContent() %></textarea></td>
+						<td colspan="4">
+							<textarea class="content" disabled><%= vo.getContent() %></textarea>							
+						</td>
 					</tr>
 					<tr>
 						<th>답변</th>

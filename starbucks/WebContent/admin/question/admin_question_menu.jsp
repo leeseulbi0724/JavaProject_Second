@@ -20,18 +20,44 @@
 	 .content_question div.center { 
 		border:1px solid lightgray; height:500px; float:left; width:1200px;
 	 }
+	 .submenu li { cursor:pointer; }
 </style>
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#before").click(function() {
+			  var value = "답변하기";
+		        $(".tbody tr").filter(function() {
+		            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		        });
+		});
+		
+		$("#after").click(function() {
+			var value ="답변완료";
+			$(".tbody tr").filter(function() {
+	            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	        });			
+		});
+		
+		$("#all").click(function() {
+			var value="2021";
+			$(".tbody tr").filter(function() {
+	            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	        });			
+		});
+	});
+</script>
 </head>
 <body>
 		<section>
 		<ul class="submenu">
-			<li>전체 문의사항</li>
+			<li id="all">전체 문의사항</li>
 		</ul>
-			<ul class="submenu">
-			<li>미답변 문의사항</li>
+		<ul class="submenu">
+			<li id="before">미답변 문의사항</li>
 		</ul>
-			<ul class="submenu">
-			<li>답변완료 문의사항</li>
+		<ul class="submenu">
+			<li id="after">답변완료 문의사항</li>
 		</ul>
 	</section>
 </body>

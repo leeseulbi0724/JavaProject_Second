@@ -60,7 +60,7 @@
 					var filename = $(this)[0].files[0].name;
 					$("#filename").text("").text(filename);
 				}
-			});				
+			});
 			
 			
 		});

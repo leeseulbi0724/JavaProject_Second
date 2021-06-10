@@ -66,8 +66,7 @@
 	input { border:1px solid lightgray; border-radius:3px; height:20px; font-family:나눔바른고딕;}
 	#radio { height:10px; }
 	textarea { margin:10px 0 10px 0; width:600px; height:200px; border:1px solid lightgray; font-family:나눔바른고딕; }
-	li.file_text { font-size:13px; color:#333; margin-bottom:10px; list-style-type:square;  font-family:나눔바른고딕; }
-	button.button { background-color:rgb(119,119,119); color:white; border:1px solid rgb(119,119,119); border-radius:4px; }
+	li.file_text { font-size:13px; color:#333; margin-bottom:10px; list-style-type:square;  font-family:나눔바른고딕; }	
 	
 	tr:last-child input { width:400px; margin:10px 0 10px 0 }
 	tr:nth-child(5) input { width:500px; }
@@ -81,6 +80,7 @@
 	#분야, #email3, #hp1 { width:100px; height:25px; font-size:12px; font-weight:bold; color:#555; }
 	#email3 { width:160px; }
 	#hp { width:50px; }
+	#file { padding:5px; border:none;}
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -132,7 +132,8 @@
 			} else {
 				service_form.submit();
 			}
-		});
+		});		
+	
 	});
 </script>
 </head>
@@ -170,7 +171,7 @@
 	</section>
 	<section class="input">
 		<p><img src="http://localhost:9000/starbucks/images/star_red.gif"> 표시 항목은 필수 입력 사항입니다.</p>
-		<form name="service_form" action="service_sound_process.jsp?id=<%= session.getAttribute("signedUser") %>" method="post">
+		<form name="service_form" action="service_sound_process.jsp?id=<%= session.getAttribute("signedUser") %>" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<th>분야 <img src="http://localhost:9000/starbucks/images/star_red.gif"></th>
@@ -223,9 +224,8 @@
 				</tr>
 				<tr>
 					<th>파일첨부</th>
-					<td><input type="text">
-					<input type="file" name="bfile" id="file" style="display:none">
-					<button type="button" class="button" onclick="onclick=document.all.file.click()" name="n_file">찾아보기</button>
+					<td>
+					<input type="file" name="file" id="file">
 					<li class="file_text">파일첨부는 아래의 파일만 등록이 가능합니다.<br>
 					(등록 가능 확장자 : jpg, jpeg, png, gif)</li></td>
 				</tr>

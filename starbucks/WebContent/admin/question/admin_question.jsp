@@ -100,7 +100,7 @@ $(document).ready(function() {
 					<% if( vo.getReply() == 0) {  %>
 						<button type="submit" class="btn_style" value="<%=vo.getSid() %>" id="com_btn" name="sid">답변하기</button>
 					<% } else { %>
-						<button type="button" class="btn_style" value="yes" id="com_btn" disabled>답변하기</button>
+						<button type="button" class="btn_style" value="yes" id="com_btn" disabled>답변완료</button>
 					<% } %>
 					</td>
 				</tr>				

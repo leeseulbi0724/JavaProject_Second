@@ -82,8 +82,8 @@ public class serviceDAO extends DBConn {
 	public ArrayList<serviceVO> getSelectResult() {
 		ArrayList<serviceVO> list = new ArrayList<serviceVO>();
 		
-		String sql = " SELECT ROWNUM NUM, SID, CATEGORY, ID, TITLE, TO_CHAR(SDATE,'YYYY-MM-DD'), REPLY"
-				+ " FROM(SELECT SID, CATEGORY, ID, TITLE, SDATE, REPLY FROM SB_SERVICE ORDER BY SDATE)"
+		String sql = " SELECT ROWNUM NUM, SID, CATEGORY, ID, TITLE, TO_CHAR(SDATE,'YYYY-MM-DD'), REPLY, EFILE, SFILE"
+				+ " FROM(SELECT SID, CATEGORY, ID, TITLE, SDATE, REPLY, EFILE, SFILE FROM SB_SERVICE ORDER BY SDATE)"
 				+ " ORDER BY NUM DESC";
 		getPreparedStatement(sql);
 		
@@ -100,6 +100,8 @@ public class serviceDAO extends DBConn {
 				vo.setTitle(rs.getString(5));
 				vo.setSdate(rs.getString(6));
 				vo.setReply(rs.getInt(7));
+				vo.setEfile(rs.getString(8));
+				vo.setSfile(rs.getString(9));
 				
 				list.add(vo);
 			}
@@ -115,8 +117,8 @@ public class serviceDAO extends DBConn {
 	public ArrayList<serviceVO> getSelectResult(String name) {
 		ArrayList<serviceVO> list = new ArrayList<serviceVO>();
 		
-		String sql = " SELECT ROWNUM NUM, SID, CATEGORY, ID, TITLE, TO_CHAR(SDATE,'YYYY-MM-DD'), REPLY"
-				+ " FROM(SELECT SID, CATEGORY, ID, TITLE, SDATE, REPLY FROM SB_SERVICE WHERE ID=? ORDER BY SDATE)"
+		String sql = " SELECT ROWNUM NUM, SID, CATEGORY, ID, TITLE, TO_CHAR(SDATE,'YYYY-MM-DD'), REPLY, EFILE, SFILE"
+				+ " FROM(SELECT SID, CATEGORY, ID, TITLE, SDATE, REPLY, EFILE, SFILE FROM SB_SERVICE WHERE ID=? ORDER BY SDATE)"
 				+ " ORDER BY NUM DESC";
 		getPreparedStatement(sql);
 		
@@ -134,6 +136,8 @@ public class serviceDAO extends DBConn {
 				vo.setTitle(rs.getString(5));
 				vo.setSdate(rs.getString(6));
 				vo.setReply(rs.getInt(7));
+				vo.setEfile(rs.getString(8));
+				vo.setSfile(rs.getString(9));
 				
 				list.add(vo);
 			}
@@ -148,7 +152,7 @@ public class serviceDAO extends DBConn {
 	public serviceVO getContentResult(String sid) {
 		serviceVO vo = new serviceVO();
 		
-		String sql = "SELECT ID, CATEGORY, MAIL, HP, PLACE, TITLE, CONTENT, SDATE FROM SB_SERVICE WHERE SID=?";
+		String sql = "SELECT ID, CATEGORY, MAIL, HP, PLACE, TITLE, CONTENT, SDATE, EFILE, SFILE FROM SB_SERVICE WHERE SID=?";
 		getPreparedStatement(sql);
 		
 		try {
@@ -165,6 +169,8 @@ public class serviceDAO extends DBConn {
 				vo.setTitle(rs.getString(6));
 				vo.setContent(rs.getString(7));
 				vo.setSdate(rs.getString(8));
+				vo.setEfile(rs.getString(9));
+				vo.setSfile(rs.getString(10));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

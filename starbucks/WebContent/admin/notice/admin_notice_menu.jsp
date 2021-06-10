@@ -17,6 +17,7 @@
 	.content_notice div.center { 
 		border:1px solid lightgray; height:500px; float:left; width:1200px;
 	 }
+	  .submenu li { cursor:pointer; }
 </style>
 </head>
 <body>
