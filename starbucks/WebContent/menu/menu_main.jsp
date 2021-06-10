@@ -44,7 +44,7 @@
 		position: relative;
 		bottom: 52px;
 		left: 445px;
-		z-index: 1000;
+		z-index: 5;
 		display: inline-block;
 	}
 	div.btn_pv:hover{
