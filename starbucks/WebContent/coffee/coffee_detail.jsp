@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*"  %>
+ <%
+	String ctype = request.getParameter("ctype_id") ;	
+	String cimg = request.getParameter("cimg_file") ;	
+
+	coffeeDAO dao = new coffeeDAO();
+	CoffeeVO vo = dao.getDetailImg(ctype, cimg);
+	CoffeeVO vo2 = dao.getProductlImg(vo.getProduct_name()); 
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -218,7 +227,7 @@ div.image>div>ul>li>img:hover{
 /* 오른쪽 */
 .note {
 	width:34%;
-	height:200px;
+	height:auto;
 	background-color:rgb(244,244,242);
 	float:right;
 	position:relative;
@@ -241,6 +250,7 @@ div.image>div>ul>li>img:hover{
 div.bottom_news{
 	background-color: #f4f4f2;
 	padding: 40px 0 60px 0;
+	height: auto;
 }
 div.bottom_news>div{
 	width: 1110px;
@@ -386,6 +396,9 @@ div.bottom_news>div:last-child>img {
 .product_img {
 	width:160px; height:160px;
 }
+.dproduct {
+	width:180px; height:100px;
+}
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script src="../js/jquery.elevatezoom.js"></script>
@@ -429,9 +442,9 @@ $( document ).ready(function() {
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
 			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_main.jsp" style="text-decoration-line: none;">커피</a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_doppio.jsp" style="text-decoration-line: none;">블론드 로스트</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_doppio.jsp" style="text-decoration-line: none;"><%= vo.getCname() %></a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_doppio.jsp" style="text-decoration-line: none;">베란다 블렌드 250g</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_doppio.jsp" style="text-decoration-line: none;"><%= vo.getDproduct_name() %></a></li>
 		</ul>
 	</div>
 	</div>	
@@ -442,14 +455,14 @@ $( document ).ready(function() {
 		<div class="image" >
 		<!-- 큰 이미지 -->
 			<div>
-				<img class="zoomImg" src="http://localhost:9000/starbucks/images/20150809120449129.jpg" >
+				<img class="zoomImg" src="http://localhost:9000/starbucks/images/<%= cimg %>" >
 				<img src="http://localhost:9000/starbucks/images/more.png">
 			</div>
 		<!--  작은 이미지 -->
 			<div class="image">
 				<ul>
 					<li>
-						<img src="http://localhost:9000/starbucks/images/20150809120449129.jpg">
+						<img src="http://localhost:9000/starbucks/images/<%= cimg %>">
 					</li>
 				</ul>
 			</div>
@@ -458,8 +471,8 @@ $( document ).ready(function() {
 		<article>
 			<div class="bean_name">
 				<span>
-					<p>베란다 블렌드 250g</p>
-					<p>Veranda Blend 250g</p>
+					<p><%= vo.getDproduct_name() %></p>
+					<p><%= vo.getDproduct_ename() %></p>
 				</span>
 				<span class="myproduct_btn">
 					<a href="#">나만의 상품으로 등록</a>
@@ -467,12 +480,12 @@ $( document ).ready(function() {
 				
 				<div class="line1"></div>
 				
-				<p class="text">부드럽고 친근한 성향을 가진 은은한 블렌드입니다.</p>
+				<p class="text"><%= vo.getDproduct_text() %>.</p>
 				
 				<div class="roast">
 					<div>
 						<img src="http://localhost:9000/starbucks/images/icon_blond.png">
-						<div>블론드 로스트 <div class="line3"></div>은은하고 부드러운 맛  Subtle & Mellow</div>
+						<div><%= vo.getCname() %> <div class="line3"></div><%= vo.getCtext() %></div>
 					</div>
 				</div>
 				
@@ -494,48 +507,52 @@ $( document ).ready(function() {
 			</div>
 		</article>
 	</div>
+	
+
 		<div class="inner_content2">
 				
 			<div class="line4"></div>
 			
 			<div class="bean_text">
-				<p>
-				특별히 선택한 고품질의 라틴 아메리카 원두 블렌드를 단시간 로스팅 하면 부드러운 코코아의 섬세한 뉘앙스와 살짝 볶은 견 </br>
-				과류 향이 살아납니다. 은은하고 달콤한 풍미가 살아있는 이 커피는 친구를 초대한 자리에 어울리는 유쾌하고 품위 있는 분위</br>
-				기를 연출하는데 매우 잘 어울립니다. 차분하고 편안하게 즐길 수 있는 이 커피는 마치 베란다에 놓인 의자에 앉아 커피를 마시</br>
-				는 듯한 느낌을 줍니다. 지역과 마을에서 볼 수 있는 테라스의 이름을 딴 베란다 블렌드™는 맑은 날 좋은 친구와 마시기 가장 </br>
-				좋은 친근한 커피입니다.</p>
+				<% if(vo.getDproduct_content() != null){ %>
+					<p><%= vo.getDproduct_content() %></p>
+				<% } %>
 				<div>
 					<span>
 						 <img src="http://localhost:9000/starbucks/images/productInvestigate_img01.jpg">
 						 <h3>디자인 스토리</h3>
-						 <p>커피가 생산되는 라틴 아메리카 농장에서 종종 만날 수 있는 벌새가 새</br>
-						 겨진 이 디자인은 맑은날 친구와 함께 마시기 좋은 베란다 커피의 친근</br>
-						 하고 부드러운 매력을 표현합니다.</p>
+						 <% if(vo.getDproduct_story() != null){ %>
+						 	<p><%= vo.getDproduct_story() %></p>
+						 <% } %>
 					</span>
 					<span>
 						<img src="http://localhost:9000/starbucks/images/productInvestigate_img02.jpg">
 						 <h3>커피 테이스팅 노트</h3>
-						 <p>"베란다 블렌드를 한모금 입에 머금은 순간. 따뜻하고 부드러운 바람이</br>
-						 내 마음을 감싸안은 듯한 평온함을 느끼게 되고, 마지막에 나타나는 뒷</br>
-						 맛의 달콤한 느낌은 마치, 한동안 잊고 지냈던 그리운 친구와 함께 보</br>
-						 냈던 소중하고 아름다운 순간들을 떠오르게 한다." by 8대 커피 앰배</br>
-						 서더 김양진(Buffett) 파트너</p>
+						 <% if( vo.getDproduct_tasting() != null){ %>
+						 <p><%= vo.getDproduct_tasting() %></p>
+						 <% } %>
 					</span>
 				</div>
 			</div>
 				
+				<% if( vo.getDproduct_note() != null && vo.getDproduct_enjoy() != null ){ %>
 				<div class="note">
 					<div> <h3>Tasting Notes</h3>
-						 <p>은은하고 달콤한 부드러움</p>
+						<% if( vo.getDproduct_note() != null){ %>
+						<p><%= vo.getDproduct_note() %></p>
+						<% } %>
 					</div>
 					<div class="line5"></div>
 					<div>
 						 <h3>Enjoy with</h3>
-						 <p>좋은 친구와 함께 보내는 맑은 날, 한가한 시간</p>
+						 <% if( vo.getDproduct_enjoy() != null){ %>
+						 <p><%= vo.getDproduct_enjoy() %></p>
+						 <% } %>
 					</div>
 				</div>
+				<% } %>
 		</div>
+
 	
 	</section>
 	<!--  프로모션 content -->
@@ -563,6 +580,7 @@ $( document ).ready(function() {
 			
 		<div class="line7"></div>
 		
+		<% if(vo.getProduct_name() != null){%>
 		<!-- 관련 제품 -->
 		<section class="bean_list">
 			<div class="product_title">관련 제품</div>
@@ -570,15 +588,17 @@ $( document ).ready(function() {
 					<ul>
 						<li><a href="#"><img src="http://localhost:9000/starbucks/images/20150722234902895.jpg" class="product_img"></a>
 							<div>
-								<span>하우스 블렌드 250g</span>
-								<p>깔끔하고 균형 잡힌 맛이 특징</br>
-									 인 중간 정도 무게감의 커피</p>
-								<a href="#"><img src="http://localhost:9000/starbucks/images/cf_more_btn.png"></a>
+								<span><%= vo.getProduct_name() %></span>
+								<div class="dproduct">
+								<p><%= vo2.getDproduct_text() %></p>
+								</div>
+								<a href="coffee_detail.jsp?ctype_id=<%= vo2.getCtype_id() %>&cimg_file=<%= vo2.getCimg_file()%>"><img src="http://localhost:9000/starbucks/images/cf_more_btn.png"></a>
 							</div>
 						</li>					
 					</ul>
 				</div>
 		</section>
+		<% } %>
 	</div>
 				
 <!-- Footer -->	

@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.starbucks.dao.*, com.starbucks.vo.*"  %>
+<%@ page import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*"  %>
 <%
-	
+	String bean = request.getParameter("beanid") ;	
+
+	coffeeDAO dao = new coffeeDAO();
+	ArrayList<CoffeeVO> list = dao.getList(bean);
 %>
 <!DOCTYPE html>
 <html>
@@ -100,6 +103,8 @@ div.wn_cont h3{
 	border-radius: 3px;
 }
 .all{left: 2%; width: 22%;}.all_1{	left: 26.6%;} .all_2{left: 51.3%;} .all_3{left: 76%;}
+
+/******************* 카테고리 **********************/
 section.coffee_wrap {
     position: relative;
 }
@@ -118,15 +123,41 @@ section.coffee_wrap {
     border-radius: 3px;
     padding-bottom:20px;
 }
+div.cate{
+	text-align: left;
+	margin: 25px 0 0 20px;
+}
+div.cate .btn_style{
+	width: 200px;
+	height:35px;
+	font-size: 14px;
+	border-radius: 3px;
+	margin-right: 5px;
+	background: #f4f4f1;
+	color:#333;
+	border: 1px solid #f4f4f1;
+}
+div.cate .green_btn{
+	width: 200px;
+	height:35px;
+	background: #006633;
+	border: 1px solid #006633;
+	color: white;
+	font-size: 14px;
+	border-radius: 3px;
+	margin-right: 5px;
+}
 
+div.cate .btn_style:hover, div.cate .green_btn:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+#cate_class {
+	height :30px;
+	padding:15px 0 0 20px;
+}
 
-section.coffee_wrap h3 {display:block;position:absolute; top:20px; bottom:50px; border-radius:3px;}
-section.coffee_wrap h3.coffee_beans1 { left:30px; }
-section.coffee_wrap h3.coffee_beans2 { left:300px; }
-section.coffee_wrap h3.coffee_beans3 { left:570px; }
-section.coffee_wrap h3 a { background:#f4f4f2; color:#222222; border-radius:3px; display:block; font-size:14px; height:35px; line-height:35px; text-align:center; width:250px; }
-section.coffee_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3px;display:block;font-size:14px;height:35px;line-height:35px;text-align:center;width:250px;}
-
+/************************* 상품 리스트 ***********************/
 .coffee_list{
 	height: 90px;
 	width: 1098px;
@@ -222,57 +253,57 @@ div.coffee_list>div p {
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
 //////////////체크박스////////////////////
-function allCheck() {
-    if ($("#all").is(':checked')) {
-        $(".chk").prop("checked", false);
-        $("#all").prop("checked", true);
-        $("#list_cate *").show();
-        $("#list_cate ul").hide();
-        $("#list_cate table").hide();
-    }
-    else if (!$("#all").is(':checked')) {
-    	$("#list_cate *").hide();
-    }
-} 
-
-function checkboxCheck(){
-    $("#list_cate *").show();
-	$("#list_cate ul").hide();
-	$("#list_cate table").hide();
-	$("#all").prop("checked", false);
-	if($("#show_inform").data('clicked')){
-		$("#list_cate table").show();
-	}else if(!$("#show_inform").data('clicked')){
-		$("#list_cate ul").show();
-	}
-	if($("#blond").is(':checked')){
-		$("#blond").show();
-	}else if(!$("#blond").is(':checked')){
-		$("#blond").hide();
-		$("#blond").hide();
-	}
-	if($("#medium").is(':checked')){
-		$("#medium").show();
-	}else if(!$("#medium").is(':checked')){
-		$("#medium").hide();
-		$("#medium").hide();
-	}
-	if($("#dark").is(':checked')){
-		$("#dark").show();
-	}else if(!$("#dark").is(':checked')){
-		$("#dark").hide();
-		$("#dark").hide();
-	}
-	if($("#flavor").is(':checked')){
-		$("#flavor").show();
-	}else if(!$("#flavor").is(':checked')){
-		$("#flavor").hide();
-		$("#flavor").hide();
-	}
-}
+$( document ).ready(function() {
+	function allCheck() {
+	    if ($("#all").is(':checked')) {
+	        $(".chk").prop("checked", false);
+	        $("#all").prop("checked", true);
+	        $("#list_cate *").show();
+	        $("#list_cate ul").hide();
+	        $("#list_cate table").hide();
+	    }else if (!$("#all").is(':checked')) {
+	    	$("#list_cate *").hide();
+	    }
+	
+});
+	function checkboxCheck(){
+	    $("#list_cate *").show();
+		$("#list_cate ul").hide();
+		$("#list_cate table").hide();
+		$("#all").prop("checked", false);
+		if($("#show_inform").data('clicked')){
+			$("#list_cate table").show();
+		}else if(!$("#show_inform").data('clicked')){
+			$("#list_cate ul").show();
+		}
+		if($("#blond").is(':checked')){
+			$("#blond").show();
+		}else if(!$("#blond").is(':checked')){
+			$("#blond").hide();
+			$("#blond").hide();
+		}
+		if($("#medium").is(':checked')){
+			$("#medium").show();
+		}else if(!$("#medium").is(':checked')){
+			$("#medium").hide();
+			$("#medium").hide();
+		}
+		if($("#dark").is(':checked')){
+			$("#dark").show();
+		}else if(!$("#dark").is(':checked')){
+			$("#dark").hide();
+			$("#dark").hide();
+		}
+		if($("#flavor").is(':checked')){
+			$("#flavor").show();
+		}else if(!$("#flavor").is(':checked')){
+			$("#flavor").hide();
+			$("#flavor").hide();
+		}
+	});
 ///////////////////////////////////////////////////
 
-/* 분류 보기 업다운 */
+/* 분류 보기 업다운*/
 $( document ).ready(function() {
 	$(".btn_class img").click(function(){
 		var id=$(this).attr("id");
@@ -287,86 +318,28 @@ $( document ).ready(function() {
 			$(".coffee_wrap").show();
 			$(".line").show();
 		}
+
 	});
 	
-	$("#theme").click(function(){
-		$("#list_cate").hide();
-		$(".show").hide();
-		$("#cate_class").hide();
-		$("#theme_class").show();
-		$("#list_theme").show();
-		$("#category").css("background-color","#f4f4f1").css("border-color","#f4f4f1").css("color","#333");
-		$("#theme").css("background-color","#006633").css("border-color","#006633").css("color","white");
+	/* 분류 클릭시 */
+	$("#bean1").click(function(){
+		$("#bean2").attr("class","btn_style");
+		$("#bean1").attr("class","green_btn");
+		$("#bean3").attr("class","btn_style");
 	});
-	$("#category").click(function(){
-		$("#list_cate").show();
-		$(".show").show();
-		$("#list_theme").hide();
-		$("#cate_class").show();
-		$("#theme_class").hide();
-		$("#theme").css("background-color","#f4f4f1").css("border-color","#f4f4f1").css("color","#333");
-		$("#category").css("background-color","#006633").css("border-color","#006633").css("color","white");
+	$("#bean2").click(function(){
+		$("#bean1").attr("class","btn_style");
+		$("#bean2").attr("class","green_btn");
+		$("#bean3").attr("class","btn_style");
 	});
-	$("#show_inform").data('clicked',false);
-	$("#show_img").click(function(){
-		$(".show form").show();
-		$("#list_cate ul").show();
-		$("table").hide();
-		$("#show_inform").data('clicked',false);
-		$("#show_img").css("background","#666").css("border-color","#666").css("color","white");
-		$("#show_inform").css("background","white").css("border-color","lightgray").css("color","#333");
-		$("#show_img img").attr("src","http://localhost:9000/starbucks/images/icon_pic_on.png");
-		$("#show_inform img").attr("src","http://localhost:9000/starbucks/images/icon_ante.png");
-	});
-	$("#show_inform").click(function(){
-		$(".show form").hide();
-		$("#list_cate ul").hide();
-		$("table").show();
-		$(this).data('clicked',true);
-		$("#show_inform").css("background","#666").css("border-color","#666").css("color","white");
-		$("#show_img").css("background","white").css("border-color","lightgray").css("color","#333");
-		$("#show_img img").attr("src","http://localhost:9000/starbucks/images/icon_pic.png");
-		$("#show_inform img").attr("src","http://localhost:9000/starbucks/images/icon_ante_on.png");
-	});
-	$("#menu_th01").click(function(){
-		$("#menu_th01").css('border','2px solid #006633').css('margin','-2px');
-		$("#th_img_list>ul>li").hide();
-		$("#th_img_list>ul>li").each(function(idx, item){
-			if($(item).attr("id")=="th01"){
-				$(item).show();
-			}
-		});
-	});
-	
-	/* 상세분류 */
-	$("#one, #two").click(function(){
-		console.log('qwe',$("#one").is(':checked'));
-		$("#list_cate>div>ul>li, #list_cate>div.label").hide();
-		if($("#one").is(':checked')){
-			$("#list_cate ul>li>ul>li>img").each(function(idx, item){
-				if($(item).attr("id")=="mark01"){
-					console.log('뭐냐고',$(item));
-					$(item).parents("#list_cate ul>li").show();
-					$(item).parents("#list_cate>div").prev().show();
-				}
-			});
-		}else if($("#two").is(':checked')){
-			$("#list_cate ul>li>ul>li>img").each(function(idx, item){
-				if($(item).attr("id")=="mark02"){
-					$(item).parents("#list_cate ul>li").show();
-					$(item).parents("#list_cate>div").prev().show();
-				}
-			});
-		}else if(!$("#two").is(':checked')){
-			$("#list_cate ul>li>ul>li>img").each(function(idx, item){
-				if($(item).attr("id")=="mark02"){
-					$(item).parents("#list_cate ul>li").hide();
-					$(item).parents("#list_cate>div").prev().hide();
-				}
-			});
-		}
+	$("#bean3").click(function(){
+		$("#bean1").attr("class","btn_style");
+		$("#bean3").attr("class","green_btn");
+		$("#bean2").attr("class","btn_style");
 	});
 });
+
+
 </script>
 
 <body>
@@ -397,9 +370,12 @@ $( document ).ready(function() {
                    </div>
 			<section class="coffee_wrap">
                    <div class="box_bg">
-                        <h3 class="coffee_beans1"><a class="on" href="http://localhost:9000/starbucks/coffee/coffee_list1.jsp">스타벅스 원두</a></h3>
-                        <h3 class="coffee_beans2"><a href="http://localhost:9000/starbucks/coffee/coffee_list2.jsp">스타벅스 비아</a></h3>
-        				<h3 class="coffee_beans3"><a href="http://localhost:9000/starbucks/coffee/coffee_list3.jsp">스타벅스 오리가미</a></h3>                   
+                    <!-- 카테고리 테마 -->
+					<div class="cate">
+						<a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean1"%>"><button type="button" class="green_btn" id="bean1">스타벅스 원두</button></a>
+						<a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean2"%>"><button type="button" class="btn_style" id="bean2">스타벅스 비아</button></a>
+						<a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean3"%>"><button type="button" class="btn_style" id="bean3">스타벅스 오리가미</button></a>
+					</div>               
         			</div>
         			<div class="check" id="cate_class">
         				<span><input type="checkbox" id="all" checked="checked"  onclick="allCheck()">전체 상품보기</span> 
@@ -422,61 +398,34 @@ $( document ).ready(function() {
 			</select>
 		</div>
 	
+	<!-- coffee list -->
 	<div class="list" id="list_cate">
-		<article>
-			<div class="coffee_list" >
-				<div>
-					<img src="http://localhost:9000/starbucks/images/icon_blond.png"><p>블론드 로스트</p>
-				</div>
-			</div>
-			<div class="cname_list">
-				<div class="cname_list_inner">
-					<ul class="cname__list">
-						<li><div><a href ="coffee_detail.jsp"><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg"></a><p>베란다 블렌드 250g</p></div></li>
-					</ul>
-				</div>
-			</div>
-		</article>
-		
-	      <!-- db 연동 for(){ -->
-			<article>
+	   <% for(CoffeeVO vo : list){
+			coffeeDAO dao2 = new coffeeDAO();
+			ArrayList<CoffeeVO> list2 = dao.getImgList(bean, vo.getCtype_id());
+		   %>
+		<article id="coffee_content">
+			
 			<div class="coffee_list">
 				<div>
-					<img src="http://localhost:9000/starbucks/images/icon_medium.png"><p>미디엄 로스트</p>
+					<img src="http://localhost:9000/starbucks/images/<%= vo.getClogo() %>"><p><%= vo.getCname() %></p>
 				</div>
 			</div>
+			
 			<div class="cname_list">
 				<div class="cname_list_inner">
 					<ul class="cname__list">
-					
-					 <!-- db 연동 for(){ -->
-						<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20210407152219775.jpg"></a><p>인도네시아 웨스트 자바 250g</p></div></li>
-						<!-- } -->
+					 <% for(CoffeeVO vo2 : list2){ %>
+						<li><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
+							<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p></div></li>
+						<% } %>
 						
 					</ul>
 				</div>
 			</div>
 		</article>
-		<!-- } -->
-		
-		<article>
-			<div class="coffee_list">
-				<div>
-					<img src="http://localhost:9000/starbucks/images/icon_dark.png"><p>다크 로스트</p>
-				</div>
-			</div>
-			<div class="cname_list">
-				<div class="cname_list_inner">
-					<ul class="cname__list">
-						<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20210310092332525.jpg"></a><p>애니버서리 블렌드 250g</p></div></li>
-						<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722231935988.jpg"></a><p>에스프레소 로스트 250g</p></div></li>
-						<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150809121816455.jpg"></a><p>수마트라 250g</p></div></li>
-						<li><div><a href =""><img src="http://localhost:9000/starbucks/images/20150722213025224.jpg"></a><p>카페 베로나 250g</p></div></li>
-						<div class="bottom_sp"></div>
-					</ul>
-				</div>
-			</div>
-		</article>
+		<%  } %>
+
 	</div>
 	
 <!-- Footer -->	
