@@ -9,19 +9,27 @@
 	
 	noticeDAO ndao = new noticeDAO();	
 	noticeVO vo = ndao.getContentResult(nid);	
-	ArrayList<noticeVO> list = ndao.getSelectResult();		
+	ArrayList<noticeVO> list = ndao.getSelectResult();			
+
+	int before_count = Integer.parseInt(no)-1;
+	int after_count = Integer.parseInt(no)+1;
+	
+	noticeVO before_vo = ndao.getNext(before_count);
+	noticeVO after_vo = ndao.getNext(after_count);
+	
 	ndao.getCountUp(nid);
 	
-	
+	/**
 	if (Integer.parseInt(no) == list.size()) {
 		before = list.get(1).getTitle();
 		after = "해당 글이 없습니다.";
 	 } else if (Integer.parseInt(no) < list.size() && Integer.parseInt(no) != 1) { 
-		
+		//before = list.get(list.indexOf()).getTitle();
 	 } else {
 		 before ="해당글이 없습니다.";
 		after = list.get(list.size()-2).getTitle();
 	 }
+	**/
 %>
 <!DOCTYPE html>
 <html>
@@ -49,13 +57,13 @@
 	}
 	a:link {text-decoration: none; color: #333333;}
 	a:visited {text-decoration: none; color: #333333;}
-	.sub_inner_title{
+	.sub_inner_title {
 	width: 1100px;
 	height: 91px;
 	margin: 0 auto;
 	position: relative;
 	}
-	ul.smap{
+	ul.smap {
 		position: absolute;
 		right: 0;
 		top: 60px;
@@ -90,10 +98,11 @@
 		margin-bottom:20px;
 	}
 	.notice_wrap a:hover { text-decoration:underline; }
-	.notice_tb, .notice_nx{
+	.notice_tb, .notice_nx {
 		width: 1100px;
 		border-collapse: collapse;
 		border-spacing: 0;		
+		font-family:나눔스퀘어_ac;
 	}
 	.notice_tb th {
 		font-size: 14px;
@@ -134,13 +143,22 @@
 		text-align: left;
 		padding: 17px 10px;
 		border-bottom: 1px solid #dddddd;	
-		line-height: 1.8;
+		line-height: 1.8;		
 	}
 	td textarea { 
-		width:100%; height:400px; border:none; margin-top:10px; 
+		width:100%; border:none; margin-top:10px; 
 		background-color:white;
+		font-family:나눔스퀘어_ac;
+		resize:none;
 	}
 </style>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script src="http://rawgit.com/jackmoored/autosize/master/dist/autosize.min.js"></script>
+<script>
+$(document).ready(function() {		
+	$("textarea").css("height", $("textarea").prop('scrollHeight'));
+});
+</script>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
@@ -168,7 +186,14 @@
 			</thead>
 			<tbody class= "notice">
 				<tr>
-					<td><textarea disabled style="resize: none;"><%= vo.getContent() %></textarea></td>
+					<td>
+						<% if(vo.getContent() != null) { %>
+							<textarea disabled style="resize: none;"><%= vo.getContent() %></textarea>
+						<% } %>
+						<% if(vo.getSfile() != null) { %>
+						<img src="http://localhost:9000/starbucks/upload/<%= vo.getSfile() %>">
+						<% } %>
+					</td>
 				</tr>	
 			</tbody>
 			</table>
@@ -177,11 +202,27 @@
 			<table class="notice_nx">
 				<tr>
 					<th>윗글</th>
-					<th><a href="#"><%= after %></a></th>
+					<th>
+					<% if(after_vo.getTitle() == null ) { %>
+					 <a style="cursor:default">해당 글이 없습니다</a>
+					 <% } else { %>
+					 <a href="http://localhost:9000/starbucks/whatsnew/notice_content.jsp?nid=<%= after_vo.getNid()%>&no=<%=after_vo.getNo()%>">
+					 	<%= after_vo.getTitle() %>
+					 </a>
+					 <% } %>
+					</th>
 				</tr>
 				<tr>
 					<th>아랫글</th>
-					<th><a href="#"><%= before %></a></th>
+					<th>
+					<% if(before_vo.getTitle() == null ) { %>
+					 <a style="cursor:default">해당 글이 없습니다</a>
+					 <% } else { %>
+					 <a href="http://localhost:9000/starbucks/whatsnew/notice_content.jsp?nid=<%= before_vo.getNid()%>&no=<%=before_vo.getNo()%>">
+					 	<%= before_vo.getTitle() %>
+					 </a>
+					 <% } %>
+					</th>
 				</tr>				
 			</table>
 		</div>

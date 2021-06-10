@@ -19,13 +19,20 @@
  		border-collapse:collapse;
  	 }
  	 .table td { padding:10px 0 10px 20px; text-align:left; }
- 	 .table input { width:500px; }
+ 	 .table input { width:500px; font-family:나눔스퀘어_ac; }
  	 .table #title, .table textarea { border:1px solid lightgray; }
  	 .table th { background-color:rgb(237,237,237); }
- 	 .table textarea { width:90%; height:300px; }
+ 	 .table textarea { width:90%; font-family:나눔스퀘어_ac; height:300px; }
  	 .table tr th { padding:5px 0 5px 0; }
  	 
  	 button.btn_style { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }
+ 	 
+ 	 #filename { 
+ 	 	text-decoration:none; cursor:default; 
+ 	 	margin-left:-427px;
+ 	 	background-color:white;
+ 	 	padding:5px 20px 5px 5px;
+ 	 }
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -46,7 +53,16 @@
 			});
 			$("#commit").click(function() {
 				notice_update.submit();
-			});
+			});			
+			
+			$("input[type=file]").on('change', function(){
+				if (window.FileReader) {
+					var filename = $(this)[0].files[0].name;
+					$("#filename").text("").text(filename);
+				}
+			});				
+			
+			
 		});
 </script>
 </head>
@@ -59,7 +75,7 @@
 		<section>
 			<div class="text">Home > <span class="span1">공지사항 관리</span> > <span class="span2">상세보기</span> > <span class="span3">수정하기</span></div>
 			<div class="center">
-			<form name="notice_update" action="admin_notice_update_process.jsp?nid=<%= nid %>" method="post" >
+			<form name="notice_update" action="admin_notice_update_process.jsp?nid=<%= nid %>" method="post" enctype="multipart/form-data">
 				<table border=1 class="table" >
 					<tr>
 						<th>제목</th>
@@ -67,11 +83,24 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea  name="content" id="content"><%= vo.getContent() %></textarea></td>
+						<td>							
+							<% if(vo.getContent() != null) { %>
+							<textarea  name="content" id="content"><%= vo.getContent() %></textarea>
+							<% } else { %>
+							<textarea  name="content" id="content"></textarea>
+							<% } %>
+						</td>
 					</tr>
 					<tr>
 						<th>파일</th>
-						<td><input type="file" name="file"></td>
+						<td>
+							<input type="file" name="nfile">
+							<% if (vo.getNfile() != null ) { %>
+							<span id="filename"><%= vo.getNfile() %></span>
+							<% } else { %>
+							<span id="filename">선택된 파일 없음</span>
+							<% } %>
+						</td>
 					</tr>					
 				</table>
 				<button type="button"  class="btn_style" id ="commit" >수정완료</button>

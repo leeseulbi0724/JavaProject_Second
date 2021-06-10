@@ -1,10 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*"
+%>
+<%
+	serviceDAO dao = new serviceDAO();
+	ArrayList<serviceVO> list = dao.getSelectResult();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지</title>
+<title>문의관리 | 관리자 페이지</title>
 <style>
 	.table { text-align:center; margin:15px; width:1150px; font-size:13px; }
 	.table, .table th, .table td { 
@@ -38,13 +43,13 @@ $(document).ready(function() {
 	    }  
  	 });
 	
-	$("#com_btn").click(function() {
-		var name = $("#com_btn").attr("value");
+	/**$("#com_btn").click(function() {
 		
-		if (name == "no") {
-			location.href = "http://localhost:9000/starbucks/admin/question/admin_question_comment.jsp";
-		}
-	});
+		var sid = $(this).val();
+	
+		location.href = "http://localhost:9000/starbucks/admin/question/admin_question_comment.jsp?sid="+sid;
+		
+	});**/
 	
 	$("span").click(function() {
 		location.replace("http://localhost:9000/starbucks/admin/question/admin_question.jsp");
@@ -63,6 +68,7 @@ $(document).ready(function() {
 	<section>
 		<div class="text">Home > <span>문의사항 관리</span></div>
 		<div class="center" style="overflow:scroll">
+		<form name="comment" action="admin_question_comment.jsp" method="post">
 			<table border=1 class="table" >
 			<thead>
 				<tr>
@@ -83,192 +89,25 @@ $(document).ready(function() {
 				</tr>
 			</thead>
 			<tbody class="tbody">
+			<% for( serviceVO vo : list ) { %>				
 				<tr>
-					<td>1</td>
-					<td>문의</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style" value="no" id="com_btn">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>제안</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>제안</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>문의</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style" disabled>답변완료</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>문의</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>불만</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>칭찬</td>
-					<td>dltmfql</td>
-					<td>문의제목</td>
-					<td>2021-05-29</td>
-					<td><button type="button" class="btn_style">답변하기</button></td>
-				</tr>
+					<td><%= vo.getRno() %></td>
+					<td><%= vo.getCategory() %></td>
+					<td><%= vo.getId() %></td>
+					<td><%= vo.getTitle() %></td>
+					<td><%= vo.getSdate() %></td>
+					<td>
+					<% if( vo.getReply() == 0) {  %>
+						<button type="submit" class="btn_style" value="<%=vo.getSid() %>" id="com_btn" name="sid">답변하기</button>
+					<% } else { %>
+						<button type="button" class="btn_style" value="yes" id="com_btn" disabled>답변하기</button>
+					<% } %>
+					</td>
+				</tr>				
+			<% } %>			
 			</tbody>
 		</table>
+		</form>
 		</div>
 	</section>
 	</div>

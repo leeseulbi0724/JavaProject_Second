@@ -14,9 +14,6 @@
 	    vertical-align: baseline;
 	    background: transparent;
 	}
-	body {
-		
-	}
 	header>div, header>ul.login{
 		width:1200px;
 		margin:auto;
@@ -112,13 +109,22 @@
 	.s_event { position:relative; right:500px; }
 	.s_notice { position:relative; bottom:33px; right:400px; }
 </style>
+<script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	<!--  header -->
 	<header id="header">
-			<ul class="login">
+			<ul class="login">	
+				<% if(session.getAttribute("signedUser") == null) { %>
 				<li><a href ="http://localhost:9000/starbucks/login/login.jsp">Sign In</a><div></div></li>
+				<% } else { %>
+				<li><a href="http://localhost:9000/starbucks/login/logout_process.jsp" id="logout">Sign Out</a><div></div></li>			
+				<% } %>
+				<% if(session.getAttribute("signedUser") == null) { %>
+				<li><a href ="http://localhost:9000/starbucks/no_login.jsp">My Starbucks</a><div></div></li>
+				<% } else { %>
 				<li><a href ="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp">My Starbucks</a><div></div></li>
+				<% } %>
 				<li><a href ="http://localhost:9000/starbucks/service/service_main.jsp">Customer Service & Ideas</a><div></div></li>
 				<li><a href ="http://localhost:9000/starbucks/map/map.jsp">Find a Store</a><div></div></li>
 				<li><a href="http://localhost:9000/starbucks/admin/admin_login.jsp">Admin</a></li>

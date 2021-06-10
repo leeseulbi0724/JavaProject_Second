@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*"
+%>
+<%
+	noticeDAO dao = new noticeDAO();
+	ArrayList<noticeVO> list = dao.getSelectResult();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +26,7 @@ div.carousel {
 }
 /***************************** caraousel **********************************/
 div.carousel article div {  	display:inline-block;  }
-div.carousel article div:first-child>img { postion:relative; margin-bottom:200px; margin-left:80px;  }
+div.carousel article div:first-child>img { margin-bottom:200px; margin-left:80px;  }
 div.carousel article div:first-child>a { 
 	position:relative; right:200px; bottom:150px;  
 	text-decoration:none; 
@@ -97,9 +102,21 @@ div.promotion {
 	margin:0; padding:0;
 }
 div.notice label, div.promotion label { font-size:17px; font-weight:bold;  }
-div.notice label,  div.notice>a#n_link,  div.promotion label { position:relative; top:25px; }
+div.promotion label { position:relative; top:25px; }
+div.notice label { position:relative; bottom:15px; }
+
 #n_link { text-decoration:none; color:white; left:5px; right:100px; font-size:15px; }
-div.notice>a#n_link:hover { text-decoration:underline; }
+div.notice ul { display:inline-block; }
+div.notice li { list-style-type:none;  }
+div.sub_notice { 
+	display:inline-block; overflow:hidden; height:40px; display:inline-block; 
+	margin-top:20px; text-align:left; margin-left:10px;
+}
+.rolling { position:relative; height:auto; width:100%; }
+.rolling li { height:40px; width:100%; line-height:40px;}
+.rolling li:hover { text-decoration:underline; }
+
+
 div.promotion label { color:#333; }
 div.notice img, div.promotion img { display:inline-block;  float:right; position:relative; top:5px; right:5px; }
 div.promotion img { top:15px; right:100px; }
@@ -161,7 +178,11 @@ div.reward a:nth-child(8) {
 }
 div.reward>div:nth-child(2) a:hover, div.reward a:hover { text-decoration:underline; }
 
- 
+ div.login_div { display:inline-block; }
+ div.login_div:first-child { position:relative; right:50px; }
+ div.login_div:nth-child(2) { position:relative; bottom:50px; right:50px; }
+ div.login_div:nth-child(3) { margin-left:150px; position:relative; bottom:25px; }
+ div.login_div:last-child { position:relative; bottom:45px; left:20px; }
 
 
 /******************************************************************************/
@@ -347,8 +368,34 @@ div.img article.five a:hover {
         		$(".down_img").attr("src", "http://localhost:9000/starbucks/images/down_01.jpg")
         	}
         });
+        
+        var height = $(".sub_notice").height();
+        var num = <%= list.size() %>
+        
+        var max = height * num;
+        var move = 0;
+        
+        function noticeRolling() {
+        	move+=height;
+        	
+        	$(".rolling").animate({"top":-move}, 600, function() {
+        		if (move >= max) {
+        			$(this).css("top",0);
+        			move = 0;
+        		};
+        	});
+        };
+        noticeRollingOff = setInterval(noticeRolling, 2000);
+        
+        $(".rolling").append($(".rolling li").first().clone());            
+
+       
    } ); 
 </script> 
+<script>
+
+
+</script>
 </head>
 <body>
 	<!--  header -->
@@ -384,8 +431,16 @@ div.img article.five a:hover {
 		<div class="main">
 			<div class="notice">			
 				<label>공지사항</label>
-				<a href="#" id="n_link">스타벅스 공지사항</a>
-				<a href="#"><img src="http://localhost:9000/starbucks/images/plus.PNG"  width=60 height=61 ></a>
+				<div class="sub_notice">
+					<ul class="rolling">
+					<% for(noticeVO vo : list) { %>
+					<li>
+						<a href="http://localhost:9000/starbucks/whatsnew/notice_content.jsp?nid=<%=vo.getNid()%>&no=<%=vo.getNo() %>" id="n_link"><%= vo.getTitle() %></a>
+					</li>
+					<% } %>
+					</ul>	
+				</div>			
+			<a href="http://localhost:9000/starbucks/whatsnew/notice.jsp"><img src="http://localhost:9000/starbucks/images/plus.PNG"  width=60 height=61 ></a>
 			</div>
 			<a  id="p_link"><div class="promotion">
 				<label class="p_link">스타벅스 프로모션</label>
@@ -426,6 +481,7 @@ div.img article.five a:hover {
 						  </section>
 						</div>					
 				</div>
+		<% if(session.getAttribute("signedUser") == null) { %>
 		<div class="reward_bg">
 		<div class="reward">	
 			<div><img src="http://localhost:9000/starbucks/images/rewards-logo.png" width=180px height=150px></div>
@@ -433,8 +489,8 @@ div.img article.five a:hover {
 					<p> 스타벅스만의 특별한 혜택, <strong>스타벅스 리워드</strong></p><br>
 					<p><strong>스타벅스 회원이세요?</strong> 로그인을 통해 나만의 리워드를 확인해보세요.<br>
 					<strong>스타벅스 회원이 아니세요?</strong> 가입을 통해 리워드 혜택을 즐기세요.</p>
-					<a href="#">회원가입</a>
-					<a href="#">로그인</a>
+					<a href="http://localhost:9000/starbucks/join/join.jsp">회원가입</a>
+					<a href="http://localhost:9000/starbucks/login/login.jsp">로그인</a>
 					<div></div>
 					<p>회원 가입 후, 스타벅스 e-Gift Card를 <strong>"나에게 선물하기"로 구매하시고, 편리하게 등록하세요!</strong><br>
 					카드를 등록하여 스타벅스 리워드 회원이 되신 후, 첫 구매를 하시면 무료 음료쿠폰을 드립니다!</p>
@@ -442,6 +498,24 @@ div.img article.five a:hover {
 			</div>
 		</div>
 		</div>
+		<% } else { %>
+		<div class="reward_bg" style="background-color:black">
+		<div class="reward" style="background-color:black">
+			<div class="login_div"><img src="http://localhost:9000/starbucks/images/icon_msr_cup.png"></div>
+			<div class="login_div">
+				<p style="font-size:20px"><strong><%= session.getAttribute("signedUser") %></strong>님, 안녕하세요!
+				<p>혜택에 편리함까지 더한 스타벅스 리워드를 즐겨보세요.
+			</div>
+			<div class="login_div"><img src="http://localhost:9000/starbucks/images/icon_add_card.png"></div>
+			<div class="login_div">
+				<p style="font-size:15px"><strong>스타벅스 카드 등록</strong><br>
+				등록된 카드가 없습니다.<br>
+				새로운 카드를 등록하세요.</p>
+			</div>
+		</div>
+		</div>
+		<% } %>
+		
 		<div class="img">
 			<article class="first">
 				<div class="first_01"><img src="http://localhost:9000/starbucks/images/2021_summer1_bean.png" ></div>				

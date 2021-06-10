@@ -12,7 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <title>이벤트 | Insert title here</title>
-<link rel="stylesheet"  href="http://localhost:9000/starbucks/whatsnew/carousel.css">
+<link rel="stylesheet"  href="http://localhost:9000/starbucks/css/carousel.css">
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -189,8 +189,35 @@ div.box span:last-child { color:gray; }
 			<section class="campaign_wrap">
                         <div class="box_bg"><%= vo.getTitle() %><span><%=vo.getStart_date() %>~<%=vo.getLast_date() %></span></div>
                         <div class="center">
+                        <% if(eid.equals("E_2") ) { %>
                         	<img src="http://localhost:9000/starbucks/images/PLCC_detail_210527_1.jpg" style="vertical-align:top;">
                      		<img src="http://localhost:9000/starbucks/images/PLCC_detail_210528_2.jpg" style="vertical-align:top;"><br>
+		                <% } else if (eid.equals("E_3")) { %>   
+		                	<img src="http://localhost:9000/starbucks/images/ssgXstarbucks_detail_1_210517.jpg" style="vertical-align:top;">
+                     		<img src="http://localhost:9000/starbucks/images/ssgXstarbucks_detail_2_210517.jpg" style="vertical-align:top;"><br>
+		                <% } else if (eid.equals("E_4")) { %>
+		                	<img src="http://localhost:9000/starbucks/images/YESorNO_Fin_detail_210602_1.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/YESorNO_Fin_detail_210602_2.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/YESorNO_Fin_detail_210602_3.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/YESorNO_Fin_detail_210602_4.jpg" style="vertical-align:top;"><br>                     		
+		                <% } else if (eid.equals("E_5")) { %>
+		                	<img src="http://localhost:9000/starbucks/images/sratbucksAtHome_detail_1_u1.jpg" style="vertical-align:top;"><br>
+		                <% } else if (eid.equals("E_6")) { %>
+		                	<img src="http://localhost:9000/starbucks/images/21summer_eFreq_detail_210503_01.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/21summer_eFreq_detail_210503_02.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/21summer_eFreq_detail_210503_03.jpg" style="vertical-align:top;"><br>
+		                <% } else if (eid.equals("E_7")) { %>
+		                	<img src="http://localhost:9000/starbucks/images/giftshop_bonusstar_detail_PC_2_210429.jpg" style="vertical-align:top;">
+		                <% } else if (eid.equals("E_8")) { %>
+		                	<img src="http://localhost:9000/starbucks/images/2021_summer2_detail_1.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/2021_summer2_detail_2.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/2021_summer2_detail_3.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/2021_summer2_detail_4.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/2021Summer2Tri_detailBanner_210602.jpg" style="vertical-align:top;">
+		                	<img src="http://localhost:9000/starbucks/images/Summer2Icon_detailBanner_210602.jpg" style="vertical-align:top;">
+		                <% } else if (eid.equals("E_9")) { %>
+		                	<img src="http://localhost:9000/starbucks/images/2021bonusstar_210101.jpg" style="vertical-align:top;"><br>
+		                <% } %>
 		                    <a href="event.jsp" id="list">목록</a>
                         </div>
               </section>
@@ -232,9 +259,9 @@ div.box span:last-child { color:gray; }
 		    <div class="carousel-item">
 		    <div class="box">
 			      <a href="event_content.jsp?eid=E_8">
-		      		<img src="http://localhost:9000/starbucks/images/WEB_THUM_20210412153011014.jpg" alt="Chicago" width="260" height="260"><br>
-		      		<span>서머1 프로모션</span><br>
-			     	<span>2021-04-13 ~ 2021-06-07</span>
+		      		<img src="http://localhost:9000/starbucks/images/WEB_THUM_20210607085024446.jpg" alt="Chicago" width="260" height="260"><br>
+		      		<span>서머2 프로모션</span><br>
+			     	<span>2021-06-08 ~ 2021-07-19</span>
 			     </a>
 		      </div> 
 		     <div class="box">

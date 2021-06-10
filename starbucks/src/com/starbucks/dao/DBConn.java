@@ -56,4 +56,16 @@ public class DBConn {
 				e.printStackTrace();
 			}
 		}
+		
+		public void close() {
+			try {
+				//6단계 - 연결종료
+		    	if(rs != null) rs.close();
+		    	if (pstmt != null) pstmt.close();
+		    	if (conn != null) conn.close();
+		    	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 }

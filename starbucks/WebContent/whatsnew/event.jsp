@@ -227,7 +227,7 @@ section.campaign_wrap h3 a.on {background:#006633;color:#ffffff;border-radius:3p
 					<li><div><a href ="event_content.jsp?eid=E_5"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210504131841554.jpg"></div></div></a><h4>SSG.COM에서 스타벅스 푸드를 만나보세요</h4><p>2021-05-06 ~ 2021-05-30</p></div></li>
 					<li><div><a href ="event_content.jsp?eid=E_6"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210503091447483.jpg"></div></div></a><h4>2021 서머 e-프리퀀시</h4><p>2021-05-11 ~ 2021-07-19</p></div></li>
 					<li><div><a href ="event_content.jsp?eid=E_7"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210429161452776.jpg"></div></div></a><h4>e-Gift item 보너스 스타 이벤트</h4><p>2021-01-01 ~ 2021-12-31</p></div></li>
-					<li><div><a href ="event_content.jsp?eid=E_8"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210412153011014.jpg"></div></div></a><h4>서머1 프로모션</h4><p>2021-04-13 ~ 2021-06-07</p></div></li>
+					<li><div><a href ="event_content.jsp?eid=E_8"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_20210607085024446.jpg"></div></div></a><h4>서머2 프로모션</h4><p>2021-06-08 ~ 2021-07-19</p></div></li>
 					<li><div><a href ="event_content.jsp?eid=E_9"><div class="box"><div class="image"><img src="http://localhost:9000/starbucks/images/WEB_THUM_FILE20210202095614358.jpg"></div></div></a><h4>만원당 별 적립 이벤트</h4><p>2021-01-01 ~ 2021-12-31</p></div></li>
 				</ul>
 			</div>

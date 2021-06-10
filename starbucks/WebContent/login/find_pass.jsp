@@ -80,7 +80,7 @@ section.find div:nth-child(2)>ul>li:nth-child(6)>input
 	font-size: 14px;
 }
 section.find div:nth-child(2)>ul>li:nth-child(4)>input:first-child {
-	width: 54%;
+	width: 84.5%;
 	height: 57px;
 	text-align: left;
 	border: 1px solid lightgray;
@@ -89,16 +89,7 @@ section.find div:nth-child(2)>ul>li:nth-child(4)>input:first-child {
 	margin: 20px 0;
 	font-size: 14px;
 }
-section.find div:nth-child(2)>ul>li:nth-child(4)>input:last-child{
-	text-align: center;
-	border: 1px solid lightgray;
-	border-radius: 3px;
-	width: 1%;
-	height: 57px;
-	padding: 3px 18px;
-	margin: 20px 0;
-	font-size: 14px;
-}
+
 section.find span.span4{
 	background:#333;
 	display: inline-block;
@@ -131,6 +122,16 @@ section.find button:hover{
 	cursor: pointer;
 	text-decoration: underline;
 }
+.id_form{
+	width: 84.5%;
+	height: 57px;
+	text-align: left;
+	border: 1px solid lightgray;
+	border-radius: 3px;
+	padding: 0 18px;
+	margin: 19px 10px 25px 2px;
+	font-size: 14px;
+}
 </style>
  
  <script>
@@ -141,14 +142,9 @@ section.find button:hover{
 			document.find_form.name.focus();
 			return;
 		}
-		else if(!document.find_form.birth.value){
-			alert("생년월일을 입력해 주세요.");
+		else if(!document.find_form.id.value){
+			alert("아이디를 입력해 주세요.");
 			document.find_form.birth.focus();
-			return;
-		}
-		else if(!document.find_form.gender.value){
-			alert("성별을 입력해 주세요.");
-			document.find_form.gender.focus();
 			return;
 		}
 		else if(!document.find_form.phone.value){
@@ -169,7 +165,7 @@ section.find button:hover{
 <div>
 <section class="find">
 		<h1 class="title">비밀번호 찾기</h1>
-		<form class="content_layout" name="find_form" action="reset_pass.jsp" method="post">
+		<form class="content_layout" name="find_form" action="find_pass_process.jsp" method="post">
 			<div>
 				<ul>
 					<li>
@@ -192,11 +188,10 @@ section.find button:hover{
          				<input type="text" name="name" placeholder="이름" title="이름" autofocus>
 					</li>
 					<li>
-						<span class="span3">생년월일/성별</span>
+						<span class="span3">아이디</span>
 					</li>
 					<li>
-         				<input type="text" name="birth" placeholder="* * * * * *" title="생년월일입력" maxlength="6"><span class="span4"></span>
-         				<input type="text" name="gender" placeholder="*" title="주민등록번호 7번째 자리" maxlength="1"> ● ● ● ● ● ●
+         				<input class ="id_from" type="text" name="id" placeholder="아이디" title="이름" autofocus>
 					</li>
 					<li>
 						<span class="span3">휴대폰번호</span>

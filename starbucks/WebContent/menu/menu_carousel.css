@@ -5,8 +5,6 @@
 	width:100%;
 	overflow:hidden;
 	text-align: center;
-	-webkit-animation: fadein 5s infinite;
-	-webkit-animation-fill-mode: none;	
 }
 .carousel-inner::after{display:block;clear:both;content:""}
 .carousel-item{
@@ -17,39 +15,18 @@
 	margin-right:-100%;
 	-webkit-backface-visibility:hidden;
 	backface-visibility:hidden;
+	transition:-webkit-transform .6s ease-in-out;
+	transition:transform .6s ease-in-out;
+	transition:transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
 }
 
 
-@-webkit-keyframes fadeinout {
-    0%,100% {
-        opacity: 0;
-    }
-    20%, 80% {
-        opacity: 1;
-    }
-}
-@-webkit-keyframes fadein {
-    0%{
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@-webkit-keyframes fadeout { /* Safari and Chrome */
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
 .carousel-item-next,.carousel-item-prev,.carousel-item.active{display:block}
 .active.carousel-item-right,.carousel-item-next:not(.carousel-item-left){
-	/* -webkit-transform:translateX(100%);transform:translateX(100%) */
+	-webkit-transform:translateX(100%);transform:translateX(100%)
 }
 .active.carousel-item-left,.carousel-item-prev:not(.carousel-item-right){
-	/* -webkit-transform:translateX(-100%);transform:translateX(-100%) */
+	-webkit-transform:translateX(-100%);transform:translateX(-100%)
 }
 .carousel-control-next,.carousel-control-prev{
 	position:absolute;

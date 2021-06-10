@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+import="com.starbucks.dao.*"
+%>
+<%
+	serviceDAO dao = new serviceDAO();
+	
+	int before_count = dao.getBeforeCount((String)session.getAttribute("signedUser"));
+	int after_count = dao.getAfterCount((String)session.getAttribute("signedUser"));
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,13 +41,13 @@
 						position:relative; right:100px; bottom:25px; padding-top:20px; padding-bottom:30px; padding-right:320px;
 						margin-bottom:-50px;
 	}	
-	div.center h3.h3_1 { margin-left:20px;  }
-	div.center p.p_1 { font-size:14px; margin-left:20px;  }
+	div.center h3.h3_1 { margin-left:20px; margin-bottom:10px; }
+	div.center p.p_1 { font-size:14px; margin-left:20px; margin-bottom:10px; }
 	div.center li { font-size:12px; color:gray; margin:5px 0 5px 0; margin-left:20px; font-size:12px; }
 	div.center a { color:gray; text-decoration:none; display:inline-block; }
 	div.center a:hover { text-decoration:underline;  }
 	
-	div.center-right { position:relative; left:175px; bottom:180px; margin:0; padding-left:10px; display:inline-block; border-left:1px solid lightgray; }
+	div.center-right { position:relative; left:175px; bottom:190px; margin:0; padding-left:15px; display:inline-block; border-left:1px solid lightgray; }
 	div.center-right h3.h3_2 { margin:0 0 0 0; }
 	div.center-right p.p_2 { font-size:13px;  }
 	div.center-right img { margin-top:10px; }
@@ -58,6 +65,10 @@
 	div.button a:hover { text-decoration:underline; color:green; }
 	div.button p { padding:10px; margin:0; }
 	div.button>div.line { border-top:1px solid lightgray; width:220px; }
+	
+	div.login_div { display:inline-block; margin:20px 0; padding-right:15px; font-size:16px; font-weight:bold; }	
+	div.login_div:last-child { padding-left:15px; border-left:1px solid lightgray; }
+	div.login_div p { margin-top:10px; margin-left:10px; font-size:25px; }
 </style>
 </head>
 <body>
@@ -98,9 +109,20 @@
 	<div class="center-right">
 		<h3 class="h3_2">고객의 소리</h3>
 		<p class="p_2">문의에 대한 처리현황을 확인할 수 있습니다.</p>
-		<img src="http://localhost:9000/starbucks/images/voc_login_pic.png">
-		<p class="p_3">로그인이 필요한<br>서비스입니다.</p><br>
-		<a href="http://localhost:9000/starbucks/login/login.jsp">로그인</a>
+		<% if(session.getAttribute("signedUser") == null ) { %>
+			<img src="http://localhost:9000/starbucks/images/voc_login_pic.png">
+			<p class="p_3">로그인이 필요한<br>서비스입니다.</p><br>
+			<a href="http://localhost:9000/starbucks/login/login.jsp">로그인</a>
+		<% } else { %>
+			<div class="login_div">
+				<img src="http://localhost:9000/starbucks/images/icon_voc01.png"> 접수완료
+				<p><%= before_count %>
+			</div>
+			<div class="login_div">
+				<img src="http://localhost:9000/starbucks/images/icon_voc02.png"> 답변완료
+				<p><%= after_count %>
+			</div>
+		<% } %>
 	</div>	
 	</section>
 	<!-- footer -->

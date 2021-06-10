@@ -2,7 +2,17 @@ package com.starbucks.vo;
 
 public class eventVO {
 	
-	String title, start_date, last_date;
+	String title, start_date, last_date, eid;
+	
+	
+
+	public String getEid() {
+		return eid;
+	}
+
+	public void setEid(String eid) {
+		this.eid = eid;
+	}
 
 	public String getTitle() {
 		return title;
