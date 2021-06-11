@@ -36,11 +36,6 @@
 	margin: 0 auto;
 	padding-top: 0;
 }
-
-ul.smap li{
-	float: left;
-	margin: 0 2.5px;
-}
 a:link {text-decoration: none; color: #333333;}
 a:visited {text-decoration: none; color: #333333;}
 
@@ -59,8 +54,9 @@ ul.smap{
 }
 ul.smap li{
 	display: inline-block;
-	margin-right: 2px;
 	color: #ffffff;
+	float:left;
+	margin-right:5px;
 }
 .wn_conf{
 	left: 50%;
@@ -127,7 +123,7 @@ div.cate{
 	text-align: left;
 	margin: 25px 0 0 20px;
 }
-div.cate .btn_style{
+div.cate button.btn_style{
 	width: 200px;
 	height:35px;
 	font-size: 14px;
@@ -137,7 +133,7 @@ div.cate .btn_style{
 	color:#333;
 	border: 1px solid #f4f4f1;
 }
-div.cate .green_btn{
+div.cate button.green_btn{
 	width: 200px;
 	height:35px;
 	background: #006633;
@@ -148,18 +144,85 @@ div.cate .green_btn{
 	margin-right: 5px;
 }
 
-div.cate .btn_style:hover, div.cate .green_btn:hover{
+div.cate button.btn_style:hover, div.cate button.green_btn:hover{
 	text-decoration: underline;
 	cursor: pointer;
 }
-#cate_class {
-	height :30px;
-	padding:15px 0 0 20px;
-}
 
+form>ul{	
+	list-style-type: none;
+	text-align: left;
+	padding: 20px 0 10px 30px;;
+	
+}
+form>ul>li{
+	display: inline-block;
+	vertical-align: middle;
+	margin:0; padding:0 20px 0 0;
+	font-size: 13px;
+}
+input[type="checkbox"],
+#checkboxes>label>input[type="checkbox"]{
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0
+}
+input[type="checkbox"] + label,
+#checkboxes>label>input[type="checkbox"] + label{
+	display: inline-block;
+	position: relative;
+	cusor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+input[type="checkbox"] + label:before,
+#checkboxes>label>input[type="checkbox"] + label:before {
+	content: ' ';
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: -2px 8px 0 0;
+	text-align: center;
+	vertical-align: middle;
+	background: white;
+	border: 1px solid #cacece;
+}
+input[type="checkbox"] + label:hover:before,
+input[type="checkbox"] + label:hover,
+#checkboxes>label>input[type="checkbox"] + label:hover:before{
+	cursor: pointer;
+}
+input[type="checkbox"] + label:active:before,
+input[type="checkbox"]:checked + label:active:before,
+#checkboxes>label>input[type="checkbox"] + label:active:before,
+#checkboxes>label>input[type="checkbox"]:checked + label:active:before {
+	border:1px solid green;
+	content: '\2714';
+	color: green;
+	background: white;
+	border-color: green;
+	line-height: 10px;
+	font-size: 6px;
+}
+input[type="checkbox"]:checked + label:before,
+#checkboxes>label>input[type="checkbox"]:checked + label:before{
+	content: '\2714';
+	color: green;
+	background: white;
+	border-color: #cacece;
+	line-height: 10px;
+	font-size: 6px;
+}
 /************************* 상품 리스트 ***********************/
 .coffee_list{
-	height: 90px;
+	height: auto;
 	width: 1098px;
 	background: #ffffff;
 	margin: 0 auto;
@@ -253,7 +316,7 @@ div.coffee_list>div p {
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
 //////////////체크박스////////////////////
-$( document ).ready(function() {
+
 	function allCheck() {
 	    if ($("#all").is(':checked')) {
 	        $(".chk").prop("checked", false);
@@ -264,8 +327,8 @@ $( document ).ready(function() {
 	    }else if (!$("#all").is(':checked')) {
 	    	$("#list_cate *").hide();
 	    }
-	
-});
+	}
+
 	function checkboxCheck(){
 	    $("#list_cate *").show();
 		$("#list_cate ul").hide();
@@ -300,7 +363,7 @@ $( document ).ready(function() {
 			$("#flavor").hide();
 			$("#flavor").hide();
 		}
-	});
+
 ///////////////////////////////////////////////////
 
 /* 분류 보기 업다운*/
@@ -355,7 +418,7 @@ $( document ).ready(function() {
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
 			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/coffee_main.jsp" style="text-decoration-line: none;">COFFEE</a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/coffee_list1.jsp" style="text-decoration-line: none;">커피</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/coffee_list.jsp" style="text-decoration-line: none;">커피</a></li>
 		</ul>
 	</div>
 </div>	
@@ -377,19 +440,38 @@ $( document ).ready(function() {
 						<a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean3"%>"><button type="button" class="btn_style" id="bean3">스타벅스 오리가미</button></a>
 					</div>               
         			</div>
-        			<div class="check" id="cate_class">
-        				<span><input type="checkbox" id="all" checked="checked"  onclick="allCheck()">전체 상품보기</span> 
-        				<span><input type="checkbox" id="blond" class="chk" onclick="checkboxCheck()">블론드 로스트</span> 
-        				<span><input type="checkbox" id="medium" class="chk" onclick="checkboxCheck()">미디엄 로스트</span> 
-        				<span><input type="checkbox" id="dark" class="chk" onclick="checkboxCheck()">다크 로스트</span> 
-        				<span><input type="checkbox" id="flavor" class="chk" onclick="checkboxCheck()">플레이버</span> 
-        			</div>
+        			<div id="cate_class">
+						<form method="post">
+							<ul>
+								<li>
+									<input type="checkbox" id="all" checked="checked" onclick="allCheck()">
+									<label for="all">전체 상품보기</label>
+								</li>
+								<li>
+									<input type="checkbox" id="coldbrew" class="chk" onclick="checkboxCheck()">
+									<label for="blond">블론드 로스트</label>
+								</li>
+								<li>
+									<input type="checkbox" id="brood" class="chk" onclick="checkboxCheck()">
+									<label for="medium">미디엄 로스트</label>
+								</li>
+								<li>
+									<input type="checkbox" id="esp" class="chk" onclick="checkboxCheck()">
+									<label for="dark">다크 로스트</label>
+								</li>
+								<li>
+									<input type="checkbox" id="fra" class="chk" onclick="checkboxCheck()">
+									<label for="dark">플레이버</label>
+								</li>
+							</ul>
+						</form>
+					</div>
 
             </section>
 		</div>
 	</div>
-<!-- 커피 상세 -->
 	
+<!-- 커피 상세 -->
 		<div class="detail_list">
 			<select>
 				<option value="choice" >상세 분류</option>
@@ -398,7 +480,7 @@ $( document ).ready(function() {
 			</select>
 		</div>
 	
-	<!-- coffee list -->
+<!-- coffee list -->
 	<div class="list" id="list_cate">
 	   <% for(CoffeeVO vo : list){
 			coffeeDAO dao2 = new coffeeDAO();
@@ -417,7 +499,8 @@ $( document ).ready(function() {
 					<ul class="cname__list">
 					 <% for(CoffeeVO vo2 : list2){ %>
 						<li><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
-							<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p></div></li>
+							<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p></div>
+						</li>
 						<% } %>
 						
 					</ul>

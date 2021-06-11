@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.starbucks.vo.CoffeeVO;
 
 public class coffeeDAO extends DBConn {
-		//Select --> 커피타입 
+		//Select --> coffee 커피타입 
 		public ArrayList<CoffeeVO> getList(String bean){
 			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
 			String sql = "select ctype_id, clogo, cname from sb_coffee_list where cid=?" ;
@@ -30,7 +30,7 @@ public class coffeeDAO extends DBConn {
 			return list;
 		}
 		
-		//Select --> 커피타입별 이미지 & 이름
+		//Select --> coffee 커피타입별 이미지 & 이름
 		public ArrayList<CoffeeVO> getImgList(String bean, String ctype){
 			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
 			String sql = "select ctype_id, cimg_file, cimg_text from sb_coffee_img where cid=? and ctype_id=?";
@@ -55,7 +55,7 @@ public class coffeeDAO extends DBConn {
 			
 			return list;
 		}
-		//Select --> 커피타입 & 커피정보
+		//Select --> coffee 커피타입 & 커피정보
 		public CoffeeVO getDetailImg(String ctype, String cimg){
 			CoffeeVO vo = new CoffeeVO();
 			String sql = "select l.clogo, l.cname, l.ctext, cimg_file, dproduct_name ,dproduct_ename,  dproduct_text,"
@@ -91,7 +91,7 @@ public class coffeeDAO extends DBConn {
 			
 			return vo;
 		}
-		//Select --> 관련제품
+		//Select --> coffee 관련제품
 		public CoffeeVO getProductlImg(String pname){
 			CoffeeVO vo = new CoffeeVO();
 			String sql = "select dproduct_text, ctype_id, cimg_file from SB_COFFEE_DETAIL where dproduct_name=? ";
@@ -113,7 +113,36 @@ public class coffeeDAO extends DBConn {
 			
 			return vo;
 		}
+		
+		
+		
+		
+		
+		//Select --> espresso 리스트
+		public ArrayList<CoffeeVO> getEspressoList(){
+			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
+			String sql = "select etype_id, ename, efile_name, eimg_main_text from sb_espresso_list" ;
+			getPreparedStatement(sql);
+			
+			try {
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					CoffeeVO vo = new CoffeeVO();
+					vo.setEtype_id(rs.getString(1));
+					vo.setEname(rs.getString(2));
+					vo.setEfile_name(rs.getString(3));
+					vo.setEimg_main_text(rs.getString(4));
 	
+					list.add(vo);
+					System.out.println(vo.getEtype_id());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return list;
+		}
+		
 }
 
 

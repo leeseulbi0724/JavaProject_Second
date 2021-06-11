@@ -47,7 +47,6 @@ ul.smap li{
 	margin-right: 2px;
 	color: #ffffff;
 }
-
 /******************* 에스프레소 content ****************************/
 .espresso, section.espresso_list {
 	position: relative;
@@ -55,22 +54,26 @@ ul.smap li{
 
 }
 .espresso {
-	width:100%; height:750px;
+	width:100%; height:auto;
 }
 .espresso_img {
 	padding-bottom:30px;
 }
 .espresso div {
-	width:55%;
-	position: absolute;
-	margin: 0 auto 0 23%;
+	width:1100px;
+	position: relative;
+	margin:10px auto;
 }
-.espresso_info dl {
-	margin: 0 auto 150px 23%;
+
+.espresso_info dd {
 	text-align:left;
+	font-size: 13px;
+	padding: 20px 20px;
 }
 .espresso_info dt{
 	color:#006633; font-size:18px; line-height:1.4; font-weight:normal; letter-spacing:-1px;
+	text-align:left;
+	padding: 10px 20px;
 }
 /******************* 관련제품 content ****************************/
 .espresso_list {

@@ -3,9 +3,74 @@ package com.starbucks.vo;
 public class CoffeeVO {
 	//coffee
 	String cid, ctype_id, cname, clogo, ctext, cimg_file, cimg_text, dproduct_name, dproduct_ename, dproduct_text,dproduct_note,
-		dproduct_enjoy, dproduct_content,dproduct_story, dproduct_tasting , product_name ;
-
+		dproduct_enjoy, dproduct_content,dproduct_story, dproduct_tasting , product_name ; //coffee
+	String eid, etype_id, ename,ename_tit, efile_name, eimg_main_text, etitle, econtent;  	//espresso
 	
+	
+	public String getEname_tit() {
+		return ename_tit;
+	}
+
+	public void setEname_tit(String ename_tit) {
+		this.ename_tit = ename_tit;
+	}
+
+	public String getEid() {
+		return eid;
+	}
+
+	public void setEid(String eid) {
+		this.eid = eid;
+	}
+
+	public String getEtype_id() {
+		return etype_id;
+	}
+
+	public void setEtype_id(String etype_id) {
+		this.etype_id = etype_id;
+	}
+
+	public String getEname() {
+		return ename;
+	}
+
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+
+	public String getEfile_name() {
+		return efile_name;
+	}
+
+	public void setEfile_name(String efile_name) {
+		this.efile_name = efile_name;
+	}
+
+	public String getEimg_main_text() {
+		return eimg_main_text;
+	}
+
+	public void setEimg_main_text(String eimg_main_text) {
+		this.eimg_main_text = eimg_main_text;
+	}
+
+	public String getEtitle() {
+		return etitle;
+	}
+
+	public void setEtitle(String etitle) {
+		this.etitle = etitle;
+	}
+
+	public String getEcontent() {
+		return econtent;
+	}
+
+	public void setEcontent(String econtent) {
+		this.econtent = econtent;
+	}
+
 	public String getCid() {
 		return cid;
 	}

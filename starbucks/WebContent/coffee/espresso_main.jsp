@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ page import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*"  %>
+ <%
+	coffeeDAO dao = new coffeeDAO();
+	ArrayList<CoffeeVO> list = dao.getEspressoList();
+	//CoffeeVO vo2 = dao.getProductlImg(vo.getProduct_name()); 
+ %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>에스프레소 음료 | Starbucks Coffee Korea</title>
 <style>
+.total {
+	width:100%; height:auto;
+	
+}
 /******************* 타이틀 ****************************/
 .espresso_ttl{
 	padding-top: 30px;
@@ -31,7 +41,7 @@ a:visited {text-decoration: none; color: #333333;}
 
 .sub_inner_title{
 	width: 1100px;
-	height: 91px;
+
 	margin: 0 auto;
 	position: relative;
 }
@@ -55,7 +65,7 @@ ul.smap li{
 
 }
 .espresso {
-	width:100%; height:750px;
+	width:100%; height:auto;
 }
 .espresso_img {
 	padding-bottom:30px;
@@ -65,34 +75,39 @@ ul.smap li{
 	position: relative;
 	margin:10px auto;
 }
-.espresso_info dl {
-	margin: 0 auto 150px 23%;
+
+.espresso_info dd {
 	text-align:left;
+	font-size: 13px;
+	padding: 20px 20px;
 }
 .espresso_info dt{
 	color:#006633; font-size:18px; line-height:1.4; font-weight:normal; letter-spacing:-1px;
+	text-align:left;
+	padding: 10px 20px;
 }
 
 /******************* 에스프레소 list    ****************************/
-.espresso_list {
-	width:100%; height:1100px;
+section.espresso_list {
 	position: relative;
 	text-align:center;
 	background-color:rgb(244,244,242);
 	padding-top:30px;
 }
-.espresso_list div.espresso_list_inner {
+.espresso_list>div.espresso_list_inner {
 	width:1100px; 
 	margin:0 auto;
+	height:1000px;
 }
 .espresso_list img.list_img{
 	width:340px; height:200px;
 }
 .espresso_list ul {
-	width:100%; height:1100px;
+	width:1100px;
+	position:absolute;
 	
 }
-.espresso_list ul li {
+.espresso_list ul>li {
 	display:inline-block;
 	width:340px; height:320px;
 	float:left;
@@ -120,7 +135,7 @@ ul.smap li{
 <jsp:include page="../header.jsp"></jsp:include>
 
 <!-- content -->
-
+<div class="total">
 	<!-- 타이틀  -->
 	<div class="sub_title">
 		<div class="sub_inner_title">
@@ -142,57 +157,28 @@ ul.smap li{
 			<dl class="espresso_info">
 				<dt>“오늘날, 스타벅스에 있어 꼼꼼하고 세심한 노력은 다양한 음료 메뉴만큼이나 중요합니다. ”</dt>
 				<dd>
-					<p>1983년 하워드 슐츠는 이탈리아 밀라노의 한 커피숍에서 카페라떼를 한 잔 주문했습니다. 앞에 준비된 에스프레소를 봤을 때 그는 갑자기 무엇인가를 느꼈습니다. <br>   그것은 바로 자신의 음료를 만들기 위해 들어간 엄청난 열정과, 오랫동안 지속되는 감동을 이루어내는 훌륭한 커피를 둘러싸고 형성된 공동체였습니다. <br>그는 자신이 특별한 무언가를 발견했다는 것을 깨달았습니다.</p>
-					<p class="last">오늘날, 스타벅스에 있어 이처럼 꼼꼼하고 세심한 노력은 다양한 음료 메뉴만큼이나 중요합니다. <br>순수하고 강렬한 에스프레소 풍미의 도피오 한 잔이나, 완벽하게 만들어진 부드러운 크림 블렌드의 라떼 한 잔 등, 모든 커피 한 잔 한 잔에는 열정이 담겨있습니다. </p>
+					<p>1983년 하워드 슐츠는 이탈리아 밀라노의 한 커피숍에서 카페라떼를 한 잔 주문했습니다. 앞에 준비된 에스프레소를 봤을 때 그는 갑자기 무엇인가를 느꼈습니다. <br>   그것은 바로 자신의 음료를 만들기 위해 들어간 엄청난 열정과, 오랫동안 지속되는 감동을 이루어내는 훌륭한 커피를 둘러싸고 형성된 공동체였습니다. <br>그는 자신이 특별한 무언가를 발견했다는 것을 깨달았습니다.<br><br></p>
+					<p class="last">오늘날, 스타벅스에 있어 이처럼 꼼꼼하고 세심한 노력은 다양한 음료 메뉴만큼이나 중요합니다. <br>순수하고 강렬한 에스프레소 풍미의 도피오 한 잔이나, 완벽하게 만들어진 부드러운 크림 블렌드의 라떼 한 잔 등, 모든 커피 한 잔 한 잔에는 열정이 담겨있습니다.<br><br> </p>
 				</dd>
 			</dl>
 		</div>
 	</section>
 		
 		<!-- 에스프레소 list -->
-<!--  for(){ -->
 	<section class="espresso_list">
 		<div class="espresso_list_inner">
 			<ul>
+			<% for(CoffeeVO vo : list) { %>	
 				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp" ><img src="http://localhost:9000/starbucks/images/espresso_list_img01.jpg" class="list_img"></a></div>
-					<div class="esp_text"><p>모든 에스프레소 음료의 생명이자 영혼입니다. </br>스타벅스에서 추출하는 모든 샷에는 깊고 강렬한 풍미를 내는 </br>독특한 세 개의 층이 형성됩니다. </p></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=<%= vo.getEtype_id()%>" ><img src="http://localhost:9000/starbucks/images/<%= vo.getEfile_name() %>" class="list_img"></a></div>
+					<div class="esp_text"><p><%= vo.getEimg_main_text() %></p></div>
 				</li>
+				<% } %>		
+			</ul>
 		</div>
 	</section>
-<!-- } -->
 				
-				
-				
-				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img02.jpg" class="list_img"></a></div>
-					<div class="esp_text"><p> </p></div>
-				</li>
-				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img03.jpg" class="list_img"></a></div>
-					<div class="esp_text"><p></p></div>
-				</li>
-				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img04.jpg" class="list_img"></a></div>
-					<div class="esp_text"><p></p></div>
-				</li>
-				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img05.jpg" class="list_img"></a></div>
-					<div class="esp_text"><p> </p></div>
-				</li>
-				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img06.jpg" class="list_img"></a></div>
-					<div class="esp_text"><p>맛있는 에스프레소와 스팀 밀크가 섞인 라떼는 더하고자 하는 </br>어떤 맛과도 완벽한 조화를 이룹니다. </p></div>
-				</li>
-				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img07.jpg" class="list_img"></a></div>									
-					<div class="esp_text"><p>뜨거운 에스프레소와 달콤쌉싸름한 초콜릿이 스팀 밀크와 </br>혼합된 달콤하고 맛있는 음료입니다. </p></div>
-				</li>
-				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp"><img src="http://localhost:9000/starbucks/images/espresso_list_img08.jpg" class="list_img"></a></div>
-					<div class="esp_text"><p>강렬한 리스트레토 샷과 적당한 양의 스팀 밀크가 어우러져 </br>너무 진하지도 너무 크리미하지도 않은 풍미를 냅니다. </p></div>
-				</li>
-			</ul>
+</div>
 
 <!-- Footer -->	
 <jsp:include page="../footer.jsp"></jsp:include>	
