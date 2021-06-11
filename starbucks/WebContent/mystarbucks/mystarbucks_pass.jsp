@@ -113,7 +113,7 @@ section.pass div:nth-child(4) input:last-child { margin-top:0; margin-bottom:5px
 						<span class="span2">아이디</span>
 					</li>
 					<li>
-         				<input type="text" name="id" placeholder="" title="아이디" disabled>
+         				<input type="text" name="id" placeholder="<%= session.getAttribute("signedUser") %>" title="아이디" disabled>
 					</li>
 				</ul>
 			</div>

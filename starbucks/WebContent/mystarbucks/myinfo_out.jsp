@@ -5,14 +5,16 @@
 <!-- 오늘 날짜  -->
 <%
 Calendar cal = Calendar.getInstance();
+
+
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<script src="../js/jquery-3.6.0.min.js"></script>
+<script src="http://localhost:9000/starbucks/js/jquery-3.6.0.min.js"></script>
 <style>
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd,
@@ -333,10 +335,21 @@ input[type="checkbox"] {
 
 <script>
 $(document).ready(function(){    
+	
     $(".user_if>a").click(function(){
         $(this).next("ul").toggleClass("hide");
     });
+    
+    
 });
+function delete_check(){   
+	
+    if($("#agree1").is(":checked") == false){
+        alert("유의사항에 동의하여 주세요.")
+    }else{
+    	location.href="myinfo_out_process.jsp"
+    }
+    }
 </script>
 </head>
 <body>
@@ -363,7 +376,7 @@ $(document).ready(function(){
 		 					<div class="my_info_f">
 		 						<div class="my_info_f_txt">
 		 							<p>
-		 								<span>***</span>님의 <span><%= cal.get(Calendar.YEAR) %>년</span><span><%= cal.get(Calendar.MONTH)+1 %>월</span><span><%= cal.get(Calendar.DATE) %>일</span>현재 스타벅스 서비스 현황입니다.<br><span class="last_txt">아래 사항들을 확인하시고, 회원탈퇴에 대해 다시 한번 신중히 결정해주세요.</span>
+		 								<span><%= session.getAttribute("signedUser") %></span>님의 <span><%= cal.get(Calendar.YEAR) %>년</span><span><%= cal.get(Calendar.MONTH)+1 %>월</span><span><%= cal.get(Calendar.DATE) %>일</span>현재 스타벅스 서비스 현황입니다.<br><span class="last_txt">아래 사항들을 확인하시고, 회원탈퇴에 대해 다시 한번 신중히 결정해주세요.</span>
 		 							</p>
 		 							<ul class= "mem_level">
 		 								<li class= "li1"><img src="http://localhost:9000/starbucks/images/mem_line.jpg"></li>
@@ -420,7 +433,7 @@ $(document).ready(function(){
 									</div> 
 								</p>
 								<div class="ms_btn">
-								<p><button>스타벅스 리워드 <!-- 및 e-프리퀀시 --> 서비스 이용내역 일괄삭제</button></p>
+								<p  onclick="delete_check()"><button>스타벅스 리워드 <!-- 및 e-프리퀀시 --> 서비스 이용내역 일괄삭제</button></p>
 								</div>
 								
 							</div>
@@ -434,7 +447,7 @@ $(document).ready(function(){
 						<li class="user_if">
 						<a>개인정보관리<span class="sbox_arrow_down"></span></a>
 						<ul class="hide">
-						<li><a class="font" href="">. 개인정보확인 및 수정</a></li>
+						<li><a class="font" href="mystarbucks_out.jsp">. 개인정보확인 및 수정</a></li>
 						<li><a class="font"href="http://localhost:9000/starbucks/mystarbucks/myinfo_out.jsp">. 회원 탈퇴</a></li>
 						<li><a class="font"href="http://localhost:9000/starbucks/mystarbucks/mystarbucks_pass.jsp">. 비밀번호 변경</a></li>
 						</ul>
