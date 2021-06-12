@@ -102,7 +102,7 @@
 		width: 1100px;
 		border-collapse: collapse;
 		border-spacing: 0;		
-		font-family:나눔스퀘어_ac;
+		font-family:나눔바른고딕;
 	}
 	.notice_tb th {
 		font-size: 14px;
@@ -148,7 +148,7 @@
 	td textarea { 
 		width:100%; border:none; margin-top:10px; 
 		background-color:white;
-		font-family:나눔스퀘어_ac;
+		font-family:나눔바른고딕;
 		resize:none;
 	}
 </style>

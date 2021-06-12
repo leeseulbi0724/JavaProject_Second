@@ -218,7 +218,7 @@ public class serviceDAO extends DBConn {
 		close();
 	}
 	
-	/** 전체 문의 내용 가져오기 **/
+	/** 문의 답글 전체 내용 가져오기 **/
 	public ArrayList<serviceVO> getCommentResult() {
 		ArrayList<serviceVO> list = new ArrayList<serviceVO>();
 		

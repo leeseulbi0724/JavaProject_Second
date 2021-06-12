@@ -21,7 +21,7 @@
 		font-family:나눔스퀘어_ac;
 	 }
 	 .c_content { display:inline-block; width:95%; margin-top:10px; height:420px; }
-	 textarea { width:90%; border:none; margin-top:10px; background-color:white; font-family:나눔스퀘어_ac; resize:none; }
+	 textarea { width:90%; border:none; margin-top:10px; background-color:white; font-family:나눔바른고딕; resize:none; }
 	  a.btn_style { 
 	  	margin-top:10px; 
 	  	padding:0 5px;
