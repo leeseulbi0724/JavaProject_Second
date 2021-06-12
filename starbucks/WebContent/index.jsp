@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Starbucks Coffee Korea</title>
-<link rel="stylesheet"  href="http://localhost:9000/starbucks/whatsnew/carousel.css">
+<link rel="stylesheet"  href="http://localhost:9000/starbucks/css/carousel.css">
 <style>
 body { overflow-x:hidden; overflow-y:auto; }
  div.reward{ 
