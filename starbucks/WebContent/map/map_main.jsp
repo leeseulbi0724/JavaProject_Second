@@ -6,34 +6,34 @@
 <meta charset="UTF-8">
 <title>Starbucks Coffee Korea</title>
 <style>
-	.store_txt{
+	.store_txt {
 		padding-top: 30px;
 		position: relative;
 	}
-	.sub_title{
+	.sub_title {
 		width: 100%;
 		height: 98px;
 		background: #ffffff;
 	}
-	ul.smap li{
+	ul.smap li {
 		float: left;
 		margin: 0 2.5px;
 		font-size:13px;
 	}
-	.sub_inner_title{
+	.sub_inner_title {
 		width: 1100px;
 		height: 91px;
 		margin: 0 auto;
 		position: relative;
 	}
-	ul.smap{
+	ul.smap {
 		position: absolute;
 		right: 0;
 		top: 60px;
 		list-style: none;
 		display: inline-block;
 	}
-	ul.smap li{
+	ul.smap li {
 		display: inline-block;
 		margin-right: 2px;
 		color: #ffffff;
@@ -106,7 +106,7 @@
 		text-align:left; margin:120px 570px 0 0;
 	}
 	.img_02 img, .img_03 img, .img_04 img, .img_05 img { margin-bottom:20px; }
-	.img_02 a, .img_04 a, .img_05 a { border:2px solid; padding:5px 20px 5px 20px; font-size:13px; border-radius:3px; }
+	.img_02 a, .img_04 a, .img_05 a { border:2px solid; padding:5px 20px 5px 20px; font-size:13px; border-radius:3px; cursor:default; }
 	
 	
 	/***** img 03 ******/
@@ -124,6 +124,7 @@
 	 }
 	 .img_03 a { 
 	 	border:2px solid white; padding:5px 20px 5px 20px; font-size:13px; border-radius:2px; color:white;
+	  	cursor:default;
 	  }	
 	
 	

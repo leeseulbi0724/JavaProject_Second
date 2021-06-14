@@ -200,9 +200,24 @@ div.img article.first {
 	background-size: cover;
 	background-image:url("http://localhost:9000/starbucks/images/2021_summer1_bean_bg.jpg");
 }
-div.img article.first>div:first-child>img {	position:relative; top:70px; right:200px;  }
-div.img article.first>div:last-child>img {	position:relative; left:200px; bottom:250px; }
-div.img article.first a { right:125px; bottom:200px; color:black; }
+div.img article.first>div:first-child>img {	
+	position:relative; 
+	top:70px; right:200px;  
+	opacity:0;
+    margin-left:-900px;     
+ }
+div.img article.first>div:last-child>img {	
+	position:relative; 
+	left:200px; bottom:250px; 
+	
+}
+div.img article.first a { 
+	right:125px; bottom:200px; color:black; 
+}
+.first_02 {
+	opacity:0;
+    margin-right:-900px;     
+}
 div.img article.first a:hover {
 	color:white;
 	background-color:black;
@@ -240,10 +255,19 @@ div.img article.third {
 	background-attachment: fixed;
 	background-image:url("http://localhost:9000/starbucks/images/fav_prod_bg_new.jpg");
 }
-div.img article.third div:first-child>div:first-child>img { position:relative; bottom:100px; left:300px; }
-div.img article.third div:first-child>div:nth-child(2)>img { position:relative; top:100px; right:75px; }
-div.img article.third div:last-child img { position:relative; top:100px; right:10px; }
-div.img article.third div:first-child a { position:relative; color:white; border:2px solid white; top:120px; left:185px; }
+div.img article.third div:first-child>div:first-child>img {  }
+div.img article.third>div:first-child {
+	display:inline-block;
+	width:500px;
+	text-align:right;
+	margin-top:80px;
+}
+div.img article.third>div:first-child>div {
+	margin:20px 0;
+}
+div.img article.third div:first-child { opacity:0;  margin-left:-900px;  }
+div.img article.third div:last-child { margin:0 80px; margin-top:80px; opacity:0;  margin-right:-900px; }
+div.img article.third div:first-child a { color:white; border:2px solid white; }
 div.img article.third div:first-child a:hover { 
 	color:black;
 	background-color:white;
@@ -265,10 +289,11 @@ div.img article.four>div:nth-child(3)>div:nth-child(2) {
 div.img article.four>div:nth-child(3)>div:first-child { position:relative; bottom:80px;}
 div.img article.four>div:nth-child(3) p { 
 	position:relative; 
-	bottom:90px; right:130px;  
+	bottom:80px; right:130px;  
  }
  div.img article.four>div:nth-child(3) a { text-decoration:none; color:black; padding:3px 7px 3px 7px; }
  div.img article.four>div:nth-child(3) a:hover { background-color:rgb(151, 109, 63); color:white; }
+ 
 
 /** 다섯번째 이미지**/
 div.img article.five {
@@ -297,7 +322,7 @@ div.img article.five a:hover {
 .carousel_01, .carousel_02, .carousel_03, .carousel_04 {
 	opacity: 0;
 }
-.first_01, .third_01, .third_02 {
+/* .first_01, .third_01, .third_02 {
   animation: 2s slide-right;
 }
 @keyframes slide-right {
@@ -317,7 +342,7 @@ div.img article.five a:hover {
   }
   to {
     margin-right: 0%;
-  }
+  } */
 }
 
 </style>
@@ -390,6 +415,28 @@ div.img article.five a:hover {
         $(".rolling").append($(".rolling li").first().clone());            
 
        
+        $(window).scroll( function(){
+            $('div.img article.first>div:first-child>img, div.img article.third div:first-child').each( function(i){                
+                var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+                
+                if( bottom_of_window > bottom_of_element ){
+                    $(this).animate({'opacity':'1','margin-left':'0px'},1000);
+                }
+                
+            }); 
+            
+             $('div.first_02, div.img article.third div:last-child').each( function(i){
+                var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+                
+                if( bottom_of_window > bottom_of_element ){
+                    $(this).animate({'opacity':'1','margin-right':'0px'},1000);
+                }
+                
+            }); 
+        });
+        
    } ); 
 </script> 
 <script>

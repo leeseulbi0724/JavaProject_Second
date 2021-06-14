@@ -201,7 +201,7 @@
 	   							<li><a href="http://localhost:9000/starbucks/map/map.jsp" class="m">지역 검색</a></li>
    							</ul>
    						</div></div></li>
-						<li><div id="rewards"><a href ="#">STARBUCKS REWARDS</a></div></li>
+						<li><div id="rewards"><a href ="#" style="cursor:default">STARBUCKS REWARDS</a></div></li>
 						<li><div id="new"><a href ="http://localhost:9000/starbucks/whatsnew/whatsnew.jsp" class="M">WHAT'S NEW</a>
 						<div id="dropdown">
     						<ul class="s_event">
