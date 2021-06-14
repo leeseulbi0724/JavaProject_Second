@@ -343,93 +343,6 @@ function allCheck() {
         });
     }
 } 
-
-function checkboxCheck(){
-	 $(".list#list_cate *").each(function(){
-	     	$(this).show();
-	     });
-	if($("#mug").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#mug_label").show();
-		$("#mug_list").show();
-	}else if(!$("#mug").is(':checked')){
-		$("#mug_label").hide();
-		$("#mug_list").hide();
-	}
-	if($("#glass").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#glass_label").show();
-		$("#glass_list").show();
-	}else if(!$("#glass").is(':checked')){
-		$("#glass_label").hide();
-		$("#glass_list").hide();
-	}
-	if($("#pla").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#pla_label").show();
-		$("#pla_list").show();
-	}else if(!$("#pla").is(':checked')){
-		$("#pla_label").hide();
-		$("#pla_list").hide();
-	}
-	if($("#stain").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#stain_label").show();
-		$("#stain_list").show();
-	}else if(!$("#stain").is(':checked')){
-		$("#stain_label").hide();
-		$("#stain_list").hide();
-	}
-	if($("#thermos").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#thermos_label").show();
-		$("#thermos_list").show();
-	}else if(!$("#thermos").is(':checked')){
-		$("#thermos_label").hide();
-		$("#thermos_list").hide();
-	}
-	if($("#acc").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#acc_label").show();
-		$("#acc_list").show();
-	}else if(!$("#acc").is(':checked')){
-		$("#acc_label").hide();
-		$("#acc_list").hide();
-	}
-	if($("#cof").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#cof_label").show();
-		$("#cof_list").show();
-	}else if(!$("#cof").is(':checked')){
-		$("#cof_label").hide();
-		$("#cof_list").hide();
-	}
-	if($("#etc").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#etc_label").show();
-		$("#etc_list").show();
-	}else if(!$("#etc").is(':checked')){
-		$("#etc_label").hide();
-		$("#etc_list").hide();
-	}
-	if($("#pack").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#pack_label").show();
-		$("#pack_list").show();
-	}else if(!$("#pack").is(':checked')){
-		$("#pack_label").hide();
-		$("#pack_list").hide();
-	}
-	if($("#plan").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#plan_label").show();
-		$("#plan_list").show();
-	}else if(!$("#plan").is(':checked')){
-		$("#plan_label").hide();
-		$("#plan_list").hide();
-	}
-	
-}
 ///////////////////////////////////////////////////
 
 /* 분류 보기 업다운 */
@@ -590,6 +503,176 @@ $( document ).ready(function() {
 			}
 		}
 	});
+
+	$(".chk").change(function(){
+		$("#list_cate *").show();
+		$("#list_cate ul").hide();
+		$("#list_cate table").hide();
+		$("#all").prop("checked", false);
+		if($("#show_inform").data('clicked')){
+			$("#list_cate table").show();
+		}else if(!$("#show_inform").data('clicked')){
+			$("#list_cate ul").show();
+		}
+		if($("#mug").is(':checked')){
+			$("#mug_label").show();
+		}else if(!$("#mug").is(':checked')){
+			$("#mug_label").hide();
+			$("#mug_list").hide();
+		}
+		if($("#glass").is(':checked')){
+			$("#glass_label").show();
+		}else if(!$("#glass").is(':checked')){
+			$("#glass_label").hide();
+			$("#glass_list").hide();
+		}
+		if($("#pla").is(':checked')){
+			$("#pla_label").show();
+		}else if(!$("#pla").is(':checked')){
+			$("#pla_label").hide();
+			$("#pla_list").hide();
+		}
+		if($("#stain").is(':checked')){
+			$("#stain_label").show();
+		}else if(!$("#stain").is(':checked')){
+			$("#stain_label").hide();
+			$("#stain_list").hide();
+		}
+		if($("#thermos").is(':checked')){
+			$("#thermos_label").show();
+		}else if(!$("#thermos").is(':checked')){
+			$("#thermos_label").hide();
+			$("#thermos_list").hide();
+		}
+		if($("#acc").is(':checked')){
+			$("#acc_label").show();
+		}else if(!$("#acc").is(':checked')){
+			$("#acc_label").hide();
+			$("#acc_list").hide();
+		}
+		if($("#cof").is(':checked')){
+			$("#cof_label").show();
+		}else if(!$("#cof").is(':checked')){
+			$("#cof_label").hide();
+			$("#cof_list").hide();
+		}
+		if($("#etc").is(':checked')){
+			$("#etc_label").show();
+		}else if(!$("#etc").is(':checked')){
+			$("#etc_label").hide();
+			$("#etc_list").hide();
+		}
+		if($("#pack").is(':checked')){
+			$("#pack_label").show();
+		}else if(!$("#pack").is(':checked')){
+			$("#pack_label").hide();
+			$("#pack_list").hide();
+		}
+		if($("#plan").is(':checked')){
+			$("#plan_label").show();
+		}else if(!$("#plan").is(':checked')){
+			$("#plan_label").hide();
+			$("#plan_list").hide();
+		}
+	});
+	
+	/***************************
+	메뉴바에서 값 가져와 체크박스 체크
+	******************************/
+	$.urlParam = function(name){
+		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+		return results[1] || 0;
+	}
+	if($.urlParam('chk') != "all"){
+		$("#all").prop("checked", false);
+	}
+	
+	if($.urlParam('chk') == "mug"){
+		$("#mug").prop("checked", true);
+	}else if($.urlParam('chk') == "glass"){
+		$("#glass").prop("checked", true);
+	}else if($.urlParam('chk') == "pla"){
+		$("#pla").prop("checked", true);
+	}else if($.urlParam('chk') == "stain"){
+		$("#stain").prop("checked", true);
+	}else if($.urlParam('chk') == "thermos"){
+		$("#thermos").prop("checked", true);
+	}else if($.urlParam('chk') == "acc"){
+		$("#acc").prop("checked", true);
+	}else if($.urlParam('chk') == "cof"){
+		$("#cof").prop("checked", true);
+	}else if($.urlParam('chk') == "pack"){
+		$("#pack").prop("checked", true);
+	}else if($.urlParam('chk') == "plan"){
+		$("#plan").prop("checked", true);
+	}
+
+	if($("#show_inform").data('clicked')){
+		$("#list_cate table").show();
+	}else if(!$("#show_inform").data('clicked')){
+		$("#list_cate ul").show();
+	}
+	if($("#mug").is(':checked')){
+		$("#mug_label").show();
+	}else if(!$("#mug").is(':checked')){
+		$("#mug_label").hide();
+		$("#mug_list").hide();
+	}
+	if($("#glass").is(':checked')){
+		$("#glass_label").show();
+	}else if(!$("#glass").is(':checked')){
+		$("#glass_label").hide();
+		$("#glass_list").hide();
+	}
+	if($("#pla").is(':checked')){
+		$("#pla_label").show();
+	}else if(!$("#pla").is(':checked')){
+		$("#pla_label").hide();
+		$("#pla_list").hide();
+	}
+	if($("#stain").is(':checked')){
+		$("#stain_label").show();
+	}else if(!$("#stain").is(':checked')){
+		$("#stain_label").hide();
+		$("#stain_list").hide();
+	}
+	if($("#thermos").is(':checked')){
+		$("#thermos_label").show();
+	}else if(!$("#thermos").is(':checked')){
+		$("#thermos_label").hide();
+		$("#thermos_list").hide();
+	}
+	if($("#acc").is(':checked')){
+		$("#acc_label").show();
+	}else if(!$("#acc").is(':checked')){
+		$("#acc_label").hide();
+		$("#acc_list").hide();
+	}
+	if($("#cof").is(':checked')){
+		$("#cof_label").show();
+	}else if(!$("#cof").is(':checked')){
+		$("#cof_label").hide();
+		$("#cof_list").hide();
+	}
+	if($("#etc").is(':checked')){
+		$("#etc_label").show();
+	}else if(!$("#etc").is(':checked')){
+		$("#etc_label").hide();
+		$("#etc_list").hide();
+	}
+	if($("#pack").is(':checked')){
+		$("#pack_label").show();
+	}else if(!$("#pack").is(':checked')){
+		$("#pack_label").hide();
+		$("#pack_list").hide();
+	}
+	if($("#plan").is(':checked')){
+		$("#plan_label").show();
+	}else if(!$("#plan").is(':checked')){
+		$("#plan_label").hide();
+		$("#plan_list").hide();
+	}
+	
 });
 </script>
 </head>

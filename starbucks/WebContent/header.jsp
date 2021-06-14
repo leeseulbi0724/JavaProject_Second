@@ -161,37 +161,37 @@
 						<div id="dropdown">
     						<ul class="s_drink">
 	    						<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp" class="m" style="color:white"><strong>음료</strong></a></li><br>
-	   							<li><a href="#" class="m">콜드 브루</a></li><br>
-	    						<li><a href="#" class="m">브루드 커피</a></li><br>
-	   							<li><a href="#" class="m">에스프레소</a></li><br>
-	   							<li><a href="#" class="m">프라푸치노</a></li><br>
-	   							<li><a href="#" class="m">블렌디드</a></li><br>
-	   							<li><a href="#" class="m">스타벅스 피지오</a></li><br>
-	   							<li><a href="#" class="m">티(티바나)</a></li><br>
-	   							<li><a href="#" class="m">기타 제조 음료</a></li><br>
-	   							<li><a href="#" class="m">스타벅스 주스(병음료)</a></li>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=coldbrew" class="m">콜드 브루</a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=brood" class="m">브루드 커피</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=esp" class="m">에스프레소</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=fra" class="m">프라푸치노</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=blended" class="m">블렌디드</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=fizzo" class="m">스타벅스 피지오</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=tea" class="m">티(티바나)</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=etc" class="m">기타 제조 음료</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp?chk=juice" class="m">스타벅스 주스(병음료)</a></li>
    							</ul>
    							<ul class="s_food">
 	    						<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp" class="m" style="color:white"><strong>푸드</strong></a></li><br>
-	   							<li><a href="#" class="m">브레드</a></li><br>
-	    						<li><a href="#" class="m">케이크</a></li><br>
-	   							<li><a href="#" class="m">샌드위치 & 샐러드</a></li><br>
-	   							<li><a href="#" class="m">따뜻한 푸드</a></li><br>
-	   							<li><a href="#" class="m">과일 & 요거트</a></li><br>
-	   							<li><a href="#" class="m">스낵 & 미니 디저트</a></li><br>
-	   							<li><a href="#" class="m">아이스크림</a></li>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp?chk=bread" class="m">브레드</a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp?chk=cake" class="m">케이크</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp?chk=sand" class="m">샌드위치 & 샐러드</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp?chk=hot" class="m">따뜻한 푸드</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp?chk=fru" class="m">과일 & 요거트</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp?chk=snack" class="m">스낵 & 미니 디저트</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_food.jsp?chk=ice" class="m">아이스크림</a></li>
    							</ul>
    							<ul class="s_gift">
 	    						<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp" class="m" style="color:white"><strong>상품</strong></a></li><br>
-	   							<li><a href="#" class="m">머그</a></li><br>
-	    						<li><a href="#" class="m">글라스</a></li><br>
-	   							<li><a href="#" class="m">플라스틱 텀블러</a></li><br>
-	   							<li><a href="#" class="m">스테인리스 텀블러</a></li><br>
-	   							<li><a href="#" class="m">보온병</a></li><br>
-	   							<li><a href="#" class="m">악세서리</a></li><br>
-	   							<li><a href="#" class="m">커피 용품</a></li><br>
-	   							<li><a href="#" class="m">패키지 티(티바나)</a></li><br>
-	   							<li><a href="#" class="m">스타벅스 플래너</a></li>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=mug" class="m">머그</a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=glass" class="m">글라스</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=pla" class="m">플라스틱 텀블러</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=stain" class="m">스테인리스 텀블러</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=thermos" class="m">보온병</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=acc" class="m">악세서리</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=cof" class="m">커피 용품</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=pack" class="m">패키지 티(티바나)</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/menu/menu_product.jsp?chk=plan" class="m">스타벅스 플래너</a></li>
    							</ul>
  						</div></div></li>
 						<li><div id="store"><a href ="http://localhost:9000/starbucks/map/map_main.jsp" class="M">STORE</a>

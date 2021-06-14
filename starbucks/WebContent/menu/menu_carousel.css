@@ -59,7 +59,7 @@
 .carousel-indicators{
 	position:absolute;
 	right:0;bottom:15px;left:0;
-	z-index:15;
+	z-index:5;
 	display:flex;
 	justify-content:center;
 	padding-left:0;
