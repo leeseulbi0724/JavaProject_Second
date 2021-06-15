@@ -405,22 +405,22 @@ div.bottom_news>div:last-child>img {
 <script>
 /* 작은 이미지 선택 시 큰 이미지 변경 */
 $( document ).ready(function() {
-   $(".image li>img").click(function(){
-      var img = $(this).attr("src");
-      $(".zoomImg").attr("src",img);
-      $(".zoomWindow").css("background-image","url("+img+")");
-   });
-   
-   /* 돋보기 기능 */
-   $(".zoomImg").elevateZoom({
-      zoomWindowWidth: 610,
-      zoomWindowHeight: 468,
-      zoomWindowOffetx: 45,
-      zoomWindowOffety: -1,
-      borderSize: 1,
-      borderColour: "lightgray",
-   });
-   
+	$(".image li>img").click(function(){
+		var img = $(this).attr("src");
+		$(".zoomImg").attr("src",img);
+		$(".zoomWindow").css("background-image","url("+img+")");
+	});
+	
+	/* 돋보기 기능 */
+	$(".zoomImg").elevateZoom({
+		zoomWindowWidth: 610,
+		zoomWindowHeight: 468,
+		zoomWindowOffetx: 45,
+		zoomWindowOffety: -1,
+		borderSize: 1,
+		borderColour: "lightgray",
+	});
+	
 });
 </script>
 
@@ -452,21 +452,21 @@ $( document ).ready(function() {
 	<!-- 원두 content -->
 	<section class="top_content">
 	<div class="inner_content">
-		<div class="image" >
-		<!-- 큰 이미지 -->
-			<div>
-				<img class="zoomImg" src="http://localhost:9000/starbucks/images/<%= cimg %>" >
-				<img src="http://localhost:9000/starbucks/images/more.png">
-			</div>
-		<!--  작은 이미지 -->
-			<div class="image">
-				<ul>
-					<li>
-						<img src="http://localhost:9000/starbucks/images/<%= cimg %>">
-					</li>
-				</ul>
-			</div>
+	
+	
+	<div class="image"><!-- 이미지 -->
+		<div><!-- 큰 이미지 -->
+			<img class="zoomImg" src="http://localhost:9000/starbucks/images/<%= cimg %>">
+			<img src="http://localhost:9000/starbucks/images/more.png">
 		</div>
+		<div><!-- 작은 이미지 -->
+			<ul>
+				<li>
+					<img src="http://localhost:9000/starbucks/images/<%= cimg %>">
+				</li>
+			</ul>
+		</div>
+	</div><!-- 이미지 -->
 		
 		<article>
 			<div class="bean_name">
@@ -480,7 +480,7 @@ $( document ).ready(function() {
 				
 				<div class="line1"></div>
 				
-				<p class="text"><%= vo.getDproduct_text() %>.</p>
+				<p class="text"><%= vo.getDproduct_text() %></p>
 				
 				<div class="roast">
 					<div>
@@ -586,7 +586,7 @@ $( document ).ready(function() {
 			<div class="product_title">관련 제품</div>
 				<div class="product_list">
 					<ul>
-						<li><a href="#"><img src="http://localhost:9000/starbucks/images/20150722234902895.jpg" class="product_img"></a>
+						<li><a href="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>"><img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file() %>" class="product_img"></a>
 							<div>
 								<span><%= vo.getProduct_name() %></span>
 								<div class="dproduct">

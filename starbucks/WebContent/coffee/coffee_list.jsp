@@ -4,6 +4,7 @@
 <%
 	String bean = request.getParameter("beanid");	
 
+
 	coffeeDAO dao = new coffeeDAO();
 	ArrayList<CoffeeVO> list = dao.getList(bean);
 %>
@@ -74,12 +75,7 @@ ul.smap li{
 	margin: 0 auto;
 }
 .cname_section{position: relative;} .container{width: 100%;}
-.wn_cont{
-    position: relative;
-	left: 50%;
-	width: 96%;
-    margin: 0 0 0 -48%;
-}
+
 .on{
 	width: 100%;
 	background: #006633;
@@ -115,7 +111,6 @@ section.coffee_wrap {
     background: #ffffff;
     border: 1px solid #dddddd;
     height: auto;
-    width: 1098px;
     border-radius: 3px;
     padding-bottom:20px;
 }
@@ -133,7 +128,8 @@ div.cate button.btn_style{
 	color:#333;
 	border: 1px solid #f4f4f1;
 }
-div.cate button.green_btn{
+
+div.cate button#<%= bean %>{
 	width: 200px;
 	height:35px;
 	background: #006633;
@@ -144,7 +140,7 @@ div.cate button.green_btn{
 	margin-right: 5px;
 }
 
-div.cate button.btn_style:hover, div.cate button.green_btn:hover{
+div.cate button.btn_style:hover,{
 	text-decoration: underline;
 	cursor: pointer;
 }
@@ -262,19 +258,21 @@ input[type="checkbox"]:checked + label:before,
 }
 .category span{
 	margin-left:20px;
-	padding:15px;
+	padding:30px 15px 15px 15px;
 	display:inline-block;
+	font-weight:bold;
 }	
 .category div {
 	margin-left:20px;
 	width:95%; 
-	border:1px solid #dddddd;
+	border-bottom:1px solid #dddddd;
+	padding:5px;
 }
 .category button{
 	background:none;
 	border:none;
 	float:right;
-	padding:5px 30px 0 0;
+	padding:15px 30px 0 0;
 	display:inline-block;
 	
 }
@@ -315,92 +313,78 @@ div.coffee_list>div p {
 
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
-//////////////체크박스////////////////////
-
-	function allCheck() {
-	    if ($("#all").is(':checked')) {
-	        $(".chk").prop("checked", false);
-	        $("#all").prop("checked", true);
-	        $("#list_cate *").show();
-	        $("#list_cate ul").hide();
-	        $("#list_cate table").hide();
-	    }else if (!$("#all").is(':checked')) {
-	    	$("#list_cate *").hide();
-	    }
-	}
-
-	function checkboxCheck(){
-	    $("#list_cate *").show();
-		$("#list_cate ul").hide();
-		$("#list_cate table").hide();
-		$("#all").prop("checked", false);
-		if($("#show_inform").data('clicked')){
-			$("#list_cate table").show();
-		}else if(!$("#show_inform").data('clicked')){
-			$("#list_cate ul").show();
-		}
-		if($("#blond").is(':checked')){
-			$("#blond").show();
-		}else if(!$("#blond").is(':checked')){
-			$("#blond").hide();
-			$("#blond").hide();
-		}
-		if($("#medium").is(':checked')){
-			$("#medium").show();
-		}else if(!$("#medium").is(':checked')){
-			$("#medium").hide();
-			$("#medium").hide();
-		}
-		if($("#dark").is(':checked')){
-			$("#dark").show();
-		}else if(!$("#dark").is(':checked')){
-			$("#dark").hide();
-			$("#dark").hide();
-		}
-		if($("#flavor").is(':checked')){
-			$("#flavor").show();
-		}else if(!$("#flavor").is(':checked')){
-			$("#flavor").hide();
-			$("#flavor").hide();
-		}
-
-///////////////////////////////////////////////////
-
-/* 분류 보기 업다운*/
-$( document ).ready(function() {
-	$(".btn_class img").click(function(){
-		var id=$(this).attr("id");
-		if(id=="up_btn"){
-			$(".btn_class img").attr("src","http://localhost:9000/starbucks/images/list_down_btn.png");
-			$(".btn_class img").attr("id","down_btn");
-			$(".coffee_wrap").hide();
-			$(".line").hide();
-		}else{
-			$(".btn_class img").attr("src","http://localhost:9000/starbucks/images/list_up_btn.png");
-			$(".btn_class img").attr("id","up_btn");
-			$(".coffee_wrap").show();
-			$(".line").show();
-		}
-
-	});
+//카테고리 업다운
+	$(document).ready(function(){
 	
-	/* 분류 클릭시 */
-	$("#bean1").click(function(){
-		$("#bean2").attr("class","btn_style");
-		$("#bean1").attr("class","green_btn");
-		$("#bean3").attr("class","btn_style");
+		$(".btn_class img").click(function(){
+			var id=$(this).attr("id");
+			if(id=="up_btn"){
+				$(".btn_class img").attr("src","http://localhost:9000/starbucks/images/list_down_btn.png");
+				$(".btn_class img").attr("id","down_btn");
+				$(".line").hide();
+				$(".coffee_wrap").hide();
+			}else{
+				$(".btn_class img").attr("src","http://localhost:9000/starbucks/images/list_up_btn.png");
+				$(".btn_class img").attr("id","up_btn");
+				$(".line").show();
+				$(".coffee_wrap").show();
+			}
+		});
 	});
-	$("#bean2").click(function(){
-		$("#bean1").attr("class","btn_style");
-		$("#bean2").attr("class","green_btn");
-		$("#bean3").attr("class","btn_style");
-	});
-	$("#bean3").click(function(){
-		$("#bean1").attr("class","btn_style");
-		$("#bean3").attr("class","green_btn");
-		$("#bean2").attr("class","btn_style");
-	});
-});
+
+
+//////////////체크박스////////////////////
+function allCheck() {
+    if ($("#all").is(':checked')) {
+        $(".chk").prop("checked", false);
+        $("#all").prop("checked", true);
+        $("#list_cate *").each(function(){
+        	$(this).show();
+        });
+    }
+    else if (!$("#all").is(':checked')) {
+    	$("#list_cate *").each(function(){
+        	$(this).hide();
+        });
+    }
+} 
+
+function checkboxCheck(){
+	 $(".list#list_cate *").each(function(){
+	     	$(this).show();
+	     });
+	if($("#blond").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#blond_list").show();
+	}else if(!$("#blond").is(':checked')){
+		$("#blond_list").hide();
+	}
+	if($("#medium").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#glass_label").show();
+		$("#glass_list").show();
+	}else if(!$("#glass").is(':checked')){
+		$("#glass_label").hide();
+		$("#glass_list").hide();
+	}
+	if($("#dark").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#pla_label").show();
+		$("#pla_list").show();
+	}else if(!$("#pla").is(':checked')){
+		$("#pla_label").hide();
+		$("#pla_list").hide();
+	}
+	if($("#flavor").is(':checked')){
+		$("#all").prop("checked", false);
+		$("#stain_label").show();
+		$("#stain_list").show();
+	}else if(!$("#stain").is(':checked')){
+		$("#stain_label").hide();
+		$("#stain_list").hide();
+	}
+	
+}
 
 
 </script>
@@ -428,14 +412,14 @@ $( document ).ready(function() {
 		<div class="wn_cont">
                    <div class ="category">
 	                   	<span>분류보기</span>
-	                   	<button type="button" class="btn_class"><img src="http://localhost:9000/starbucks/images/list_down_btn.png"></button>
+	                   	<button type="button" class="btn_class"><img src="http://localhost:9000/starbucks/images/list_down_btn.png" id="up_btn"></button>
 	                   	<div class="line"></div>
                    </div>
 			<section class="coffee_wrap">
                    <div class="box_bg">
                     <!-- 카테고리 테마 -->
 					<div class="cate">
-						<a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean1"%>"><button type="button" class="green_btn" id="bean1">스타벅스 원두</button></a>
+						<a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean1"%>"><button type="button" class="btn_style" id="bean1">스타벅스 원두</button></a>
 						<a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean2"%>"><button type="button" class="btn_style" id="bean2">스타벅스 비아</button></a>
 						<a href="http://localhost:9000/starbucks/coffee/coffee_list.jsp?beanid=<%="bean3"%>"><button type="button" class="btn_style" id="bean3">스타벅스 오리가미</button></a>
 					</div>               
@@ -448,20 +432,20 @@ $( document ).ready(function() {
 									<label for="all">전체 상품보기</label>
 								</li>
 								<li>
-									<input type="checkbox" id="coldbrew" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="blond" class="chk" onclick="checkboxCheck()">
 									<label for="blond">블론드 로스트</label>
 								</li>
 								<li>
-									<input type="checkbox" id="brood" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="medium" class="chk" onclick="checkboxCheck()">
 									<label for="medium">미디엄 로스트</label>
 								</li>
 								<li>
-									<input type="checkbox" id="esp" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="dark" class="chk" onclick="checkboxCheck()">
 									<label for="dark">다크 로스트</label>
 								</li>
 								<li>
-									<input type="checkbox" id="fra" class="chk" onclick="checkboxCheck()">
-									<label for="dark">플레이버</label>
+									<input type="checkbox" id="flavor" class="chk" onclick="checkboxCheck()">
+									<label for="flavor">플레이버</label>
 								</li>
 							</ul>
 						</form>
@@ -488,7 +472,7 @@ $( document ).ready(function() {
 		   %>
 		<article id="coffee_content">
 			
-			<div class="coffee_list">
+			<div class="coffee_list", id="<%= vo.getCtype_id() %>">
 				<div>
 					<img src="http://localhost:9000/starbucks/images/<%= vo.getClogo() %>"><p><%= vo.getCname() %></p>
 				</div>

@@ -4,7 +4,7 @@ public class CoffeeVO {
 	//coffee
 	String cid, ctype_id, cname, clogo, ctext, cimg_file, cimg_text, dproduct_name, dproduct_ename, dproduct_text,dproduct_note,
 		dproduct_enjoy, dproduct_content,dproduct_story, dproduct_tasting , product_name ; //coffee
-	String eid, etype_id, ename,ename_tit, efile_name, eimg_main_text, etitle, econtent;  	//espresso
+	String eid, etype_id, ename,ename_tit, efile_main, efile_content, eimg_main_text, etitle, econtent;  	//espresso
 	
 	
 	public String getEname_tit() {
@@ -39,12 +39,20 @@ public class CoffeeVO {
 		this.ename = ename;
 	}
 
-	public String getEfile_name() {
-		return efile_name;
+	public String getEfile_main() {
+		return efile_main;
 	}
 
-	public void setEfile_name(String efile_name) {
-		this.efile_name = efile_name;
+	public void setEfile_main(String efile_main) {
+		this.efile_main = efile_main;
+	}
+
+	public String getEfile_content() {
+		return efile_content;
+	}
+
+	public void setEfile_content(String efile_content) {
+		this.efile_content = efile_content;
 	}
 
 	public String getEimg_main_text() {

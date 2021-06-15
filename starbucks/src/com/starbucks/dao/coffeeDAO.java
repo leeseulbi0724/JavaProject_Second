@@ -3,16 +3,21 @@ package com.starbucks.dao;
 import java.util.ArrayList;
 
 import com.starbucks.vo.CoffeeVO;
+import com.starbucks.vo.menuVO;
 
 public class coffeeDAO extends DBConn {
-		//Select --> coffee 커피타입 
-		public ArrayList<CoffeeVO> getList(String bean){
+
+
+
+		//coffee 커피타입 - checkbox
+		public ArrayList<CoffeeVO> getCheckList(String bean, String type){
 			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
-			String sql = "select ctype_id, clogo, cname from sb_coffee_list where cid=?" ;
+			String sql = "select ctype_id, clogo, cname from sb_coffee_list where ctype_id=? and cid=? " ;
 			getPreparedStatement(sql);
 			
 			try {
 				pstmt.setString(1, bean);
+				pstmt.setString(1, type);
 				
 				rs = pstmt.executeQuery();
 				while(rs.next()){
@@ -29,8 +34,32 @@ public class coffeeDAO extends DBConn {
 			
 			return list;
 		}
+//coffee 커피타입 
+public ArrayList<CoffeeVO> getList(String bean){
+	ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
+	String sql = "select ctype_id, clogo, cname from sb_coffee_list where cid=?" ;
+	getPreparedStatement(sql);
+	
+	try {
+		pstmt.setString(1, bean);
 		
-		//Select --> coffee 커피타입별 이미지 & 이름
+		rs = pstmt.executeQuery();
+		while(rs.next()){
+			CoffeeVO vo = new CoffeeVO();
+			vo.setCtype_id(rs.getString(1));
+			vo.setClogo(rs.getString(2));
+			vo.setCname(rs.getString(3));
+			
+			list.add(vo);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	return list;
+}
+		
+		// coffee 커피타입별 이미지 & 이름
 		public ArrayList<CoffeeVO> getImgList(String bean, String ctype){
 			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
 			String sql = "select ctype_id, cimg_file, cimg_text from sb_coffee_img where cid=? and ctype_id=?";
@@ -55,7 +84,7 @@ public class coffeeDAO extends DBConn {
 			
 			return list;
 		}
-		//Select --> coffee 커피타입 & 커피정보
+		//coffee 커피타입 & 커피정보
 		public CoffeeVO getDetailImg(String ctype, String cimg){
 			CoffeeVO vo = new CoffeeVO();
 			String sql = "select l.clogo, l.cname, l.ctext, cimg_file, dproduct_name ,dproduct_ename,  dproduct_text,"
@@ -91,7 +120,7 @@ public class coffeeDAO extends DBConn {
 			
 			return vo;
 		}
-		//Select --> coffee 관련제품
+		//coffee 관련제품
 		public CoffeeVO getProductlImg(String pname){
 			CoffeeVO vo = new CoffeeVO();
 			String sql = "select dproduct_text, ctype_id, cimg_file from SB_COFFEE_DETAIL where dproduct_name=? ";
@@ -118,10 +147,10 @@ public class coffeeDAO extends DBConn {
 		
 		
 		
-		//Select --> espresso 리스트
+		//espresso 리스트
 		public ArrayList<CoffeeVO> getEspressoList(){
 			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
-			String sql = "select etype_id, ename, efile_name, eimg_main_text from sb_espresso_list" ;
+			String sql = "select etype_id, ename, efile_main, eimg_main_text from sb_espresso_list" ;
 			getPreparedStatement(sql);
 			
 			try {
@@ -130,11 +159,61 @@ public class coffeeDAO extends DBConn {
 					CoffeeVO vo = new CoffeeVO();
 					vo.setEtype_id(rs.getString(1));
 					vo.setEname(rs.getString(2));
-					vo.setEfile_name(rs.getString(3));
+					vo.setEfile_main(rs.getString(3));
 					vo.setEimg_main_text(rs.getString(4));
 	
 					list.add(vo);
-					System.out.println(vo.getEtype_id());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return list;
+		}
+		
+		//에스프레소 타입
+		public CoffeeVO getEspressoDetail(String etype){
+			CoffeeVO vo = new CoffeeVO();
+			String sql = "select ename, ename_tit, efile_content, etitle, econtent from sb_espresso_list where etype_id=? ";
+			getPreparedStatement(sql);
+			
+			try {
+				pstmt.setString(1, etype);
+				
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					vo.setEname(rs.getString(1));
+					vo.setEname_tit(rs.getString(2));
+					vo.setEfile_content(rs.getString(3));
+					vo.setEtitle(rs.getString(4));
+					vo.setEcontent(rs.getString(5));
+					
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return vo;
+		}
+		
+		// 에스프레소 관련제품
+		public ArrayList<menuVO> getEspressoProduct(String etype){
+			ArrayList<menuVO> list = new ArrayList<menuVO>();
+			String sql = "select intro_t , img , k_name, mid from sb_espresso_product, sb_menu  where k_name=eproduct_name and etype_id=? " ;
+			getPreparedStatement(sql);
+			
+			try {
+				pstmt.setString(1, etype);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()){
+					menuVO vo = new menuVO();
+					vo.setIntro_t(rs.getString(1));
+					vo.setImg(rs.getString(2));
+					vo.setK_name(rs.getString(3));
+					vo.setMid(rs.getString(4));
+					
+					list.add(vo);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -144,11 +223,6 @@ public class coffeeDAO extends DBConn {
 		}
 		
 }
-
-
-
-
-
 
 
 

@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@ page import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*"  %>
+ <%
+ 	String etype = request.getParameter("etype_id");	
+ 		
+ 
+	coffeeDAO dao = new coffeeDAO();
+	CoffeeVO vo = dao.getEspressoDetail(etype);
+	ArrayList<menuVO> list = dao.getEspressoProduct(etype);
+
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,6 +68,7 @@ ul.smap li{
 }
 .espresso_img {
 	padding-bottom:30px;
+
 }
 .espresso div {
 	width:1100px;
@@ -77,48 +88,55 @@ ul.smap li{
 }
 /******************* 관련제품 content ****************************/
 .espresso_list {
-	width:100%; height:350px;
-	position: relative;
+	width:100%; height:100%;
+	position: absolute;
 	text-align:center;
 	background-color:rgb(244,244,242);
 	padding-top:30px;
 }
 .line {
-	border:1px solid lightgray;
+	border-bottom:1px solid lightgray;
 	width:1100px;
-	margin:20px auto;
+	margin:10px auto;
 }
 .product_title {
 	width:1100px;
-	margin:30px auto;
+	margin:20px auto;
 	text-align:left;
 	font-weight:bold;
 	font-size:18px;
 }
 .product_list {
 	width:1100px; 
-	margin:0 auto;
+	margin:auto;
+	display:inline-block;
 }
 .espresso_list ul {
 	list-style-type:none;
+	width:1100px;
 	float:left;
 }
-.espresso_list ul li>div {
+.espresso_list ul li div {
 	display:inline-block;
+	float:left;
 	text-align:left;
-	padding:0 10px 0 10px;
+	padding:5px 10px;
+	width:150px; height:180px;
 	
 }
 .espresso_list ul li>div span {
 	font-weight:bold;
+	font-size:14px;
 }
 .espresso_list ul li>div p {
 	padding:15px 0;
-	font-size:13px;
+	font-size:12px;
 }
 .product_img {
 	width:160px; height:160px;
 }
+
+
 </style>
 </head>
 <body>
@@ -130,7 +148,7 @@ ul.smap li{
 	<!-- 타이틀  -->
 	<div class="sub_title">
 		<div class="sub_inner_title">
-			<img class="espresso_ttl"src="http://localhost:9000/starbucks/images/doppio_ttl.jpg">
+			<img class="espresso_ttl"src="http://localhost:9000/starbucks/images/<%= vo.getEname_tit() %>">
 		<ul class="smap">
 			<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
@@ -138,22 +156,19 @@ ul.smap li{
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
 			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_main.jsp" style="text-decoration-line: none;">에스프레소 음료</a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_doppio.jsp" style="text-decoration-line: none;">도피오</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_doppio.jsp" style="text-decoration-line: none;"><%= vo.getEname() %></a></li>
 		</ul>
 	</div>
 	</div>	
 
-	<!-- 도피오 content -->
+	<!-- 에스프레소 content -->
 	<section class="espresso">
 		<div>
-			<p class="espresso_img"><img src="http://localhost:9000/starbucks/images/doppio_img01.jpg"></p>
+			<p class="espresso_img"><img src="http://localhost:9000/starbucks/images/<%= vo.getEfile_content() %>"></p>
 			<dl class="espresso_info">
-				<dt>“라떼, 모카, 마끼아또 등 모든 스타벅스 음료의 기본이자 생명은 완벽하게 추출된 에스프레소입니다.”</dt>
+				<dt><%= vo.getEtitle() %></dt>
 				<dd>
-					<p>도피오는 진한 샷 두 개를 섞은 것입니다. 바리스타는 매우 진한 각 샷을 정확히 5초 동안 추출합니다.</br>
-						샷에는 반드시 크레마, 바디, 하트의 세 개 층이 존재해야 하며, 그렇지 않으면 버리고 다시 추출합니다.</br>
-						이것이 지난 40여 년 간 스타벅스가 도피오를 만들어 온 방식입니다.</br>
-						스타벅스는 완벽한 에스프레소를 만드는 것이 완벽한 음료를 만드는 핵심이라고 믿기 때문입니다.</p>
+					<p><%= vo.getEcontent() %></p>
 				</dd>
 			</dl>
 		</div>
@@ -167,19 +182,17 @@ ul.smap li{
 			
 				<div class="product_list">
 					<ul>
-						<li><a href="#"><img src="http://localhost:9000/starbucks/images/20210415144252244.jpg" class="product_img"></a>
-							<div>
-								<span>에스프레소 콘 파나</span>
-								<p>신선한 에스프레소 샷에 풍부</br>
-									한 휘핑크림을 얹은 커피 음료</br>
-									로서, 뜨거운 커피의 맛과 차갑</br>
-									고 달콤한 생크림의 맛을 같이</br>
-									 즐길 수 있는 커피 음료</p>
-								<a href="#"><img src="http://localhost:9000/starbucks/images/cf_more_btn.png"></a>
+					<% for(menuVO mvo :list){ %>
+						<li><div><a href="http://localhost:9000/starbucks/menu/menu_detail.jsp?mid=<%= mvo.getMid()%>"><img src="http://localhost:9000/starbucks/images/<%= mvo.getImg() %>.jpg" class="product_img"></a></div>
+							<div class="product">
+								<span><%= mvo.getK_name() %></span>
+								<p><%= mvo.getIntro_t() %></p>
+								<a href="http://localhost:9000/starbucks/menu/menu_detail.jsp?mid=<%= mvo.getMid()%>"><img src="http://localhost:9000/starbucks/images/cf_more_btn.png"></a>
 							</div>
-						</li>					
+						</li>		
+					<% } %>	
 					</ul>
-				</div>
+				</div>s
 	</section>
 		
 <!-- Footer -->	

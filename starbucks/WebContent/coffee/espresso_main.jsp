@@ -4,7 +4,7 @@
  <%
 	coffeeDAO dao = new coffeeDAO();
 	ArrayList<CoffeeVO> list = dao.getEspressoList();
-	//CoffeeVO vo2 = dao.getProductlImg(vo.getProduct_name()); 
+
  %>
 <!DOCTYPE html>
 <html>
@@ -170,7 +170,7 @@ section.espresso_list {
 			<ul>
 			<% for(CoffeeVO vo : list) { %>	
 				<li>
-					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=<%= vo.getEtype_id()%>" ><img src="http://localhost:9000/starbucks/images/<%= vo.getEfile_name() %>" class="list_img"></a></div>
+					<div><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=<%= vo.getEtype_id()%>" ><img src="http://localhost:9000/starbucks/images/<%= vo.getEfile_main() %>" class="list_img"></a></div>
 					<div class="esp_text"><p><%= vo.getEimg_main_text() %></p></div>
 				</li>
 				<% } %>		
