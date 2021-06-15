@@ -218,7 +218,7 @@
 					<td><input type="text" name="title" id="title"></td>
 				</tr>
 				<tr>
-					<th id="con_name">내용 <img src="http://localhost:9000/starbucks/images/star_red.gif"></th>
+					<th id="con_name" style=" vertical-align:middle;">내용 <img src="http://localhost:9000/starbucks/images/star_red.gif"></th>
 					<td><textarea name="content" id="content"
 						placeholder="관계 법령에 저촉되거나 사회통념 등에 어긋나는 내용 (예: 개인정보 보안, 불충분한 증거/귀책 사유에 대한 개인 음해성/ 음란성 비방, 의도적인 업무 방해 등) 또는 광고성 게시물은 별도의 사전 통보 없이 답변이 되지 않을 수 있으며, 등록된 의견은 처리가 시작되면 수정이 불가하오니 이 점 양지하여 주시기 바랍니다." ></textarea></td>
 				</tr>
