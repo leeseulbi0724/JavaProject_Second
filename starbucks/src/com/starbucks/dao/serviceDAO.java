@@ -175,7 +175,6 @@ public class serviceDAO extends DBConn {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		close();
 		return vo;
 	}
 	
