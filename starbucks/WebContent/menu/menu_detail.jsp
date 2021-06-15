@@ -61,6 +61,7 @@ div.content>div:first-child{
 	padding-bottom: 40px;
 	border-bottom: 1px solid lightgray;
 }
+
 /* 이미지 */
 div.image{
 	text-align: left;
