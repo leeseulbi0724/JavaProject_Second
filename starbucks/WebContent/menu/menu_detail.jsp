@@ -20,11 +20,14 @@
 div.drink_detail{
 	text-align: center;
 	width: 1110px;
-	margin: 40px auto 0 auto;
-	position: relative;
+	margin: 60px auto 0 auto;
 }
 div.title{
-	margin-bottom: 20px;
+	position: relative;
+}
+div.title>div>h2{
+	text-align: left;
+	padding-bottom: 40px;
 }
 ul.route {
 	list-style-type: none;
@@ -33,7 +36,7 @@ ul.route {
 	padding: 0;
 	position: absolute;
 	right: 0;
-	top: 20px;
+	bottom: 20px;
 }
 ul.route li{
 	display: inline-block;
@@ -50,10 +53,6 @@ ul.route li>a{
 }
 ul.route li>a:hover{
 	text-decoration: underline;
-}
-div.title>div>h2{
-	text-align: left;
-	padding-bottom: 20px;
 }
 
 /* 내용 */
@@ -320,7 +319,7 @@ $( document ).ready(function() {
 		borderSize: 1,
 		borderColour: "lightgray",
 	});
-	
+	$(".title>div>h2").has('img').css("margin-top","-20px");
 });
 </script>
 </head>
