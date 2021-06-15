@@ -420,72 +420,6 @@ function allCheck() {
 	}
 } 
 
-function checkboxCheck(){
-    $("#list_cate *").show();
-	$("#list_cate ul").hide();
-	$("#list_cate table").hide();
-	$("#no_result").hide();
-	$("#all").prop("checked", false);
-	if($("#show_inform").data('clicked')){
-		$("#list_cate table").show();
-	}else if(!$("#show_inform").data('clicked')){
-		$("#list_cate ul").show();
-	}
-	if($("#coldbrew").is(':checked')){
-		$("#coldbrew_label").show();
-	}else if(!$("#coldbrew").is(':checked')){
-		$("#coldbrew_label").hide();
-		$("#coldbrew_list").hide();
-	}
-	if($("#brood").is(':checked')){
-		$("#brood_label").show();
-	}else if(!$("#brood").is(':checked')){
-		$("#brood_label").hide();
-		$("#brood_list").hide();
-	}
-	if($("#esp").is(':checked')){
-		$("#esp_label").show();
-	}else if(!$("#esp").is(':checked')){
-		$("#esp_label").hide();
-		$("#esp_list").hide();
-	}
-	if($("#fra").is(':checked')){
-		$("#fra_label").show();
-	}else if(!$("#fra").is(':checked')){
-		$("#fra_label").hide();
-		$("#fra_list").hide();
-	}
-	if($("#blended").is(':checked')){
-		$("#blended_label").show();
-	}else if(!$("#blended").is(':checked')){
-		$("#blended_label").hide();
-		$("#blended_list").hide();
-	}
-	if($("#fizzo").is(':checked')){
-		$("#fizzo_label").show();
-	}else if(!$("#fizzo").is(':checked')){
-		$("#fizzo_label").hide();
-		$("#fizzo_list").hide();
-	}
-	if($("#tea").is(':checked')){
-		$("#tea_label").show();
-	}else if(!$("#tea").is(':checked')){
-		$("#tea_label").hide();
-		$("#tea_list").hide();
-	}
-	if($("#etc").is(':checked')){
-		$("#etc_label").show();
-	}else if(!$("#etc").is(':checked')){
-		$("#etc_label").hide();
-		$("#etc_list").hide();
-	}
-	if($("#juice").is(':checked')){
-		$("#juice_label").show();
-	}else if(!$("#juice").is(':checked')){
-		$("#juice_label").hide();
-		$("#juice_list").hide();
-	}
-}
 ///////////////////////////////////////////////////
 
 /* 분류 보기 업다운 */
@@ -614,16 +548,165 @@ $( document ).ready(function() {
 			}
 		}
 	});
+
+	$(".chk").change(function(){
+		$("#list_cate *").show();
+		$("#list_cate ul").hide();
+		$("#list_cate table").hide();
+		$("#all").prop("checked", false);
+		if($("#show_inform").data('clicked')){
+			$("#list_cate table").show();
+		}else if(!$("#show_inform").data('clicked')){
+			$("#list_cate ul").show();
+		}
+		if($("#coldbrew").is(':checked')){
+			$("#coldbrew_label").show();
+		}else if(!$("#coldbrew").is(':checked')){
+			$("#coldbrew_label").hide();
+			$("#coldbrew_list").hide();
+		}
+		if($("#brood").is(':checked')){
+			$("#brood_label").show();
+		}else if(!$("#brood").is(':checked')){
+			$("#brood_label").hide();
+			$("#brood_list").hide();
+		}
+		if($("#esp").is(':checked')){
+			$("#esp_label").show();
+		}else if(!$("#esp").is(':checked')){
+			$("#esp_label").hide();
+			$("#esp_list").hide();
+		}
+		if($("#fra").is(':checked')){
+			$("#fra_label").show();
+		}else if(!$("#fra").is(':checked')){
+			$("#fra_label").hide();
+			$("#fra_list").hide();
+		}
+		if($("#blended").is(':checked')){
+			$("#blended_label").show();
+		}else if(!$("#blended").is(':checked')){
+			$("#blended_label").hide();
+			$("#blended_list").hide();
+		}
+		if($("#fizzo").is(':checked')){
+			$("#fizzo_label").show();
+		}else if(!$("#fizzo").is(':checked')){
+			$("#fizzo_label").hide();
+			$("#fizzo_list").hide();
+		}
+		if($("#tea").is(':checked')){
+			$("#tea_label").show();
+		}else if(!$("#tea").is(':checked')){
+			$("#tea_label").hide();
+			$("#tea_list").hide();
+		}
+		if($("#etc").is(':checked')){
+			$("#etc_label").show();
+		}else if(!$("#etc").is(':checked')){
+			$("#etc_label").hide();
+			$("#etc_list").hide();
+		}
+		if($("#juice").is(':checked')){
+			$("#juice_label").show();
+		}else if(!$("#juice").is(':checked')){
+			$("#juice_label").hide();
+			$("#juice_list").hide();
+		}
+	});
+	/***************************
+	메뉴바에서 값 가져와 체크박스 체크
+	******************************/
+	$.urlParam = function(name){
+		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+		return results[1] || 0;
+	}
+	if($.urlParam('chk') != "all"){
+		$("#all").prop("checked", false);
+	}
 	
-	
-	
+	if($.urlParam('chk') == "coldbrew"){
+		$("#coldbrew").prop("checked", true);
+	}else if($.urlParam('chk') == "brood"){
+		$("#brood").prop("checked", true);
+	}else if($.urlParam('chk') == "esp"){
+		$("#esp").prop("checked", true);
+	}else if($.urlParam('chk') == "fra"){
+		$("#fra").prop("checked", true);
+	}else if($.urlParam('chk') == "blended"){
+		$("#blended").prop("checked", true);
+	}else if($.urlParam('chk') == "fizzo"){
+		$("#fizzo").prop("checked", true);
+	}else if($.urlParam('chk') == "tea"){
+		$("#tea").prop("checked", true);
+	}else if($.urlParam('chk') == "etc"){
+		$("#etc").prop("checked", true);
+	}else if($.urlParam('chk') == "juice"){
+		$("#juice").prop("checked", true);
+	}
+
+	if($("#show_inform").data('clicked')){
+		$("#list_cate table").show();
+	}else if(!$("#show_inform").data('clicked')){
+		$("#list_cate ul").show();
+	}
+	if($("#coldbrew").is(':checked')){
+		$("#coldbrew_label").show();
+	}else if(!$("#coldbrew").is(':checked')){
+		$("#coldbrew_label").hide();
+		$("#coldbrew_list").hide();
+	}
+	if($("#brood").is(':checked')){
+		$("#brood_label").show();
+	}else if(!$("#brood").is(':checked')){
+		$("#brood_label").hide();
+		$("#brood_list").hide();
+	}
+	if($("#esp").is(':checked')){
+		$("#esp_label").show();
+	}else if(!$("#esp").is(':checked')){
+		$("#esp_label").hide();
+		$("#esp_list").hide();
+	}
+	if($("#fra").is(':checked')){
+		$("#fra_label").show();
+	}else if(!$("#fra").is(':checked')){
+		$("#fra_label").hide();
+		$("#fra_list").hide();
+	}
+	if($("#blended").is(':checked')){
+		$("#blended_label").show();
+	}else if(!$("#blended").is(':checked')){
+		$("#blended_label").hide();
+		$("#blended_list").hide();
+	}
+	if($("#fizzo").is(':checked')){
+		$("#fizzo_label").show();
+	}else if(!$("#fizzo").is(':checked')){
+		$("#fizzo_label").hide();
+		$("#fizzo_list").hide();
+	}
+	if($("#tea").is(':checked')){
+		$("#tea_label").show();
+	}else if(!$("#tea").is(':checked')){
+		$("#tea_label").hide();
+		$("#tea_list").hide();
+	}
+	if($("#etc").is(':checked')){
+		$("#etc_label").show();
+	}else if(!$("#etc").is(':checked')){
+		$("#etc_label").hide();
+		$("#etc_list").hide();
+	}
+	if($("#juice").is(':checked')){
+		$("#juice_label").show();
+	}else if(!$("#juice").is(':checked')){
+		$("#juice_label").hide();
+		$("#juice_list").hide();
+	}
 	
 });
 
-/* 페이지 온로드 */
-window.onload = function(){
-	
-}
 
 </script>
 </head>
@@ -682,39 +765,39 @@ window.onload = function(){
 									<label for="all">전체 상품보기</label>
 								</li>
 								<li>
-									<input type="checkbox" id="coldbrew" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="coldbrew" class="chk">
 									<label for="coldbrew">콜드 브루 커피</label>
 								</li>
 								<li>
-									<input type="checkbox" id="brood" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="brood" class="chk">
 									<label for="brood">브루드 커피</label>
 								</li>
 								<li>
-									<input type="checkbox" id="esp" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="esp" class="chk">
 									<label for="esp">에스프레소</label>
 								</li>
 								<li>
-									<input type="checkbox" id="fra" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="fra" class="chk">
 									<label for="fra">프라푸치노</label>
 								</li>
 								<li>
-									<input type="checkbox" id="blended" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="blended" class="chk">
 									<label for="blended">블렌디드</label>
 								</li>
 								<li>
-									<input type="checkbox" id="fizzo" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="fizzo" class="chk">
 									<label for="fizzo">스타벅스 피지오</label>
 								</li>
 								<li>
-									<input type="checkbox" id="tea" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="tea" class="chk">
 									<label for="tea">티(티바나)</label>
 								</li>
 								<li>
-									<input type="checkbox" id="etc" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="etc" class="chk">
 									<label for="etc">기타 제조 음료</label>
 								</li>
 								<li>
-									<input type="checkbox" id="juice" class="chk" onclick="checkboxCheck()">
+									<input type="checkbox" id="juice" class="chk">
 									<label for="juice">스타벅스 주스(병음료)</label>
 								</li>
 							</ul>

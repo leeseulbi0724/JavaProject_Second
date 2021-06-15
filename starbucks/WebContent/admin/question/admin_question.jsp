@@ -20,6 +20,10 @@
  	 .table tr th { padding:5px 0 5px 0; }
  	 
  	 button.btn_style { font-size:10px; }
+ 	 
+ 	 .content_question div.search { text-align:left; padding: 10px; border:1px solid lightgray; }
+	.content_question div.search input { width:150px; height:12px; }
+	.content_question div.search button { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }*/
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -55,6 +59,13 @@ $(document).ready(function() {
 		location.replace("http://localhost:9000/starbucks/admin/question/admin_question.jsp");
 	});
 	
+	$("#search").click (function() {
+        var value = $("#search_input").val().toLowerCase();
+        $(".tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+	
 });
 </script>
 </head>
@@ -67,6 +78,13 @@ $(document).ready(function() {
 		<jsp:include page = "admin_question_menu.jsp"></jsp:include>
 	<section>
 		<div class="text">Home > <span>문의사항 관리</span></div>
+		<div class="search">
+			<select>
+				<option value="id">작성자</option>
+			</select>
+			<input type="text" id="search_input">
+			<button id="search">검색</button>
+		</div>
 		<div class="center" style="overflow:scroll">
 		<form name="comment" action="admin_question_comment.jsp" method="post">
 			<table border=1 class="table" >

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -565,8 +566,8 @@ nav ul, li{
 				<li class="user_if">
 				<a>개인정보관리<span class="sbox_arrow_down"></span></a>
 				<ul class="hide">
-				<li><a class="font" href="">. 개인정보확인 및 수정</a></li>
-				<li><a class="font"href="">. 회원 탈퇴</a></li>
+				<li><a class="font" href="mystarbucks_out.jsp">. 개인정보확인 및 수정</a></li>
+				<li><a class="font"href="myinfo_out.jsp">. 회원 탈퇴</a></li>
 				<li><a class="font"href="http://localhost:9000/starbucks/mystarbucks/mystarbucks_pass.jsp">. 비밀번호 변경</a></li>
 				</ul>
 				</li>
@@ -578,11 +579,11 @@ nav ul, li{
 				<section class="regular_info">
 					<article class ="center">
 					<p>
-						<strong class="user_name">***님 안녕하세요.</strong><br>
+						<strong class="user_name"><%= session.getAttribute("signedUser") %>님 안녕하세요.</strong><br>
 						<span>(지금 스타벅스 카드를 등록하시면 StarBucks Rewards 혜택을 받으실 수 있습니다.)</span>
 					</p>
-					<a href="">개인정보 수정</a>
-					<a href="">비밀번호 변경</a>
+					<a href="mystarbucks_out.jsp">개인정보 수정</a>
+					<a href="mystarbucks_pass.jsp">비밀번호 변경</a>
 					</article>
 					
 					

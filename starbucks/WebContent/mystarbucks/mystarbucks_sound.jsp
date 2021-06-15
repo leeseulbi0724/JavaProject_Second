@@ -17,6 +17,7 @@
 <meta charset="UTF-8">
 <title>고객의 소리 | Starbucks Coffee Korea</title>
 <style>
+	body { overflow-x:hidden; overflow-y:auto; }
 	section {
 		text-align:center;
 	}
@@ -117,6 +118,48 @@
 	.table td a { text-decoration:none; color:blue; }
 	.table td a:hover { text-decoration:underline; }
 	
+	#title_click { cursor:pointer; }
+	#title_click:hover { text-decoration:underline; }
+	div.content_box {
+		 position:absolute;
+		 background-color:white; 
+		 width:600px; height:180px;
+		 display:none;
+		 border:1px solid lightgray; 
+		 margin-left:-980px;
+		 margin-top:100px;
+		 text-align:left;
+	}
+	.content_box #X { 
+		background-color:white; 
+		border:none; 
+		font-size:20px; 
+		cursor:pointer;
+		float:right;
+	}
+	.innder_box { width:500px; height:200px; }
+	#title { 
+		font-family:나눔바른고딕; 
+		padding:5px 10px;
+		background-color:rgb(242,242,242); 
+		width:580px;
+		font-size:14px;
+	 }
+	#content { 
+		width:580px; 
+		height:100px; 
+		border:none; border-top:1px solid lightgray; border-bottom:1px solid lightgray; 
+		background-color:white;
+		font-family:나눔바른고딕; 
+		padding:10px;
+	 }
+	 #date {
+	 	font-size:13px; 
+	 	color:gray;
+	 	margin-left:10px;
+	  }
+	 
+	
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -130,8 +173,7 @@
 			} else {
 				$(".hide").slideUp();
 				$(".sbox_arrow_down").attr("src","http://localhost:9000/starbucks/images/sbox_arrow_down.png")
-				$(this).attr("id","down");
-				
+				$(this).attr("id","down");				
 			}
 		});
 		
@@ -163,6 +205,29 @@
 		     $("#all").css("background-color","rgb(0,102,51)").css("color","white");
 		});
 		
+		
+		$("#X").click(function() {
+			$("div.content_box").css("display","none");
+		});
+		
+		$("tbody td:nth-child(2)").click(function() {
+			content($(this).attr("name"));
+		});
+		
+		
+		function content(sid) {					
+			$.ajax( {
+				url:"mystarbucks_sound_process.jsp?sid="+sid,
+				success : function(result) {
+					var jdata = JSON.parse(result);
+					
+					$("div.content_box").css("display","inline-block");
+					$("#title").text("["+jdata.category+"]"+" "+jdata.title);
+					$("#content").text(jdata.content);
+					$("#date").text(jdata.sdate);
+				}
+			});
+		}
 		
 	});
 </script>
@@ -232,7 +297,7 @@
 			<tr>
 				<% if(list.size() != 0 ) { %>
 					<td><%= vo.getRno() %></td>
-					<td><%= vo.getTitle() %></td>
+					<td id="title_click" name="<%= vo.getSid()%>"><%= vo.getTitle() %></td>					
 					<td><%= vo.getSdate() %></td>	
 					<% if (vo.getReply() == 0) { %>
 					<td></td>
@@ -253,6 +318,14 @@
 		</tbody>
 		</table>		
 	</div>	
+	<div class="content_box">
+		<div class="inner_box">			
+		<button id="X">X</button>
+			<p id="title"></p>
+			<p id="date"></p>
+			<textarea id="content" disabled style="resize: none;"></textarea>
+		</div>
+	</div>
 	</section>
 	
 	

@@ -5,8 +5,609 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9000/starbucks/mystarbucks/mystarbucks.css">
+
 <script src="../js/jquery-3.6.0.min.js"></script>
+<style>
+#container{
+	width: 100%;
+}
+.find_mem_wrap {
+    max-width: 570px;
+    margin: 0 auto;
+    padding: 70px 0 50px;
+}
+.find_mem_ttl {
+    display: block;
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.renew_joinform_v2 {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    max-width: 570px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+.renew_input_box {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 20px;
+    position: relative;
+}
+.renew_input_box strong {
+    color: #222;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}	
+
+.renew_user_id {
+    background: #f4f4f2;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 20px;
+}
+.renew_input_box:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.renew_joinform_v2 {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    max-width: 570px;
+    margin: 0 auto 30px;
+    position: relative;
+}	
+.renew_input_box.gender_chk .nofix_name {
+    width: 49%;
+    float: left;
+}
+.user_gender {
+    border: 1px solid #b0b0b0;
+    border-radius: 3px;
+    float: left;
+    margin-left: 2%;
+    overflow: hidden;
+    width: 22.711%;
+}
+.btn_change_name {
+    background: #666;
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    float: right;
+    line-height: 46px;
+    text-align: center;
+    width: 24%;
+}
+.renew_input_box:after {
+    clear: both;
+    content: "";
+    display: block;
+}	
+.select_birth_box .birth_select.year {
+    width: 31.161%;
+}	
+.select_birth_box .birth_select {
+    float: left;
+    width: 32%;
+    margin-right: 1.760%;
+}
+.select_birth_box .birth_select label {
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    bottom: 0;
+    color: #222;
+    display: block;
+    font-size: 14px;
+    padding: 16px 10px;
+}
+.a11y {
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    position: absolute;
+}	
+.select_birth_box .birth_select select {
+    display: block;
+    font-size: 14px;
+    border: 1px solid #dddddd;
+    /* text-indent: 10px; */
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 16px 5px;
+    background: transparent;
+}
+.select_birth_box .birth_select.month {
+    width: 24.11%;
+}
+.select_birth_box .birth_select.day {
+    width: 24.11%;
+}
+.select_birth_box .birth_select.yny {
+    width: 15.3169%;
+    margin-right: 0;
+}
+.renew_input_box div.info_btn_inner {
+    background: url(../img/util/mem/icon_tooltip_top.png) 20px 0px no-repeat;
+    border: 1px solid #222;
+    border-radius: 3px;
+    margin-top: 7px;
+    top: 50px;
+    left: 20px;
+    position: absolute;
+    right: 20px;
+    z-index: 5;
+    display: none;
+}
+.renew_input_box div.info_btn_box {
+    padding: 20px 20px 20px 20px;
+}
+.renew_input_box div.info_btn_box {
+    background: #fff;
+    border-radius: 3px;
+    z-index: -1;
+}
+.renew_input_box div.info_btn_box p.btn_close {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    width: 16px;
+    height: 16px;
+}
+.phone_change_box input {
+    width: 65%;
+    float: left;
+}
+.btn_phone_change.green {
+    background: #006633;
+}
+.phone_change_box .btn_phone_change {
+    background: #666;
+    border-radius: 3px;
+    color: #fff;
+    float: left;
+    line-height: 46px;
+    margin-left: 2%;
+    text-align: center;
+    width: 22%;
+}
+.phone_change_box .icon_mark_point {
+    float: left;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+.icon_mark_point {
+    background: url(http://localhost:9000/starbucks/images/icon_mark_point.png) 0 center no-repeat;
+    background-size: 100% auto;
+    content: "";
+    cursor: pointer;
+    display: inline-block;
+    height: 26px;
+    margin-top: -2px;
+    vertical-align: middle;
+    width: 26px;
+}
+.phone_change_box:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.choice_agreement.border {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+}
+.choice_agreement_txt {
+    margin: 15px 0 10px;
+    color: #222;
+    font-size: 16px;
+    line-height: 1.4;
+}
+.choice_agreement .ez-checkbox, .ez-checkbox2 {
+    background: url(http://localhost:9000/starbucks/images/mem_check_off_type2.png) 0 0 no-repeat;
+    background-size: 100% auto;
+    cursor: pointer;
+    height: 26px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 26px;
+}
+.ez-hide {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.choice_agreement label {
+    color: #444;
+    cursor: pointer;
+    font-size: 16px;
+    vertical-align: middle;
+    letter-spacing: -1px;
+}
+.ez-checkbox {
+
+	background: transparent url(//image.istarbucks.co.kr/common/img/util/ck_icon.jpg) 0 0 no-repeat;
+    display: inline-block;
+}
+.ez-checkbox2 {
+    background: transparent url(http://localhost:9000/starbucks/images/mem_check_off_type2.png) 0 0 no-repeat;
+    display: inline-block;
+}
+.choice_agreement .ez-checkbox.ez-checked {
+    background: url(http://localhost:9000/starbucks/images/mem_check_on.png) 0 0 no-repeat;
+    background-size: 100% auto;
+    cursor: pointer;
+}
+.choice_agreement .ez-checkbox2.ez-checked {
+    background: url(http://localhost:9000/starbucks/images/mem_check_on.png) 0 0 no-repeat;
+    background-size: 100% auto;
+    cursor: pointer;
+}
+input.mem[type="checkbox"]:checked + label, input.mem[type="checkbox"]:active + label {
+    background: url(http://localhost:9000/starbucks/images/mem_check_on.png) 0px 0px / 26px no-repeat rgb(255, 255, 255);
+}
+.select_birth_box .birth_select {
+    background: #fff url(http://localhost:9000/starbucks/images/down.PNG) 90% center no-repeat;
+    float: left;
+    position: relative;
+    width: 32%;
+}
+.choice_agreement label {
+    color: #444;
+    cursor: pointer;
+    font-size: 16px;
+    vertical-align: middle;
+    letter-spacing: -1px;
+}
+.choice_agreement:before, .choice_agreement:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.limit_txt {
+    color: #444;
+    display: none;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+.choice_agreement.border {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+}
+.choice_agreement label {
+    color: #444;
+    cursor: pointer;
+    font-size: 16px;
+    vertical-align: middle;
+    letter-spacing: -1px;
+}
+.bdt_no {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top: 0;
+    box-sizing: border-box;
+}
+.icon_mem_sally {
+    text-align: center;
+    max-width: 570px;
+    margin: 0 auto;
+}
+.mem_nick_txt {
+    background: #edebe7;
+    color: #666;
+    line-height: 1.6;
+    padding: 10px 0;
+    text-align: center;
+}
+.bd_none {
+    border: 0 !important;
+}
+.renew_joinform_v2 .mem_purpose_wrap, .renew_joinform_v2 .mem_agreement_wrap {
+    margin: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    padding: 3px 0;
+}
+.mCustomScrollBox {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-width: 100%;
+    outline: none;
+    direction: ltr;
+}
+.mCSB_inside > .mCSB_container {
+    margin-right: 30px;
+}
+.mCSB_container {
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
+.renew_input_box input {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: inline-block;
+    /* margin-top: 10px; */
+    max-width: 530px;
+    /* outline: none; */
+    padding: 15px;
+    width: 100%;
+}
+.renew_input_bigbox {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px 20px;
+    position: relative;
+    margin: 0 auto 30px;
+}	
+.pay_receipt_wrap {
+    max-width: 570px;
+    margin: 0 auto 10px;
+    border-bottom: 1px solid #ddd;
+}
+.pay_receipt_txt {
+    color: #666;
+    line-height: 1.4;
+    font-size: 16px;
+    margin: 0 20px 15px;
+}
+.t_006633 {
+    color: #006633;
+}
+.pay_receipt_tab {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 48px;
+}
+.pay_receipt_tab .receipt_person {
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+    width: 33.3%;
+    left: 0%;
+}
+.pay_receipt_tab > strong {
+    border-bottom: 1px solid #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.pay_receipt_tab .receipt_company {
+    box-sizing: border-box;
+    border-right: 1px solid #ddd;
+    width: 33.3%;
+    left: 33.3%;
+}	
+.pay_receipt_tab .receipt_no {
+    width: 33.3%;
+    left: 66.6%;
+}
+.bd_none {
+    border: 0 !important;
+}
+.modify_txt2 {
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    font-size: 14px;
+    margin-top: 15px;
+    letter-spacing: -1px;
+    text-align: center;
+}
+.choice_agreement_txt {
+    margin: 15px 0 10px;
+    color: #222;
+    font-size: 16px;
+    line-height: 1.4;
+}
+.fontGold3 {
+    display: block;
+    padding-top: 7px;
+    font-size: 15px;
+    color: #8f7b49;
+}
+.btn_mem_login {
+    background: #006633;
+    border-radius: 3px;
+    margin-top: 25px;
+    text-align: center;
+    margin: 0 20px;
+    max-width: 570px;
+}
+.btn_mem_login a {
+    color: #fff;
+    font-size: 24px;
+    display: block;
+    line-height: 65px;
+}
+
+.nofix_name {
+    background: #f4f4f2;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 15px;
+}
+.select_birth_txt {
+    color: #444;
+    line-height: 1.6;
+    margin-top: 15px;
+    letter-spacing: -1px;
+}
+.phone_change_box input {
+    width: 65%;
+    float: left;
+}
+.btn_phone_change.green {
+    background: #006633;
+}
+.phone_change_box .icon_mark_point {
+    float: left;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+.mem_destruction_wrap h5, .mem_purpose_wrap h5, .mem_article_wrap h5, .mem_agreement_wrap h5 {
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.user_gender a {
+    color: #b0b0b0;
+    display: block;
+    float: left;
+    line-height: 45px;
+    text-align: center;
+    width: 50%;
+}
+img {
+    vertical-align: top;
+    max-width: 100%;
+}
+.pay_receipt_tab > strong {
+    color: #b0b0b0;
+    cursor: pointer;
+    float: left;
+    font-weight: normal;
+    line-height: 47px;
+    text-align: center;
+    width: 50%;
+}
+.renew_input_box div.info_btn_box dl dt {
+    font-size: 15px;
+    color: #444;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.renew_input_box div.info_btn_box dl dd {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    padding-left: 8px;
+    
+}   
+.renew_input_box div.info_btn_box p.btn_close02 {
+    margin: 0 auto;
+    width: 57px;
+    border: 1px solid #222;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+.renew_input_bigbox .modify_section_ttl {
+    display: block;
+    max-width: 570px;
+    font-size: 18px;
+    margin: 10px 20px 20px;
+}
+.renew_input_box .radio_box .ez-radio input {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+}
+.radio_box.long_txt label {
+    display: inline-block;
+    line-height: 1.4;
+    vertical-align: top;
+    width: 80%;
+}
+input.mem[type=checkbox]:checked + label, input.mem[type=checkbox]:active + label {
+    background-size: 26px;
+}
+.renew_joinform_v2 section .agree-check, .mem_agreement_wrap .agree-check {
+    position: absolute;
+    display: block;
+    width: 26px;
+    right: 3px;
+    top: 0;
+}
+.choice_agreement:before, .choice_agreement:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.choice_agreement.border {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+}	
+.ez-checkbox {
+    background: transparent url(//image.istarbucks.co.kr/common/img/util/ck_icon.jpg) 0 0 no-repeat;
+    display: inline-block;
+}
+input.mem[type=checkbox]:not(old) + label {
+    position: absolute;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    background: #fff url(http://localhost:9000/starbucks/images/mem_check_off_type2.png) 0 0 no-repeat;
+    font-size: 13px;
+    color: #3f4141;
+    cursor: pointer;
+    vertical-align: top;
+    background-size: 26px;
+    text-indent: -9999px;
+    cursor: pointer;
+    font-size: 0;
+    overflow: hidden;
+    z-index: 4;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+}
+#mem_choice_yes{
+	display: none;
+}
+.choice_agreement #mem_choice_yes.ez-checked {
+    background: url(http://localhost:9000/starbucks/images/mem_check_on.png) 0 0 no-repeat;
+    background-size: 100% auto;
+    cursor: pointer;
+}
+.renew_joinform_v2 div.mem_purpose_area, .renew_joinform_v2 div.mem_agreement_area {
+    background: #f7f7f7;
+    box-sizing: border-box;
+    color: #666 !important;
+    height: 170px;
+    width: 100%;
+}
+
+
+    
+    .renew_input_box div.info_btn_box p.btn_close02 a {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #222;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+</style>
 <script>
 	function showphone(){
 			$('#info_btn_inner').show();
@@ -64,10 +665,33 @@
             }
         })
     })
-      // 닉네임 체크, 체크해제에 따른 이벤트 처리
-        $("#mem_choice_yes").on("change", function() {
+    $(document).ready(function(){
+        var bCheck=false;
+        var $chk=$("#mem_choice_yes");
+        
+
+        $("#mem_choice_yes").click(function(){
+            bCheck = !bCheck;
+
+            if(bCheck == true){
+                $chk.addClass("ez-checked");
+                $("input.applicable:checkbox").prop("disabled", false);
+            }
+            else{
+                $chk.removeClass("ez-checked");
+            }
+        })
+    })
+    $("#mem_choice_yes").click(function(){
+		if(this.checked){
+			$("input.applicable:checkbox").prop("disabled", false);
+			$("#user_nick_nm").attr("placeholder", "한글 6자리 이내로 입력하세요.").blur();
+		}
+	});
+   // 닉네임 체크, 체크해제에 따른 이벤트 처리
+   //     $("#mem_choice_yes").on("change", function() {
             //placeholder
-            var $chk = $('[name="mem_choice"]:checked');
+    /*        var $chk = $('[name="mem_choice"]:checked');
             var nickChangeYn = $("#user_nick_nm").attr('data-user_nick_change_yn');
             var penaltyYn = $("#user_nick_nm").attr('data-penalty_yn');
             var penaltyDate = $("#user_nick_nm").attr('data-penalty_date');
@@ -112,7 +736,7 @@
                 $("#user_nick_nm").removeClass("disabled");
                 $("#user_nick_nm").focus().stbScrollTop();
             }
-        });
+        });*/
 </script>
 </head>
 <body>
@@ -130,7 +754,7 @@
 							<section class="renew_joinform_v2">
 								<div class="renew_input_box bd_none">
 								<strong>아이디</strong>
-								<p class="renew_user_id user_id">LIMHS01**</p>
+								<p class="renew_user_id user_id"><%= session.getAttribute("signedUser") %></p>
 							</div>
 							</section>
 							
@@ -139,7 +763,7 @@
 							<section class="renew_joinform_v2">
 								<div class="renew_input_box gender_chk">
 									<strong>이름(필수)</strong>
-									<p class="nofix_name user_nm">임현*</p>
+									<p class="nofix_name user_nm"></p>
 									<input type="hidden" name="user_nm" id="user_nm" value="">
 									<input type="hidden" name="native_yn" id="native_yn" value="">
 									<input type="hidden" name="ipin_jumin" id="ipin_jumin" value="">
@@ -296,7 +920,7 @@
 										<!-- 접근성_20171120 추가 -->
 										<span class="agree-check">
 											<input type="checkbox" name="mem_choice" id="mem_choice_yes" class="mem">
-											<label id="mem_choice_label" for="mem_choice_yes">동의</label>
+											<label id="mem_choice_label" for="mem_choice_yes"></label>
 										</span>
 										<!-- 접근성_20171120 추가 end -->
 										<div class="mem_purpose_area mem_purpose_area_v2 mCustomScrollbar _mCS_1"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">

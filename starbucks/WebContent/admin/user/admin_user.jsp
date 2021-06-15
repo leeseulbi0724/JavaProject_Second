@@ -21,7 +21,7 @@
 	}
 	.content_user div.search { text-align:left; padding: 10px; border:1px solid lightgray; }
 	.content_user div.search input { width:150px; height:12px; }
-	/*.content_user div.search button { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }*/
+	.content_user div.search button { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }
 	.content_user div.center { 
 		border:1px solid lightgray; height:500px; float:left; width:1200px;
 	 }
@@ -41,13 +41,13 @@
 
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
-	$(document).ready(function() {	
-		  $("#mykeyword").on("keyup", function() {
-		        var value = $(this).val().toLowerCase();
+	$(document).ready(function() {			  
+		  $("#search").click (function() {
+		        var value = $("#search_input").val().toLowerCase();
 		        $(".tbody tr").filter(function() {
 		            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 		        });
-		    });	
+		    });
 		  
 		  
 		  $("span").click(function() {
@@ -65,16 +65,19 @@
 <div class="content_user" id="content">
 <section>
 	<ul class="submenu">
-		<li>전체 회원 정보</li>
+		<li style="cursor:pointer">전체 회원 정보</li>
 	</ul>
 </section>
 <section>
 	<div class="text">Home > <span>회원 관리</span></div>
 	<div class="search">
 		<select>
-			<option value="id">TABLE</option>
+			<option value="id">아이디</option>
+			<option value="name">이름</option>
+			<option value="nicname">닉네임</option>
 		</select>
-		<input type="text" id="mykeyword">
+		<input type="text" id="search_input">
+		<button id="search">검색</button>
 	</div>
 	<div class="center" style="overflow:scroll">
 		<table border=1 class="table" >

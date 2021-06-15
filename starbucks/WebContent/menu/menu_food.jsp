@@ -412,60 +412,6 @@ function allCheck() {
 	}
 } 
 
-function checkboxCheck(){
-	$("#list_cate *").show();
-	$("#list_cate ul").hide();
-	$("#list_cate table").hide();
-	$("#all").prop("checked", false);
-	if($("#show_inform").data('clicked')){
-		$("#list_cate table").show();
-	}else if(!$("#show_inform").data('clicked')){
-		$("#list_cate ul").show();
-	}
-	if($("#bread").is(':checked')){
-		$("#bread_label").show();
-	}else if(!$("#bread").is(':checked')){
-		$("#bread_label").hide();
-		$("#bread_list").hide();
-	}
-	if($("#cake").is(':checked')){
-		$("#cake_label").show();
-	}else if(!$("#cake").is(':checked')){
-		$("#cake_label").hide();
-		$("#cake_list").hide();
-	}
-	if($("#sand").is(':checked')){
-		$("#sand_label").show();
-	}else if(!$("#sand").is(':checked')){
-		$("#sand_label").hide();
-		$("#sand_list").hide();
-	}
-	if($("#hot").is(':checked')){
-		$("#hot_label").show();
-	}else if(!$("#hot").is(':checked')){
-		$("#hot_label").hide();
-		$("#hot_list").hide();
-	}
-	if($("#fru").is(':checked')){
-		$("#fru_label").show();
-	}else if(!$("#fru").is(':checked')){
-		$("#fru_label").hide();
-		$("#fru_list").hide();
-	}
-	if($("#snack").is(':checked')){
-		$("#snack_label").show();
-	}else if(!$("#snack").is(':checked')){
-		$("#snack_label").hide();
-		$("#snack_list").hide();
-	}
-	if($("#ice").is(':checked')){
-		$("#ice_label").show();
-	}else if(!$("#ice").is(':checked')){
-		$("#ice_label").hide();
-		$("#ice_list").hide();
-	}
-	
-}
 ///////////////////////////////////////////////////
 
 
@@ -649,6 +595,136 @@ $( document ).ready(function() {
 			}
 		}
 	});
+
+	$(".chk").change(function(){
+		$("#list_cate *").show();
+		$("#list_cate ul").hide();
+		$("#list_cate table").hide();
+		$("#all").prop("checked", false);
+		if($("#show_inform").data('clicked')){
+			$("#list_cate table").show();
+		}else if(!$("#show_inform").data('clicked')){
+			$("#list_cate ul").show();
+		}
+		if($("#bread").is(':checked')){
+			$("#bread_label").show();
+		}else if(!$("#bread").is(':checked')){
+			$("#bread_label").hide();
+			$("#bread_list").hide();
+		}
+		if($("#cake").is(':checked')){
+			$("#cake_label").show();
+		}else if(!$("#cake").is(':checked')){
+			$("#cake_label").hide();
+			$("#cake_list").hide();
+		}
+		if($("#sand").is(':checked')){
+			$("#sand_label").show();
+		}else if(!$("#sand").is(':checked')){
+			$("#sand_label").hide();
+			$("#sand_list").hide();
+		}
+		if($("#hot").is(':checked')){
+			$("#hot_label").show();
+		}else if(!$("#hot").is(':checked')){
+			$("#hot_label").hide();
+			$("#hot_list").hide();
+		}
+		if($("#fru").is(':checked')){
+			$("#fru_label").show();
+		}else if(!$("#fru").is(':checked')){
+			$("#fru_label").hide();
+			$("#fru_list").hide();
+		}
+		if($("#snack").is(':checked')){
+			$("#snack_label").show();
+		}else if(!$("#snack").is(':checked')){
+			$("#snack_label").hide();
+			$("#snack_list").hide();
+		}
+		if($("#ice").is(':checked')){
+			$("#ice_label").show();
+		}else if(!$("#ice").is(':checked')){
+			$("#ice_label").hide();
+			$("#ice_list").hide();
+		}
+	});
+	
+	/***************************
+	메뉴바에서 값 가져와 체크박스 체크
+	******************************/
+	$.urlParam = function(name){
+		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+		return results[1] || 0;
+	}
+	if($.urlParam('chk') != "all"){
+		$("#all").prop("checked", false);
+	}
+	
+	if($.urlParam('chk') == "bread"){
+		$("#bread").prop("checked", true);
+	}else if($.urlParam('chk') == "cake"){
+		$("#cake").prop("checked", true);
+	}else if($.urlParam('chk') == "sand"){
+		$("#sand").prop("checked", true);
+	}else if($.urlParam('chk') == "hot"){
+		$("#hot").prop("checked", true);
+	}else if($.urlParam('chk') == "fru"){
+		$("#fru").prop("checked", true);
+	}else if($.urlParam('chk') == "snack"){
+		$("#snack").prop("checked", true);
+	}else if($.urlParam('chk') == "ice"){
+		$("#ice").prop("checked", true);
+	}
+
+	if($("#show_inform").data('clicked')){
+		$("#list_cate table").show();
+	}else if(!$("#show_inform").data('clicked')){
+		$("#list_cate ul").show();
+	}
+	if($("#bread").is(':checked')){
+		$("#bread_label").show();
+	}else if(!$("#bread").is(':checked')){
+		$("#bread_label").hide();
+		$("#bread_list").hide();
+	}
+	if($("#cake").is(':checked')){
+		$("#cake_label").show();
+	}else if(!$("#cake").is(':checked')){
+		$("#cake_label").hide();
+		$("#cake_list").hide();
+	}
+	if($("#sand").is(':checked')){
+		$("#sand_label").show();
+	}else if(!$("#sand").is(':checked')){
+		$("#sand_label").hide();
+		$("#sand_list").hide();
+	}
+	if($("#hot").is(':checked')){
+		$("#hot_label").show();
+	}else if(!$("#hot").is(':checked')){
+		$("#hot_label").hide();
+		$("#hot_list").hide();
+	}
+	if($("#fru").is(':checked')){
+		$("#fru_label").show();
+	}else if(!$("#fru").is(':checked')){
+		$("#fru_label").hide();
+		$("#fru_list").hide();
+	}
+	if($("#snack").is(':checked')){
+		$("#snack_label").show();
+	}else if(!$("#snack").is(':checked')){
+		$("#snack_label").hide();
+		$("#snack_list").hide();
+	}
+	if($("#ice").is(':checked')){
+		$("#ice_label").show();
+	}else if(!$("#ice").is(':checked')){
+		$("#ice_label").hide();
+		$("#ice_list").hide();
+	}
+	
 	
 });
 </script>

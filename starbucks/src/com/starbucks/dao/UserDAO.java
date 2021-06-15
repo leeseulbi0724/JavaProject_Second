@@ -1,11 +1,78 @@
 package com.starbucks.dao;
 
 import java.util.ArrayList;
-
 import com.starbucks.vo.UserVO;
 
 public class UserDAO extends DBConn {
 	
+	public boolean getDelete(String id) {
+		boolean result = false;
+		String sql = "DELETE FROM SB_MEMBER WHERE id = ?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, id);
+			
+			int value = pstmt.executeUpdate();
+			
+			if(value != 0) {
+				result = true;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return result;
+		
+	}
+	
+	public String getPass(UserVO vo) {
+		String pass = null;
+		String sql = "SELECT PASS FROM SB_MEMBER WHERE NAME=? AND ID=? AND HP=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getId());
+			pstmt.setString(3, vo.getHp());
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				pass = rs.getString(1);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return pass;
+	}
+	
+	public String getId(UserVO vo) {
+		String id = null;
+		String sql = "SELECT ID FROM SB_MEMBER WHERE NAME=? AND HP=?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getHp());
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				id = rs.getString(1);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
 	
 	public boolean getInsertResult(String id, String pass,String name, String email, String hp, String birth, String nick) {
 		boolean result =  false;
@@ -88,7 +155,7 @@ public class UserDAO extends DBConn {
 		return result;
 	}
 	
-	//회원 리스트 - 관리자
+	
 	public ArrayList<UserVO> getUserList(){
 		ArrayList<UserVO> list = new ArrayList<UserVO>();
 		String sql = "select rownum rno, id, name, birth, hp, email, nick, to_char(mdate, 'yyyy-mm-dd') mdate "
@@ -119,4 +186,5 @@ public class UserDAO extends DBConn {
 		close();
 		return list;
 	}
+	
 }

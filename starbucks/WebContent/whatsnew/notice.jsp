@@ -135,8 +135,8 @@ ul.smap{
 .notice_tb {
 	width: 1100px;
 	border-collapse: collapse;
-	border-spacing: 0;
-	font-family:나눔스퀘어_ac;
+	border-spacing:0;
+	font-family:나눔바른고딕;
 }
 colgroup{
 	display: table-column-group;
