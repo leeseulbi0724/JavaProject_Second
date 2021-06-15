@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="../header.jsp"></jsp:include>
 <style>
 section.pass {
 	padding-bottom: 50px;
@@ -88,15 +89,38 @@ section.pass div:nth-child(4) input:last-child { margin-top:0; margin-bottom:5px
 	cursor:pointer;
 }
 </style> 
+<script>
+function form_check(){
+		if(!document.pass_form.pass.value){
+			alert("비밀번호를 입력해 주세요.");
+			documnet.pass_form.pass.focus();
+			
+		}
+		else if(!document.pass_form.cpass.value){
+			alert("새로운 비밀번호를 입력해 주세요.");
+			document.pass_form.cpass.focus();
+		 }	
+		
+		else if(!document.pass_form.cpass2.value){
+			alert("새로운 비밀번호 확인을 입력해 주세요")
+			document.pass_form_cpass2.focus();
+		}
+		else if(document.pass_form.cpass.value != document.pass_form.cpass2.value){
+			alert("새로운 비밀번호가 일치하지 않습니다.");
+			return;
+		}
+		document.pass_form.submit();
+	}
+</script>
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
+
 
 <!-- 비밀번호 변경 -->
 <div>
 <section class="pass">
 		<h1 class="title">비밀번호 변경</h1>
-		<form class="content_layout" name="pass_form" action="mystarbucks_pass.jsp" method="post">
+		<form class="content_layout" name="pass_form" action="mystarbucks_pass_process.jsp" method="post">
 			<div>
 				<ul>
 					<li>
@@ -133,13 +157,13 @@ section.pass div:nth-child(4) input:last-child { margin-top:0; margin-bottom:5px
 						<span class="span2">새 비밀번호</span>
 					</li>
 					<li>
-         				<input type="password" name="pass" placeholder="영문, 숫자 혼합하여 10~20자리 이내로 입력하세요." title="현재 비밀번호">
-         				<input type="password" name="pass" placeholder="비밀번호를 다시 한번 입력해 주세요." title="현재 비밀번호">
+         				<input type="password" name="cpass" placeholder="영문, 숫자 혼합하여 10~20자리 이내로 입력하세요." title="새로운 비밀번호">
+         				<input type="password" name="cpass2" placeholder="비밀번호를 다시 한번 입력해 주세요." title="새로운 비밀번호2">
 					</li>
 				</ul>
 			</div>
 			<div>
-      			<a href="#"><button type="button" id="btn">확인</button></a>
+      			<a><button type="button" id="btn" onclick="form_check()">확인</button></a>
 			</div>
 		</form>
 	</section>

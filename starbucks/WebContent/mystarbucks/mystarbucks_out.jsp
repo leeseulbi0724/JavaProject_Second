@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +69,7 @@
 .renew_input_box.gender_chk .nofix_name {
     width: 49%;
     float: left;
+    
 }
 .user_gender {
     border: 1px solid #b0b0b0;
@@ -78,7 +80,7 @@
     width: 22.711%;
 }
 .btn_change_name {
-    background: #666;
+    background: #006633;
     border-radius: 3px;
     color: #fff;
     display: block;
@@ -171,6 +173,7 @@
 .phone_change_box input {
     width: 65%;
     float: left;
+    margin-right: 30px;
 }
 .btn_phone_change.green {
     background: #006633;
@@ -351,6 +354,7 @@ input.mem[type="checkbox"]:checked + label, input.mem[type="checkbox"]:active + 
     padding: 15px;
     width: 100%;
 }
+
 .renew_input_bigbox {
     background: #fff;
     border: 1px solid #ddd;
@@ -439,6 +443,7 @@ input.mem[type="checkbox"]:checked + label, input.mem[type="checkbox"]:active + 
     font-size: 24px;
     display: block;
     line-height: 65px;
+    cursor: pointer;
 }
 
 .nofix_name {
@@ -606,6 +611,9 @@ input.mem[type=checkbox]:not(old) + label {
     color: #fff;
     text-align: center;
 }
+.user_name_box{
+	width: 49%;
+}
 
 </style>
 <script>
@@ -631,6 +639,19 @@ input.mem[type=checkbox]:not(old) + label {
 	function imgtoggle(){
 		$('agreement1').hide();
 		$('#agreement2').show();
+	}
+	function form_check(){
+		if(!document.change_form.birth_year.value){
+			alert("생년월일을 입력해주세요");
+			return;
+		}else if(!document.change_form.phone.value) {
+			alert("핸드폰 번호를 입력해주세요");
+			return;
+		}else if(!document.change_form.email.value){
+			alert("이메일을 입력해주세요");
+			return;
+		}
+			document.change_form.submit();
 	}
 	
 	$(document).ready(function(){
@@ -745,7 +766,7 @@ input.mem[type=checkbox]:not(old) + label {
 			<div class="find_mem_wrap"><!-- jsp 수정 : 클래스명 추가 -->
 				<!-- 20160804 수정 -->
 				<div class="find_mem_inner">
-					<form id="frmMemberInfo" method="post">
+					<form id="frmMemberInfo" method="post" name="change_form" action="mystarbucks_out_process.jsp">
 						<input type="hidden" name="SOM_ETC_1" value="">
 						<fieldset>
 							<strong class="find_mem_ttl">개인정보 확인 및 수정</strong>
@@ -754,7 +775,8 @@ input.mem[type=checkbox]:not(old) + label {
 							<section class="renew_joinform_v2">
 								<div class="renew_input_box bd_none">
 								<strong>아이디</strong>
-								<p class="renew_user_id user_id"><%= session.getAttribute("signedUser") %></p>
+								<input type= "text" name="id" placeholder="<%= session.getAttribute("signedUser") %>" disabled>
+								
 							</div>
 							</section>
 							
@@ -763,19 +785,15 @@ input.mem[type=checkbox]:not(old) + label {
 							<section class="renew_joinform_v2">
 								<div class="renew_input_box gender_chk">
 									<strong>이름(필수)</strong>
-									<p class="nofix_name user_nm"></p>
-									<input type="hidden" name="user_nm" id="user_nm" value="">
+									<input type= "text" class= "user_name_box" name="id" value="<%= session.getAttribute("sigenedUsername") %>" disabled>
+									<input type="hidden" name="name" id="user_nm" value="">
 									<input type="hidden" name="native_yn" id="native_yn" value="">
 									<input type="hidden" name="ipin_jumin" id="ipin_jumin" value="">
 									<input type="hidden" name="ipin_change_dt" id="ipin_change_dt" value="">
 									<input type="hidden" name="join_flag" id="join_flag" value="">
 									<input type="hidden" name="IS_DORMANCY" id="IS_DORMANCY" value="">
-									<div class="user_gender">
-										<a class="male on" href="javascript:void(0);">남</a>
-										<a class="female  " href="javascript:void(0);">여</a>
-										<input type="hidden" name="gender" id="gender" value="M">
-									</div>
-										<a class="btn_change_name" href="javascript:void(0);">변경</a>
+									
+										
 								</div>
 								
 								<div class="renew_input_box birth_chk">
@@ -792,8 +810,8 @@ input.mem[type=checkbox]:not(old) + label {
 										</div>
 										<div class="birth_select yny">
 						                    <select id="birth_flag" name="birth_flag">
-						                    	<option selected="selected" value="1">양</option>
-						                        <option value="2">음</option>
+						                    	<option selected="selected" value="양">양</option>
+						                        <option value="음">음</option>
 						                    </select>
 										</div>
 									</div>
@@ -819,8 +837,8 @@ input.mem[type=checkbox]:not(old) + label {
 									</div>
 									
 									<div class="phone_change_box">
-									   <input class="phone" type="tel" name="phone" id="phone" maxlength="13" value="">
-										<a class="btn_phone_change certi" href="javascript:void(0);" style="display:none;">변경</a>
+									   <input class="phone" type="tel" name="phone" id="phone" maxlength="13" value="<%= session.getAttribute("sigenedUserhp") %>">
+										<a class="btn_phone_change certi" style="display:none;">변경</a>
 										<a id="phone_num_certi" class="btn_phone_change green certi_no ">인증</a>
 									</div>
 									<p class="limit_txt phone_txt"></p>
@@ -850,7 +868,7 @@ input.mem[type=checkbox]:not(old) + label {
 									</div>
 									<!-- // 툴팁 -->
 									<div>
-										<input type="text" name="email" id="email" placeholder="E-mail을 입력하세요.">
+										<input type="text" name="email" id="email" placeholder="E-mail을 입력하세요." value="<%= session.getAttribute("sigenedUseremail") %>">
 										<p class="limit_txt mail_txt"></p>
 									</div>
 									<div class="choice_agreement border"> <!--  20170626  border 클라스 추가 -->
@@ -1001,7 +1019,7 @@ input.mem[type=checkbox]:not(old) + label {
 										</div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 33px; top: 0px; display: block; height: 20px; max-height: 118px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 33px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
 									</section>
 									
-									<input type="text" name="user_nick_nm" id="user_nick_nm" placeholder="닉네임 입력을 위해 약관에 동의해 주세요." maxlength="6" readonly="readonly" class="disabled" onfocus="this.blur()" data-org_user_nick_nm="" data-user_nick_change_yn="Y" data-penalty_yn="N" data-penalty_date="" data-nick_limited_dtyn="" data-nick_use_yn="">
+									<input type="text" name="nick" id="user_nick_nm" maxlength="6" value="<%= session.getAttribute("sigenedUsernick") %>">
 									<input type="hidden" id="nick_nm_use" name="nick_nm_use" value="">
 									<p class="limit_txt input_warn_text user_nick_nm_txt"></p>
 								</div>
@@ -1106,7 +1124,7 @@ input.mem[type=checkbox]:not(old) + label {
 							</section>
 							<p class="modify_txt2"><b>＊ 선택항목은 입력하지 않거나 동의하지 않아도 스타벅스 서비스를 이용하실 수 있습니다.</b></p>
 							<p class="btn_mem_login">
-								<a href="javascript:void(0);">정보수정</a>
+								<a onclick="form_check()">정보수정</a>
 							</p>
 						</fieldset>	
 					</form>
