@@ -4,7 +4,6 @@
 <%
 	String bean = request.getParameter("beanid");	
 
-
 	coffeeDAO dao = new coffeeDAO();
 	ArrayList<CoffeeVO> list = dao.getList(bean);
 %>
@@ -216,6 +215,70 @@ input[type="checkbox"]:checked + label:before,
 	line-height: 10px;
 	font-size: 6px;
 }
+/********************** 상세분류 ********************/
+div.show{
+	width:1100px;
+	height:80px;
+	margin:10px auto;
+	position: relative;
+}
+/*상세분류 로고*/
+#mark_l{
+	position:absolute;
+	bottom: 80px;
+	left: 20px;
+}
+#mark_r{
+	position:absolute;
+	bottom: 80px;
+	left: 70px;
+}
+
+/********************** 상세분류 드롭다운 **************/
+.multiselect {
+	width: 270px;
+	position: absolute;
+	right: 0;
+	top:40px;
+	z-index: 3;
+}
+.selectBox {
+  	position: relative;
+}
+.selectBox:hover{
+	cursor: pointer;
+}
+.selectBox select {
+ 	width: 100%;
+ 	font-weight: bold;
+  	padding:10px;
+  	border-color: lightgray;
+  	color: #444444;
+}
+.overSelect {
+  	position: absolute;
+ 	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+#checkboxes {
+	display: none;
+}
+#checkboxes label.chk_drop {
+	display: block;
+	border: 1px solid lightgray;
+	background-color: white;
+	padding:5px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+#checkboxes label>span:hover {
+	cursor: pointer;
+}
+#checkboxes img {
+	vertical-align: middle;
+}
 /************************* 상품 리스트 ***********************/
 .coffee_list{
 	height: auto;
@@ -309,11 +372,12 @@ div.coffee_list>div p {
 	height:100px;
 }
 
+
 </style>
 
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
-//카테고리 업다운
+////////////카테고리 업다운//////////////
 	$(document).ready(function(){
 	
 		$(".btn_class img").click(function(){
@@ -350,42 +414,97 @@ function allCheck() {
 } 
 
 function checkboxCheck(){
-	 $(".list#list_cate *").each(function(){
-	     	$(this).show();
-	     });
-	if($("#blond").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#blond_list").show();
-	}else if(!$("#blond").is(':checked')){
-		$("#blond_list").hide();
-	}
-	if($("#medium").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#glass_label").show();
-		$("#glass_list").show();
-	}else if(!$("#glass").is(':checked')){
-		$("#glass_label").hide();
-		$("#glass_list").hide();
-	}
-	if($("#dark").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#pla_label").show();
-		$("#pla_list").show();
-	}else if(!$("#pla").is(':checked')){
-		$("#pla_label").hide();
-		$("#pla_list").hide();
-	}
-	if($("#flavor").is(':checked')){
-		$("#all").prop("checked", false);
-		$("#stain_label").show();
-		$("#stain_list").show();
-	}else if(!$("#stain").is(':checked')){
-		$("#stain_label").hide();
-		$("#stain_list").hide();
-	}
-	
+		if($("#blond").is(':checked')){
+			$("#all").prop("checked", false);
+			$("#blond_list").show();
+			$("#blond_img").show();
+		}else if(!$("#blond").is(':checked')){
+	        $("#blond_list").hide();
+	        $("#blond_img").hide();
+		}
+		if($("#medium").is(':checked')){
+			$("#all").prop("checked", false);
+			$("#medium_list").show();
+			$("#medium_img").show();
+		}else if(!$("#medium").is(':checked')){
+	        $("#medium_list").hide();
+	        $("#medium_img").hide();
+		}
+		if($("#dark").is(':checked')){
+			$("#all").prop("checked", false);
+			$("#dark_list").show();
+			$("#dark_img").show();
+		}else if(!$("#dark").is(':checked')){
+	        $("#dark_list").hide();
+	        $("#dark_img").hide();
+		}
+		if($("#flavor").is(':checked')){
+			$("#all").prop("checked", false);
+			$("#flavor_list").show();
+			$("#flavor_img").show();
+		}else if(!$("#flavor").is(':checked')){
+	        $("#flavor_list").hide();
+	        $("#flavor_img").hide();
+		}
+		
 }
 
+
+/////////////////////////// 상세분류 /////////////////////////
+/* 상세분류 리스트*/
+var expanded = false;
+function Checkboxes() {
+	var checkboxes = document.getElementById("checkboxes");
+	if (!expanded) {
+		checkboxes.style.display = "block";
+		expanded = true;
+	} else if(expanded){
+		checkboxes.style.display = "none";
+		expanded = false;
+	}
+}
+function showCheckboxes() {
+	var checkboxes = document.getElementById("checkboxes");
+	if (!expanded) {
+		checkboxes.style.display = "block";
+		expanded = true;
+	}
+}
+function hideCheckboxes() {
+	var checkboxes = document.getElementById("checkboxes");
+	if (expanded) {
+		checkboxes.style.display = "none";
+		expanded = false;
+	}
+}
+/* 상세분류 기능*/
+ /* 
+ 	function categoryCheck(){
+		 	  $(".list_cate *").each(function(){
+	        	$(this).hide();
+	        	
+		if($("#one").is(':checked')){	
+			$(".mark01").show();
+ */
+		/*		
+		}else if(!$("#one").is(':checked')) {
+			$(".mark01").parents(".cname__list ul>li").show();
+			
+		}
+			 		
+		if($("#two").is(':checked')){
+			$(".mark02").parents(".cname__list ul>li").show();
+		}else if(!$("#two").is(':checked')) {
+			$(".mark02").parents(".cname__list ul>li").show();
+			
+		}
+		if($("#three").is(':checked')){
+			$(".mark03").parents(".cname__list ul>li").show();
+		}else if(!$("#three").is(':checked')) {
+			$(".mark03").parents(".cname__list ul>li").show();
+			
+		}
+		 	 }*/
 
 </script>
 
@@ -455,14 +574,28 @@ function checkboxCheck(){
 		</div>
 	</div>
 	
-<!-- 커피 상세 -->
-		<div class="detail_list">
-			<select>
-				<option value="choice" >상세 분류</option>
-				<option value="choice">신규 출시된 메뉴</option>
-				<option value="choice">한정 기간 출시되는 시즌성 메뉴</option>
-			</select>
-		</div>
+<!-- 상세분류 -->				
+				<div class="show">
+					<form>
+					  <div class="multiselect">
+					    <div class="selectBox" onclick="Checkboxes()" onmouseleave="hideCheckboxes()">
+					      <select>
+					        <option>상세분류</option>
+					      </select>
+					      <div class="overSelect"></div>
+					    </div>
+					    <div id="checkboxes" onmouseenter="showCheckboxes()" onmouseleave="hideCheckboxes()">
+					      <label class="chk_drop">
+					        <input type="checkbox" id="one" onclick="categoryCheck()"/><label for="one"><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="two" onclick="categoryCheck()" /><label for="two"><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label></label>
+					      <label class="chk_drop">
+					        <input type="checkbox" id="three" onclick="categoryCheck()" /><label for="three"><img src="http://localhost:9000/starbucks/images/mark04.png" width="21px" height="21px"><span>판매 완료된 메뉴</span></label></label>
+					    </div>
+					  </div>
+					</form>
+				</div>
+				<!-- 상세분류 끝 -->
 	
 <!-- coffee list -->
 	<div class="list" id="list_cate">
@@ -470,55 +603,40 @@ function checkboxCheck(){
 			coffeeDAO dao2 = new coffeeDAO();
 			ArrayList<CoffeeVO> list2 = dao.getImgList(bean, vo.getCtype_id());
 		   %>
-		<article id="coffee_content">
-			
-			<div class="coffee_list", id="<%= vo.getCtype_id() %>">
-				<div>
+		<article id="coffee_content" >
+			<div class="coffee_list" >
+				<div id="<%= vo.getCtype_id()%>_list">
 					<img src="http://localhost:9000/starbucks/images/<%= vo.getClogo() %>"><p><%= vo.getCname() %></p>
+					
 				</div>
 			</div>
 			
 			<div class="cname_list">
-				<div class="cname_list_inner">
+				<div class="cname_list_inner" id="<%= vo.getCtype_id()%>_img">
 					<ul class="cname__list">
 					 <% for(CoffeeVO vo2 : list2){ %>
-						<li><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
-							<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p></div>
-						</li>
-						<% } %>
-						
+							<li><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
+								<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p>
+									<%if(vo2.getM_new()!=null && vo2.getLimit()==null){ %>
+										<img src="http://localhost:9000/starbucks/images/mark01.png" id="mark_l" class="mark01">
+									<% }else if( vo2.getM_new() ==null && vo2.getLimit()!=null){ %>	
+										<img src="http://localhost:9000/starbucks/images/mark02.png" id="mark_l" class="mark02">
+									<% }else if( vo2.getM_new() !=null && vo2.getLimit()!=null){  %>
+										<img src="http://localhost:9000/starbucks/images/mark01.png" id="mark_l" class="mark01">
+										<img src="http://localhost:9000/starbucks/images/mark02.png" id="mark_r" class="mark02">
+									<% }else if(vo2.getSoldout()!=null){  %>
+										<img src="http://localhost:9000/starbucks/images/mark03.png" id="mark_l" class="mark03">
+								<% } %>
+							</div></li>
+					<% } %>
 					</ul>
 				</div>
 			</div>
 		</article>
-		<%  } %>
-
+<% } %>
 	</div>
 	
 <!-- Footer -->	
 <jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,7 +17,7 @@
 
 <style>
 /******************* 타이틀 ****************************/
-.espresso_ttl{
+.coffee_ttl{
 	padding-top: 30px;
 	position: relative;
 }
@@ -62,11 +62,17 @@ ul.smap li{
 .top_content>div.inner_content{
 	width:1110px;
 	height:650px;
-	margin: 0 auto;
+	padding-top:10px;
+	margin:0 auto;
 	position: relative;
 }
 
 /* 이미지 */
+div.image>div>ul{
+   list-style-type: none;
+   text-align: right;
+   width: 350px;
+}
 div.image{
 	margin:0;
 	padding:0;
@@ -98,7 +104,7 @@ div.image>div>ul>li>img:hover{
 }
 
 /* 설명 */
-.bean_name{
+div.bean_name{
 	margin:0;
 	padding:0;
 	width:610px;
@@ -118,17 +124,19 @@ div.image>div>ul>li>img:hover{
 	padding:5px 10px;
 	float :right;
 	display:inline-block;
-	background:green;
+	background-color:green;
+	border-radius:5px;
 }
 .lineup {
 	height:70px;
 	
 }
  .lineup_btn {
- 	background:rgb(198,146,20);
+ 	background-color:rgb(198,146,20);
  	margin-top:10px;
 	padding:5px 10px;
 	float :right;
+	border-radius:5px;
 	
  }
 .myproduct_btn>a, .lineup_btn>a {
@@ -314,7 +322,6 @@ div.bottom_news>div:first-child>div>div:last-child>div>span:first-child{
 div.bottom_news>div:first-child>div>div:last-child>div>span:last-child{
 	font-size: 13px;
 }
-
 div.bottom_news>div:last-child{
 	display: block;
 	border-top: 1px solid lightgray;
@@ -412,7 +419,9 @@ $( document ).ready(function() {
 	});
 	
 	/* 돋보기 기능 */
+	 $('.zoomContainer').remove();
 	$(".zoomImg").elevateZoom({
+		responsive : true,
 		zoomWindowWidth: 610,
 		zoomWindowHeight: 468,
 		zoomWindowOffetx: 45,
@@ -420,7 +429,6 @@ $( document ).ready(function() {
 		borderSize: 1,
 		borderColour: "lightgray",
 	});
-	
 });
 </script>
 
@@ -434,7 +442,7 @@ $( document ).ready(function() {
 	<!-- 타이틀  -->
 	<div class="sub_title">
 		<div class="sub_inner_title">
-			<img class="espresso_ttl"src="http://localhost:9000/starbucks/images/sb_bean_ttl.png">
+			<img class="coffee_ttl"src="http://localhost:9000/starbucks/images/sb_bean_ttl.png">
 		<ul class="smap">
 			<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
@@ -456,13 +464,13 @@ $( document ).ready(function() {
 	
 	<div class="image"><!-- 이미지 -->
 		<div><!-- 큰 이미지 -->
-			<img class="zoomImg" src="http://localhost:9000/starbucks/images/<%= cimg %>">
+			<img class="zoomImg" src='http://localhost:9000/starbucks/images/<%= cimg %>' data-zoom-image="http://localhost:9000/starbucks/images/b_<%= cimg %>" />
 			<img src="http://localhost:9000/starbucks/images/more.png">
 		</div>
 		<div><!-- 작은 이미지 -->
 			<ul>
 				<li>
-					<img src="http://localhost:9000/starbucks/images/<%= cimg %>">
+					<img src="http://localhost:9000/starbucks/images/b_<%= cimg %>">
 				</li>
 			</ul>
 		</div>

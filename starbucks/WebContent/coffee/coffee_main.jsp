@@ -12,13 +12,21 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  
   <style>
-  /**************************** Carousel ***************************/
-  .carousel-inner img {
-    width: 100%;
-    height: 100%;
-    padding:0; margin:0;
+ /**************************** Carousel ***************************/
+  .carousel-inner{
+   width: 2000px;
+    height: 400px;
+    position:relative;
+    left: 50%;
+    margin-left: -1000px;
+    top: 0;
   }
-
+.carousel-control-prev-icon {
+    margin-left: -900px;
+}
+.carousel-control-next-icon{
+   margin-right: -900px;
+}
 /*************************** 서브 타이틀 **********************************/
 
 .coffee_txt{
@@ -67,31 +75,6 @@ ul.smap li{
 	padding-top: 30px;
 	position: relative;
 }
-/**************************프로모션 ***************************************/
-
-div.notice {
-	background-color:black;
-	display:inline-block;
-	color:white;
-	width:50%; height:70px;
-	text-align:center;
-	font-size:15px;
-	
-}
-div.promotion {
-	background-color:rgb(246,245,239);
-	width:50%; height:70px;
-	float:right;
-	text-align:center;
-	font-size:15px;
-}
-div.notice label, div.promotion label { font-size:17px; font-weight:bold;  }
-div.notice label,  div.notice>a.link,  div.promotion label { position:relative; top:25px; }
-div.notice>a.link { text-decoration:none; color:white; left:5px; right:100px; font-size:15px; }
-div.notice>a.link:hover { text-decoration:underline; }
-div.promotion label { color:#333; }
-div.notice img, div.promotion img { display:inline-block;  float:right; position:relative; top:5px; right:5px; }
-div.promotion img { top:15px; right:100px; }
 
 
 /************* 메인 이미지 ***************/
@@ -102,6 +85,9 @@ div.promotion img { top:15px; right:100px; }
 		background-size:cover;
 		background-position:left;
 		background-repeat:no-repeat;
+		padding :0;
+		margin:0;
+		
 		
 	}	
 	section.coffee_choice_wrap{
@@ -194,10 +180,10 @@ div.promotion img { top:15px; right:100px; }
 		  <!-- The slideshow -->
 		  <div class="carousel-inner">
 		    <div class="carousel-item active">
-		      <img src="http://localhost:9000/starbucks/images/20210412163132808.jpg"  width="1100" height="500">
+		      <a href="#"><img src="http://localhost:9000/starbucks/images/20210412163132808.jpg"  width="100%" height="100%"></a>
 		    </div>
 		    <div class="carousel-item">
-		      <img src="http://localhost:9000/starbucks/images/20210405101646743.jpg"  width="1100" height="500">
+		    <a href="#"><img src="http://localhost:9000/starbucks/images/20210405101646743.jpg"  width="100%" height="100%"></a>
 		    </div>
 		  </div>
 		  
@@ -211,17 +197,6 @@ div.promotion img { top:15px; right:100px; }
 		</div>
 	</div>
 		
-		<div class="main">
-			<div class="notice">			
-				<label>공지사항</label>
-				<a href="#" class=link>스타벅스 공지사항</a>
-				<a href="#"><img src="http://localhost:9000/starbucks/images/plus.PNG"></a>
-			</div>
-			<a href="#"><div class="promotion">
-				<label>스타벅스 프로모션</label>
-				<img src="http://localhost:9000/starbucks/images/btn_prom_down.png" width=40 height=40>
-			</div></a>
-		</div>
 
 				<!-- 나와 어울리는 커피 찾기 -->
 				<section class="coffee_choice_wrap">

@@ -62,7 +62,7 @@ public ArrayList<CoffeeVO> getList(String bean){
 		// coffee 커피타입별 이미지 & 이름
 		public ArrayList<CoffeeVO> getImgList(String bean, String ctype){
 			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
-			String sql = "select ctype_id, cimg_file, cimg_text from sb_coffee_img where cid=? and ctype_id=?";
+			String sql = "select ctype_id, cimg_file, cimg_text, m_new, limit, soldout  from sb_coffee_img where cid=? and ctype_id=?";
 			getPreparedStatement(sql);
 			
 			try {
@@ -75,6 +75,9 @@ public ArrayList<CoffeeVO> getList(String bean){
 					vo.setCtype_id(rs.getString(1));
 					vo.setCimg_file(rs.getString(2));
 					vo.setCimg_text(rs.getString(3));
+					vo.setM_new(rs.getString(4));
+					vo.setLimit(rs.getString(5));
+					vo.setSoldout(rs.getString(6));
 					
 					list.add(vo);
 				}

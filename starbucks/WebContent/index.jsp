@@ -439,10 +439,7 @@ div.img article.five a:hover {
         
    } ); 
 </script> 
-<script>
 
-
-</script>
 </head>
 <body>
 	<!--  header -->

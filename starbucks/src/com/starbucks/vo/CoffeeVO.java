@@ -3,10 +3,32 @@ package com.starbucks.vo;
 public class CoffeeVO {
 	//coffee
 	String cid, ctype_id, cname, clogo, ctext, cimg_file, cimg_text, dproduct_name, dproduct_ename, dproduct_text,dproduct_note,
-		dproduct_enjoy, dproduct_content,dproduct_story, dproduct_tasting , product_name ; //coffee
+		dproduct_enjoy, dproduct_content,dproduct_story, dproduct_tasting , product_name , m_new, limit, soldout; //coffee
 	String eid, etype_id, ename,ename_tit, efile_main, efile_content, eimg_main_text, etitle, econtent;  	//espresso
 	
-	
+	public String getM_new() {
+		return m_new;
+	}
+
+	public void setM_new(String m_new) {
+		this.m_new = m_new;
+	}
+
+	public String getLimit() {
+		return limit;
+	}
+
+	public void setLimit(String limit) {
+		this.limit = limit;
+	}
+
+	public String getSoldout() {
+		return soldout;
+	}
+
+	public void setSoldout(String soldout) {
+		this.soldout = soldout;
+	}
 	public String getEname_tit() {
 		return ename_tit;
 	}
