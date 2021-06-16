@@ -238,7 +238,7 @@ ul.smap li{
 				<section class="coffee_hs_wrap">
 					<div class="coffee_wrap_inner_r">
 						<p class="coffee_hs_txt"><img class="w_pic" src="http://localhost:9000/starbucks/images/coffee_hs_txt.png"></p>
-						<div class="coffee_hs_btn"><a href="/coffee/story.do">자세히 보기</a></div>
+						<div class="coffee_hs_btn"><a href="#">자세히 보기</a></div>
 					</div>
 				</section>
 				<!-- 커피 이야기  end -->

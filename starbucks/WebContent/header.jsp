@@ -147,14 +147,14 @@
    							</ul>
    							<ul class="s_ecoffee">
 	    						<li><a href="http://localhost:9000/starbucks/coffee/espresso_main.jsp" class="m" style="color:white"><strong>에스프레소 음료</strong></a></li><br>
-	   							<li><a href="#" class="m">도피오</a></li><br>
-	    						<li><a href="#" class="m">에스프레소 마키아또</a></li><br>
-	   							<li><a href="#" class="m">아메리카노</a></li><br>
-	   							<li><a href="#" class="m">마키아또</a></li><br>
-	   							<li><a href="#" class="m">카푸치노</a></li><br>
-	   							<li><a href="#" class="m">라떼</a></li><br>
-	   							<li><a href="#" class="m">모카</a></li><br>
-	   							<li><a href="#" class="m">리스트레또 비안코</a></li>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=dopio" class="">도피오</a></li><br>
+	    						<li><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=esp_macchiato" class="m">에스프레소 마키아또</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=americano" class="m">아메리카노</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=macchiato" class="m">마키아또</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=cappuccino" class="m">카푸치노</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=latte" class="m">라떼</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=mocha" class="m">모카</a></li><br>
+	   							<li><a href="http://localhost:9000/starbucks/coffee/espresso_list.jsp?etype_id=flat_white" class="m">리스트레또 비안코</a></li>
    							</ul>
  						</div></div></li>
 						<li><div id="menu"><a href ="http://localhost:9000/starbucks/menu/menu_main.jsp" class="M">MENU</a>
