@@ -24,6 +24,7 @@
  	 .content_question div.search { text-align:left; padding: 10px; border:1px solid lightgray; }
 	.content_question div.search input { width:150px; height:12px; }
 	.content_question div.search button { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }*/
+	
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -116,9 +117,9 @@ $(document).ready(function() {
 					<td><%= vo.getSdate() %></td>
 					<td>
 					<% if( vo.getReply() == 0) {  %>
-						<button type="submit" class="btn_style" value="<%=vo.getSid() %>" id="com_btn" name="sid">답변하기</button>
+						<button type="submit" class="btn_style" value="<%=vo.getSid() %>&no" name="sid" style="background-color:#777; color:white; cursor:pointer; border:1px solid lightgray; " >답변하기</button>
 					<% } else { %>
-						<button type="button" class="btn_style" value="yes" id="com_btn" disabled>답변완료</button>
+						<button type="submit" class="btn_style" value="<%=vo.getSid() %>&yes"  name="sid" style="background-color:white; color:black; border:1px solid lightgray; cursor:pointer;" >답변완료</button>
 					<% } %>
 					</td>
 				</tr>				
@@ -127,7 +128,7 @@ $(document).ready(function() {
 		</table>
 		</form>
 		</div>
-	</section>
+	</section>	
 	</div>
 </body>
 </html>

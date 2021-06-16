@@ -2,10 +2,19 @@
 	import="com.starbucks.dao.*, com.starbucks.vo.*"
 %>
 <%
-	String sid = request.getParameter("sid");
+	String value = request.getParameter("sid");
 
+	String name[] = value.split("&");
+	String sid = name[0];
+	String yn = name[1];
+
+	serviceVO cvo = new serviceVO();
 	serviceDAO dao = new serviceDAO();
 	serviceVO vo = dao.getContentResult(sid);
+	
+	if (yn.equals("yes")) {
+		cvo = dao.getCommentResult(sid);
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -27,7 +36,7 @@
  	 .table th { background-color:rgb(237,237,237); }
  	 .table textarea.content { width:90%; height:300px; }
  	 .table textarea.comment { width:90%; height:200px; }
- 	 .table tr th { padding:5px 0 5px 0; }
+ 	 .table tr th { padding:5px 0 5px 0; text-align:center; vertical-align:middle;}
  	 
  	 #one input { text-align:center; }
  	 
@@ -59,9 +68,6 @@
 			location.replace("http://localhost:9000/starbucks/admin/question/admin_question.jsp");
 		});
 		
-		$(".span2").click(function() {
-			location.replace("http://localhost:9000/starbucks/admin/question/admin_question_comment.jsp");
-		});
 		
 		$("#comment").click(function() {
 			if ($(".comment").val() == "") {
@@ -71,6 +77,10 @@
 			} else {
 				question_comment.submit();
 			}
+		});
+		
+		$("#ok").click(function() {
+			location.replace("http://localhost:9000/starbucks/admin/question/admin_question.jsp");
 		});
 		
 		$("#open").click(function() {
@@ -129,16 +139,23 @@
 					<tr>
 						<th>내용</th>
 						<td colspan="4">
-							<textarea class="content" disabled><%= vo.getContent() %></textarea>							
+							<textarea class="content" disabled><%= vo.getContent() %></textarea>											
 						</td>
 					</tr>
 					<tr>
 						<th>답변</th>
+						<% if (yn.equals("no")) { %>
 						<td colspan="4"><textarea  class="comment" name="comment"></textarea></td>
+						<% } else { %>
+						<td colspan="4"><textarea  class="comment" name="comment" disabled><%= cvo.getComment() %></textarea></td>
+						<% } %>		
 					</tr>
 				</table>
+				<% if (yn.equals("no")) { %>
 				<button type="button"  class="btn_style" id="comment">답변완료</button>
-				<button type="reset" class="btn_style">답변취소</button>
+				<% } else { %>
+				<button type="button"  class="btn_style" id="ok">확인</button>
+				<% } %>
 				</form>
 			</div>
 		</section>

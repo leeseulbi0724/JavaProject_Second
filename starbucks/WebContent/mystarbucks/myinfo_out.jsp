@@ -313,6 +313,7 @@ input[type="checkbox"] {
     font-weight: bold;
     color: #222;
     text-align: center;
+    cursor: pointer;
 }
 .ms_btn a:visited {
 	text-decoration: none;
@@ -347,6 +348,7 @@ function delete_check(){
     if($("#agree1").is(":checked") == false){
         alert("유의사항에 동의하여 주세요.")
     }else{
+    	
     	location.href="myinfo_out_process.jsp"
     }
     }
