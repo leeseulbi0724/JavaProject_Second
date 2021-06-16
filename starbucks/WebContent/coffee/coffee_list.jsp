@@ -478,34 +478,33 @@ function hideCheckboxes() {
 	}
 }
 /* 상세분류 기능*/
- /* 
- 	function categoryCheck(){
-		 	  $(".list_cate *").each(function(){
-	        	$(this).hide();
-	        	
-		if($("#one").is(':checked')){	
+function categoryCheck(){    	
+		if($("#one").is(':checked')){
 			$(".mark01").show();
- */
-		/*		
-		}else if(!$("#one").is(':checked')) {
-			$(".mark01").parents(".cname__list ul>li").show();
-			
+			$(".normal").hide();
+		}else if(!$("#one").is(':checked')){
+			$(".mark01").hide();
+			$(".mark01").parents(".coffee_list div").hide();
 		}
-			 		
-		if($("#two").is(':checked')){
-			$(".mark02").parents(".cname__list ul>li").show();
-		}else if(!$("#two").is(':checked')) {
-			$(".mark02").parents(".cname__list ul>li").show();
-			
+	 	if($("#two").is(':checked')){
+			$(".mark02").show();
+			$(".normal").hide();
+		}else if(!$("#two").is(':checked')){
+			$(".mark02").hide();
 		}
-		if($("#three").is(':checked')){
-			$(".mark03").parents(".cname__list ul>li").show();
-		}else if(!$("#three").is(':checked')) {
-			$(".mark03").parents(".cname__list ul>li").show();
-			
-		}
-		 	 }*/
-
+	 	if($("#one").is(':checked') || $("#two").is(':checked')){
+			$(".mark03").show();
+			$(".normal").hide();
+		}else if(!$("#one").is(':checked') || !$("#two").is(':checked')){
+			$(".mark03").hide();
+ 		} 
+	 	if($("#three").is(':checked')){
+			$(".mark04").show();
+			$(".normal").hide();
+		}else if(!$("#three").is(':checked')){
+			$(".mark04").hide();
+ 		} 
+}
 </script>
 
 <body>
@@ -588,9 +587,9 @@ function hideCheckboxes() {
 					      <label class="chk_drop">
 					        <input type="checkbox" id="one" onclick="categoryCheck()"/><label for="one"><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label></label>
 					      <label class="chk_drop">
-					        <input type="checkbox" id="two" onclick="categoryCheck()" /><label for="two"><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label></label>
+					        <input type="checkbox" id="two" onclick="categoryCheck()"/><label for="two"><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label></label>
 					      <label class="chk_drop">
-					        <input type="checkbox" id="three" onclick="categoryCheck()" /><label for="three"><img src="http://localhost:9000/starbucks/images/mark04.png" width="21px" height="21px"><span>판매 완료된 메뉴</span></label></label>
+					        <input type="checkbox" id="three" onclick="categoryCheck()"/><label for="three"><img src="http://localhost:9000/starbucks/images/mark04.png" width="21px" height="21px"><span>판매 완료된 메뉴</span></label></label>
 					    </div>
 					  </div>
 					</form>
@@ -615,19 +614,35 @@ function hideCheckboxes() {
 				<div class="cname_list_inner" id="<%= vo.getCtype_id()%>_img">
 					<ul class="cname__list">
 					 <% for(CoffeeVO vo2 : list2){ %>
-							<li><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
-								<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p>
-									<%if(vo2.getM_new()!=null && vo2.getLimit()==null){ %>
-										<img src="http://localhost:9000/starbucks/images/mark01.png" id="mark_l" class="mark01">
-									<% }else if( vo2.getM_new() ==null && vo2.getLimit()!=null){ %>	
-										<img src="http://localhost:9000/starbucks/images/mark02.png" id="mark_l" class="mark02">
-									<% }else if( vo2.getM_new() !=null && vo2.getLimit()!=null){  %>
-										<img src="http://localhost:9000/starbucks/images/mark01.png" id="mark_l" class="mark01">
-										<img src="http://localhost:9000/starbucks/images/mark02.png" id="mark_r" class="mark02">
-									<% }else if(vo2.getSoldout()!=null){  %>
-										<img src="http://localhost:9000/starbucks/images/mark03.png" id="mark_l" class="mark03">
+							 <%if(vo2.getM_new()==null && vo2.getLimit()==null && vo2.getSoldout()==null){ %>
+									<li class="normal"><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
+									<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p>
+									</div></li>
+								<% } %>	
+							<% if(vo2.getM_new()!=null && vo2.getLimit()==null){ %>
+									<li class="mark01"><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
+									<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p>
+									<img src="http://localhost:9000/starbucks/images/mark01.png" id="mark_l" >
+									</div></li>
+							<% }else if( vo2.getM_new() ==null && vo2.getLimit()!=null){ %>
+									<li class="mark02"><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
+									<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p>	
+									<img src="http://localhost:9000/starbucks/images/mark02.png" id="mark_l">
+									</div></li>
+							<% }else if( vo2.getM_new() !=null && vo2.getLimit()!=null){  %>
+									<li class="mark03"><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
+									<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p>	
+									<img src="http://localhost:9000/starbucks/images/mark01.png" id="mark_l">
+									<img src="http://localhost:9000/starbucks/images/mark02.png" id="mark_r">
+									</div></li>
+									<% } %>
+							<% if(vo2.getSoldout()!=null){  %>
+									<li class="mark04"><div><a href ="coffee_detail.jsp?ctype_id=<%=vo2.getCtype_id()%>&cimg_file=<%= vo2.getCimg_file()%>">
+									<img src="http://localhost:9000/starbucks/images/<%= vo2.getCimg_file()%>"></a><p><%= vo2.getCimg_text()%></p>	
+									<img src="http://localhost:9000/starbucks/images/mark03.png" id="mark_l">
+									</div></li>
 								<% } %>
-							</div></li>
+							
 					<% } %>
 					</ul>
 				</div>
