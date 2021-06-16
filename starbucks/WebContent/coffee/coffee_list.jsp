@@ -484,7 +484,6 @@ function categoryCheck(){
 			$(".normal").hide();
 		}else if(!$("#one").is(':checked')){
 			$(".mark01").hide();
-			$(".mark01").parents(".coffee_list div").hide();
 		}
 	 	if($("#two").is(':checked')){
 			$(".mark02").show();
