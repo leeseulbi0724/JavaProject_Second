@@ -4,7 +4,9 @@
 <%
  session.invalidate();//세션의 모든 속성 제거
  UserDAO dao = new UserDAO();
- ArrayList<UserVO> list = dao.getUserList();
+ ArrayList<UserVO> list = dao.getUserList(); 
+ 
+ 
 %>
 <!DOCTYPE html>
 <html>
