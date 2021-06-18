@@ -23,7 +23,7 @@
  	 
  	 .content_question div.search { text-align:left; padding: 10px; border:1px solid lightgray; }
 	.content_question div.search input { width:150px; height:12px; }
-	.content_question div.search button { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }*/
+	.content_question div.search button { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }
 	
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
