@@ -17,6 +17,7 @@
 <meta charset="UTF-8">
 <title>고객의 소리 | Starbucks Coffee Korea</title>
 <style>
+	body { overflow-x:hidden; overflow-y:auto; }
 	section {
 		text-align:center;
 	}
@@ -117,6 +118,47 @@
 	.table td a { text-decoration:none; color:blue; }
 	.table td a:hover { text-decoration:underline; }
 	
+	#title_click { cursor:pointer; }
+	#title_click:hover { text-decoration:underline; }	
+	div.content_box {
+		 position:absolute;
+		 background-color:white; 
+		 width:800px; height:500px;
+		 display:none;
+		 border:1px solid lightgray; 
+		 margin-left:-1000px;
+		 margin-bottom:-50px;
+		 text-align:left;
+	}
+	.content_box #X { 
+		background-color:white; 
+		border:none; 
+		font-size:20px; 
+		cursor:pointer;
+		float:right;
+	}
+	.innder_box { width:800px; height:200px; }
+	#title { 
+		font-family:나눔바른고딕; 
+		padding:5px 10px;
+		background-color:rgb(242,242,242); 
+		width:780px;
+		font-size:14px;
+	 }
+	#content { 
+		width:780px; 
+		height:500px; 
+		border:none; border-top:1px solid lightgray; border-bottom:1px solid lightgray; 
+		background-color:white;
+		font-family:나눔바른고딕; 
+		padding:10px;
+	 }
+	 #date {
+	 	font-size:13px; 
+	 	color:gray;
+	 	margin-left:10px;
+	  }
+	
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -163,6 +205,33 @@
 		     $("#all").css("background-color","rgb(0,102,51)").css("color","white");
 		});
 		
+		$("#X").click(function() {
+			$("div.content_box").css("display","none");
+		});
+		
+		$("tbody td:nth-child(2)").click(function() {
+			content($(this).attr("name"));
+		});
+		
+		
+		function content(sid) {					
+			$.ajax( {
+				url:"mystarbucks_sound_process.jsp?sid="+sid,
+				success : function(result) {
+					var jdata = JSON.parse(result);
+					
+					$("div.content_box").css("display","inline-block");
+					$("#title").text("["+jdata.category+"]"+" "+jdata.title);
+					$("#content").text(jdata.content);
+					$("#date").text(jdata.sdate);
+/* 					document.getElementById("focus").scrollIntoView(); */
+					/* $("#focus").attr("tabindex", -1).focus(); */
+ 				}
+			});
+		}
+		
+		
+		
 		
 	});
 </script>
@@ -192,8 +261,8 @@
 			<div class="line"></div>
 			<p><a class="down_menu" id="down">개인정보관리<img class="sbox_arrow_down" src="http://localhost:9000/starbucks/images/sbox_arrow_down.png"></a></p>
 			<ul class="hide">
-				<li><a class="font" href="">. 개인정보확인 및 수정</a></li>
-				<li><a class="font"href="">. 회원 탈퇴</a></li>
+				<li><a class="font" href="mystarbucks_out.jsp">. 개인정보확인 및 수정</a></li>
+				<li><a class="font"href="myinfo_out.jsp">. 회원 탈퇴</a></li>
 				<li><a class="font"href="http://localhost:9000/starbucks/mystarbucks/mystarbucks_pass.jsp">. 비밀번호 변경</a></li>
 			</ul>
 		</div>
@@ -232,7 +301,7 @@
 			<tr>
 				<% if(list.size() != 0 ) { %>
 					<td><%= vo.getRno() %></td>
-					<td><%= vo.getTitle() %></td>
+					<td id="title_click" name="<%= vo.getSid()%>"><%= vo.getTitle() %></td>		
 					<td><%= vo.getSdate() %></td>	
 					<% if (vo.getReply() == 0) { %>
 					<td></td>
@@ -251,8 +320,16 @@
 			</tr>
 			<% } %>
 		</tbody>
-		</table>		
+		</table>				
 	</div>	
+	<div class="content_box" id="focus">
+		<div class="inner_box">			
+		<button id="X">X</button>
+			<p id="title"></p>
+			<p id="date"></p>
+			<textarea id="content" disabled style="resize: none;"></textarea>
+		</div>
+	</div>
 	</section>
 	
 	
