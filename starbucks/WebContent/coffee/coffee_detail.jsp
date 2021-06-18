@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>COFFEE | Starbucks Coffee Korea</title>
 
 <style>
 /******************* 타이틀 ****************************/
@@ -25,6 +25,7 @@
 	width: 100%;
 	height: 98px;
 	background: #ffffff;
+	font-size:13px;
 }
 .sub_title_inner{
 	width: 96%;
@@ -482,9 +483,9 @@ $( document ).ready(function() {
 					<p><%= vo.getDproduct_name() %></p>
 					<p><%= vo.getDproduct_ename() %></p>
 				</span>
-				<span class="myproduct_btn">
+	<!-- 			<span class="myproduct_btn">
 					<a href="#">나만의 상품으로 등록</a>
-				</span>
+				</span> -->
 				
 				<div class="line1"></div>
 				

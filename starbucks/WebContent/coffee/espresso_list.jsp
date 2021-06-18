@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>에스프레소 음료 | Starbucks Coffee Korea</title>
 <style>
 /******************* 타이틀 ****************************/
 .espresso_ttl{
@@ -24,6 +24,7 @@
 .sub_title{
 	width: 100%;
 	height: 98px;
+	font-size:13px;
 	background: #ffffff;
 }
 .sub_title_inner{
