@@ -48,7 +48,11 @@
 				location.replace("http://localhost:9000/starbucks/admin/notice/admin_notice.jsp");
 			} else if (name == "question") {
 				location.replace("http://localhost:9000/starbucks/admin/question/admin_question.jsp");
-			}				
+			} else if (name == "menu") {
+				location.replace("http://localhost:9000/starbucks/admin/menu/admin_menu_main.jsp");
+			} else if (name=="coffee") {
+				location.replace("http://localhost:9000/starbucks/admin/coffee/admin_coffee_main.jsp");
+			}
 		});
 	});
 </script>
@@ -59,6 +63,8 @@
 	<li id="li" name="user"><button type="button" class="user">회원 관리</button></li>
 	<li id="li" name="notice"><button type="button" class="notice">공지사항 관리</button></li>
 	<li id="li" name="question"><button type="button" class="question">문의 관리</button></li>
+	<li id="li" name="menu"><button type="button" class="menu2">메뉴 관리</button></li>
+	<li id="li" name="coffee"><button type="button" class="menu2">커피 관리</button></li>
 </ul>
 </body>
 </html>
