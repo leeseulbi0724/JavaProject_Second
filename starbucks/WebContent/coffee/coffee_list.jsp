@@ -422,6 +422,9 @@ function checkboxCheck(){
 		}else if(!$("#blond").is(':checked')){
 	        $("#blond_list").hide();
 	        $("#blond_img").hide();
+	    	if($("#one").is(':checked') || $("#two").is(':checked')){
+	    		$("#blond_list").show();
+	    	}
 		}
 		if($("#medium").is(':checked')){
 			$("#all").prop("checked", false);
@@ -430,6 +433,9 @@ function checkboxCheck(){
 		}else if(!$("#medium").is(':checked')){
 	        $("#medium_list").hide();
 	        $("#medium_img").hide();
+	    	if($("#one").is(':checked') || $("#two").is(':checked')){
+	    		$("#medium_list").show();
+	    	}
 		}
 		if($("#dark").is(':checked')){
 			$("#all").prop("checked", false);
@@ -438,6 +444,9 @@ function checkboxCheck(){
 		}else if(!$("#dark").is(':checked')){
 	        $("#dark_list").hide();
 	        $("#dark_img").hide();
+	    	if($("#one").is(':checked') || $("#two").is(':checked')){
+	    		$("#dark_list").show();
+	    	}
 		}
 		if($("#flavor").is(':checked')){
 			$("#all").prop("checked", false);
