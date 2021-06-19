@@ -10,7 +10,7 @@ public class menuDAO extends DBConn {
 	public ArrayList<menuVO> getDrinkList(){
 		ArrayList<menuVO> list = new ArrayList<menuVO>();
 		String sql = " select mid, k_name, img, kcal, sugar, protein, na, fat, caffeine, "
-				+ " p_type, m_type, m_new, limit from sb_menu where m_type = '음료' order by mid ";
+				+ " p_type, m_type, m_new, limit, theme from sb_menu where m_type = '음료' order by mid ";
 		getPreparedStatement(sql);
 		
 		try {
@@ -30,6 +30,7 @@ public class menuDAO extends DBConn {
 				vo.setM_type(rs.getString(11));
 				vo.setM_new(rs.getString(12));
 				vo.setLimit(rs.getString(13));
+				vo.setTheme(rs.getString(14));
 				
 				list.add(vo);
 			}
@@ -43,7 +44,7 @@ public class menuDAO extends DBConn {
 	//푸드 리스트
 	public ArrayList<menuVO> getFoodList(){
 		ArrayList<menuVO> list = new ArrayList<menuVO>();
-		String sql = " select mid, k_name, img, kcal, sugar, protein, na, fat, p_type, m_type, m_new, limit from sb_menu where m_type = '푸드' order by mid ";
+		String sql = " select mid, k_name, img, kcal, sugar, protein, na, fat, p_type, m_type, m_new, limit, theme from sb_menu where m_type = '푸드' order by mid ";
 		getPreparedStatement(sql);
 		
 		try {
@@ -62,6 +63,7 @@ public class menuDAO extends DBConn {
 				vo.setM_type(rs.getString(10));
 				vo.setM_new(rs.getString(11));
 				vo.setLimit(rs.getString(12));
+				vo.setTheme(rs.getString(13));
 				
 				list.add(vo);
 			}
@@ -72,10 +74,10 @@ public class menuDAO extends DBConn {
 		
 		return list;
 	}
-	//음료 리스트
+	//상품 리스트
 	public ArrayList<menuVO> getProductList(){
 		ArrayList<menuVO> list = new ArrayList<menuVO>();
-		String sql = " select mid, k_name, img, p_type, m_type, m_new, limit from sb_menu where m_type = '상품' order by mid ";
+		String sql = " select mid, k_name, img, p_type, m_type, m_new, limit, theme from sb_menu where m_type = '상품' order by mid ";
 		getPreparedStatement(sql);
 		
 		try {
@@ -89,6 +91,7 @@ public class menuDAO extends DBConn {
 				vo.setM_type(rs.getString(5));
 				vo.setM_new(rs.getString(6));
 				vo.setLimit(rs.getString(7));
+				vo.setTheme(rs.getString(8));
 				
 				list.add(vo);
 			}

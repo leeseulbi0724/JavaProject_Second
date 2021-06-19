@@ -21,7 +21,6 @@ div.drink{
 	margin: 40px auto 150px auto;
 	position: relative;
 }
-
 ul.route {
 	list-style-type: none;
 	text-align: right;
@@ -51,7 +50,6 @@ h2{
 	text-align: left;
 	padding: 20px 0 20px 0;
 }
-
 /* 분류 */
 div.class {
 	 border:1px solid lightgray;
@@ -173,7 +171,6 @@ div.class>div>div>form>ul>li>input[type="checkbox"]:checked + label:before,
 	line-height: 10px;
 	font-size: 6px;
 }
-
 #theme_class{
 	display: none;
 }
@@ -218,7 +215,6 @@ div.content>div>div>p:hover{
 	text-decoration: underline;
 	cursor: pointer;
 }
-
 /* 상세분류 드롭다운*/
 .multiselect {
 	width: 250px;
@@ -265,7 +261,6 @@ div.content>div>div>p:hover{
 #checkboxes img {
 	vertical-align: middle;
 }
-
 /* 이미지 리스트 */
 div.label{
 	background-color: #f4f4f1;
@@ -339,13 +334,10 @@ div.list>div>ul>li>ul>li>label{
 	text-align: center;
 	font-size: 14px;
 }
-
 #list_theme{
 	display: none;
 	padding-top: 40px;
 }
-
-
 table.tb{
 	width:100%;
 	border-collapse: collapse;
@@ -370,7 +362,6 @@ table td{
 	font-size: 14px;
 	text-align: center;
 }
-
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -400,7 +391,6 @@ function hideCheckboxes() {
 		expanded = false;
 	}
 }
-
 //////////////체크박스////////////////////
 function allCheck() {
     if ($("#all").is(':checked')) {
@@ -419,9 +409,7 @@ function allCheck() {
 		$("#list_cate ul").show();
 	}
 } 
-
 ///////////////////////////////////////////////////
-
 /* 분류 보기 업다운 */
 $( document ).ready(function() {
 	$(".btn_class img").click(function(){
@@ -548,7 +536,6 @@ $( document ).ready(function() {
 			}
 		}
 	});
-
 	$(".chk").change(function(){
 		$("#list_cate *").show();
 		$("#list_cate ul").hide();
@@ -644,7 +631,6 @@ $( document ).ready(function() {
 	}else if($.urlParam('chk') == "juice"){
 		$("#juice").prop("checked", true);
 	}
-
 	if($("#show_inform").data('clicked')){
 		$("#list_cate table").show();
 	}else if(!$("#show_inform").data('clicked')){
@@ -706,8 +692,6 @@ $( document ).ready(function() {
 	}
 	
 });
-
-
 </script>
 </head>
 <body>
@@ -906,24 +890,16 @@ $( document ).ready(function() {
 					<!--이미지 -->
 					<div id="th_img_list">
 						<ul>
-							<li id="th01">
+							<% for(menuVO vo : list){ %>
+							<% if(vo.getTheme() != null){ %>
+							<li id=<%= vo.getTheme() %>>
 								<ul>
-									<li><a href="drink_detail.jsp"><img src="http://localhost:9000/starbucks/images/blended01.jpg" name="th01"></a></li>
-									<li><label>딸기 레몬 블렌디드</label></li>
+									<li><a href="menu_detail.jsp?mid=<%=vo.getMid()%>"><img src="http://localhost:9000/starbucks/images/<%= vo.getImg() %>.jpg"></a></li>
+									<li><label><%=vo.getK_name() %></label></li>
 								</ul>
 							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/fra01.jpg"></a></li>
-									<li><label>돌체 카라멜 칩 커피 프라푸치노</label></li>
-								</ul>
-							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/tea01.jpg"></a></li>
-									<li><label>스타벅스 파인애플 선셋 아이스 티</label></li>
-								</ul>
-							</li>
+							<% } %>
+							<% } %>
 						</ul>
 					</div>
 					<!-- 이미지 끝 -->

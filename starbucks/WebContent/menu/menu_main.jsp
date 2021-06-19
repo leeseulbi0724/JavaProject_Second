@@ -232,7 +232,7 @@ $( document ).ready(function() {
 					</h2>
 					<ul class="route">
 						<li>
-							<a href="/">
+							<a href="http://localhost:9000/starbucks/index.jsp">
 								<img src="http://localhost:9000/starbucks/images/icon_home.png">
 							</a>
 						</li>
@@ -240,7 +240,7 @@ $( document ).ready(function() {
 							<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
 						</li>
 						<li>
-							<a href="menu_main.jsp">MENU</a>
+							<a href="http://localhost:9000/starbucks/menu/menu_main.jsp">MENU</a>
 						</li>
 					</ul>
 				</div>

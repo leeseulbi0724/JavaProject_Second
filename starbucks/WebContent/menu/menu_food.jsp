@@ -54,7 +54,7 @@ h2{
 div.class {
 	 border:1px solid lightgray;
 	 border-radius: 5px;
-	 padding: 20px 30px 40px 30px;
+	 padding: 20px 30px;
 	 margin: 30px 0 20px 0;
 }
 div.btn_class{
@@ -104,7 +104,7 @@ div.cate .btn_style:hover{
 div.class>div>div ul{	
 	list-style-type: none;
 	text-align: left;
-	margin:0; padding:0;
+	margin-bottom: 20px; padding:0;
 }
 div.class>div>div ul>li{
 	display: inline-block;
@@ -741,7 +741,7 @@ $( document ).ready(function() {
 				</h2>
 				<ul class="route">
 					<li>
-						<a href="../index.jsp">
+						<a href="http://localhost:9000/starbucks/index.jsp">
 							<img src="http://localhost:9000/starbucks/images/icon_home.png">
 						</a>
 					</li>
@@ -749,7 +749,7 @@ $( document ).ready(function() {
 						<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
 					</li>
 					<li>
-						<a href="menu_main.jsp">MENU</a>
+						<a href="http://localhost:9000/starbucks/menu/menu_main.jsp">MENU</a>
 					</li>
 					<li>
 						<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
@@ -921,132 +921,16 @@ $( document ).ready(function() {
 					<!--이미지 -->
 					<div id="th_img_list">
 						<ul>
-							<li id="th01">
+							<% for(menuVO vo : list){ %>
+							<% if(vo.getTheme() != null){ %>
+							<li id=<%= vo.getTheme() %>>
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand03.jpg"></a></li>
-									<li><label>리코타 치즈 바게트 샌드위치</label></li>
+									<li><a href="menu_detail.jsp?mid=<%=vo.getMid()%>"><img src="http://localhost:9000/starbucks/images/<%= vo.getImg() %>.jpg"></a></li>
+									<li><label><%=vo.getK_name() %></label></li>
 								</ul>
 							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand05.jpg"></a></li>
-									<li><label>포테이통통 샌드위치</label></li>
-								</ul>
-							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand04.jpg"></a></li>
-									<li><label>튜나 멜트 샌드위치</label></li>
-								</ul>
-							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand01.jpg"></a></li>
-									<li><label>오렌지 덕 샐러드 밀 박스</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand02.jpg"></a></li>
-									<li><label>커리 치킨 샐러드 밀 박스</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand16.jpg"></a></li>
-									<li><label>에그 베이컨 브리오슈 밀 박스</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/sand07.jpg"></a></li>
-									<li><label>B.C.L.T. 샌드위치 밀 박스</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/ever01.jpg" name="th03"></a></li>
-									<li><label>스마일 쿠키 초콜릿</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/ever02.jpg"></a></li>
-									<li><label>스마일 쿠키 라즈베리</label></li>
-								</ul>
-							</li>
-							<li id="th04">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake34.jpg"></a></li>
-									<li><label>피칸 브라우니</label></li>
-								</ul>
-							</li>
-							<li id="th04">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake33.jpg"></a></li>
-									<li><label>크레이프 에멘탈 치즈 케이크</label></li>
-								</ul>
-							</li>
-							<li id="th04">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake30.jpg"></a></li>
-									<li><label>세븐 레이어 가나슈 케이크</label></li>
-								</ul>
-							</li>
-							<li id="th04">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake31.jpg"></a></li>
-									<li><label>청담스타 얼 그레이 밀크 케이크</label></li>
-								</ul>
-							</li>
-							<li id="th04">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake32.jpg"></a></li>
-									<li><label>청담스타 오 허니 케이크</label></li>
-								</ul>
-							</li>
-							<li id="th04">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake35.jpg"></a></li>
-									<li><label>헤븐리 티라미수</label></li>
-								</ul>
-							</li>
-							<li id="th04">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake29.jpg"></a></li>
-									<li><label>블루베리 쿠키 치즈 케이크</label></li>
-								</ul>
-							</li>
-							<li id="th05">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake25.jpg"></a></li>
-									<li><label>백년초콜릿 크런치 케이크</label></li>
-								</ul>
-							</li>
-							<li id="th05">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake26.jpg"></a></li>
-									<li><label>새코롬 돌코롬 한라봉 케이크</label></li>
-								</ul>
-							</li>
-							<li id="th05">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake24.jpg"></a></li>
-									<li><label>당근 현무암 케이크</label></li>
-								</ul>
-							</li>
-							<li id="th05">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake27.jpg"></a></li>
-									<li><label>제주 리얼녹차 티라미수 아일랜드</label></li>
-								</ul>
-							</li>
-							<li id="th05">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/cake28.jpg"></a></li>
-									<li><label>티라미수 아일랜드</label></li>
-								</ul>
-							</li>
+							<% } %>
+							<% } %>
 						</ul>
 					</div>
 					<!-- 이미지 끝 -->
