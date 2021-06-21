@@ -5,6 +5,83 @@ import java.util.ArrayList;
 import com.starbucks.vo.menuVO;
 
 public class menuDAO extends DBConn {
+	//관리자 메뉴 등록
+	public boolean getMenuInsert(menuVO vo) {
+		boolean result = false;
+		String sql = " insert into sb_menu values('m_'||sequ_menu.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+		getPreparedStatement(sql);
+		
+		try {
+			
+			pstmt.setString(1, vo.getM_type());
+			pstmt.setString(2, vo.getP_type());
+			pstmt.setString(3, vo.getK_name());
+			pstmt.setString(4, vo.getE_name());
+			pstmt.setString(5, vo.getIntro_t());
+			pstmt.setString(6, vo.getIntro_b());
+			pstmt.setString(7, vo.getNutri_inform());
+			pstmt.setString(8, vo.getKcal());
+			pstmt.setString(9, vo.getFat());
+			pstmt.setString(10, vo.getProtein());
+			pstmt.setString(11, vo.getNa());
+			pstmt.setString(12, vo.getSugar());
+			pstmt.setString(13, vo.getCaffeine());
+			pstmt.setString(14, vo.getAllergy());
+			pstmt.setString(15, vo.getImg());
+			pstmt.setString(16, vo.getM_new());
+			pstmt.setString(17, vo.getLimit());
+			pstmt.setString(18, vo.getTheme());
+			
+			int val = pstmt.executeUpdate();
+			
+			if(val != 0) {
+				result=true;
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} 
+		close();
+		return result;
+	}
+	
+	//관리자 메뉴 리스트
+	public ArrayList<menuVO> getMenuList(){
+		ArrayList<menuVO> list = new ArrayList<menuVO>();
+		String sql = " select mid, k_name, img, kcal, sugar, protein, na, fat, caffeine, "
+				+ " p_type, m_type, m_new, limit, theme from sb_menu order by m_type, p_type ";
+		getPreparedStatement(sql);
+		
+		try {
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				menuVO vo = new menuVO();
+				vo.setMid(rs.getString(1));
+				vo.setK_name(rs.getString(2));
+				vo.setImg(rs.getString(3));
+				vo.setKcal(rs.getString(4));
+				vo.setSugar(rs.getString(5));
+				vo.setProtein(rs.getString(6));
+				vo.setNa(rs.getString(7));
+				vo.setFat(rs.getString(8));
+				vo.setCaffeine(rs.getString(9));
+				vo.setP_type(rs.getString(10));
+				vo.setM_type(rs.getString(11));
+				vo.setM_new(rs.getString(12));
+				vo.setLimit(rs.getString(13));
+				vo.setTheme(rs.getString(14));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		close();
+		return list;
+	}
+	
 	
 	//음료 리스트
 	public ArrayList<menuVO> getDrinkList(){
@@ -38,7 +115,7 @@ public class menuDAO extends DBConn {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+		close();
 		return list;
 	}
 	//푸드 리스트
@@ -71,7 +148,7 @@ public class menuDAO extends DBConn {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+		close();
 		return list;
 	}
 	//상품 리스트
@@ -99,7 +176,7 @@ public class menuDAO extends DBConn {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+		close();
 		return list;
 	}
 	//신상 리스트
@@ -123,7 +200,7 @@ public class menuDAO extends DBConn {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			
+			close();
 			return list;
 		}
 	
@@ -146,7 +223,7 @@ public class menuDAO extends DBConn {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+		close();
 		return list;
 	}
 	
@@ -183,20 +260,10 @@ public class menuDAO extends DBConn {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+		close();
 		return vo;
 		
 	}
 	
-	//close
-	public void close(){
-		try {
-			if(rs != null) rs.close();
-			if(stmt != null) stmt.close();
-			if(conn != null) conn.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
 }

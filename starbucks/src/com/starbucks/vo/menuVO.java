@@ -5,9 +5,15 @@ public class menuVO {
 	String m_type, p_type, k_name, e_name, intro_t, intro_b, nutri_inform, allergy, img, mid;
 	String  kcal, fat, protein, na, sugar, caffeine, m_new, limit;
 	String small_img, big_img, theme;
+	String mfile;
 	
 	
-	
+	public String getMfile() {
+		return mfile;
+	}
+	public void setMfile(String mfile) {
+		this.mfile = mfile;
+	}
 	public String getTheme() {
 		return theme;
 	}

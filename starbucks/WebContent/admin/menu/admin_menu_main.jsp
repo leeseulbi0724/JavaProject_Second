@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.starbucks.vo.*, com.starbucks.dao.*, java.util.*" %>
+<%
+	menuDAO dao = new menuDAO();
+	ArrayList<menuVO> list = dao.getMenuList();
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +29,62 @@
 	.content_menu div.search button { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }
 	
 	#update { float:right; }
+	
+	tr td:first-child{
+		width: 126px;
+	}
+	tr td:nth-child(2){
+		width: 67px;
+	}
+	tr td:last-child {
+		width: 633px;
+	}
+	
+	/* 미리보기 스타일 셋팅 */
+	#preview{
+		position:absolute;
+		border:0px solid #ccc;
+		background:#333;
+		padding:1px;
+		display:none;
+		color:#fff;
+	}
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
+<script src="../js/jquery.elevatezoom.js"></script>
 <script>
 $(document).ready(function() {	
 	$("#update").click(function() {
 		location.replace("http://localhost:9000/starbucks/admin/menu/admin_menu_write.jsp");
-	})
+	});
+	
+	$("#search").click (function() {	
+        var value = $("#search_input").val().toLowerCase();
+        $(".tbody tr").hide();
+        var select = $(".select").val();
+		if( select == "id") {
+			var value = $(".tbody td:nth-child(8n+4):contains('" + value + "') ");
+		 	$(value).parent().show();
+		}
+        
+    });
+	
+	var xOffset = 10;
+    var yOffset = 30;
+
+    $(document).on("mouseover",".img",function(e){ //마우스 오버시
+		
+		$("body").append("<p id='preview'><img src='"+ $(this).children("img").attr("src") +"' width='300px' height='300px' /></p>");						 
+		$("#preview")
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px")
+			.fadeIn("fast"); //미리보기 화면 설정 셋팅
+	});
+	
+	
+	$(document).on("mouseout",".img",function(){ //마우스 아웃시
+		$("#preview").remove();
+	});
 	
 });
 </script>
@@ -44,7 +99,7 @@ $(document).ready(function() {
 	<section>
 		<div class="text">Home > <span>메뉴 관리</span></div>
 		<div class="search">
-			<select>
+			<select class="select">
 				<option value="id">이름</option>
 			</select>
 			<input type="text" id="search_input">
@@ -63,54 +118,14 @@ $(document).ready(function() {
 				</tr>
 			</thead>
 			<tbody class="tbody">
+			<% for(menuVO vo : list){ %>
 			<tr>
-				<td><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg" width=50 height=50></td>
-				<td>원두</td>
-				<td>블론드로스트</td>
-				<td>베란다 블렌드</td>
+				<td class="img"><img src="http://localhost:9000/starbucks/images/<%=vo.getImg() %>.jpg" width=50 height=50></td>
+				<td><%=vo.getM_type() %></td>
+				<td><%=vo.getP_type() %></td>
+				<td><%=vo.getK_name() %></td>
 			</tr>
-			<tr>
-				<td><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg" width=50 height=50></td>
-				<td>원두</td>
-				<td>블론드로스트</td>
-				<td>베란다 블렌드</td>
-			</tr>
-			<tr>
-				<td><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg" width=50 height=50></td>
-				<td>원두</td>
-				<td>블론드로스트</td>
-				<td>베란다 블렌드</td>
-			</tr>
-			<tr>
-				<td><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg" width=50 height=50></td>
-				<td>원두</td>
-				<td>블론드로스트</td>
-				<td>베란다 블렌드</td>
-			</tr>
-			<tr>
-				<td><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg" width=50 height=50></td>
-				<td>원두</td>
-				<td>블론드로스트</td>
-				<td>베란다 블렌드</td>
-			</tr>
-			<tr>
-				<td><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg" width=50 height=50></td>
-				<td>원두</td>
-				<td>블론드로스트</td>
-				<td>베란다 블렌드</td>
-			</tr>
-			<tr>
-				<td><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg" width=50 height=50></td>
-				<td>원두</td>
-				<td>블론드로스트</td>
-				<td>베란다 블렌드</td>
-			</tr>
-			<tr>
-				<td><img src="http://localhost:9000/starbucks/images/20150809120449047.jpg" width=50 height=50></td>
-				<td>원두</td>
-				<td>블론드로스트</td>
-				<td>베란다 블렌드</td>
-			</tr>
+			<% } %>
 			</tbody>
 		</table>
 		</form>
