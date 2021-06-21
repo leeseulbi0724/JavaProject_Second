@@ -63,11 +63,10 @@
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
-	$(document).ready(function() {
+$(document).ready(function() {
 		$(".span1").click(function() {
 			location.replace("http://localhost:9000/starbucks/admin/question/admin_question.jsp");
-		});
-		
+		});		
 		
 		$("#comment").click(function() {
 			if ($(".comment").val() == "") {
@@ -101,7 +100,7 @@
 	<div class="content_question" id="content">
 		<jsp:include page = "admin_question_menu.jsp"></jsp:include>
 		<section>
-			<div class="text">Home > <span class="span1">문의사항 관리</span> > <span class="span2">답변하기</span></div>
+			<div class="text">Home > <span class="span1">문의사항 관리</span> > <span class="span2">답변</span></div>
 			<div class="center" style="overflow:scroll">
 			<form name = "question_comment" action="admin_question_comment_process.jsp?sid=<%= sid %>" method="post">
 				<table class="table" id="one">

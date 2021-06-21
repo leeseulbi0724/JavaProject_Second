@@ -24,6 +24,7 @@
 .sub_title{
 	width: 100%;
 	height: 98px;
+	font-size:13px;
 	background: #ffffff;
 }
 .sub_title_inner{

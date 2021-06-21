@@ -27,8 +27,9 @@
  	 .table tr th { padding:5px 0 5px 0; }
  	 .table tr { cursor:default; }
  	 .table tr td:nth-child(3) a { cursor:pointer; }
- 	 
- 	  .table a { text-decoration:none; color:black; }
+ 	 .table a { text-decoration:none; color:black; } 	
+    
+	
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
@@ -49,8 +50,15 @@
 			if ( $("input[type='checkbox']:checked").length == 0 ) {
 				alert("삭제하실 게시물을 선택해주세요");
 				$("form").attr("action","admin_notice.jsp");
-			} else {				
-				$("form").attr("action","admin_notice_delete_process.jsp");
+			} else {
+				
+				if (confirm("정말 삭제하시겠습니까?") == true ) {
+					alert("삭제 되었습니다");
+					$("form").attr("action","admin_notice_delete_process.jsp");
+					
+				} else {
+					return; 
+				}
 			}
 		});
 	});
@@ -96,6 +104,6 @@
 			</div>
 		</section>
 	</form>						
-	</div>
+	</div>	 
 </body>
 </html>

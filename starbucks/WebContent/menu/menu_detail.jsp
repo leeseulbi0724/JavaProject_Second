@@ -236,45 +236,6 @@ div.bottom_news>div:first-child>div>div.siren>div>span:last-child{
 	font-size: 13px;
 }
 
-div.bottom_news>div:last-child{
-	display: block;
-	border-top: 1px solid lightgray;
-	padding: 40px 0;
-	display: none;
-}
-div.bottom_news>div:last-child>span{
-	font-size: 18px;
-	font-weight: bold;
-	color: #444;
-}
-div.bottom_news>div:last-child>div {
-	display: flex;
-	justify-content: flex-start;
-	margin-top: 20px;
-}
-div.bottom_news>div:last-child>div>img:first-child{
-	width: 160px;
-	height: 167px;
-}
-div.bottom_news>div:last-child>div>div {
-	margin-left: 20px;
-}
-div.bottom_news>div:last-child>div>div>span:first-child {
-	font-weight: bold;
-	margin-bottom: 5px;
-	display: block;
-}
-div.bottom_news>div:last-child>div>div>span:last-child {
-	font-size: 14px;
-	color: #666;
-}
-div.bottom_news>div:last-child>img {
-	position: relative;
-	bottom: 7px;
-	left: 180px;
-	width: 65px;
-	height: 16px;
-}
 
 div.bottom_news>div:first-child>div>div.product_news{
 	width:555px;
@@ -354,13 +315,25 @@ $( document ).ready(function() {
 						<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
 					</li>
 					<li>
+						<% if(vo.getM_type().equals("음료")){ %>
 						<a href="menu_drink.jsp"><%= vo.getM_type() %></a>
+						<% }else if(vo.getM_type().equals("푸드")){ %>
+						<a href="menu_food.jsp"><%= vo.getM_type() %></a>
+						<% }else if(vo.getM_type().equals("상품")){ %>
+						<a href="menu_product.jsp"><%= vo.getM_type() %></a>
+						<% } %>
 					</li>
 					<li>
 						<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
 					</li>
 					<li>
-						<a href="#"><%= vo.getP_type() %></a>
+						<% if(vo.getM_type().equals("음료")){ %>
+						<a href="menu_drink.jsp"><%= vo.getP_type() %></a>
+						<% }else if(vo.getM_type().equals("푸드")){ %>
+						<a href="menu_food.jsp"><%= vo.getP_type() %></a>
+						<% }else if(vo.getM_type().equals("상품")){ %>
+						<a href="menu_product.jsp"><%= vo.getP_type() %></a>
+						<% } %>
 					</li>
 					<li>
 						<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
@@ -487,17 +460,6 @@ $( document ).ready(function() {
 				</div>
 				<% } %>
 			</div>
-		</div>
-		<div>
-			<span>관련 제품</span>
-			<div>
-				<img src="http://localhost:9000/starbucks/images/cold_brew01.jpg">
-				<div>
-					<span>관련 제품명</span>
-					<span>관련 제품 설명</span>
-				</div>
-			</div>
-			<img src="http://localhost:9000/starbucks/images/detail_view.png">
 		</div>
 	</div>
 	<!--  footer -->

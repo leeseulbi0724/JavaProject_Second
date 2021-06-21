@@ -4,7 +4,9 @@
 <%
  session.invalidate();//세션의 모든 속성 제거
  UserDAO dao = new UserDAO();
- ArrayList<UserVO> list = dao.getUserList();
+ ArrayList<UserVO> list = dao.getUserList(); 
+ 
+ 
 %>
 <!DOCTYPE html>
 <html>
@@ -42,11 +44,21 @@
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function() {			  
-		  $("#search").click (function() {
+		  $("#search").click (function() {	
 		        var value = $("#search_input").val().toLowerCase();
-		        $(".tbody tr").filter(function() {
-		            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-		        });
+		        $(".tbody tr").hide();
+		        var select = $(".select").val();
+			 	if (select == "id") {
+			 		var value = $(".tbody td:nth-child(8n+2):contains('" + value + "') ");
+			 		$(value).parent().show();
+			 	} else if ( select == "name") {
+			 		var value = $(".tbody td:nth-child(8n+3):contains('" + value + "') ");
+			 		$(value).parent().show();
+			 	} else {
+			 		var value = $(".tbody td:nth-child(8n+7):contains('" + value + "') ");
+			 		$(value).parent().show();
+			 	}
+		        
 		    });
 		  
 		  
@@ -71,7 +83,7 @@
 <section>
 	<div class="text">Home > <span>회원 관리</span></div>
 	<div class="search">
-		<select>
+		<select class="select">
 			<option value="id">아이디</option>
 			<option value="name">이름</option>
 			<option value="nicname">닉네임</option>

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee Korea</title>
 <style>
 	body { overflow-x:hidden; overflow-y:auto; }
 	section { text-align:center; }

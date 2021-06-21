@@ -52,8 +52,8 @@ h2{
 /* 분류 */
 div.class {
 	 border:1px solid lightgray;
-	 border-radius: 3px;
-	 padding: 20px 30px 40px 30px;
+	 border-radius: 5px;
+	 padding: 20px 30px;
 	 margin: 30px 0 20px 0;
 }
 div.btn_class{
@@ -103,7 +103,7 @@ div.cate .btn_style:hover{
 div.class>div>div ul{	
 	list-style-type: none;
 	text-align: left;
-	margin:0; padding:0;
+	margin-bottom: 20px; padding:0;
 }
 div.class>div>div ul>li{
 	display: inline-block;
@@ -688,7 +688,7 @@ $( document ).ready(function() {
 				</h2>
 				<ul class="route">
 					<li>
-						<a href="../index.jsp">
+						<a href="http://localhost:9000/starbucks/index.jsp">
 							<img src="http://localhost:9000/starbucks/images/icon_home.png">
 						</a>
 					</li>
@@ -696,7 +696,7 @@ $( document ).ready(function() {
 						<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
 					</li>
 					<li>
-						<a href="menu_main.jsp">MENU</a>
+						<a href="http://localhost:9000/starbucks/menu/menu_main.jsp">MENU</a>
 					</li>
 					<li>
 						<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
@@ -845,149 +845,21 @@ $( document ).ready(function() {
 					<% } %>
 					<!-- 콜드브루 끝 -->
 				</div><!-- 카테고리 -->
-								<!-- 테마 -->
+				<!-- 테마 -->
 				<div class="list" id="list_theme">
 					<!--이미지 -->
 					<div id="th_img_list">
 						<ul>
-							<li id="th01">
+							<% for(menuVO vo : list){ %>
+							<% if(vo.getTheme() != null){ %>
+							<li id=<%= vo.getTheme() %>>
 								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug01.jpg"></a></li>
-									<li><label>서머 포레스트 리드 머그 355ml</label></li>
+									<li><a href="menu_detail.jsp?mid=<%=vo.getMid()%>"><img src="http://localhost:9000/starbucks/images/<%= vo.getImg() %>.jpg"></a></li>
+									<li><label><%=vo.getK_name() %></label></li>
 								</ul>
 							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/mug02.jpg"></a></li>
-									<li><label>서머 포레스트 버드 머그 355ml</label></li>
-								</ul>
-							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass01.jpg"></a></li>
-									<li><label>서머 포레스트 글라스 돔 콜드컵 503ml</label></li>
-								</ul>
-							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass03.jpg"></a></li>
-									<li><label>서머 마운틴 글라스 머그 355ml</label></li>
-								</ul>
-							</li>
-							<li id="th01">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/glass02.jpg"></a></li>
-									<li><label>서머 포레스트 글라스 컵 473ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city01.jpg"></a></li>
-									<li><label>리얼 대전 데미머그 89ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city02.jpg"></a></li>
-									<li><label>리얼 대전 머그 414ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla06.jpg"></a></li>
-									<li><label>리얼 대전 텀블러 473ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city03.jpg"></a></li>
-									<li><label>리얼 광주 데미머그 89ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city04.jpg"></a></li>
-									<li><label>리얼 광주 머그 414ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla04.jpg"></a></li>
-									<li><label>리얼 광주 텀블러 473ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city05.jpg"></a></li>
-									<li><label>리얼 대구 데미머그 89ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/city06.jpg"></a></li>
-									<li><label>리얼 대구 머그 414ml</label></li>
-								</ul>
-							</li>
-							<li id="th02">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/pla05.jpg"></a></li>
-									<li><label>리얼 대구 텀블러 473ml</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res01.jpg"></a></li>
-									<li><label>리저브 푸어 오버 콘 드리퍼</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res02.jpg"></a></li>
-									<li><label>3컵 리저브 카퍼 프렌치 프레스</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res03.jpg"></a></li>
-									<li><label>4컵 리저브 카퍼 프렌치 프레스</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res04.jpg"></a></li>
-									<li><label>리저브 블루 머그 355ml</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res05.jpg"></a></li>
-									<li><label>리저브 블랙 DW 머그 296ml</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res06.jpg"></a></li>
-									<li><label>리저브 화이트 DW 머그 296ml</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res07.jpg"></a></li>
-									<li><label>리저브 골드 핸들 글라스 354ml</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res08.jpg"></a></li>
-									<li><label>SS 리저브 블랙 콜드컵 473ml</label></li>
-								</ul>
-							</li>
-							<li id="th03">
-								<ul>
-									<li><a href="#"><img src="http://localhost:9000/starbucks/images/res09.jpg"></a></li>
-									<li><label>리저브 블랙 에코백</label></li>
-								</ul>
-							</li>
+							<% } %>
+							<% } %>
 						</ul>
 					</div>
 					<!-- 이미지 끝 -->

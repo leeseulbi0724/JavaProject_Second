@@ -4,29 +4,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>COFFEE | Starbucks Coffee Korea</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:9000/starbucks/menu/menu_carousel.css">
  
   <style>
  /**************************** Carousel ***************************/
-  .carousel-inner{
-   width: 2000px;
-    height: 400px;
-    position:relative;
-    left: 50%;
-    margin-left: -1000px;
-    top: 0;
-  }
-.carousel-control-prev-icon {
-    margin-left: -900px;
-}
-.carousel-control-next-icon{
-   margin-right: -900px;
-}
+ body { overflow-x:hidden; overflow-y:auto; }
+
+	div.menu_carousel h2{
+		text-align: left;
+		padding-top:40px;
+	}
+	ul.route {
+		list-style-type: none;
+		text-align: right;
+	}
+	ul.route li{
+		display: inline-block;
+		vertical-align: middle;
+	}
+	ul.route li>a{
+		vertical-align: middle;
+		text-decoration: none;
+		color: black;
+		font-size: 12px;
+	}
+	ul.route li>a:hover{
+		text-decoration: underline;
+	}
+	div.div_route{
+		width: 1100px;
+		height: 115px;
+		margin: 0 auto;
+	}
 /*************************** 서브 타이틀 **********************************/
 
 .coffee_txt{
@@ -37,6 +51,7 @@
 	width: 100%;
 	height: 98px;
 	background: #ffffff;
+	font-size:12px;
 }
 .sub_title_inner{
 	width: 96%;
@@ -146,7 +161,14 @@ ul.smap li{
 	div.coffee_wrap_inner_l div>a:hover{
 		text-decoration: underline;
 	}
-
+	.coffee_choice_btn:hover, .coffee_espresso_btn:hover, .coffee_hs_btn:hover { background-color:white; }
+	.coffee_choice_btn:hover a, .coffee_espresso_btn:hover a, .coffee_hs_btn:hover a { color:black;  }	
+	
+	.coffee_reserve_btn:hover, .coffee_best_btn:hover { background-color:black; }
+	.coffee_reserve_btn:hover a, .coffee_best_btn:hover a { color:white; }
+	
+	.coffee_choice_btn, .coffee_espresso_btn, .coffee_hs_btn,
+	.coffee_reserve_btn, .coffee_best_btn { margin-top:10px; }
     
 </style>
 </head>
@@ -155,46 +177,61 @@ ul.smap li{
 	<jsp:include page ="../header.jsp"></jsp:include>
 	
 	<!--  content -->
-		<!-- 서브 타이틀  -->
-			<div class="sub_title">
-				<div class="sub_inner_title">
-					<img class="coffee_txt"src="http://localhost:9000/starbucks/images/coffee_tit.jpg">
-					<ul class="smap">
-						<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
-						<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-						<li><a class= "this" href="#" style="text-decoration-line: none;">COFFEE</a></li>
+<div class="menu_carousel">
+		<section>
+			<article>
+				<div class="div_route">
+					<h2>
+						<img src="http://localhost:9000/starbucks/images/coffee_tit.jpg">
+					</h2>
+					<ul class="route">
+						<li>
+							<a href="/">
+								<img src="http://localhost:9000/starbucks/images/icon_home.png">
+							</a>
+						</li>
+						<li>
+							<img class="arrow" src="http://localhost:9000/starbucks/images/icon_arrow.png">
+						</li>
+						<li>
+							<a href="coffee_main.jsp">COFFEE</a>
+						</li>
 					</ul>
 				</div>
-			</div>	
-		
-		<!-- carousel -->
-		<div class="container mt-3">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		
-		  <!-- Indicators -->
-		  <ul class="carousel-indicators">
-		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		    <li data-target="#myCarousel" data-slide-to="1"></li>
-		  </ul>
-		  
-		  <!-- The slideshow -->
-		  <div class="carousel-inner">
-		    <div class="carousel-item active">
-		      <a href="#"><img src="http://localhost:9000/starbucks/images/20210412163132808.jpg"  width="100%" height="100%"></a>
-		    </div>
-		    <div class="carousel-item">
-		    <a href="#"><img src="http://localhost:9000/starbucks/images/20210405101646743.jpg"  width="100%" height="100%"></a>
-		    </div>
-		  </div>
-		  
-		  <!-- Left and right controls -->
-		  <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-		    <span class="carousel-control-prev-icon"></span>
-		  </a>
-		  <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-		    <span class="carousel-control-next-icon"></span>
-		  </a>
-		</div>
+				 <!-- 캐러셀 시작 -->
+				<div id="demo" class="carousel slide" data-ride="carousel">
+				
+					<!-- Indicators -->
+					<div class="indicators">
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+						</ul>
+					</div>
+					
+					<!-- The slideshow -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="http://localhost:9000/starbucks/images/20210412163132808.jpg" width="2000" height="400">
+						</div>
+						<div class="carousel-item">
+							<img src="http://localhost:9000/starbucks/images/20210405101646743.jpg" width="2000" height="400">
+						</div>
+					</div>
+					
+					<!-- Left and right controls -->
+					<a class="carousel-control-prev" href="#demo" data-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a class="carousel-control-next" href="#demo" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</a>
+					
+				</div>
+				<!-- 캐러셀 종료 -->
+				
+			</article>
+		</section>
 	</div>
 		
 
