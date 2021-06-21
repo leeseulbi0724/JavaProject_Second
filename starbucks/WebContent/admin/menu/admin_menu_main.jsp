@@ -63,7 +63,7 @@ $(document).ready(function() {
         $(".tbody tr").hide();
         var select = $(".select").val();
 		if( select == "id") {
-			var value = $(".tbody td:nth-child(8n+4):contains('" + value + "') ");
+			var value = $(".tbody td:nth-child(8n+5):contains('" + value + "') ");
 		 	$(value).parent().show();
 		}
         
@@ -92,9 +92,10 @@ $(document).ready(function() {
 		} else {
 			
 			if (confirm("정말 삭제하시겠습니까?") == true ) {
+				console.log('삭제');
 				alert("삭제 되었습니다");
 				
-				/* $("form").attr("action","admin_notice_delete_process.jsp"); */
+				$("form").attr("action","admin_menu_delete_process.jsp");
 				
 			} else {
 				return; 
@@ -112,44 +113,44 @@ $(document).ready(function() {
 	<!-- 문의 관리 -->
 	<div class="content_menu" id="content">
 		<jsp:include page = "admin_menu_menu.jsp"></jsp:include>
-	<section>
-		<div class="text">Home > <span>메뉴 관리</span></div>
-		<div class="search">
-			<select class="select">
-				<option value="id">이름</option>
-			</select>
-			<input type="text" id="search_input">
-			<button id="search">검색</button>
-			<button id="delete">메뉴삭제</button>
-			<button id="update">메뉴등록</button>
-		</div>
-		<div class="center" style="overflow:scroll">
-		<form name="menu" action="#" method="post">
-			<table border=1 class="table" >
-			<thead>
+	<form name="menu" action="#" method="post">
+		<section>
+			<div class="text">Home > <span>메뉴 관리</span></div>
+			<div class="search">
+				<select class="select">
+					<option value="id">이름</option>
+				</select>
+				<input type="text" id="search_input">
+				<button id="search" type="button">검색</button>
+				<button id="delete" type="submit">메뉴삭제</button>
+				<button id="update" type="button">메뉴등록</button>
+			</div>
+			<div class="center" style="overflow:scroll">
+				<table border=1 class="table" >
+				<thead>
+					<tr>
+						<th><input type="checkbox" name="select_all"></th>
+						<th>이미지</th>
+						<th>종류</th>
+						<th>분류</th>
+						<th>이름</th>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+				<% for(menuVO vo : list){ %>
 				<tr>
-					<th><input type="checkbox" name="select_all"></th>
-					<th>이미지</th>
-					<th>종류</th>
-					<th>분류</th>
-					<th>이름</th>
+					<td><input type="checkbox" name="select" value="<%= vo.getMid() %>"></td>
+					<td class="img"><img src="http://localhost:9000/starbucks/images/<%=vo.getImg() %>.jpg" width=50 height=50></td>
+					<td><%=vo.getM_type() %></td>
+					<td><%=vo.getP_type() %></td>
+					<td><%=vo.getK_name() %></td>
 				</tr>
-			</thead>
-			<tbody class="tbody">
-			<% for(menuVO vo : list){ %>
-			<tr>
-				<td><input type="checkbox" name="select" value="<%= vo.getMid() %>"></td>
-				<td class="img"><img src="http://localhost:9000/starbucks/images/<%=vo.getImg() %>.jpg" width=50 height=50></td>
-				<td><%=vo.getM_type() %></td>
-				<td><%=vo.getP_type() %></td>
-				<td><%=vo.getK_name() %></td>
-			</tr>
-			<% } %>
-			</tbody>
-		</table>
-		</form>
-		</div>
-	</section>	
+				<% } %>
+				</tbody>
+			</table>
+			</div>
+		</section>	
+	</form>
 	</div>
 </body>
 </html>

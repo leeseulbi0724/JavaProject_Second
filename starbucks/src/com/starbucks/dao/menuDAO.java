@@ -5,6 +5,34 @@ import java.util.ArrayList;
 import com.starbucks.vo.menuVO;
 
 public class menuDAO extends DBConn {
+	
+	//관리자 메뉴 삭제
+	public boolean getMenuDelete(ArrayList<String> mlist) {
+		boolean result = false;
+		
+		for (int i = 0; i<mlist.size(); i++) {
+			String sql = "delete from sb_menu where mid=?";
+			getPreparedStatement(sql);
+			
+			try {
+				pstmt.setString(1, mlist.get(i));
+				int val = pstmt.executeUpdate();
+				
+				if ( val != 0) {
+					result = true;
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}			
+		}
+		
+		close();
+		return result;
+	}
+	
+	
 	//관리자 메뉴 등록
 	public boolean getMenuInsert(menuVO vo) {
 		boolean result = false;
