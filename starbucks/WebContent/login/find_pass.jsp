@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee korea</title>
 <style>
 /* 아이디 찾기, 비밀번호 찾기 */
 section.find {

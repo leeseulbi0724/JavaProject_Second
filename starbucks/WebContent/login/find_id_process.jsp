@@ -19,7 +19,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee korea</title>
 <style>
 /* 아이디 찾기, 비밀번호 찾기 */
 section.find {
@@ -68,7 +68,7 @@ section.find div:nth-child(2)>ul>li{
 
 section.find .btn_style{
 	border-radius:3px;
-	font-size: 22px;
+	font-size: 20px;
 	color:white;
 	width: 20.92%;
 	padding:22px 0;
@@ -77,9 +77,9 @@ section.find .btn_style{
 }
 section.find .btn_style2{
 	border-radius:3px;
-	font-size: 22px;
+	font-size: 20px;
 	color:white;
-	width: 23.92%;
+	width: 25%;
 	margin-left: 30px;
 	padding:22px 0;
 	background-color: #656565;

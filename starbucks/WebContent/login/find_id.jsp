@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee korea</title>
 <script>
 function form_check(){
 	if(!document.find_form.name.value){
