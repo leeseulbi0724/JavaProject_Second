@@ -245,7 +245,6 @@ function check_pw(){
    document.joinform.submit();
 }
 </script>
-Colored by Color Scripter
 </script>
 </head>
 <body>

@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="C:/dev/apache-tomcat-8.5.54/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="C:/dev/apache-tomcat-8.5.54/lib/servlet-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5"/>
+	<classpathentry kind="lib" path="C:/Users/82109/Desktop/수업/GSON 라이브러리/gson-2.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
