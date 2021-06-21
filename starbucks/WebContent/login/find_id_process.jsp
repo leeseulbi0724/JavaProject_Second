@@ -13,7 +13,7 @@
 	
 	String user_id = dao.getId(vo);
 	
-	
+	if (user_id != null) {
 %>
 <!DOCTYPE html>
 <html>
@@ -134,3 +134,7 @@ section.find button:hover{
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
+<% } else {
+	response.sendRedirect("http://localhost:9000/starbucks/login/info_error.jsp");
+	}
+	%>
