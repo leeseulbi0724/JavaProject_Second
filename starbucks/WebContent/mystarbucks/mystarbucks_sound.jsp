@@ -123,20 +123,45 @@
 	div.content_box {
 		 position:absolute;
 		 background-color:white; 
-		 width:800px; height:500px;
 		 display:none;
 		 border:1px solid lightgray; 
-		 margin-left:-1000px;
-		 margin-bottom:-50px;
 		 text-align:left;
+		 z-index:10;		 
+		animation: appear .8s cubic-bezier(.77,0,.175,1) forwards;
+		 
 	}
+	@keyframes appear {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
 	.content_box #X { 
 		background-color:white; 
 		border:none; 
 		font-size:20px; 
 		cursor:pointer;
 		float:right;
+		
 	}
+	
+	@keyframes dissappear {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+	}
+	
+	
 	.innder_box { width:800px; height:200px; }
 	#title { 
 		font-family:나눔바른고딕; 
@@ -147,7 +172,7 @@
 	 }
 	#content { 
 		width:780px; 
-		height:500px; 
+		height:400px; 
 		border:none; border-top:1px solid lightgray; border-bottom:1px solid lightgray; 
 		background-color:white;
 		font-family:나눔바른고딕; 
@@ -158,6 +183,20 @@
 	 	color:gray;
 	 	margin-left:10px;
 	  }
+	  
+	   #popup_mask { /* 팝업 배경 css */
+        position: fixed;
+        width: 100%;
+        height: 1000px;
+        top: 0px;
+        left: 0px;
+         display: none; 
+         background-color:#000;
+         opacity: 0.8;
+    }
+	  
+
+
 	
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
@@ -207,6 +246,8 @@
 		
 		$("#X").click(function() {
 			$("div.content_box").css("display","none");
+			$("#popup_mask").css("display","none"); //팝업창 뒷배경 display none
+			$("body").css("overflow-y","auto");//body 스크롤바 생성
 		});
 		
 		$("tbody td:nth-child(2)").click(function() {
@@ -224,13 +265,25 @@
 					$("#title").text("["+jdata.category+"]"+" "+jdata.title);
 					$("#content").text(jdata.content);
 					$("#date").text(jdata.sdate);
-/* 					document.getElementById("focus").scrollIntoView(); */
-					/* $("#focus").attr("tabindex", -1).focus(); */
+					
+					 var $layerPopupObj = $('div.content_box');
+					var left = ( $(window).scrollLeft() + ($(window).width() - $layerPopupObj.width()) / 2 );
+					 var top = ( $(window).scrollTop() + ($(window).height() - $layerPopupObj.height() + $(header).height() ) / 2 );
+					 $layerPopupObj.css({'left':left,'top':top, 'position':'absolute'});
+					 $('body').css('position','relative').append($layerPopupObj);
+					 $("#popup_mask").css("display","block"); //팝업 뒷배경 display block
+					 $("body").css("overflow","hidden");//body 스크롤바 없애기					 
+					 
+					
+					
  				}
 			});
+		
 		}
 		
 		
+
+
 		
 		
 	});
@@ -322,14 +375,16 @@
 		</tbody>
 		</table>				
 	</div>	
-	<div class="content_box" id="focus">
-		<div class="inner_box">			
-		<button id="X">X</button>
-			<p id="title"></p>
-			<p id="date"></p>
-			<textarea id="content" disabled style="resize: none;"></textarea>
-		</div>
-	</div>
+	 <div id ="popup_mask" ></div>
+			<div class="content_box" id="focus">
+				<div class="inner_box">			
+				<button id="X">X</button>
+					<p id="title"></p>
+					<p id="date"></p>
+					<textarea id="content" disabled style="resize: none;"></textarea>
+				</div>
+			</div>
+	 
 	</section>
 	
 	
