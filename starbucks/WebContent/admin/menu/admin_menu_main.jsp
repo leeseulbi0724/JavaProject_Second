@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>문의관리 | 관리자 페이지</title>
+<title>메뉴관리 | 관리자 페이지</title>
 <style>
 	.table { text-align:center; margin:15px; width:1150px; font-size:13px; }
 	.table, .table th, .table td { 
@@ -28,9 +28,9 @@
 	.content_menu div.search input { width:150px; height:12px; }
 	.content_menu div.search button { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }
 	
-	#update { float:right; }
+	#update, #delete { float:right; }
 	
-	tr td:first-child{
+	tr td:nth-child(2){
 		width: 126px;
 	}
 	tr td:nth-child(2){
@@ -86,6 +86,22 @@ $(document).ready(function() {
 		$("#preview").remove();
 	});
 	
+	$("#delete").click(function() {
+		if ( $("input[type='checkbox']:checked").length == 0 ) {
+			alert("삭제하실 메뉴를 선택해주세요");
+		} else {
+			
+			if (confirm("정말 삭제하시겠습니까?") == true ) {
+				alert("삭제 되었습니다");
+				
+				/* $("form").attr("action","admin_notice_delete_process.jsp"); */
+				
+			} else {
+				return; 
+			}
+		}
+	});
+	
 });
 </script>
 </head>
@@ -104,13 +120,15 @@ $(document).ready(function() {
 			</select>
 			<input type="text" id="search_input">
 			<button id="search">검색</button>
+			<button id="delete">메뉴삭제</button>
 			<button id="update">메뉴등록</button>
 		</div>
 		<div class="center" style="overflow:scroll">
-		<form name="comment" action="admin_question_comment.jsp" method="post">
+		<form name="menu" action="#" method="post">
 			<table border=1 class="table" >
 			<thead>
 				<tr>
+					<th><input type="checkbox" name="select_all"></th>
 					<th>이미지</th>
 					<th>종류</th>
 					<th>분류</th>
@@ -120,6 +138,7 @@ $(document).ready(function() {
 			<tbody class="tbody">
 			<% for(menuVO vo : list){ %>
 			<tr>
+				<td><input type="checkbox" name="select" value="<%= vo.getMid() %>"></td>
 				<td class="img"><img src="http://localhost:9000/starbucks/images/<%=vo.getImg() %>.jpg" width=50 height=50></td>
 				<td><%=vo.getM_type() %></td>
 				<td><%=vo.getP_type() %></td>
