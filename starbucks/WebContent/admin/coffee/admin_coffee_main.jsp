@@ -29,13 +29,42 @@
 	
 	#update, #delete { float:right; }
 	
+		/* 미리보기 스타일 셋팅 */
+	#preview{
+		position:absolute;
+		border:0px solid #ccc;
+		padding:1px;
+		background:#333;
+		display:none;
+		color:#fff;
+		height:300px;
+	}
+	
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {	
+	//등록
 	$("#update").click(function() {
 		location.replace("http://localhost:9000/starbucks/admin/coffee/admin_coffee_write.jsp");
-	})
+	});
+	//이미지 줌
+	
+	var xOffset = 10;
+    var yOffset = 30;
+
+    $(document).on("mouseover",".img",function(e){ //마우스 오버시
+		
+		$("body").append("<p id='preview'><img src='"+ $(this).children("img").attr("src") +"' width='300px' height='300px' /></p>");						 
+		$("#preview")
+			.css("top",(e.pageY - xOffset) + "px")
+			.css("left",(e.pageX + yOffset) + "px")
+			.fadeIn("fast"); //미리보기 화면 설정 셋팅
+	});
+
+	$(document).on("mouseout",".img",function(){ //마우스 아웃시
+		$("#preview").remove();
+	});
 	
 	// 검색
 	$("#search").click (function() {	
@@ -45,19 +74,15 @@ $(document).ready(function() {
 		if(select =="id"){
 			var value = $(".tbody td:nth-child(8n+3):contains('" + value + "') ");
 		 	$(value).parent().show();
-			return false; 
 		}else if(select =="type") {
 			var value = $(".tbody td:nth-child(8n+4):contains('" + value + "') ");
 		 	$(value).parent().show();
-		 	return false; 
 		}else if(select =="name"){
 			var value = $(".tbody td:nth-child(8n+5):contains('" + value + "') ");
 		 	$(value).parent().show();
-		 	return false; 
 		}else {
 			var value = $(".tbody td:contains('" + value + "') ");
 		 	$(value).parent().show();
-		 	return false;
 		}
 	});
 	
@@ -100,9 +125,9 @@ $(document).ready(function() {
 				<option value="name">이름</option>
 			</select>
 			<input type="text" id="search_input">
-			<button id="search">검색</button>
-			<button id="delete">커피삭제</button>
-			<button id="update">커피등록</button>
+			<button id="search" type="button">검색</button>
+			<button id="delete" type="submit">커피삭제</button>
+			<button id="update" type="button">커피등록</button>
 		</div>
 		<div class="center" style="overflow:scroll">
 			<table border=1 class="table" >
@@ -119,7 +144,7 @@ $(document).ready(function() {
 				<% for(CoffeeVO vo : list){ %>
 			<tr>
 				<td><input type="checkbox" name="select" value="<%= vo.getDproduct_name() %>"></td>
-				<td><img src="http://localhost:9000/starbucks/images/<%= vo.getCimg_file() %>" width=50 height=50></td>
+				<td class="img"><img src="http://localhost:9000/starbucks/images/<%= vo.getCimg_file() %>" width=50 height=50></td>
 				<td>
 					<%if(vo.getCid().equals("bean1")){ %>스타벅스 원두<% }%>
 					<%if(vo.getCid().equals("bean2")){ %>스타벅스 비아<% }%>

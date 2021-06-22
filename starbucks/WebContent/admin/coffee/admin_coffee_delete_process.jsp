@@ -8,6 +8,7 @@
 	ArrayList<String> clist = new ArrayList<String>();	
 	for ( int i=0; i<cname.length; i++) {
 		clist.add(i, cname[i]);		
+		System.out.println(cname[i]);
 	}
 	
 	if ( dao.getDeleteResult(clist) && dao.getListDeleteResult(clist) ) {

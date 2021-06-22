@@ -26,7 +26,6 @@ public class coffeeDAO extends DBConn {
 				e.printStackTrace();
 			}			
 		}
-		
 		return result;
 	}
 	public boolean getListDeleteResult(ArrayList<String> clist) {
@@ -48,7 +47,6 @@ public class coffeeDAO extends DBConn {
 				e.printStackTrace();
 			}			
 		}
-		
 		return result;
 	}
 	
@@ -83,7 +81,7 @@ public class coffeeDAO extends DBConn {
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 		return result;
 	}
 	public boolean getMenuListInsert(CoffeeVO vo) {
@@ -110,14 +108,14 @@ public class coffeeDAO extends DBConn {
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 		return result;
 	}
 	
 	//관리자 커피 메뉴 리스트
 	public ArrayList<CoffeeVO> getMenuList(){
 		ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
-		String sql ="select d.cimg_file , l.cid, l.ctype_id, d.dproduct_name from sb_coffee_list l, sb_coffee_detail d";
+		String sql ="select cimg_file , cid, ctype_id, cimg_text from sb_coffee_img";
 		getPreparedStatement(sql);
 		
 		try {
@@ -160,6 +158,7 @@ public class coffeeDAO extends DBConn {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			close();
 			return list;
 		}
 //coffee 커피타입 
