@@ -33,7 +33,7 @@
 	tr td:nth-child(2){
 		width: 126px;
 	}
-	tr td:nth-child(2){
+	tr td:nth-child(3){
 		width: 67px;
 	}
 	tr td:last-child {
