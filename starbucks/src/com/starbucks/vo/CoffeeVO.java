@@ -2,10 +2,18 @@ package com.starbucks.vo;
 
 public class CoffeeVO {
 	//coffee
-	String cid, ctype_id, cname, clogo, ctext, cimg_file, cimg_text, dproduct_name, dproduct_ename, dproduct_text,dproduct_note,
+	String cid, ctype_id, cname, clogo, ctext, cimg_file, cimg_bfile, cimg_text, dproduct_name, dproduct_ename, dproduct_text,dproduct_note,
 		dproduct_enjoy, dproduct_content,dproduct_story, dproduct_tasting , product_name , m_new, limit, soldout; //coffee
+
 	String eid, etype_id, ename,ename_tit, efile_main, efile_content, eimg_main_text, etitle, econtent;  	//espresso
 	
+	public String getCimg_bfile() {
+		return cimg_bfile;
+	}
+	
+	public void setCimg_bfile(String cimg_bfile) {
+		this.cimg_bfile = cimg_bfile;
+	}
 	public String getM_new() {
 		return m_new;
 	}

@@ -6,7 +6,136 @@ import com.starbucks.vo.CoffeeVO;
 import com.starbucks.vo.menuVO;
 
 public class coffeeDAO extends DBConn {
+	//관리자 커피 메뉴 삭제
+	public boolean getDeleteResult(ArrayList<String> clist) {
+		boolean result = false;
+		
+		for (int i = 0; i<clist.size(); i++) {
+			String sql = "delete from sb_coffee_detail where dproduct_name=?";
+			getPreparedStatement(sql);
+			
+			try {
+				pstmt.setString(1, clist.get(i));
+				int val = pstmt.executeUpdate();
+				
+				if ( val != 0) {
+					result = true;
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}
+		
+		return result;
+	}
+	public boolean getListDeleteResult(ArrayList<String> clist) {
+		boolean result = false;
+		
+		for (int i = 0; i<clist.size(); i++) {
+			String sql = "delete from sb_coffee_img where cimg_text=?";
+			getPreparedStatement(sql);
+			
+			try {
+				pstmt.setString(1, clist.get(i));
+				int val = pstmt.executeUpdate();
+				
+				if ( val != 0) {
+					result = true;
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}
+		
+		return result;
+	}
+	
+	
+	//관리자 커피 상세 메뉴 등록
+	public boolean getMenuInsert(CoffeeVO vo) {
+		boolean result = false;
+		String sql = " insert into sb_coffee_detail values('d_'||sequ_starbucks_id.nextval,?,?,?,?,?,?,?,?,?,?,?,?)";
+		getPreparedStatement(sql);
+		
+		try {
+			
+			pstmt.setString(1, vo.getCtype_id());
+			pstmt.setString(2, vo.getCimg_file());
+			pstmt.setString(3, vo.getDproduct_name());
+			pstmt.setString(4, vo.getDproduct_ename());
+			pstmt.setString(5, vo.getDproduct_text());
+			pstmt.setString(6, vo.getDproduct_note());
+			pstmt.setString(7, vo.getDproduct_enjoy());
+			pstmt.setString(8, vo.getDproduct_content());
+			pstmt.setString(9, vo.getDproduct_story());
+			pstmt.setString(10, vo.getDproduct_tasting());
+			pstmt.setString(11, vo.getProduct_name());
+			pstmt.setString(12, vo.getCimg_bfile());
+			
+			int val = pstmt.executeUpdate();
+			
+			if(val != 0) {
+				result=true;
 
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return result;
+	}
+	public boolean getMenuListInsert(CoffeeVO vo) {
+		boolean result = false;
+		String sql = " insert into sb_coffee_img values('L_'||sequ_starbucks_id.nextval,?,?,?,?,?,?,?)";
+		getPreparedStatement(sql);
+		
+		try {
+			
+			pstmt.setString(1, vo.getCid());
+			pstmt.setString(2, vo.getCtype_id());
+			pstmt.setString(3, vo.getCimg_file());
+			pstmt.setString(4, vo.getDproduct_name());
+			pstmt.setString(5, vo.getM_new());
+			pstmt.setString(6, vo.getLimit());
+			pstmt.setString(7, vo.getSoldout());
+			
+			int val = pstmt.executeUpdate();
+			
+			if(val != 0) {
+				result=true;
+				
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return result;
+	}
+	
+	//관리자 커피 메뉴 리스트
+	public ArrayList<CoffeeVO> getMenuList(){
+		ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
+		String sql ="select d.cimg_file , l.cid, l.ctype_id, d.dproduct_name from sb_coffee_list l, sb_coffee_detail d";
+		getPreparedStatement(sql);
+		
+		try {
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CoffeeVO vo = new CoffeeVO();
+				vo.setCimg_file(rs.getString(1));
+				vo.setCid(rs.getString(2));
+				vo.setCtype_id(rs.getString(3));
+				vo.setDproduct_name(rs.getString(4));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 
 		//coffee 커피타입 - checkbox
@@ -31,7 +160,6 @@ public class coffeeDAO extends DBConn {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			return list;
 		}
 //coffee 커피타입 
@@ -55,7 +183,6 @@ public ArrayList<CoffeeVO> getList(String bean){
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	
 	return list;
 }
 		
@@ -84,14 +211,13 @@ public ArrayList<CoffeeVO> getList(String bean){
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			return list;
 		}
 		//coffee 커피타입 & 커피정보
 		public CoffeeVO getDetailImg(String ctype, String cimg){
 			CoffeeVO vo = new CoffeeVO();
 			String sql = "select l.clogo, l.cname, l.ctext, cimg_file, dproduct_name ,dproduct_ename,  dproduct_text,"
-					+ " dproduct_note,  dproduct_enjoy, dproduct_content, dproduct_story , dproduct_tasting, product_name "
+					+ " dproduct_note,  dproduct_enjoy, dproduct_content, dproduct_story , dproduct_tasting, product_name, cimg_bfile "
 					+ " from sb_coffee_detail d, sb_coffee_list l where l.ctype_id=? and cimg_file=?";
 			getPreparedStatement(sql);
 			
@@ -114,13 +240,13 @@ public ArrayList<CoffeeVO> getList(String bean){
 					vo.setDproduct_story(rs.getString(11));
 					vo.setDproduct_tasting(rs.getString(12));
 					vo.setProduct_name(rs.getString(13));
+					vo.setCimg_bfile(rs.getString(14));
 					
 		
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			return vo;
 		}
 		//coffee 관련제품
@@ -142,7 +268,6 @@ public ArrayList<CoffeeVO> getList(String bean){
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			return vo;
 		}
 		
@@ -170,7 +295,6 @@ public ArrayList<CoffeeVO> getList(String bean){
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			return list;
 		}
 		
@@ -195,7 +319,6 @@ public ArrayList<CoffeeVO> getList(String bean){
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			return vo;
 		}
 		
@@ -221,7 +344,6 @@ public ArrayList<CoffeeVO> getList(String bean){
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			return list;
 		}
 		

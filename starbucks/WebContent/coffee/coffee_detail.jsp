@@ -465,13 +465,13 @@ $( document ).ready(function() {
 	
 	<div class="image"><!-- 이미지 -->
 		<div><!-- 큰 이미지 -->
-			<img class="zoomImg" src='http://localhost:9000/starbucks/images/<%= cimg %>' data-zoom-image="http://localhost:9000/starbucks/images/b_<%= cimg %>" />
+			<img class="zoomImg" src='http://localhost:9000/starbucks/images/<%= cimg %>' data-zoom-image="http://localhost:9000/starbucks/images/<%= vo.getCimg_bfile() %>" />
 			<img src="http://localhost:9000/starbucks/images/more.png">
 		</div>
 		<div><!-- 작은 이미지 -->
 			<ul>
 				<li>
-					<img src="http://localhost:9000/starbucks/images/b_<%= cimg %>">
+					<img src="http://localhost:9000/starbucks/images/<%= vo.getCimg_bfile() %>">
 				</li>
 			</ul>
 		</div>
