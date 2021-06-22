@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee Korea</title>
 <style>
 #wrapper {
   text-align: center;
@@ -225,6 +225,7 @@ nav ul, li {
     width: 570px;
     font-size: 25px;
     color: #ffffff;
+    cursor:pointer;
 }
 .btn_mem_login a {
     color: #fff;
@@ -234,6 +235,7 @@ nav ul, li {
     text-decoration: none;
     
 }
+.btn_mem_login:hover { text-decoration:underline; }
 </style>
 <script>
 function check_pw(){

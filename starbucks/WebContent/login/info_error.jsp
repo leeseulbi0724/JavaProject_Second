@@ -28,10 +28,10 @@
 	<section>
 		<div style="margin-top:100px;"><img src="http://localhost:9000/starbucks/images/icon_com_lock.png"></div>
 		<div></div>
-		<div style="margin-bottom:150px;"><p><span class="didi" style="color:green">비밀번호</span>변경이 완료되었습니다.</p>
+		<div style="margin-bottom:150px;"><p><span class="didi" style="color:green">일치하는 정보</span>가 없습니다.</p>
 		<strong></strong>
 		<div class= "last">
-		<a href="http://localhost:9000/starbucks/login/login.jsp">로그인하기</a>
+		<a href="http://localhost:9000/starbucks/index.jsp">메인으로</a>
 		</div>
 	</section>
 	<!--  footer -->

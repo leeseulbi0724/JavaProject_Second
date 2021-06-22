@@ -26,7 +26,7 @@
 		response.sendRedirect("http://localhost:9000/starbucks/index.jsp");
 		
 	}else{
-		response.sendRedirect("find_id.jsp");	
+		response.sendRedirect("http://localhost:9000/starbucks/login/login_error.jsp");	
 	}
 %>
 <!DOCTYPE html>

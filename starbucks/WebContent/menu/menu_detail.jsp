@@ -10,6 +10,9 @@
 	
 	String[] l_list = {"콜드 브루 커피","브루드 커피","에스프레소","프라푸치노","블렌디드","스타벅스 피지오","티(티바나)","기타 제조 음료","스타벅스 주스(병음료)",
 			"브레드","따뜻한 푸드","과일 & 요거트","스낵 & 미니 디저트","아이스크림","머그","플라스틱 텀블러","스테인리스 텀블러","보온병","액세서리"};
+	String[] l_list2 = {"coldbrew","brood","esp","fra","blended","fizzo","tea","etc","juice","bread","hot","fru","snack","ice",
+			"mug","pla","stain","thermos","acc"
+	};
 %>
 <!DOCTYPE html>
 <html>
@@ -295,7 +298,7 @@ $( document ).ready(function() {
 				<h2>
 			<% for(int i=0;i<l_list.length;i++){ %>
 				<% if(vo.getP_type().equals(l_list[i])){ %>
-					<img src="http://localhost:9000/starbucks/images/<%= vo.getImg().substring(0,vo.getImg().length()-2) %>_tit.png">
+					<img src="http://localhost:9000/starbucks/images/<%= l_list2[i] %>_tit.png">
 				<% } %>
 			<% } %>
 				</h2>

@@ -29,6 +29,27 @@ public class UserDAO extends DBConn {
 		return result;
 	}
 	
+	public boolean ChangePass(String id, String pass) {
+		boolean result = false;
+		String sql = "update sb_member set pass=? where id = ?";
+		getPreparedStatement(sql);
+		
+		try {
+			pstmt.setString(1, pass);
+			pstmt.setString(2, id);			
+			
+			int value = pstmt.executeUpdate();
+			
+			if(value != 0) {
+				result = true;
+				
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	
 	
 	public boolean getDelete(String id) {
@@ -57,8 +78,8 @@ public class UserDAO extends DBConn {
 	
 	
 	
-	public String getPass(UserVO vo) {
-		String pass = null;
+	public boolean getPass(UserVO vo) {
+		boolean result = false;
 		String sql = "SELECT PASS FROM SB_MEMBER WHERE NAME=? AND ID=? AND HP=?";
 		getPreparedStatement(sql);
 		
@@ -70,14 +91,14 @@ public class UserDAO extends DBConn {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				pass = rs.getString(1);
+				result = true;
 			}
 			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return pass;
+		return result;
 	}
 	
 	public String getId(UserVO vo) {
