@@ -475,23 +475,7 @@ $( document ).ready(function() {
 						}
 					}
 				}
-		}else if($("#three").is(':checked')){
-			$("#list_cate ul>li>ul>li").each(function(idx, item){
-				if(($(item).children().attr("id")=="mark03")==true){
-					item_list[j] = item;
-					list_name[j] = $(item).parents("div").eq(0).attr("id").split("_")[0];
-					j++;
-				}
-			});
-				for(var k=0;k<list_name.length;k++){
-					for(var l=0;l<check_name.length;l++){
-						if(check_name[l]=="all" || list_name[k]==check_name[l]){
-							$(item_list[k]).parents("#list_cate ul>li").show();
-							$(item_list[k]).parents("#list_cate>div").prev().show();
-						}
-					}
-				}
-		}else if($("#one").is(':checked')==false || $("#two").is(':checked')==false || $("#three").is(':checked')==false){
+		}else if($("#one").is(':checked')==false || $("#two").is(':checked')==false){
 			$("#list_cate>div>ul>li").show();
 			for(var l=0;l<check_name.length;l++){
 				var label_name = check_name[l]+"_label";
@@ -807,8 +791,6 @@ $( document ).ready(function() {
 					        <input type="checkbox" id="one" /><label for="one"><img src="http://localhost:9000/starbucks/images/mark01.png" width="21px" height="21px"><span>신규 출시된 메뉴</span></label></label>
 					      <label class="chk_drop">
 					        <input type="checkbox" id="two" /><label for="two"><img src="http://localhost:9000/starbucks/images/mark02.png" width="21px" height="21px"><span>한정기간 출시되는 시즌성 메뉴</span></label></label>
-					      <label class="chk_drop">
-					        <input type="checkbox" id="three" /><label for="three"><img src="http://localhost:9000/starbucks/images/mark04.png" width="21px" height="21px"><span>판매 완료된 메뉴</span></label></label>
 					    </div>
 					  </div>
 					</form>
