@@ -11,6 +11,7 @@
 	ArrayList<serviceVO> list = dao.getSelectResult(name);	
 	ArrayList<serviceVO> c_list = dao.getCommentResult();	
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
