@@ -17,8 +17,12 @@
 		border:1px solid lightgray;
  		border-collapse:collapse;
  	 }
- 	 .table thead tr:first-child { background-color:rgb(237,237,237); }
- 	 .table tr th { padding:5px 0 5px 0; }
+ 	 .table tr th { 
+ 	 	padding:5px 0 5px 0;
+ 	 	position: sticky;
+   		top: 0px;
+   		background-color:rgb(237,237,237) !important;
+ 	 }
  	 
  	 .table td { vertical-align:middle; }
  	  	 
@@ -123,6 +127,13 @@ $(document).ready(function() {
 	        addRemoveClass(rows);
 	    }  
 	 });
+	$("#select_all").click(function(){
+		if ($("#select_all").is(':checked')) {
+			 $("input[type=checkbox]").prop("checked", true);
+		}else{
+			 $("input[type=checkbox]").prop("checked", false);
+		}
+	});
 	
 });
 </script>
@@ -150,7 +161,7 @@ $(document).ready(function() {
 				<table border=1 class="table" >
 				<thead>
 					<tr>
-						<th><input type="checkbox" name="select_all"></th>
+						<th><input type="checkbox" name="select_all" id="select_all"></th>
 						<th>이미지</th>
 						<th>
 						<select class="choice">
