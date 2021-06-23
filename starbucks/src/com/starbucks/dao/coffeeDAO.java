@@ -139,7 +139,7 @@ public class coffeeDAO extends DBConn {
 		//coffee 커피타입 - checkbox
 		public ArrayList<CoffeeVO> getCheckList(String bean, String type){
 			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
-			String sql = "select ctype_id, clogo, cname from sb_coffee_list where ctype_id=? and cid=? " ;
+			String sql = "select distinct i.ctype_id, l.clogo, l.cname from sb_coffee_img i, sb_coffee_list l where l.ctype_id=i.ctype_id and i.cid=? order by clogo";
 			getPreparedStatement(sql);
 			
 			try {
