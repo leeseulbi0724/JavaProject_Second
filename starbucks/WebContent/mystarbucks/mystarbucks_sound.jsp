@@ -11,6 +11,7 @@
 	ArrayList<serviceVO> list = dao.getSelectResult(name);	
 	ArrayList<serviceVO> c_list = dao.getCommentResult();	
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -163,7 +164,7 @@
 	
 	
 	.innder_box { width:800px; height:200px; }
-	#title { 
+	#title, #file_title { 
 		font-family:나눔바른고딕; 
 		padding:5px 10px;
 		background-color:rgb(242,242,242); 
@@ -172,7 +173,7 @@
 	 }
 	#content { 
 		width:780px; 
-		height:400px; 
+		height:200px; 
 		border:none; border-top:1px solid lightgray; border-bottom:1px solid lightgray; 
 		background-color:white;
 		font-family:나눔바른고딕; 
@@ -183,7 +184,11 @@
 	 	color:gray;
 	 	margin-left:10px;
 	  }
-	  
+	  #img {
+	  	font-family:나눔바른고딕;
+	  	padding:5px 10px;
+	  	font-size:14px;
+	  }
 	   #popup_mask { /* 팝업 배경 css */
         position: fixed;
         width: 100%;
@@ -194,9 +199,6 @@
          background-color:#000;
          opacity: 0.8;
     }
-	  
-
-
 	
 </style>
 <script src="../js/jquery-3.6.0.min.js"></script>
@@ -266,9 +268,16 @@
 					$("#content").text(jdata.content);
 					$("#date").text(jdata.sdate);
 					
+					if (jdata.efile != null) {
+						var src = "http://localhost:9000/starbucks/upload/"+jdata.efile;						
+						$("#img").html("<img src="+src+" width=500 height=200>");						
+					} else {
+						$("#img").text("이미지가 없습니다");
+					}
+					
 					 var $layerPopupObj = $('div.content_box');
 					var left = ( $(window).scrollLeft() + ($(window).width() - $layerPopupObj.width()) / 2 );
-					 var top = ( $(window).scrollTop() + ($(window).height() - $layerPopupObj.height() + $(header).height() ) / 2 );
+					 var top = ( $(window).scrollTop() + ($(window).height() - $layerPopupObj.height()+ $(header).height()  ) / 2 );
 					 $layerPopupObj.css({'left':left,'top':top, 'position':'absolute'});
 					 $('body').css('position','relative').append($layerPopupObj);
 					 $("#popup_mask").css("display","block"); //팝업 뒷배경 display block
@@ -377,11 +386,13 @@
 	</div>	
 	 <div id ="popup_mask" ></div>
 			<div class="content_box" id="focus">
-				<div class="inner_box">			
+				<div class="inner_box">
 				<button id="X">X</button>
 					<p id="title"></p>
 					<p id="date"></p>
 					<textarea id="content" disabled style="resize: none;"></textarea>
+					<p id="file_title">파일 첨부</p>
+					<div id="img"></div>
 				</div>
 			</div>
 	 

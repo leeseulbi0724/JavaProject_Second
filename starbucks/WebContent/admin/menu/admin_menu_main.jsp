@@ -17,8 +17,12 @@
 		border:1px solid lightgray;
  		border-collapse:collapse;
  	 }
- 	 .table thead tr:first-child { background-color:rgb(237,237,237); }
- 	 .table tr th { padding:5px 0 5px 0; }
+ 	 .table tr th { 
+ 	 	padding:5px 0 5px 0;
+ 	 	position: sticky;
+   		top: 0px;
+   		background-color:rgb(237,237,237) !important;
+ 	 }
  	 
  	 .table td { vertical-align:middle; }
  	  	 
@@ -33,7 +37,7 @@
 	tr td:nth-child(2){
 		width: 126px;
 	}
-	tr td:nth-child(2){
+	tr td:nth-child(3){
 		width: 67px;
 	}
 	tr td:last-child {
@@ -48,6 +52,8 @@
 		padding:1px;
 		display:none;
 		color:#fff;
+		height:300px;
+		width:300px;
 	}
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
@@ -103,6 +109,32 @@ $(document).ready(function() {
 		}
 	});
 	
+	  function addRemoveClass(theRows){
+	         theRows.removeClass("odd even");
+	         theRows.filter(":odd").addClass("add");
+	         theRows.filter(":even").addClass("even");
+	     }
+	 var rows = $(".table tr:not(:first)");
+	  addRemoveClass(rows);
+	
+	$(".choice").on("change",function(){
+	    var selected = $('.choice').val();
+	    if(selected != "all"){
+	        rows.filter(":has(td:nth-child(3):contains("+selected+"))").show();
+	        rows.not(":has(td:nth-child(3):contains("+selected+"))").hide();
+	    }else{
+	        rows.show();
+	        addRemoveClass(rows);
+	    }  
+	 });
+	$("#select_all").click(function(){
+		if ($("#select_all").is(':checked')) {
+			 $("input[type=checkbox]").prop("checked", true);
+		}else{
+			 $("input[type=checkbox]").prop("checked", false);
+		}
+	});
+	
 });
 </script>
 </head>
@@ -129,9 +161,16 @@ $(document).ready(function() {
 				<table border=1 class="table" >
 				<thead>
 					<tr>
-						<th><input type="checkbox" name="select_all"></th>
+						<th><input type="checkbox" name="select_all" id="select_all"></th>
 						<th>이미지</th>
-						<th>종류</th>
+						<th>
+						<select class="choice">
+							<option value="all">전체
+							<option value="음료">음료
+							<option value="푸드">푸드
+							<option value="상품">상품
+						</select>
+						</th>
 						<th>분류</th>
 						<th>이름</th>
 					</tr>
