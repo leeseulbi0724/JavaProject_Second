@@ -48,6 +48,8 @@
 		padding:1px;
 		display:none;
 		color:#fff;
+		height:300px;
+		width:300px;
 	}
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
@@ -103,6 +105,25 @@ $(document).ready(function() {
 		}
 	});
 	
+	  function addRemoveClass(theRows){
+	         theRows.removeClass("odd even");
+	         theRows.filter(":odd").addClass("add");
+	         theRows.filter(":even").addClass("even");
+	     }
+	 var rows = $(".table tr:not(:first)");
+	  addRemoveClass(rows);
+	
+	$(".choice").on("change",function(){
+	    var selected = $('.choice').val();
+	    if(selected != "all"){
+	        rows.filter(":has(td:nth-child(3):contains("+selected+"))").show();
+	        rows.not(":has(td:nth-child(3):contains("+selected+"))").hide();
+	    }else{
+	        rows.show();
+	        addRemoveClass(rows);
+	    }  
+	 });
+	
 });
 </script>
 </head>
@@ -131,7 +152,14 @@ $(document).ready(function() {
 					<tr>
 						<th><input type="checkbox" name="select_all"></th>
 						<th>이미지</th>
-						<th>종류</th>
+						<th>
+						<select class="choice">
+							<option value="all">전체
+							<option value="음료">음료
+							<option value="푸드">푸드
+							<option value="상품">상품
+						</select>
+						</th>
 						<th>분류</th>
 						<th>이름</th>
 					</tr>
