@@ -161,29 +161,29 @@ public class coffeeDAO extends DBConn {
 			close();
 			return list;
 		}
-//coffee 커피타입 
-public ArrayList<CoffeeVO> getList(String bean){
-	ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
-	String sql = "select ctype_id, clogo, cname from sb_coffee_list where cid=?" ;
-	getPreparedStatement(sql);
-	
-	try {
-		pstmt.setString(1, bean);
-		
-		rs = pstmt.executeQuery();
-		while(rs.next()){
-			CoffeeVO vo = new CoffeeVO();
-			vo.setCtype_id(rs.getString(1));
-			vo.setClogo(rs.getString(2));
-			vo.setCname(rs.getString(3));
+		//coffee 커피타입 
+		public ArrayList<CoffeeVO> getList(String bean){
+			ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
+			String sql = "select distinct i.ctype_id, l.clogo, l.cname from sb_coffee_img i, sb_coffee_list l where l.ctype_id=i.ctype_id and i.cid=? order by clogo";
+			getPreparedStatement(sql);
 			
-			list.add(vo);
+			try {
+				pstmt.setString(1, bean);
+				
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					CoffeeVO vo = new CoffeeVO();
+					vo.setCtype_id(rs.getString(1));
+					vo.setClogo(rs.getString(2));
+					vo.setCname(rs.getString(3));
+					
+					list.add(vo);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return list;
 		}
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-	return list;
-}
 		
 		// coffee 커피타입별 이미지 & 이름
 		public ArrayList<CoffeeVO> getImgList(String bean, String ctype){
