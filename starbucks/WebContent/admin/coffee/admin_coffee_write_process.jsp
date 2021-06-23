@@ -17,8 +17,7 @@
 		//파일명 확인
 		System.out.println("화면UI이름=" + multi.getOriginalFileName("cimg_file"));
 		System.out.println("화면UI이름=" + multi.getOriginalFileName("cimg_bfile"));
-		System.out.println("폴더저장이름=" + multi.getFilesystemName("cimg_file"));
-		System.out.println("폴더저장이름=" + multi.getFilesystemName("cimg_bfile"));
+		System.out.println("폴더저장이름=" + multi.getOriginalFileName("cimg_file"));
 	
     	CoffeeVO vo = new CoffeeVO();  
     	
@@ -38,10 +37,8 @@
     	vo.setLimit(multi.getParameter("limit"));
     	vo.setDproduct_story(multi.getParameter("dproduct_story"));
     	vo.setDproduct_tasting (multi.getParameter("dproduct_tasting"));
-    	vo.setCimg_file_org(multi.getOriginalFileName("cimg_file"));
-    	vo.setCimg_file(multi.getFilesystemName("cimg_file"));
-    	vo.setCimg_bfile_org (multi.getOriginalFileName("cimg_bfile"));
-    	vo.setCimg_bfile(multi.getFilesystemName("cimg_bfile"));
+    	vo.setCimg_file(multi.getOriginalFileName("cimg_file"));
+    	vo.setCimg_bfile (multi.getOriginalFileName("cimg_bfile"));
     	
     	
     	coffeeDAO mdao = new coffeeDAO();
