@@ -342,8 +342,9 @@ ul.smap li {
 
 .txt_1 {
 	color: #444;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 18px;
+	width: 441px
 }
 
 .txt_2 {
@@ -534,7 +535,7 @@ ul.smap li {
 
 .date {
 	display: block;
-	margin-top: 1px;
+	
 }
 
 .bx-prev {
@@ -546,7 +547,7 @@ ul.smap li {
 .bx-next {
 	background: url(http://localhost:9000/starbucks/images/msc_arrow_r.png) no-repeat;
 	background-size: 100% auto;
-	left: 535px;
+	left: 765px;
 }
 
 .ms_store_img {
@@ -775,7 +776,7 @@ nav ul, li {
 .bx-wrapper .bx-controls-direction a.bx-prev {
     background: url(../images/msc_arrow_l.png) no-repeat;
     background-size: 100% auto;
-    left: 191px;
+    left: 433px;
 }
 .bx-wrapper .bx-controls-direction a {
     background-size: 100% auto;
