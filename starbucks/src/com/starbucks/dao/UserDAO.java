@@ -230,7 +230,7 @@ public class UserDAO extends DBConn {
 		return result;
 	}
 	public UserVO getMember(String id) {
-		String sql = "SELECT NAME, NICK, HP, EMAIL FROM SB_MEMBER WHERE ID = ?";
+		String sql = "SELECT NAME, NICK, HP, EMAIL, BIRTH FROM SB_MEMBER WHERE ID = ?";
 		getPreparedStatement(sql);
 		UserVO vo = new UserVO();
 		try {
@@ -242,7 +242,35 @@ public class UserDAO extends DBConn {
 				vo.setNick(rs.getString(2));
 				vo.setHp(rs.getString(3));
 				vo.setEmail(rs.getString(4));
+				vo.setUser_birth(rs.getString(5));
 			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+		
+	}
+	public UserVO getMembertwo(String id) {
+		String sql = "select \r\n" + 
+				"substr(birth,1,4), \r\n" + 
+				"substr(birth,6,2),\r\n" + 
+				"substr(birth,9,2),\r\n" + 
+				"substr(birth,12,1) \r\n" + 
+				"from sb_member where id= ?";
+		getPreparedStatement(sql);
+		UserVO vo = new UserVO();
+		try {
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			while(rs.next()) {
+				vo.setBirth_year(rs.getString(1));
+				vo.setBirth_month(rs.getString(2));
+				vo.setBirth_day(rs.getString(3));
+				vo.setBirth_flag(rs.getString(4));
+			}
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
