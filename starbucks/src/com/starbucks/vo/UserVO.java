@@ -2,7 +2,15 @@ package com.starbucks.vo;
 
 public class UserVO {
 		
-	String id, pass, name, email, hp, nick, birth, birth_year, birth_month, birth_day, birth_flag, mdate;
+	String id, pass, name, email, hp, nick, birth, birth_year, birth_month, birth_day, birth_flag, mdate, user_birth;
+	public String getUser_birth() {
+		return user_birth;
+	}
+
+	public void setUser_birth(String user_birth) {
+		this.user_birth = user_birth;
+	}
+
 	int rno;
 
 	public String getMdate() {
@@ -98,13 +106,15 @@ public class UserVO {
 		return birth_year + "-" + birth_month + "-" + birth_day + "-" + birth_flag;
 	}
 	
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	
 	public String getUserBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
+	
 
 	public int getRno() {
 		return rno;
