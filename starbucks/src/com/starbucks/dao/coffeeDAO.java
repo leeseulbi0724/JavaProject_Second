@@ -164,7 +164,7 @@ public class coffeeDAO extends DBConn {
 //coffee 커피타입 
 public ArrayList<CoffeeVO> getList(String bean){
 	ArrayList<CoffeeVO> list = new ArrayList<CoffeeVO>();
-	String sql = "select distinct i.ctype_id, l.clogo, l.cname from sb_coffee_img i, sb_coffee_list l where l.ctype_id=i.ctype_id and i.cid=? order by clogo";
+	String sql ="select distinct i.ctype_id, l.clogo, l.cname from sb_coffee_img i, sb_coffee_list l where l.ctype_id=i.ctype_id and i.cid=? order by clogo";
 	getPreparedStatement(sql);
 	
 	try {
