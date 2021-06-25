@@ -28,7 +28,7 @@ public class coffeeDAO extends DBConn {
 		}
 		return result;
 	}
-	public boolean getListDeleteResult(ArrayList<String> clist) {
+ 	public boolean getListDeleteResult(ArrayList<String> clist) {
 		boolean result = false;
 		
 		for (int i = 0; i<clist.size(); i++) {
