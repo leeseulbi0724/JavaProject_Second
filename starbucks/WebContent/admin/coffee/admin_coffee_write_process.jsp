@@ -46,7 +46,6 @@
     	
     	coffeeDAO mdao = new coffeeDAO();
     	if (mdao.getMenuInsert(vo) && mdao.getMenuListInsert(vo)) {
-    		out.print("<script>alert('새상품 등록 성공');</script>");
     		response.sendRedirect("admin_coffee_main.jsp");
     	} else {
     		out.print("<script>alert('글쓰기 실패');</script>");

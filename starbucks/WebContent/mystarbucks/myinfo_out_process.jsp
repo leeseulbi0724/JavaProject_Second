@@ -11,7 +11,7 @@
     boolean result = dao.getDelete(sid);
     
     if(result == true){
-    	
+    	session.invalidate();
     }
     
   

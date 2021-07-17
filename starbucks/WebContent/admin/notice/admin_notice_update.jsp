@@ -19,10 +19,10 @@
  		border-collapse:collapse;
  	 }
  	 .table td { padding:10px 0 10px 20px; text-align:left; }
- 	 .table input { width:500px; font-family:나눔스퀘어_ac; }
+ 	 .table input { width:500px; font-family:나눔바른고딕; }
  	 .table #title, .table textarea { border:1px solid lightgray; }
  	 .table th { background-color:rgb(237,237,237); }
- 	 .table textarea { width:90%; font-family:나눔스퀘어_ac; height:300px; }
+ 	 .table textarea { width:90%; font-family:나눔바른고딕; height:300px; }
  	 .table tr th { padding:5px 0 5px 0; }
  	 
  	 button.btn_style { background-color:rgb(56,57,78); color:white; border:1px solid lightgray; cursor:pointer; }
@@ -77,6 +77,7 @@
 			<div class="center">
 			<form name="notice_update" action="admin_notice_update_process.jsp?nid=<%= nid %>" method="post" enctype="multipart/form-data">
 				<table border=1 class="table" >
+				<input type="hidden" name="nsfile_old" value="<%= vo.getSfile() %>">
 					<tr>
 						<th>제목</th>
 						<td><input type="text" name="title" id ="title" value="<%= vo.getTitle() %>"></td>

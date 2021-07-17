@@ -39,9 +39,9 @@ public class noticeDAO extends DBConn {
 		ArrayList<noticeVO> list = new ArrayList<noticeVO>();
 		
 		try {
-			String sql = " SELECT ROWNUM RNO, NID, TITLE, CONTENT, TO_CHAR(NDATE,'YYYY-MM-DD'), COUNT"
-					+ " FROM(SELECT ROWNUM RNO, NID, TITLE, CONTENT, NDATE, COUNT "
-					+ " FROM(SELECT NID, TITLE, CONTENT, NDATE, COUNT FROM SB_NOTICE ORDER BY NID DESC) ORDER BY RNO DESC) "
+			String sql = " SELECT ROWNUM RNO, NID, TITLE, CONTENT, TO_CHAR(NDATE,'YYYY-MM-DD'), COUNT, SFILE"
+					+ " FROM(SELECT ROWNUM RNO, NID, TITLE, CONTENT, NDATE, COUNT, SFILE "
+					+ " FROM(SELECT NID, TITLE, CONTENT, NDATE, COUNT, SFILE FROM SB_NOTICE ORDER BY NID DESC) ORDER BY RNO DESC) "
 					+ " ORDER BY NDATE DESC";
 			getPreparedStatement(sql);
 			
@@ -55,6 +55,7 @@ public class noticeDAO extends DBConn {
 				vo.setContent(rs.getString(4));
 				vo.setDate(rs.getString(5));
 				vo.setCount(rs.getInt(6));
+				vo.setSfile(rs.getString(7));
 				
 				list.add(vo);
 			}

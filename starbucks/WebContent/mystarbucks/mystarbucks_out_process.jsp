@@ -42,7 +42,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee Korea</title>
 <style>
 	section { text-align:center; padding:200px; }
 	section div { display:inline-block; }

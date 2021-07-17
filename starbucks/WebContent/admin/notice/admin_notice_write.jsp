@@ -36,10 +36,6 @@
 				alert("제목을 입력해주세요");
 				$("#ntitle").focus();
 				return false;
-			} else if ($("#ncontent").val() == "") {
-				alert("내용을 입력해주세요");
-				$("#ncontent").focus();
-				return false;
 			} else {
 				notice_write.submit();
 			}

@@ -53,7 +53,6 @@
 			} else {
 				
 				if (confirm("정말 삭제하시겠습니까?") == true ) {
-					alert("삭제 되었습니다");
 					$("form").attr("action","admin_notice_delete_process.jsp");
 					
 				} else {
@@ -71,7 +70,7 @@
 	<!-- 공지사항 관리 -->
 	<div class="content_notice" id="content">
 		<jsp:include page = "admin_notice_menu.jsp"></jsp:include>
-		<form name="notice_list" action="admin_notice_content.jsp" method="post" >
+		<form name="notice_list" action="admin_notice_content.jsp" method="post" enctype="multipart/form-data" >
 		<section>
 			<div class="text">Home > <span>공지사항 관리</span></div>
 			<div class="search">
@@ -91,13 +90,14 @@
 					</thead>
 					<tbody class="tbody">				
 					<% for(noticeVO vo : list) { %>
-						<tr>
+						<tr>								
 								<td><input type="checkbox" name="select" value="<%= vo.getNid() %>"></td>
 								<td><%= vo.getNo() %></td>
 								<td><a href="admin_notice_content.jsp?nid=<%= vo.getNid() %>" ><%= vo.getTitle() %></a></td>
 								<td><%= vo.getDate() %></td>
-								<td><%= vo.getCount() %></td>
+								<td><%= vo.getCount() %></td>								
 						</tr>
+						<input type="hidden" name="nsfile_old" value="<%= vo.getSfile() %>">
 					<% } %>
 					</tbody>
 				</table>			

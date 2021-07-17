@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee Korea</title>
 <jsp:include page="../header.jsp"></jsp:include>
 <style>
 section.pass {
@@ -76,7 +76,7 @@ section.pass div:nth-child(4) input
 }
 section.pass div:nth-child(4) input:last-child { margin-top:0; margin-bottom:5px; }
 
-#btn { 
+#ok { 
 	background-color: #2a6438;
 	border:1px solid #2a6438;
 	border-radius:3px;
@@ -88,6 +88,7 @@ section.pass div:nth-child(4) input:last-child { margin-top:0; margin-bottom:5px
 	margin:20px 0 8px 0;
 	cursor:pointer;
 }
+.ok:hover { text-decoration:underline; }
 </style> 
 <script>
 function form_check(){
@@ -163,7 +164,7 @@ function form_check(){
 				</ul>
 			</div>
 			<div>
-      			<a><button type="button" id="btn" onclick="form_check()">확인</button></a>
+      			<a><button type="button" id="ok" onclick="form_check()" class="ok">확인</button></a>
 			</div>
 		</form>
 	</section>

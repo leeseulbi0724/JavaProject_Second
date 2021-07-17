@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee Korea</title>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="http://localhost:9000/mycgv2/css/carousel.css">
 <script src="../js/jquery-3.6.0.min.js"></script>
@@ -16,10 +16,8 @@
       var imgs;
       var img_count;
       var img_position = 1;
-
       imgs = $(".bx-viewport ul");
       img_count = imgs.children().length;
-
       //버튼을 클릭했을 때 함수 실행
       $('#back').click(function () {
         back();
@@ -27,7 +25,6 @@
       $('#next').click(function () {
         next();
       });
-
       function back() {
         if(1<img_position){
           imgs.animate({
@@ -44,8 +41,6 @@
           img_position++;
         }
       }
-
-
     });
     
     var gall  = setInterval(galleryFun, 2000);
@@ -100,25 +95,22 @@
 	height: 178px;
 	background:
 		url(http://localhost:9000/starbucks/images/ms_sub_ttl_bg.jpg);
+	font-size:13px;
 }
-
 .sub_inner_title {
 	width: 1100px;
 	height: 91px;
 	margin: 0 auto;
 	position: relative;
 }
-
 .smap a:link {
 	text-decoration: none;
 	color: #ffffff;
 }
-
 .smap a:visited {
 	text-decoration: none;
 	color: #ffffff;
 }
-
 ul.smap {
 	position: absolute;
 	right: 0;
@@ -126,13 +118,11 @@ ul.smap {
 	list-style: none;
 	display: inline-block;
 }
-
 ul.smap li {
 	display: inline-block;
 	margin-right: 2px;
 	color: #ffffff;
 }
-
 .sub_title h1 {
 	font: bold 36px Avenir, Arial, georgia;
 	color: #ffffff;
@@ -140,7 +130,6 @@ ul.smap li {
 	position: relative;
 	top: 60px;
 }
-
 .center p {
 	margin-top: 50px;
 }
@@ -152,28 +141,24 @@ ul.smap li {
 	padding: 6px 0 6px 15px;
 	width: 205px;
 }
-
 .center p span {
 	color: #666;
 	font-size: 14px;
 }
-
 .regular_info {
 	height: 148px;
 	width: 830px;
 }
-
 .ms_cont_wrap {
 	width: 1100px;
 	margin: 0 auto;
+	margin-bottom:50px;
 }
-
 .center {
 	width: auto;
 	padding-left: 30px;
 	box-sizing: border_box;
 }
-
 .center a {
 	background: #fcfcfc;
 	border: 1px solid #ccc;
@@ -189,16 +174,7 @@ ul.smap li {
 	line-height: 26px;
 	float: left;
 }
-
-.center a:link {
-	text-decoration: none;
-	color: #444;
-}
-
-.center a:visited {
-	text-decoration: none;
-	color: #444;
-}
+.center a:hover { text-decoration:underline; }
 
 .right {
 	top: -63px;
@@ -209,32 +185,27 @@ ul.smap li {
 	background:
 		url(http://localhost:9000/starbucks/images/ms_user_info_cbg.jpg)
 }
-
 .rt {
 	border-bottom: 1px dotted #bbb;
 	height: 74px;
 	position: relative;
 	width: 235px;
 }
-
 .rt a {
 	display: block;
 	height: 100%;
 	width: 100%;
 }
-
 .rb {
 	height: 74px;
 	position: relative;
 	width: 235px;
 }
-
 .rb a {
 	display: block;
 	height: 100%;
 	width: 100%;
 }
-
 .icon_new_store {
 	background:
 		url(http://localhost:9000/starbucks/images/icon_new_store.png)
@@ -246,7 +217,6 @@ ul.smap li {
 	top: 23px;
 	width: 63px;
 }
-
 .icon_new_store2 {
 	background: url(http://localhost:9000/starbucks/images/icon_evt_cup.png)
 		no-repeat;
@@ -257,7 +227,6 @@ ul.smap li {
 	top: 16px;
 	width: 46px;
 }
-
 .icon_new_txt {
 	color: #444;
 	font-size: 14px;
@@ -266,7 +235,6 @@ ul.smap li {
 	position: absolute;
 	top: 20px;
 }
-
 .icon_new_txt2 {
 	color: #444;
 	font-size: 14px;
@@ -275,18 +243,15 @@ ul.smap li {
 	position: absolute;
 	top: 31px;
 }
-
 .icon_new_txt strong {
 	color: #222;
 	font-size: 15px;
 }
-
 .icon_new_txt2 strong {
 	color: #222;
 	font-size: 16px;
 	line-height: 26px;
 }
-
 .next_arrow {
 	background:
 		url(http://localhost:9000/starbucks/images/regu_next_arrow.png);
@@ -297,7 +262,6 @@ ul.smap li {
 	top: 32px;
 	width: 7px;
 }
-
 .card_wrap {
 	border: 1px solid #ddd;
 	border-radius: 3px;
@@ -306,20 +270,17 @@ ul.smap li {
 	padding: 30px 28px 23px 28px;
 	width: 772px;
 }
-
 .card_int {
 	border-bottom: 1px solid #ddd;
 	height: 107px;
 	width: 772px;
 }
-
 .card_int_icon {
 	float: left;
 	height: 107px;
 	position: relative;
 	width: 135px;
 }
-
 .icon_1 {
 	background:
 		url(http://localhost:9000/starbucks/images/icon_adv_card.png);
@@ -327,34 +288,28 @@ ul.smap li {
 	top: 5px;
 	width: 86px;
 }
-
 .icon_2 {
 	background: url(http://localhost:9000/starbucks/images/icon_adv_cup.png);
 	height: 107px;
 	width: 102px;
 }
-
 .txt_1 strong, .txt_2 strong {
 	color: #222;
 	font-size: 16px;
 	line-height: 24px;
 }
-
 .txt_1 {
 	color: #444;
-	font-size: 13px;
+	font-size: 13.2px;
 	line-height: 18px;
-	width: 441px
 }
-
 .txt_2 {
 	color: #444;
-	font-size: 14px;
+	font-size: 13.2px;
 	line-height: 18px;
 	top: 30px;
 	position: absolute;
 }
-
 .card_btn1 {
 	top: 0;
 	height: 30px;
@@ -362,7 +317,6 @@ ul.smap li {
 	right: 0;
 	width: 185px;
 }
-
 .card_btn3 {
 	top: 44px;
 	height: 30px;
@@ -370,7 +324,6 @@ ul.smap li {
 	right: 0;
 	width: 185px;
 }
-
 .card_btn1 a, .card_btn3 a {
 	background: #222;
 	border: 1px solid #222;
@@ -385,14 +338,12 @@ ul.smap li {
 	width: 183px;
 	text-decoration: none;
 }
-
 .card_int_cont {
 	float: left;
 	height: 107px;
 	position: relative;
 	width: 637px;
 }
-
 .card_btn2 {
 	top: 40px;
 	height: 30px;
@@ -400,17 +351,14 @@ ul.smap li {
 	right: 0;
 	width: 185px;
 }
-
 .card_btn2 a:link {
 	text-decoration: none;
 	color: #444;
 }
-
 .card_btn2 a:visited {
 	text-decoration: none;
 	color: #444;
 }
-
 .card_btn2 a {
 	background: #e2c383;
 	border: 1px solid #222;
@@ -424,19 +372,16 @@ ul.smap li {
 	text-align: center;
 	width: 183px;
 }
-
 .card_inb {
 	margin-top: 7px;
 	width: 772px;
 	height: 107px;
 }
-
 .user_section {
 	height: 360px;
 	margin-top: 30px;
 	width: 830px;
 }
-
 .left_store {
 	background: #f4f4f2;
 	border-radius: 3px;
@@ -445,32 +390,27 @@ ul.smap li {
 	padding: 30px;
 	width: 350px;
 }
-
 .left_store header {
 	border-bottom: 1px solid #ddd;
 	color: #444;
 	font-size: 14px;
 	height: 59px;
 }
-
 .left_store strong {
 	color: #222;
 	font-size: 16px;
 	line-height: 30px;
 }
-
 .bx-wrapper {
 	max-width: 286px;
 	margin: 0 auto;
 }
-
 .bx-viewport {
 	width: 100%;
 	overflow: hidden;
 	position: relative;
 	height: 209px;
 }
-
 .store_wrap {
 	width: 515%;
 	position: relative;
@@ -478,7 +418,6 @@ ul.smap li {
 	transform: translate3d(-612px, 0px, 0px);
 	margin: 0 auto;
 }
-
 .slides {
 	float: left;
 	list-style: none;
@@ -486,7 +425,6 @@ ul.smap li {
 	margin-right: 20px;
 	margin-top: 27px;
 }
-
 .slides2 {
 	float: right;
 	list-style: none;
@@ -495,29 +433,24 @@ ul.smap li {
 	margin-right: 20px;
 	margin-top: 27px;
 }
-
 .slides img {
 	width: 133px;
 	height: 133px;
 }
-
 .slides2 img {
 	width: 133px;
 	height: 133px;
 }
-
 .store_img {
 	height: 133px;
 	width: 133px;
 }
-
 .store_img img {
 	width: 100%;
 	height: 100%;
 	display: block;
 	max-width: 100%;
 }
-
 .store_txt {
 	color: #666;
 	font-size: 12px;
@@ -526,40 +459,33 @@ ul.smap li {
 	text-align: center;
 	width: 133px;
 }
-
 .store_txt strong {
 	margin-top: 0px;
 	color: #006633;
 	font-size: 16px;
 }
-
 .date {
 	display: block;
-	
+	margin-top: 1px;
 }
-
 .bx-prev {
 	background: url(http://localhost:9000/starbucks/images/msc_arrow_l.png) no-repeat;
 	background-size: 100% auto;
 	left: -31px;
 }
-
 .bx-next {
 	background: url(http://localhost:9000/starbucks/images/msc_arrow_r.png) no-repeat;
 	background-size: 100% auto;
-	left: 765px;
+	left: 535px;
 }
-
 .ms_store_img {
 	height: 133px;
 	width: 133px;
 }
-
 .ms_store_img img {
 	width: 133px;
 	height: 133px;
 }
-
 .sstore {
 	border: 1px solid #ddd;
 	border-radius: 3px;
@@ -568,21 +494,18 @@ ul.smap li {
 	padding: 20px;
 	width: 368px;
 }
-
 .regi_card {
 	border-bottom: 1px solid #ddd;
 	height: 98px;
 	position: relative;
 	width: 368px;
 }
-
 .regi_card2 {
 	border-bottom: 1px solid #ddd;
 	height: 119px;
 	position: relative;
 	width: 368px;
 }
-
 .icon_card {
 	background:
 		url(http://localhost:9000/starbucks/images/icon_ms_regi_card.png);
@@ -591,7 +514,6 @@ ul.smap li {
 	position: absolute;
 	width: 84px;
 }
-
 .icon_card2 {
 	background:
 		url(http://localhost:9000/starbucks/images/icon_ms_charge_card.png);
@@ -600,28 +522,23 @@ ul.smap li {
 	position: absolute;
 	width: 84px;
 }
-
 .mem_icon_wrap {
 	background: url(http://localhost:9000/starbucks/images/icon_sep_bg.gif);
 	height: 75px;
 	margin-top: 24px;
 	width: 368px;
 }
-
 .icon_mem1 {
 	width: 114px;
 }
-
 .icon_mem2 {
 	width: 114px;
 	margin-left: 15px;
 }
-
 .icon_mem3 {
 	width: 114px;
 	margin-left: 10px;
 }
-
 .mem_icon_wrap a {
 	display: block;
 	float: left;
@@ -629,7 +546,6 @@ ul.smap li {
 	position: relative;
 	box-sizing: border-box;
 }
-
 .regu_icon {
 	background:
 		url(http://localhost:9000/starbucks/images/icon_receipt_2021.jpg);
@@ -643,7 +559,6 @@ ul.smap li {
 	position: relative;
 	color: #222;
 }
-
 .regu_icon2 {
 	background:
 		url(http://localhost:9000/starbucks/images/icon_calendar_2021.jpg);
@@ -657,7 +572,6 @@ ul.smap li {
 	position: relative;
 	color: #222;
 }
-
 .regu_icon3 {
 	background:
 		url(http://localhost:9000/starbucks/images/icon_coupon_2021.jpg);
@@ -671,7 +585,6 @@ ul.smap li {
 	position: relative;
 	color: #222;
 }
-
 .regu_txt {
 	margin-top: 12px;
 	display: block;
@@ -681,90 +594,76 @@ ul.smap li {
 	font-weight: bold;
 	text-align: center;
 }
-
 nav ul, li {
 	list-style: none;
 }
-
 .hide {
 	display: none;
+	position:relative;
 }
-
+.hide li { height:20px; margin-top:-5px; }
+.hide li:last-child { margin-bottom:15px;  }
+.hide li:hover { text-decoration:underline; color:green; }
 .ms_nav>ul {
 	border-top: 2px solid #222;
 }
-
 .ms_nav {
 	float: right;
 	font-weight: bold;
 	width: 220px;
 	margin-bottom: 90px;
 }
-
 .ms_nav>ul>li {
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;	
 	width: 220px;
 }
-
 .ms_nav>ul>li>a {
 	color: #444;
 	display: block;
 	font-size: 14px;
-	padding: 20px 30px 20px 15px;
+	padding: 10px 30px 10px 15px;
 	position: relative;
 	width: 175px;
 }
-
+.ms_nav>ul>li>a:hover { text-decoration:underline; color:green; }
 .ms_nav a:link {
 	text-decoration: none;
 	color: #444;
 }
-
+.ms_nav img { margin-top:3px; }
 .ms_nav a:visited {
 	text-decoration: none;
 	color: #444;
 }
-
 .sbox_arrow_down {
 	height: 7px;
-	margin-top: -3px;
 	position: absolute;
-	right: 15px;
-	top: 50%;
+	right: 15px;	
 	width: 12px;
-	background:
-		url(http://localhost:9000/starbucks/images/sbox_arrow_down.png);
 }
-
 .ms_nav>ul>lu>ul>li {
 	width: 220px;
 }
-
 .ms_nav a {
 	cursor: pointer;
 }
-
 .store_slider {
 	height: 210px;
 	margin-top: 30px;
 	width: 350px;
 }
-
 .bx-viewport ul li a div.ms_sstore_slider_img {
 	height: 133px;
 	width: 133px;
 }
-
 .bx-viewport ul li a div.ms_sstore_slider_img img {
 	width: 100%;
 	height: 100%;
 }
-
 .bx-viewport img {
 	max-width: 100%;
 	display: block;
 }
-
 .bx-viewport ul li a div.ms_sstore_slider_txt {
 	color: #666;
 	font-size: 12px;
@@ -776,7 +675,7 @@ nav ul, li {
 .bx-wrapper .bx-controls-direction a.bx-prev {
     background: url(../images/msc_arrow_l.png) no-repeat;
     background-size: 100% auto;
-    left: 433px;
+    left: 191px;
 }
 .bx-wrapper .bx-controls-direction a {
     background-size: 100% auto;
@@ -787,12 +686,7 @@ nav ul, li {
     top: 1012px;
     width: 12px;
     position: absolute;
-}
-
-.bx-wrapper .bx-controls-direction a {
-    
-   
-   
+    margin-left:40px;
 }
 a {
     margin: 0;
@@ -808,13 +702,24 @@ a {
 	width: 3000px;
 	position: absolute;
 }
-
 </style>
 <script src="../js/jquery.bxslider.min.js"></script>
 <script>
 	$(document).ready(function() {
 		$(".user_if>a").click(function() {
-			$(this).next("ul").toggleClass("hide");
+			/* $(this).next("ul").toggleClass("hide"); */
+			
+			if ($(this).attr("id") == "down") {
+				$(".hide").slideDown();
+				$(".sbox_arrow_down").attr("src","http://localhost:9000/starbucks/images/sbox_arrow_up.png")
+				$(this).attr("id","up");				
+			} else {
+				$(".hide").slideUp();
+				$(".sbox_arrow_down").attr("src","http://localhost:9000/starbucks/images/sbox_arrow_down.png")
+				$(this).attr("id","down");
+				
+			}
+
 		});
 	});
 </script>
@@ -829,9 +734,9 @@ a {
 			<ul class="smap">
 				<li><a href="http://localhost:9000/starbucks/index.jsp"><img
 						class="home_icon"
-						src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
+						src="http://localhost:9000/starbucks/images/icon_home_white.png"></a></li>
 				<li><img class=arrow_icon
-					src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
+					src="http://localhost:9000/starbucks/images/icon_arrow_w.png"></li>
 				<li><a class="this"
 					href="http://localhost:9000/starbucks/mystarbucks/mystarbucks.jsp"
 					style="text-decoration-line: none;">My StarBucks</a></li>
@@ -843,7 +748,7 @@ a {
 		<nav class="ms_nav">
 			<ul>
 				<li><a href="mystarbucks_sound.jsp">My 고객의 소리</a></li>
-				<li class="user_if"><a>개인정보관리<span class="sbox_arrow_down"></span></a>
+				<li class="user_if"><a>개인정보관리<img id="down" class="sbox_arrow_down" src="http://localhost:9000/starbucks/images/sbox_arrow_down.png"></a>
 					<ul class="hide">
 						<li><a class="font" href="mystarbucks_out.jsp">. 개인정보확인 및
 								수정</a></li>

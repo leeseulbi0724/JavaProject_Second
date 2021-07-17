@@ -13,7 +13,7 @@ Calendar cal = Calendar.getInstance();
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee Korea</title>
 <script src="http://localhost:9000/starbucks/js/jquery-3.6.0.min.js"></script>
 <style>
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
@@ -35,6 +35,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	height: 178px;
 	background:
 		url(http://localhost:9000/starbucks/images/ms_sub_ttl_bg.jpg);
+	font-size:13px;
 }
 
 .sub_inner_title {
@@ -110,7 +111,9 @@ nav ul, li {
 .hide {
 	display: none;
 }
-
+.hide li { height:20px; margin-top:-5px; }
+.hide li:last-child { margin-bottom:15px;  }
+.hide li:hover { text-decoration:underline; color:green; }
 .ms_nav>ul {
 	border-top: 2px solid #222;
 }
@@ -125,13 +128,15 @@ nav ul, li {
 .ms_nav>ul>li {
 	border-bottom: 1px solid #ddd;
 	width: 220px;
+	margin:0; padding:0;
 }
+.ms_nav>ul>li>a:hover { text-decoration:underline; color:green; }
 
 .ms_nav>ul>li>a {
 	color: #444;
 	display: block;
 	font-size: 14px;
-	padding: 20px 30px 20px 15px;
+	padding: 10px 30px 10px 15px;
 	position: relative;
 	width: 175px;
 }
@@ -148,13 +153,10 @@ nav ul, li {
 
 .sbox_arrow_down {
 	height: 7px;
-	margin-top: -3px;
+	margin-top:3px;
 	position: absolute;
 	right: 15px;
-	top: 50%;
 	width: 12px;
-	background:
-		url(http://localhost:9000/starbucks/images/sbox_arrow_down.png);
 }
 
 .ms_nav>ul>lu>ul>li {
@@ -202,7 +204,7 @@ nav ul, li {
 	font-weight: bold;
 	line-height: 1.2;
 	margin-bottom: 15px;
-	width: 465px;
+	width: 600px;
 }
 .my_info_f_txt{
 	padding: 45px 0 0 75px;
@@ -315,14 +317,7 @@ input[type="checkbox"] {
     text-align: center;
     cursor: pointer;
 }
-.ms_btn a:visited {
-	text-decoration: none;
-	color: #444;
-}
-.ms_btn a:link {
-	text-decoration: none;
-	color: #444;
-}
+.ms_btn p button:hover { text-decoration:underline; }
 .li2{
 	maring: 0px;
 }
@@ -338,7 +333,16 @@ input[type="checkbox"] {
 $(document).ready(function(){    
 	
     $(".user_if>a").click(function(){
-        $(this).next("ul").toggleClass("hide");
+		if ($(this).attr("id") == "down") {
+			$(".hide").slideDown();
+			$(".sbox_arrow_down").attr("src","http://localhost:9000/starbucks/images/sbox_arrow_up.png")
+			$(this).attr("id","up");				
+		} else {
+			$(".hide").slideUp();
+			$(".sbox_arrow_down").attr("src","http://localhost:9000/starbucks/images/sbox_arrow_down.png")
+			$(this).attr("id","down");
+			
+		}
     });
     
     
@@ -362,8 +366,8 @@ function delete_check(){
 			<h1>회원탈퇴</h1>
 	
 			<ul class="smap">
-				<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home.png"></a></li>
-				<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
+				<li><a href="http://localhost:9000/starbucks/index.jsp"><img class="home_icon" src="http://localhost:9000/starbucks/images/icon_home_white.png"></a></li>
+				<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow_w.png"></li>
 				<li><a class= "this" href="http://localhost:9000/starbucks/mystarbucks/mystarbucks_main.jsp" style="text-decoration-line: none;">My StarBucks</a></li>
 			</ul>
 		</div>
@@ -389,7 +393,7 @@ function delete_check(){
 		 						</div>
 		 					</div>
 		 					<div>
-		 						<p class= "mem_tit"><span>***</span>님의 등록된 스타벅스 카드</p>
+		 						<p class= "mem_tit"><span><%= session.getAttribute("signedUser") %></span>님의 등록된 스타벅스 카드</p>
 			 					<p class= "mem_my_card">총 보유카드 : 0장</p>
 		 					</div>
 		 					<table summary="나의 스타벅스 카드 웹 버전" class="myCardInfo mb50">
@@ -435,7 +439,7 @@ function delete_check(){
 									</div> 
 								</p>
 								<div class="ms_btn">
-								<p  onclick="delete_check()"><button>스타벅스 리워드 <!-- 및 e-프리퀀시 --> 서비스 이용내역 일괄삭제</button></p>
+								<p  onclick="delete_check()"><button>회원탈퇴</button></p>
 								</div>
 								
 							</div>
@@ -445,9 +449,9 @@ function delete_check(){
 				
 				<nav class= "ms_nav">
 					<ul>
-						<li><a href="">My 고객의 소리</a></li>
+						<li><a href="mystarbucks_sound.jsp">My 고객의 소리</a></li>
 						<li class="user_if">
-						<a>개인정보관리<span class="sbox_arrow_down"></span></a>
+						<a>개인정보관리<img id="down" class="sbox_arrow_down" src="http://localhost:9000/starbucks/images/sbox_arrow_down.png"></a>
 						<ul class="hide">
 						<li><a class="font" href="mystarbucks_out.jsp">. 개인정보확인 및 수정</a></li>
 						<li><a class="font"href="http://localhost:9000/starbucks/mystarbucks/myinfo_out.jsp">. 회원 탈퇴</a></li>

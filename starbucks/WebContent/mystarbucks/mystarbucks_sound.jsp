@@ -11,7 +11,6 @@
 	ArrayList<serviceVO> list = dao.getSelectResult(name);	
 	ArrayList<serviceVO> c_list = dao.getCommentResult();	
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -277,7 +276,7 @@
 					
 					 var $layerPopupObj = $('div.content_box');
 					var left = ( $(window).scrollLeft() + ($(window).width() - $layerPopupObj.width()) / 2 );
-					 var top = ( $(window).scrollTop() + ($(window).height() - $layerPopupObj.height()+ $(header).height()  ) / 2 );
+					 var top = ( $(window).scrollTop() + ($(window).height() - $layerPopupObj.height() + 70) / 2 );
 					 $layerPopupObj.css({'left':left,'top':top, 'position':'absolute'});
 					 $('body').css('position','relative').append($layerPopupObj);
 					 $("#popup_mask").css("display","block"); //팝업 뒷배경 display block

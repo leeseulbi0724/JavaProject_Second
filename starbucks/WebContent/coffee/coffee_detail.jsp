@@ -449,11 +449,11 @@ $( document ).ready(function() {
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
 			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/coffee_main.jsp" style="text-decoration-line: none;">COFFEE</a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_main.jsp" style="text-decoration-line: none;">커피</a></li>
+			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/coffee_list.jsp" style="text-decoration-line: none;">커피</a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_doppio.jsp" style="text-decoration-line: none;"><%= vo.getCname() %></a></li>
+			<li><a class= "this" href="#" style="text-decoration-line: none;"><%= vo.getCname() %></a></li>
 			<li><img class=arrow_icon src="http://localhost:9000/starbucks/images/icon_arrow.png"></li>
-			<li><a class= "this" href="http://localhost:9000/starbucks/coffee/espresso_doppio.jsp" style="text-decoration-line: none;"><%= vo.getDproduct_name() %></a></li>
+			<li><a class= "this" href="#" style="text-decoration-line: none;"><%= vo.getDproduct_name() %></a></li>
 		</ul>
 	</div>
 	</div>	
@@ -489,7 +489,11 @@ $( document ).ready(function() {
 				
 				<div class="line1"></div>
 				
-				<p class="text"><%= vo.getDproduct_text() %></p>
+				<p class="text">
+				<% if(vo.getDproduct_text() != null ) { %>
+					<%= vo.getDproduct_text() %>
+				<% } %>
+				</p>
 				
 				<div class="roast">
 					<div>

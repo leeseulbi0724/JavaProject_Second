@@ -243,34 +243,9 @@ background: none;
 
 </style>
 <script src="http://localhost:9000/starbucks/js/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-
-window.onload = function(){
-	document.querySelector('.btn2').addEventListener('click', function(){
-		document.querySelector('.slide_images').style.transform = 'translate(-100vw)';	
-	});
-	
-	document.querySelector('.btn3').addEventListener('click', function(){
-		document.querySelector('.slide_images').style.transform = 'translate(-200vw)';	
-	});
-	document.querySelector('.btn4').addEventListener('click', function(){
-		document.querySelector('.slide_images').style.transform = 'translate(-300vw)';	
-	});
-	document.querySelector('.btn5').addEventListener('click', function(){
-		document.querySelector('.slide_images').style.transform = 'translate(-400vw)';	
-	});
-	document.querySelector('.btn6').addEventListener('click', function(){
-		document.querySelector('.slide_images').style.transform = 'translate(-500vw)';	
-	});
-	document.querySelector('.btn1').addEventListener('click', function(){
-		document.querySelector('.slide_images').style.transform = 'translate(0vw)';	
-	});
-	
-	function toggleImg() {
-	      document.getElementById("img").src = "http://localhost:9000/starbucks/images/visual_on.png";
-	    }
-}
-
 $(document).ready(function() {
 	$("#down_click").click(function() {
 		var name = $("#down_img").attr("name");
@@ -285,9 +260,23 @@ $(document).ready(function() {
 			$("#down_img").attr("name","down");			
 		}
 	});
+	
+	$(".btn_pv").click(function(){
+		var id=$(this).attr("id");
+		if(id=="up_btn"){
+			$(".btn_pv img").attr("src","http://localhost:9000/starbucks/images/product_view_down.png");
+			$(".btn_pv").attr("id","down_btn");
+			$(".product_view").slideUp(500);
+		}else{
+			$(".btn_pv img").attr("src","http://localhost:9000/starbucks/images/product_view_up.png");
+			$(".btn_pv").attr("id","up_btn");
+			$(".product_view").slideDown(500);
+		}
+	});
 });
 		
 </script>
+<link rel="stylesheet" href="http://localhost:9000/starbucks/menu/menu_carousel.css">
 </head>
 
 <body>
@@ -306,38 +295,54 @@ $(document).ready(function() {
 	</ul>
 	</div>
  </div>	
-<!-- 이미지 슬라이드 -->
-<div style= "overflow:hidden">
-	<div class="slide_images">
-		<div class="slides">
-	        <img src= "http://localhost:9000/starbucks/images/whatsnew1.jpg">
-		</div>
-		<div class="slides">
-			<img src= "http://localhost:9000/starbucks/images/whatsnew2.jpg">
-		</div>
-		<div class="slides">
-			<img src= "http://localhost:9000/starbucks/images/whatsnew3.jpg">
-		</div>
-		<div class="slides">
-			<img src= "http://localhost:9000/starbucks/images/whatsnew4.jpg">
-		</div>
-		<div class="slides">
-			<img src= "http://localhost:9000/starbucks/images/whatsnew5.jpg">
-		</div>
-		<div class="slides">
-			<img src= "http://localhost:9000/starbucks/images/whatsnew6.jpg">
-		</div>
-	</div>
-</div>
-<!-- 슬라이드 버튼  -->
-<div class="div_btn" >
-<button onclick="toggleImg();" class="btn1"><img id="img" src="http://localhost:9000/starbucks/images/visual_off.png"></button>
-<button id="img" class="btn2"><img src="http://localhost:9000/starbucks/images/visual_off.png"></button>
-<button id="img" class="btn3"><img src="http://localhost:9000/starbucks/images/visual_off.png"></button>
-<button id="img" class="btn4"><img src="http://localhost:9000/starbucks/images/visual_off.png"></button>
-<button id="img" class="btn5"><img src="http://localhost:9000/starbucks/images/visual_off.png"></button>
-<button id="img" class="btn6"><img src="http://localhost:9000/starbucks/images/visual_off.png"></button>
-</div>
+<!-- 캐러셀 시작 -->
+				<div id="demo" class="carousel slide" data-ride="carousel">
+				
+					<!-- Indicators -->
+					<div class="indicators">
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+							<li data-target="#demo" data-slide-to="2"></li>
+							<li data-target="#demo" data-slide-to="3"></li>
+							<li data-target="#demo" data-slide-to="4"></li>
+							<li data-target="#demo" data-slide-to="5"></li>
+							<li data-target="#demo" data-slide-to="6"></li>
+						</ul>
+					</div>
+					
+					<!-- The slideshow -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="http://localhost:9000/starbucks/images/whatsnew1.jpg" width="2000" height="400">
+						</div>
+						<div class="carousel-item">
+							<img src="http://localhost:9000/starbucks/images/whatsnew2.jpg" width="2000" height="400">
+						</div>
+						<div class="carousel-item">
+							<img src="http://localhost:9000/starbucks/images/whatsnew3.jpg" width="2000" height="400">
+						</div>
+						<div class="carousel-item">
+							<img src="http://localhost:9000/starbucks/images/whatsnew4.jpg" width="2000" height="400">
+						</div>
+						<div class="carousel-item">
+							<img src="http://localhost:9000/starbucks/images/whatsnew5.jpg" width="2000" height="400">
+						</div>
+						<div class="carousel-item">
+							<img src="http://localhost:9000/starbucks/images/whatsnew6.jpg" width="2000" height="400">
+						</div>
+					</div>
+					
+					<!-- Left and right controls -->
+					<a class="carousel-control-prev" href="#demo" data-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a class="carousel-control-next" href="#demo" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</a>
+					
+				</div>
+				<!-- 캐러셀 종료 -->
 
 <!--  전체보기  -->
 <div class="other_lo" >

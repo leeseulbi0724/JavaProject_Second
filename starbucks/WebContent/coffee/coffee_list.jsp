@@ -372,6 +372,7 @@ div.coffee_list>div p {
 .bottom_sp {
 	height:100px;
 }
+#bean1:hover, #bean2:hover, #bean3:hover { text-decoration:underline; cursor:pointer; }
 
 
 </style>

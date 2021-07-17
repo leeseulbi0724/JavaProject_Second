@@ -34,6 +34,7 @@
 	  }
 </style>
 <script src="../../js/jquery-3.6.0.min.js"></script>
+<script src="http://rawgit.com/jackmoored/autosize/master/dist/autosize.min.js"></script>
 <script>
 	$(document).ready(function() {				
 		$("textarea").css("height", $("textarea").prop('scrollHeight'));

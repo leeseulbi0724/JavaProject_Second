@@ -574,7 +574,7 @@ div.img article.five a:hover {
 				<div >
 					<div><img src="http://localhost:9000/starbucks/images/fav_prod_txt01.png" ></div>
 					<div><img src="http://localhost:9000/starbucks/images/fav_prod_txt02.png"></div>
-					<p><a href="#" class="btn">자세히 보기</a></p>
+					<p><a href="http://localhost:9000/starbucks/menu/menu_drink.jsp" class="btn">자세히 보기</a></p>
 				</div>
 				<div><img src="http://localhost:9000/starbucks/images/2021_summer1_fav.png"></div>
 			</article>

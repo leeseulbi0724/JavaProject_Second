@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Starbucks Coffee Korea</title>
 
 <script src="../js/jquery-3.6.0.min.js"></script>
 <style>
@@ -24,6 +24,7 @@
     font-weight: normal;
     margin-bottom: 30px;
     text-align: center;
+    font-weight:bold;
 }
 .renew_joinform_v2 {
     border: 1px solid #ddd;
@@ -615,6 +616,7 @@ input.mem[type=checkbox]:not(old) + label {
 .user_name_box{
 	width: 49%;
 }
+.btn_mem_login a:hover { text-decoration:underline; }
 
 </style>
 <script>

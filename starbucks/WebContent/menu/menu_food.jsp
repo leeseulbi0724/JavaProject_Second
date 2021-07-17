@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>푸드 | Starbucks Coffee Korea</title>
 <style>
 div.food{
 	text-align: center;
@@ -877,10 +877,10 @@ $( document ).ready(function() {
 							<li>
 								<ul>
 									<li><a href="menu_detail.jsp?mid=<%=vo.getMid()%>"><img src="http://localhost:9000/starbucks/images/<%= vo.getImg() %>.jpg"></a></li>
-									<% if(vo.getM_new()!=null){ %>
+									<% if(vo.getM_new()!=null || vo.getLimit()!=null){ %>
 										<li><img src="http://localhost:9000/starbucks/images/mark01.png" id="mark01"></li>
 										<% } %>
-										<% if(vo.getLimit()!=null){  %>
+										<% if(vo.getLimit()!=null&&vo.getLimit().equals("limit")){  %>
 										<li><img src="http://localhost:9000/starbucks/images/mark02.png" id="mark02"></li>
 										<% } %>
 									<li><label><%=vo.getK_name() %></label></li>

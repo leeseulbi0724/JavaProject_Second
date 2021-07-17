@@ -25,9 +25,9 @@
    	boolean join_result = dao.getInsertResult(vo);
    	
    	if(join_result == true){
-   		response.sendRedirect("../index.jsp");
+   		response.sendRedirect("join_success.jsp");
    	}else{
-   		response.sendRedirect("joinfail.jsp");
+   		response.sendRedirect("join_error.jsp");
    		
    	}
  %>

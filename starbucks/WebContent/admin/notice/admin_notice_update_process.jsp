@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
-	import="com.starbucks.dao.noticeDAO, com.starbucks.vo.noticeVO"
+	import="com.starbucks.dao.noticeDAO, com.starbucks.vo.noticeVO, java.io.*"
 %>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%> 
@@ -30,6 +30,18 @@
 		vo.setNfile(multi.getOriginalFileName("nfile"));
 		vo.setSfile(multi.getFilesystemName("nfile"));
 		result = ndao.getUpdateFileResult(vo);
+		
+		if (result) {			
+			String old_file_path = savePath+"/"+multi.getParameter("nsfile_old");
+			File old_file = new File(old_file_path);
+			
+			if (old_file.exists()) {
+				if(old_file.delete()) {
+					System.out.println("파일삭제완료!");
+				}
+			}
+		}		
+		
 	} else {
 		vo.setTitle(multi.getParameter("title"));
 		vo.setContent(multi.getParameter("content"));

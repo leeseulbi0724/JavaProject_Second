@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.starbucks.dao.*, com.starbucks.vo.*, java.util.*" %>
 <%
- session.invalidate();//세션의 모든 속성 제거
+/*  session.invalidate();//세션의 모든 속성 제거 */
  UserDAO dao = new UserDAO();
  ArrayList<UserVO> list = dao.getUserList(); 
  
